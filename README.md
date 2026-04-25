@@ -145,6 +145,17 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000). You'll be redirected to `/signin`. Create an account at `/signup` and complete onboarding.
 
+### Vercel / production
+
+NextAuth will log **`[NO_SECRET]`** and return **500** on `/api/auth/*` if no secret is set when `NODE_ENV=production`.
+
+1. In Vercel: **Project → Settings → Environment Variables**, add:
+   - **`NEXTAUTH_SECRET`** — generate locally with `openssl rand -base64 32` (at least 32 characters). Apply to **Production** (and Preview if you use auth there).
+   - **`NEXTAUTH_URL`** — your public URL with no trailing slash, e.g. `https://your-app.vercel.app` or your custom domain. Set at least for **Production**.
+2. Optional alias: you can use **`AUTH_SECRET`** instead of `NEXTAUTH_SECRET` (same value); the app reads either.
+3. Add any other keys from `.env.example` (Mapbox, Census, etc.) the same way.
+4. **Redeploy** (Deployments → … → Redeploy) so new variables are picked up.
+
 ---
 
 ## Project structure

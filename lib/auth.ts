@@ -5,10 +5,11 @@ import { findUserByEmail } from "@/lib/users";
 
 /**
  * NextAuth requires a secret to sign JWTs and session cookies.
- * Without NEXTAUTH_SECRET in production, auth shows "Server error" / configuration error.
+ * Production (e.g. Vercel) must set NEXTAUTH_SECRET or AUTH_SECRET or you get NO_SECRET / 500 on /api/auth/*.
  */
 const authSecret =
   process.env.NEXTAUTH_SECRET ||
+  process.env.AUTH_SECRET ||
   (process.env.NODE_ENV !== "production"
     ? "dev-only-nextauth-secret-min-32-characters-long"
     : undefined);

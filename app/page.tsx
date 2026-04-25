@@ -1303,24 +1303,21 @@ function CivicScoreBar({ score, toast }: { score: number; toast: { pts: number; 
 
   return (
     <div
-      className="fixed left-0 right-0 z-30 px-4"
+      className="relative px-4"
       style={{
-        bottom: "72px",
         paddingTop: "8px",
         paddingBottom: "8px",
-        background: "rgba(255,255,255,0.96)",
-        borderTop: "1px solid rgba(0,0,0,0.06)",
-        backdropFilter: "blur(10px)",
+        borderBottom: "1px solid rgba(0,0,0,0.07)",
       }}
     >
       <AnimatePresence>
         {toast && (
           <motion.div
             key="civic-toast"
-            initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -6 }}
+            initial={{ opacity: 0, y: 4 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -4 }}
             transition={{ duration: 0.22 }}
-            className="absolute left-1/2 -translate-x-1/2 px-3 py-1 rounded-full text-[11px] font-bold text-white whitespace-nowrap"
-            style={{ bottom: "calc(100% + 4px)", backgroundColor: level.color, boxShadow: `0 2px 8px ${level.color}55` }}
+            className="absolute left-1/2 -translate-x-1/2 px-3 py-1 rounded-full text-[11px] font-bold text-white whitespace-nowrap z-10"
+            style={{ top: "-28px", backgroundColor: level.color, boxShadow: `0 2px 8px ${level.color}55` }}
           >
             +{toast.pts} pts · {toast.action}
           </motion.div>
@@ -1697,7 +1694,7 @@ export default function Home() {
 
 
   return (
-    <div className="min-h-screen font-sans" style={{ backgroundColor: C.bg, paddingBottom: "144px" }}>
+    <div className="min-h-screen font-sans" style={{ backgroundColor: C.bg, paddingBottom: "160px" }}>
 
       {/* ══ SECTION 1: HERO ══════════════════════════════════════════════ */}
       <section id="home" className="relative flex items-center justify-center overflow-hidden"
@@ -3088,14 +3085,12 @@ export default function Home() {
         )}
       </AnimatePresence>
 
-      {/* ══ CIVIC SCORE BAR ══════════════════════════════════════════════ */}
-      <CivicScoreBar score={civicScore} toast={civicToast} />
-
-      {/* ══ BOTTOM NAV ═══════════════════════════════════════════════════ */}
+      {/* ══ BOTTOM NAV (contains civic score bar) ═══════════════════════ */}
       <nav className="fixed bottom-0 left-0 right-0 z-30"
         style={{ backgroundColor: "white", boxShadow: "0 -4px 24px rgba(0,0,0,0.08)",
                  borderTopLeftRadius: "28px", borderTopRightRadius: "28px",
                  paddingBottom: "env(safe-area-inset-bottom,0px)" }}>
+        <CivicScoreBar score={civicScore} toast={civicToast} />
         <div className="flex justify-around items-center px-4 py-3">
           {(
             [
