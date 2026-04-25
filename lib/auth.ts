@@ -14,7 +14,6 @@ export const authOptions: NextAuthOptions = {
       async authorize(credentials) {
         if (!credentials?.email || !credentials?.password) return null;
 
-        // Check registered users first
         const user = findUserByEmail(credentials.email);
         if (user) {
           const valid = await bcrypt.compare(credentials.password, user.passwordHash);
@@ -22,7 +21,7 @@ export const authOptions: NextAuthOptions = {
           return { id: user.id, name: user.name, email: user.email };
         }
 
-        // Fall back to env-var demo account
+        // Fallback env-var demo account
         if (
           credentials.email === process.env.AUTH_EMAIL &&
           credentials.password === process.env.AUTH_PASSWORD
@@ -34,6 +33,16 @@ export const authOptions: NextAuthOptions = {
       },
     }),
   ],
+  callbacks: {
+    jwt({ token, user }) {
+      if (user) token.id = user.id;
+      return token;
+    },
+    session({ session, token }) {
+      if (session.user) session.user.id = token.id;
+      return session;
+    },
+  },
   pages: {
     signIn: "/signin",
   },

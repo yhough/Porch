@@ -3,12 +3,23 @@ import path from "path";
 
 const USERS_FILE = path.join(process.cwd(), "data", "users.json");
 
+export interface OnboardingData {
+  completedAt: string;
+  address: string;
+  age: number | null;
+  gender: string;
+  ethnicity: string;
+  issues: string[];
+  party: string;
+}
+
 export interface StoredUser {
   id: string;
   name: string;
   email: string;
   passwordHash: string;
   createdAt: string;
+  onboarding?: OnboardingData;
 }
 
 function readUsers(): StoredUser[] {
@@ -29,6 +40,10 @@ export function findUserByEmail(email: string): StoredUser | null {
   return readUsers().find((u) => u.email === email.toLowerCase()) ?? null;
 }
 
+export function findUserById(id: string): StoredUser | null {
+  return readUsers().find((u) => u.id === id) ?? null;
+}
+
 export function createUser(name: string, email: string, passwordHash: string): StoredUser {
   const users = readUsers();
   const user: StoredUser = {
@@ -41,4 +56,15 @@ export function createUser(name: string, email: string, passwordHash: string): S
   users.push(user);
   writeUsers(users);
   return user;
+}
+
+export function updateUserOnboarding(
+  id: string,
+  data: Omit<OnboardingData, "completedAt">
+): void {
+  const users = readUsers();
+  const idx = users.findIndex((u) => u.id === id);
+  if (idx === -1) return;
+  users[idx].onboarding = { ...data, completedAt: new Date().toISOString() };
+  writeUsers(users);
 }
