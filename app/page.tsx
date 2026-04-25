@@ -64,6 +64,42 @@ interface FederalAwardRow {
   generated_internal_id?: string;
 }
 
+// ─── Permit / civic-action types ─────────────────────────────────────────────
+interface PermitComment {
+  id: string;
+  author: string;
+  neighborhood: string;
+  text: string;
+  time: string;
+  isNew?: boolean;
+}
+
+interface PermitData {
+  id: string;
+  address: string;
+  city: string;
+  type: string;
+  board: string;
+  title: string;
+  distanceBlocks: number;
+  plainEnglish: string;
+  whyItMatters: Record<string, string>;
+  commentDeadline: string;
+  voteDate: string;
+  officialUrl: string;
+  totalCommentCount: number;
+  comments: PermitComment[];
+  distanceMi?: number;
+}
+
+/** Mapbox Geocoding API feature (subset). */
+interface MapboxSuggestFeature {
+  id: string;
+  place_name: string;
+  center: [number, number];
+  place_type?: string[];
+}
+
 /** Normalized ACS 5-year profile from `/api/census`. */
 interface CensusSnapshot {
   name: string;
@@ -79,6 +115,9 @@ interface CensusSnapshot {
 }
 
 const WardMap = dynamic(() => import("@/components/WardMap"), { ssr: false });
+
+/** Bias autocomplete toward Tompkins / Ithaca (minLng, minLat, maxLng, maxLat). */
+const ITHACA_SEARCH_BBOX = `${NEIGHBORHOOD.center[0] - 0.12},${NEIGHBORHOOD.center[1] - 0.14},${NEIGHBORHOOD.center[0] + 0.12},${NEIGHBORHOOD.center[1] + 0.12}`;
 
 // ─── Color tokens ─────────────────────────────────────────────────────────────
 const C = {
@@ -604,9 +643,317 @@ function ProfileSheet({ profile, onClose }: { profile: UserProfile; onClose: () 
   );
 }
 
+// ─── Live countdown ticker ────────────────────────────────────────────────────
+function Countdown({ deadline, className, style }: { deadline: string; className?: string; style?: React.CSSProperties }) {
+  const [text, setText] = useState("");
+  const [urgent, setUrgent] = useState(false);
+  useEffect(() => {
+    function tick() {
+      const diff = new Date(deadline).getTime() - Date.now();
+      if (diff <= 0) { setText("Closed"); setUrgent(false); return; }
+      const h = Math.floor(diff / 3600000);
+      const m = Math.floor((diff % 3600000) / 60000);
+      const s = Math.floor((diff % 60000) / 1000);
+      setText(`${h}h ${m.toString().padStart(2, "0")}m ${s.toString().padStart(2, "0")}s`);
+      setUrgent(diff < 6 * 3600000);
+    }
+    tick();
+    const id = setInterval(tick, 1000);
+    return () => clearInterval(id);
+  }, [deadline]);
+  return (
+    <span className={className} style={{ color: urgent ? C.coral : undefined, ...style }}>
+      {text}
+    </span>
+  );
+}
+
+// ─── Permit bottom sheet ───────────────────────────────────────────────────────
+function PermitBottomSheet({
+  permit,
+  userIssues,
+  userName,
+  onClose,
+}: {
+  permit: PermitData;
+  userIssues: string[];
+  userName: string;
+  onClose: () => void;
+}) {
+  const [comments,     setComments]     = useState<PermitComment[]>(permit.comments);
+  const [totalCount,   setTotalCount]   = useState(permit.totalCommentCount);
+  const [commentText,  setCommentText]  = useState("");
+  const [submitting,   setSubmitting]   = useState(false);
+  const [submitted,    setSubmitted]    = useState(false);
+  const [voteDays,     setVoteDays]     = useState(0);
+  const textareaRef = useRef<HTMLTextAreaElement>(null);
+
+  useEffect(() => {
+    fetch(`/api/permits/${permit.id}/comments`)
+      .then(r => r.ok ? r.json() : null)
+      .then(d => { if (d) { setComments(d.comments); setTotalCount(d.totalCommentCount); } })
+      .catch(() => {});
+  }, [permit.id]);
+
+  useEffect(() => {
+    const id = setInterval(() => {
+      const diff = new Date(permit.voteDate).getTime() - Date.now();
+      setVoteDays(diff > 0 ? Math.ceil(diff / 86400000) : 0);
+    }, 60000);
+    setVoteDays(Math.ceil((new Date(permit.voteDate).getTime() - Date.now()) / 86400000));
+    return () => clearInterval(id);
+  }, [permit.voteDate]);
+
+  const whyKey    = userIssues.find(i => permit.whyItMatters[i]) ?? "default";
+  const whyMsg    = permit.whyItMatters[whyKey];
+  const issueObj  = ISSUES.find(i => i.id === whyKey);
+  const voteLabel = new Date(permit.voteDate).toLocaleDateString("en-US", { month: "short", day: "numeric" });
+
+  const handleSubmit = async () => {
+    if (!commentText.trim() || submitting) return;
+    setSubmitting(true);
+    try {
+      const res = await fetch(`/api/permits/${permit.id}/comments`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          author: userName || "You",
+          neighborhood: "Your neighborhood",
+          text: commentText.trim(),
+        }),
+      });
+      const data = await res.json();
+      if (res.ok) {
+        setComments(prev => [data.comment, ...prev]);
+        setTotalCount(data.totalCommentCount);
+        setCommentText("");
+        setSubmitted(true);
+      }
+    } catch {}
+    setSubmitting(false);
+  };
+
+  return (
+    <>
+      <motion.div key="permit-bg" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
+        onClick={onClose} className="fixed inset-0 z-40"
+        style={{ backgroundColor: "rgba(0,0,0,0.52)" }} />
+
+      <motion.div key="permit-sheet"
+        initial={{ y: "100%" }} animate={{ y: 0 }} exit={{ y: "100%" }}
+        transition={{ type: "spring", damping: 34, stiffness: 320 }}
+        className="fixed bottom-0 left-0 right-0 z-50 rounded-t-[32px] overflow-y-auto"
+        style={{ backgroundColor: C.bg, maxHeight: "94vh", paddingBottom: "env(safe-area-inset-bottom,24px)" }}>
+
+        {/* Handle */}
+        <div className="flex justify-center pt-3 pb-0" style={{ backgroundColor: C.navy, borderRadius: "32px 32px 0 0" }}>
+          <div className="w-10 h-1 rounded-full" style={{ backgroundColor: "rgba(255,255,255,0.22)" }} />
+        </div>
+
+        {/* Navy header */}
+        <div className="relative px-5 pt-4 pb-5" style={{ backgroundColor: C.navy }}>
+          <button onClick={onClose}
+            className="absolute top-3 right-4 w-8 h-8 rounded-full flex items-center justify-center"
+            style={{ backgroundColor: "rgba(255,255,255,0.12)" }}>
+            <svg width="12" height="12" viewBox="0 0 14 14" fill="none">
+              <path d="M1 1l12 12M13 1L1 13" stroke="white" strokeWidth="2" strokeLinecap="round" />
+            </svg>
+          </button>
+          <div className="flex items-center gap-2 mb-1.5">
+            <span className="text-[11px] font-extrabold px-2.5 py-1 rounded-full"
+              style={{ backgroundColor: C.coral, color: "white" }}>
+              {permit.type}
+            </span>
+            <span className="text-[11px] font-semibold"
+              style={{ color: "rgba(255,255,255,0.55)" }}>
+              {permit.distanceBlocks} blocks away
+            </span>
+          </div>
+          <h2 className="text-xl font-extrabold text-white leading-tight">{permit.address}</h2>
+          <p className="text-xs mt-1" style={{ color: "rgba(255,255,255,0.6)" }}>{permit.board}</p>
+        </div>
+
+        <div className="px-5 py-5 space-y-4">
+
+          {/* Plain English */}
+          <div className="rounded-[20px] p-4" style={{ backgroundColor: "white", boxShadow: "0 2px 10px rgba(0,0,0,0.05)" }}>
+            <p className="text-[10px] font-extrabold uppercase tracking-wider mb-2" style={{ color: C.sage }}>
+              What&apos;s actually happening
+            </p>
+            <p className="text-sm font-medium leading-relaxed" style={{ color: C.navy }}>
+              {permit.plainEnglish}
+            </p>
+            <a href={permit.officialUrl} target="_blank" rel="noreferrer"
+              className="inline-flex items-center gap-1 mt-3 text-xs font-bold"
+              style={{ color: C.sky }}>
+              Read official documents ↗
+            </a>
+          </div>
+
+          {/* Why it matters to you */}
+          <div className="rounded-[20px] p-4" style={{ backgroundColor: C.sage + "14", border: `1.5px solid ${C.sage}30` }}>
+            <p className="text-[10px] font-extrabold uppercase tracking-wider mb-2" style={{ color: C.sage }}>
+              {issueObj ? `${issueObj.icon} Why this matters for ${issueObj.label}` : "Why this matters to you"}
+            </p>
+            <p className="text-sm font-medium leading-relaxed" style={{ color: C.navy }}>
+              {whyMsg}
+            </p>
+          </div>
+
+          {/* Comment deadline countdown */}
+          <div className="rounded-[20px] p-4" style={{ backgroundColor: C.coral + "0F", border: `1.5px solid ${C.coral}30` }}>
+            <div className="flex items-center justify-between">
+              <div>
+                <p className="text-[10px] font-extrabold uppercase tracking-wider" style={{ color: C.coral }}>
+                  Comment window closes in
+                </p>
+                <Countdown
+                  deadline={permit.commentDeadline}
+                  className="text-2xl font-black tabular-nums"
+                  style={{ color: C.coral }}
+                />
+              </div>
+              <div className="w-11 h-11 rounded-full flex items-center justify-center flex-shrink-0"
+                style={{ backgroundColor: C.coral + "1A" }}>
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                  <circle cx="12" cy="12" r="10" stroke={C.coral} strokeWidth="2" />
+                  <path d="M12 6v6l4 2" stroke={C.coral} strokeWidth="2" strokeLinecap="round" />
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          {/* Comment input */}
+          <div className="rounded-[20px] p-4" style={{ backgroundColor: "white", boxShadow: "0 2px 10px rgba(0,0,0,0.05)" }}>
+            <p className="text-[10px] font-extrabold uppercase tracking-wider mb-3" style={{ color: C.navy }}>
+              Your comment · goes on the official city record
+            </p>
+            <textarea
+              ref={textareaRef}
+              value={commentText}
+              onChange={e => setCommentText(e.target.value)}
+              placeholder="What do you think about this project? What should the Planning Board consider?"
+              rows={3}
+              className="w-full text-sm resize-none rounded-[14px] p-3 outline-none"
+              style={{
+                backgroundColor: C.bg,
+                border: `1.5px solid ${C.border}`,
+                color: C.navy,
+                fontFamily: "inherit",
+              }}
+            />
+            <button
+              onClick={handleSubmit}
+              disabled={!commentText.trim() || submitting}
+              className="w-full mt-3 py-3.5 rounded-full font-extrabold text-sm transition-opacity"
+              style={{
+                backgroundColor: commentText.trim() ? C.coral : "#E5E7EB",
+                color: commentText.trim() ? "white" : "#9CA3AF",
+              }}>
+              {submitting ? "Submitting…" : "Submit comment →"}
+            </button>
+          </div>
+
+          {/* Success state */}
+          <AnimatePresence>
+            {submitted && (
+              <motion.div key="success"
+                initial={{ opacity: 0, scale: 0.92 }} animate={{ opacity: 1, scale: 1 }}
+                className="rounded-[20px] p-4 flex items-center gap-3"
+                style={{ backgroundColor: C.sage + "18", border: `1.5px solid ${C.sage}40` }}>
+                <div className="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0"
+                  style={{ backgroundColor: C.sage }}>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                    <path d="M5 13l4 4L19 7" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </div>
+                <div>
+                  <p className="text-sm font-extrabold" style={{ color: C.navy }}>Comment submitted ✓</p>
+                  <p className="text-xs mt-0.5" style={{ color: "#6B7280" }}>
+                    It&apos;s now on the official city record for the May 26 vote.
+                  </p>
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
+
+          {/* Comment thread */}
+          <div>
+            <p className="text-xs font-extrabold mb-3" style={{ color: C.navy }}>
+              {totalCount} comments from your neighborhood
+            </p>
+            <div className="space-y-3">
+              {comments.map((c, i) => (
+                <motion.div key={c.id}
+                  initial={c.isNew ? { opacity: 0, y: -10 } : false}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: i === 0 && c.isNew ? 0 : i * 0.04 }}
+                  className="rounded-[16px] p-3.5"
+                  style={{
+                    backgroundColor: c.isNew ? C.sage + "14" : "white",
+                    border: c.isNew ? `1.5px solid ${C.sage}40` : `1px solid ${C.border}`,
+                    boxShadow: "0 1px 6px rgba(0,0,0,0.04)",
+                  }}>
+                  <div className="flex items-center justify-between mb-1.5">
+                    <div className="flex items-center gap-2">
+                      <div className="w-6 h-6 rounded-full flex items-center justify-center text-[10px] font-extrabold text-white flex-shrink-0"
+                        style={{ backgroundColor: c.isNew ? C.sage : C.sky }}>
+                        {c.author.charAt(0)}
+                      </div>
+                      <span className="text-xs font-bold" style={{ color: C.navy }}>
+                        {c.author}
+                        {c.neighborhood ? (
+                          <span className="font-normal ml-1" style={{ color: "#9CA3AF" }}>· {c.neighborhood}</span>
+                        ) : null}
+                      </span>
+                    </div>
+                    <span className="text-[10px]" style={{ color: "#9CA3AF" }}>
+                      {c.isNew ? "✓ On official record" : c.time}
+                    </span>
+                  </div>
+                  <p className="text-sm leading-snug" style={{ color: "#374151" }}>{c.text}</p>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+
+          {/* Vote countdown */}
+          <div className="rounded-[20px] p-4 flex items-center gap-4"
+            style={{ backgroundColor: C.navy, boxShadow: "0 4px 16px rgba(28,37,52,0.18)" }}>
+            <div className="flex-1">
+              <p className="text-[10px] font-extrabold uppercase tracking-wider mb-1" style={{ color: "rgba(255,255,255,0.55)" }}>
+                Board vote
+              </p>
+              <p className="text-white font-extrabold text-lg leading-tight">
+                {voteLabel} · {permit.board.split(" ")[0]} Board
+              </p>
+              <p className="text-xs mt-1" style={{ color: "rgba(255,255,255,0.55)" }}>
+                Public comments close first
+              </p>
+            </div>
+            <div className="text-center flex-shrink-0">
+              <div className="text-4xl font-black text-white leading-none">{voteDays}</div>
+              <div className="text-[10px] font-bold mt-0.5" style={{ color: "rgba(255,255,255,0.55)" }}>days</div>
+            </div>
+          </div>
+
+        </div>
+      </motion.div>
+    </>
+  );
+}
+
 // ─── Main component ────────────────────────────────────────────────────────────
 export default function Home() {
   const [address,        setAddress]        = useState("");
+  const [suggestions,     setSuggestions]     = useState<MapboxSuggestFeature[]>([]);
+  const [suggestOpen,    setSuggestOpen]    = useState(false);
+  const [suggestLoading, setSuggestLoading] = useState(false);
+  const [suggestHighlight, setSuggestHighlight] = useState(-1);
+  const suggestTimerRef   = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const suggestAbortRef   = useRef<AbortController | null>(null);
+  const skipSuggestEffect = useRef(false);
+  const searchComboRef    = useRef<HTMLDivElement>(null);
   const [searching,      setSearching]      = useState(false);
   const [searched,       setSearched]       = useState(false);
   const [initLoading,    setInitLoading]    = useState(true);
@@ -623,6 +970,10 @@ export default function Home() {
   const [livePlaces,       setLivePlaces]        = useState<LivePlace[]>([]);
   const [openLivePlaceId,  setOpenLivePlaceId]   = useState<string | null>(null);
   const [searchedAddress,  setSearchedAddress]   = useState<string>("");
+
+  // Permit / civic-action flow
+  const [nearbyPermit,     setNearbyPermit]      = useState<PermitData | null>(null);
+  const [permitSheetOpen,  setPermitSheetOpen]   = useState(false);
 
   const budgetRef       = useRef<HTMLElement>(null);
   const budgetTriggered = useInView(budgetRef, { once: true, amount: 0.2 });
@@ -729,24 +1080,135 @@ export default function Home() {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  useEffect(() => {
+    const onDoc = (ev: MouseEvent) => {
+      if (!searchComboRef.current?.contains(ev.target as Node)) setSuggestOpen(false);
+    };
+    document.addEventListener("mousedown", onDoc);
+    return () => document.removeEventListener("mousedown", onDoc);
+  }, []);
+
+  const discoverNearbyPermit = async (lat: number, lng: number) => {
+    try {
+      const permitRes = await fetch(`/api/permits?lat=${lat}&lng=${lng}`);
+      if (permitRes.ok) {
+        const { permits } = await permitRes.json();
+        if (permits?.length > 0) setNearbyPermit(permits[0]);
+      }
+    } catch {
+      /* ignore */
+    }
+  };
+
+  // ── Mapbox address autocomplete (debounced) ────────────────────────────────
+  useEffect(() => {
+    if (skipSuggestEffect.current) {
+      skipSuggestEffect.current = false;
+      return;
+    }
+    const q = address.trim();
+    const token = process.env.NEXT_PUBLIC_MAPBOX_TOKEN;
+    if (suggestTimerRef.current) clearTimeout(suggestTimerRef.current);
+
+    if (!token || q.length < 2) {
+      setSuggestions([]);
+      setSuggestLoading(false);
+      return;
+    }
+
+    suggestTimerRef.current = setTimeout(async () => {
+      suggestAbortRef.current?.abort();
+      const ac = new AbortController();
+      suggestAbortRef.current = ac;
+      setSuggestLoading(true);
+      const [proxLng, proxLat] = NEIGHBORHOOD.center;
+      try {
+        const url =
+          `https://api.mapbox.com/geocoding/v5/mapbox.places/${encodeURIComponent(q)}.json` +
+          `?access_token=${token}&country=us&limit=8&autocomplete=true` +
+          `&proximity=${proxLng},${proxLat}&bbox=${ITHACA_SEARCH_BBOX}` +
+          `&types=address,poi,place,locality,neighborhood`;
+        const res = await fetch(url, { signal: ac.signal });
+        const data = res.ok ? await res.json() : null;
+        const feats = (data?.features ?? []) as MapboxSuggestFeature[];
+        setSuggestions(feats);
+        setSuggestHighlight(-1);
+      } catch (err) {
+        if (err instanceof Error && err.name === "AbortError") return;
+        setSuggestions([]);
+      } finally {
+        setSuggestLoading(false);
+      }
+    }, 260);
+
+    return () => {
+      if (suggestTimerRef.current) clearTimeout(suggestTimerRef.current);
+    };
+  }, [address]);
+
+  const pickSuggestion = async (feature: MapboxSuggestFeature) => {
+    skipSuggestEffect.current = true;
+    const [lng, lat] = feature.center;
+    const formatted = feature.place_name;
+    setAddress(formatted);
+    setSuggestions([]);
+    setSuggestOpen(false);
+    setSuggestHighlight(-1);
+    setSearching(true);
+    try {
+      setSearchedAddress(formatted);
+      await fetchForAddress(formatted, lat, lng);
+      await discoverNearbyPermit(lat, lng);
+    } catch (err) {
+      console.error(err);
+    } finally {
+      setSearching(false);
+      setSearched(true);
+      setTimeout(() => document.getElementById("urgent")?.scrollIntoView({ behavior: "smooth" }), 300);
+    }
+  };
+
   // ── Address search ───────────────────────────────────────────────────────────
   const handleSearch = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!address.trim()) return;
+
+    if (suggestHighlight >= 0 && suggestions[suggestHighlight]) {
+      await pickSuggestion(suggestions[suggestHighlight]);
+      return;
+    }
+
+    setSuggestOpen(false);
+    setSuggestions([]);
     setSearching(true);
 
     try {
-      const token  = process.env.NEXT_PUBLIC_MAPBOX_TOKEN;
-      const geoRes = await fetch(
-        `https://api.mapbox.com/geocoding/v5/mapbox.places/${encodeURIComponent(address)}.json` +
-        `?access_token=${token}&limit=1&country=us`
-      );
-      const geoData   = geoRes.ok ? await geoRes.json() : null;
-      const [lng, lat] = geoData?.features?.[0]?.center ?? NEIGHBORHOOD.center;
-      const formatted  = geoData?.features?.[0]?.place_name ?? address;
+      const token = process.env.NEXT_PUBLIC_MAPBOX_TOKEN;
+      let lng: number;
+      let lat: number;
+      let formatted: string;
+      if (token) {
+        const [proxLng, proxLat] = NEIGHBORHOOD.center;
+        const geoRes = await fetch(
+          `https://api.mapbox.com/geocoding/v5/mapbox.places/${encodeURIComponent(address.trim())}.json` +
+          `?access_token=${token}&limit=1&country=us&proximity=${proxLng},${proxLat}&bbox=${ITHACA_SEARCH_BBOX}`
+        );
+        const geoData = geoRes.ok ? await geoRes.json() : null;
+        const f0 = geoData?.features?.[0] as MapboxSuggestFeature | undefined;
+        if (f0?.center) {
+          [lng, lat] = f0.center;
+          formatted = f0.place_name ?? address.trim();
+        } else {
+          [lng, lat] = NEIGHBORHOOD.center;
+          formatted = address.trim();
+        }
+      } else {
+        [lng, lat] = NEIGHBORHOOD.center;
+        formatted = address.trim();
+      }
       setSearchedAddress(formatted);
-
-      await fetchForAddress(formatted, lat as number, lng as number);
+      await fetchForAddress(formatted, lat, lng);
+      await discoverNearbyPermit(lat, lng);
     } catch (err) {
       console.error(err);
     }
@@ -754,6 +1216,22 @@ export default function Home() {
     setSearching(false);
     setSearched(true);
     setTimeout(() => document.getElementById("urgent")?.scrollIntoView({ behavior: "smooth" }), 300);
+  };
+
+  const onAddressKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (suggestions.length === 0) return;
+    if (e.key === "ArrowDown") {
+      e.preventDefault();
+      setSuggestOpen(true);
+      setSuggestHighlight((i) => Math.min(i + 1, suggestions.length - 1));
+    } else if (e.key === "ArrowUp") {
+      e.preventDefault();
+      setSuggestOpen(true);
+      setSuggestHighlight((i) => Math.max(i - 1, 0));
+    } else if (e.key === "Escape") {
+      setSuggestOpen(false);
+      setSuggestHighlight(-1);
+    }
   };
 
   const annual    = rent * 12 * 0.012;
@@ -823,23 +1301,83 @@ export default function Home() {
             </p>
 
             <form onSubmit={handleSearch} className="mb-4">
-              <div className="flex rounded-full overflow-hidden"
-                style={{ boxShadow: "0 4px 24px rgba(28,37,52,0.12)", border: `1.5px solid ${C.border}` }}>
-                <input type="text" value={address} onChange={(e) => setAddress(e.target.value)}
-                  placeholder="e.g. 301 W Court St, Ithaca"
-                  className="flex-1 px-6 text-base outline-none"
-                  style={{ height: "56px", color: C.navy, backgroundColor: "white", minWidth: 0 }} />
-                <button type="submit" disabled={searching}
-                  className="flex-shrink-0 px-6 font-bold text-white hover:opacity-90 rounded-full"
-                  style={{ backgroundColor: C.coral, height: "56px", fontSize: "15px" }}>
-                  {searching
-                    ? <span className="flex items-center gap-2">
-                        <span className="inline-block w-4 h-4 rounded-full border-2 animate-spin"
-                          style={{ borderColor: "rgba(255,255,255,0.35)", borderTopColor: "white" }} />
-                        Searching…
-                      </span>
-                    : "Show me →"}
-                </button>
+              <div ref={searchComboRef} className="relative">
+                <div className="flex rounded-full overflow-hidden"
+                  style={{ boxShadow: "0 4px 24px rgba(28,37,52,0.12)", border: `1.5px solid ${C.border}` }}>
+                  <input
+                    type="text"
+                    value={address}
+                    onChange={(e) => {
+                      setAddress(e.target.value);
+                      setSuggestOpen(true);
+                    }}
+                    onFocus={() => {
+                      if (suggestions.length > 0) setSuggestOpen(true);
+                    }}
+                    onKeyDown={onAddressKeyDown}
+                    autoComplete="off"
+                    aria-autocomplete="list"
+                    aria-expanded={suggestOpen && suggestions.length > 0}
+                    aria-controls="address-suggestions"
+                    placeholder="e.g. 301 W Court St, Ithaca"
+                    className="flex-1 px-6 text-base outline-none"
+                    style={{ height: "56px", color: C.navy, backgroundColor: "white", minWidth: 0 }}
+                  />
+                  <button type="submit" disabled={searching}
+                    className="flex-shrink-0 px-6 font-bold text-white hover:opacity-90 rounded-full"
+                    style={{ backgroundColor: C.coral, height: "56px", fontSize: "15px" }}>
+                    {searching
+                      ? <span className="flex items-center gap-2">
+                          <span className="inline-block w-4 h-4 rounded-full border-2 animate-spin"
+                            style={{ borderColor: "rgba(255,255,255,0.35)", borderTopColor: "white" }} />
+                          Searching…
+                        </span>
+                      : "Show me →"}
+                  </button>
+                </div>
+
+                {suggestOpen && (suggestions.length > 0 || suggestLoading) && (
+                  <ul
+                    id="address-suggestions"
+                    role="listbox"
+                    className="absolute left-0 right-0 top-[calc(100%+8px)] z-50 rounded-[22px] overflow-hidden max-h-[min(320px,45vh)] overflow-y-auto"
+                    style={{
+                      backgroundColor: "white",
+                      border: `1.5px solid ${C.border}`,
+                      boxShadow: "0 12px 40px rgba(28,37,52,0.14)",
+                    }}
+                  >
+                    {suggestLoading && suggestions.length === 0 && (
+                      <li className="px-4 py-3 text-sm font-semibold animate-pulse" style={{ color: C.muted }}>
+                        Looking up addresses…
+                      </li>
+                    )}
+                    {suggestions.map((f, i) => {
+                      const types = f.place_type?.length ? f.place_type.join(" · ") : "Location";
+                      const active = i === suggestHighlight;
+                      return (
+                        <li key={f.id} role="option" aria-selected={active}
+                          className="border-b last:border-b-0" style={{ borderColor: C.border }}>
+                          <button
+                            type="button"
+                            className="w-full text-left px-4 py-3 transition-colors"
+                            style={{
+                              backgroundColor: active ? C.sage + "22" : "transparent",
+                            }}
+                            onMouseDown={(ev) => ev.preventDefault()}
+                            onMouseEnter={() => setSuggestHighlight(i)}
+                            onClick={() => { void pickSuggestion(f); }}
+                          >
+                            <div className="text-sm font-extrabold leading-snug" style={{ color: C.navy }}>{f.place_name}</div>
+                            <div className="text-[11px] font-bold mt-0.5 uppercase tracking-wide" style={{ color: C.faint }}>
+                              {types}
+                            </div>
+                          </button>
+                        </li>
+                      );
+                    })}
+                  </ul>
+                )}
               </div>
             </form>
 
@@ -863,6 +1401,48 @@ export default function Home() {
                 ✓ {liveReps.length > 0 ? `Found ${liveReps.length} officials for ${searchedAddress.split(",")[0]}` : "Loading your officials…"} — scroll down
               </motion.div>
             )}
+
+            {/* ── Nearby permit alert ──────────────────────────────────── */}
+            <AnimatePresence>
+              {searched && nearbyPermit && (
+                <motion.button
+                  key="permit-banner"
+                  initial={{ opacity: 0, y: 14, scale: 0.95 }}
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.95 }}
+                  transition={{ delay: 0.4, type: "spring", stiffness: 280, damping: 26 }}
+                  onClick={() => setPermitSheetOpen(true)}
+                  className="w-full mt-3 rounded-[20px] p-4 text-left flex items-center gap-3"
+                  style={{
+                    backgroundColor: "white",
+                    border: `2px solid ${C.coral}44`,
+                    boxShadow: `0 4px 20px ${C.coral}22`,
+                  }}>
+                  <div className="relative flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center"
+                    style={{ backgroundColor: C.coral + "14" }}>
+                    <span className="absolute w-10 h-10 rounded-full animate-ping opacity-20"
+                      style={{ backgroundColor: C.coral }} />
+                    <span className="text-lg">🏗</span>
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <p className="text-xs font-extrabold leading-tight mb-0.5" style={{ color: C.coral }}>
+                      Active proposal · {nearbyPermit.distanceBlocks} blocks away
+                    </p>
+                    <p className="text-sm font-bold leading-tight truncate" style={{ color: C.navy }}>
+                      {nearbyPermit.address}
+                    </p>
+                    <p className="text-[11px] mt-0.5" style={{ color: "#9CA3AF" }}>
+                      Comment closes in&nbsp;
+                      <Countdown deadline={nearbyPermit.commentDeadline}
+                        className="font-bold" style={{ color: C.coral }} />
+                    </p>
+                  </div>
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="flex-shrink-0">
+                    <path d="M6 3l5 5-5 5" stroke={C.coral} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </motion.button>
+              )}
+            </AnimatePresence>
           </motion.div>
         </div>
 
@@ -1937,6 +2517,18 @@ export default function Home() {
       <AnimatePresence>
         {profileOpen && userProfile && (
           <ProfileSheet profile={userProfile} onClose={() => setProfileOpen(false)} />
+        )}
+      </AnimatePresence>
+
+      {/* ══ PERMIT / CIVIC-ACTION SHEET ══════════════════════════════════ */}
+      <AnimatePresence>
+        {permitSheetOpen && nearbyPermit && (
+          <PermitBottomSheet
+            permit={nearbyPermit}
+            userIssues={userIssues}
+            userName={session?.user?.name ?? userProfile?.name ?? ""}
+            onClose={() => setPermitSheetOpen(false)}
+          />
         )}
       </AnimatePresence>
 

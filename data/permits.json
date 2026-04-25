@@ -1,0 +1,41 @@
+[
+  {
+    "id": "permit-309-college-2026",
+    "address": "309 College Avenue",
+    "city": "Ithaca, NY",
+    "lat": 42.4418,
+    "lng": -76.4877,
+    "type": "Major Site Plan Review",
+    "board": "Planning & Development Board",
+    "title": "309 College Ave — 8-Story Mixed-Use Apartments",
+    "distanceBlocks": 2,
+    "plainEnglish": "A developer wants to tear down the old fire station at 309 College Ave and replace it with an 8-story building. It would have 77 apartments and a small retail space on the ground floor. Because it's in Collegetown, it has to follow the Collegetown Design Guidelines — the Planning Board's job is to decide whether it does, and whether it's right for the neighborhood.",
+    "whyItMatters": {
+      "housing":        "This adds 77 new units to Ithaca's tight market — but zero are required to be affordable. The Board can make affordability a condition of approval. That requires people saying so.",
+      "transportation": "An 8-story building here will funnel hundreds of new daily trips onto College Ave, which already backs up between classes. The traffic study is in the packet — worth reading.",
+      "environment":    "The project replaces a 1-story historic building with an 8-story tower. Shadows, stormwater runoff, and the loss of the existing structure are all fair topics for public comment.",
+      "economics":      "The developer profits from Ithaca's housing shortage. A community benefits agreement — affordable units, local hiring, public space — could capture some of that value for residents.",
+      "social_justice": "77 market-rate units with no affordability requirement won't house the people who need it most. The Board can and does attach affordability conditions when the public asks for them.",
+      "education":      "Collegetown's built environment shapes daily life for Cornell and IC students. Density done well is fine — density done carelessly affects thousands of people.",
+      "small_business": "The 1,500 sq ft retail space sounds good, but at Collegetown rents, who can actually afford it? The Board can ask the developer to clarify the intended tenant and price range.",
+      "public_safety":  "During construction, College Ave becomes a hazard zone. Noise, dust, truck traffic — the Board can set specific construction hour restrictions and require a community liaison.",
+      "default":        "This development is 2 blocks from your address. It goes before the Planning Board on May 26 for a public vote. Your comment goes on the official record beforehand — and the Board reads them."
+    },
+    "commentDeadline": "2026-04-27T23:59:00",
+    "voteDate": "2026-05-26T18:00:00",
+    "officialUrl": "https://www.cityofithaca.org/DocumentCenter/Index/1966",
+    "totalCommentCount": 46,
+    "comments": [
+      { "id": "c1",  "author": "Maria T.",   "neighborhood": "Collegetown",   "text": "I live on Eddy Street and this will completely change the block. 77 units with zero affordable housing requirements is not what this city needs right now.", "time": "2h ago" },
+      { "id": "c2",  "author": "James K.",   "neighborhood": "Fall Creek",    "text": "Demolishing a historic fire station to put up a luxury tower is exactly the wrong direction. We need community spaces and permanently affordable housing, not more market-rate rentals.", "time": "3h ago" },
+      { "id": "c3",  "author": "Priya S.",   "neighborhood": "South Hill",    "text": "As a renter I actually support more supply here. But it should include affordable units — that's a reasonable condition and the Board has required it before.", "time": "4h ago" },
+      { "id": "c4",  "author": "Tom B.",     "neighborhood": "West Hill",     "text": "College Ave is already a bottleneck during class changes. Has the full traffic study been published? I couldn't find it in the document packet.", "time": "5h ago" },
+      { "id": "c5",  "author": "Sandra L.",  "neighborhood": "Downtown",      "text": "My concern is the height. 8 stories will cast long shadows over the neighboring buildings and the street. The Collegetown Design Guidelines exist for exactly this reason.", "time": "6h ago" },
+      { "id": "c6",  "author": "Dante M.",   "neighborhood": "Northside",     "text": "The 1,500 sq ft retail space feels like a checkbox, not a real community benefit. At Collegetown rents who is going to lease that? We should ask the developer to commit to a tenant type.", "time": "8h ago" },
+      { "id": "c7",  "author": "Yuki H.",    "neighborhood": "East Hill",     "text": "I support density in walkable areas. But this project needs a community benefits agreement — affordable units, construction hours, local hiring. Otherwise all the value goes to the developer.", "time": "10h ago" },
+      { "id": "c8",  "author": "Carlos R.",  "neighborhood": "Southside",     "text": "77 units right next to Cornell makes sense for the city's density goals. I hope the Board approves it. We need more housing and we need it now.", "time": "12h ago" },
+      { "id": "c9",  "author": "Beth W.",    "neighborhood": "Commons Area",  "text": "The CEQR review needs to seriously examine construction noise and disruption for existing residents. This will be a multi-year project on a very busy street.", "time": "14h ago" },
+      { "id": "c10", "author": "Rafael N.",  "neighborhood": "Bryant Park",   "text": "The design renderings look better than a lot of what went up on Dryden Rd. At least they're engaging with the Collegetown Design Guidelines. I cautiously support it.", "time": "1d ago" }
+    ]
+  }
+]
