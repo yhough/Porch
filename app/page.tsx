@@ -2,6 +2,7 @@
 
 import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence, useInView } from "framer-motion";
+import dynamic from "next/dynamic";
 import {
   representatives,
   budgetData,
@@ -9,6 +10,8 @@ import {
   NEIGHBORHOOD,
   equityComparison,
 } from "@/lib/mockData";
+
+const WardMap = dynamic(() => import("@/components/WardMap"), { ssr: false });
 
 // ─── Color tokens ─────────────────────────────────────────────────────────────
 const C = {
@@ -256,27 +259,27 @@ function WaveDivider({ fill, flip }: { fill: string; flip?: boolean }) {
 
 // ─── Static content ────────────────────────────────────────────────────────────
 const URGENT_CARDS = [
-  { id: "u1", photo: IMGS.building, badge: { text: "Closes in 2 days", bg: C.coral },
-    title: "6-story building proposed 2 blocks away", cta: "Say something →" },
-  { id: "u2", photo: IMGS.ballot,   badge: { text: "Vote Thursday", bg: C.yellow },
-    title: "40 new school counselors up for a vote", cta: "Watch it →" },
+  { id: "u1", photo: IMGS.building, badge: { text: "Comment closes May 15", bg: C.coral },
+    title: "120-unit building proposed near the Commons", cta: "Say something →" },
+  { id: "u2", photo: IMGS.ballot,   badge: { text: "Vote Apr 30", bg: C.yellow },
+    title: "Common Council votes on the Green St garage", cta: "Watch it →" },
   { id: "u3", photo: IMGS.foodbank, badge: { text: "8 spots left", bg: C.sage },
-    title: "Food bank needs help Saturday 9am", cta: "Sign up →" },
-  { id: "u4", photo: IMGS.council,  badge: { text: "Tomorrow 6pm", bg: C.sky },
-    title: "Town hall — residents can speak", cta: "See details →" },
+    title: "Foodnet needs volunteers Saturday morning", cta: "Sign up →" },
+  { id: "u4", photo: IMGS.council,  badge: { text: "Tonight 6pm", bg: C.sky },
+    title: "Common Council meeting — residents can speak", cta: "See details →" },
 ];
 
 const VOL_TILES = [
-  { label: "Food banks",     shifts: "2 shifts open",          photo: IMGS.foodbank, color: C.sage,  catKey: "Food" },
-  { label: "Animal shelters",shifts: "Foster urgently needed", photo: IMGS.animals,  color: C.sky,   catKey: "Animal" },
+  { label: "Foodnet",           shifts: "2 shifts open this weekend", photo: IMGS.foodbank, color: C.sage, catKey: "Food" },
+  { label: "Tompkins SPCA",     shifts: "Foster families urgently needed", photo: IMGS.animals, color: C.sky, catKey: "Animal" },
 ];
 
 const PULSE_ITEMS = [
-  { id: "p1", icon: "💬", text: "Public comment filed about 5th St development",   time: "2h ago",  color: C.coral },
-  { id: "p2", icon: "👀", text: "14 neighbors checked James Thorpe's donors",       time: "4h ago",  color: C.sky },
-  { id: "p3", icon: "🍎", text: "Food bank Saturday almost full — 9 of 12 spots",  time: "6h ago",  color: C.sage },
-  { id: "p4", icon: "📋", text: "New permit filed 3 blocks from you",               time: "47m ago", color: C.yellow },
-  { id: "p5", icon: "🏛",  text: "Someone attended last night's town hall",          time: "18h ago", color: "#9B59B6" },
+  { id: "p1", icon: "💬", text: "Someone filed a public comment on the W State St development",  time: "2h ago",  color: C.coral },
+  { id: "p2", icon: "👀", text: "31 Ithacans checked Marc Molinaro's donor history this week",   time: "4h ago",  color: C.sky },
+  { id: "p3", icon: "🍎", text: "Foodnet Saturday shift almost full — 9 of 12 spots taken",      time: "6h ago",  color: C.sage },
+  { id: "p4", icon: "📋", text: "New building permit filed on Cayuga St near the Commons",        time: "47m ago", color: C.yellow },
+  { id: "p5", icon: "🏛",  text: "Someone attended last night's Common Council meeting",           time: "18h ago", color: "#9B59B6" },
 ];
 
 const ANON_COLORS = [C.coral, C.yellow, C.sage, C.sky, C.navy, "#9B59B6", "#E67E22"];
@@ -344,13 +347,13 @@ export default function Home() {
               <br /><span style={{ color: C.yellow }}>Find out what it is.</span>
             </h1>
             <p className="text-lg mb-8 font-medium" style={{ color: "rgba(255,255,255,0.87)" }}>
-              Type your address — see who's in charge, where the money goes, and how to help.
+              Type your Ithaca address to see your ward, who represents you, and where the money goes.
             </p>
 
             <form onSubmit={handleSearch} className="mb-6">
               <div className="flex rounded-full overflow-hidden" style={{ boxShadow: "0 8px 40px rgba(0,0,0,0.25)" }}>
                 <input type="text" value={address} onChange={(e) => setAddress(e.target.value)}
-                  placeholder="Your home address"
+                  placeholder="e.g. 301 W Court St, Ithaca"
                   className="flex-1 px-6 text-base outline-none"
                   style={{ height: "56px", color: C.navy, backgroundColor: "white", minWidth: 0 }} />
                 <button type="submit" disabled={searching}
@@ -368,7 +371,7 @@ export default function Home() {
             </form>
 
             <div className="flex flex-wrap gap-3 justify-center">
-              {["🏛 11 officials", "💰 Your taxes", "🤝 Volunteer nearby"].map((t) => (
+              {["🏛 4 officials", "💰 Your taxes", "🗺 5 wards"].map((t) => (
                 <div key={t} className="px-4 py-2 rounded-full text-sm font-semibold"
                   style={{ backgroundColor: "rgba(255,255,255,0.2)", color: "white",
                            backdropFilter: "blur(8px)", border: "1px solid rgba(255,255,255,0.3)" }}>
@@ -394,6 +397,27 @@ export default function Home() {
           <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
             <path d="M4 6l5 5 5-5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
+        </motion.div>
+      </section>
+
+      {/* ══ WARD MAP ═════════════════════════════════════════════════════ */}
+      <section id="map" className="py-14 px-6">
+        <div className="mb-6">
+          <motion.h2 initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }} transition={{ duration: 0.4 }}
+            className="text-3xl font-extrabold" style={{ color: C.navy }}>
+            Your ward. Your voice. 🗺
+          </motion.h2>
+          <div className="mt-2 w-14 h-1.5 rounded-full" style={{ backgroundColor: C.coral }} />
+          <p className="mt-2 text-base font-medium" style={{ color: "#6B7280" }}>
+            Ithaca has 5 wards and 15 election districts. Tap yours.
+          </p>
+        </div>
+        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }} transition={{ duration: 0.5 }}
+          className="max-w-xl mx-auto"
+          style={{ boxShadow: "0 4px 20px rgba(0,0,0,0.08)", borderRadius: "24px" }}>
+          <WardMap />
         </motion.div>
       </section>
 
@@ -510,12 +534,12 @@ export default function Home() {
           <NeighborhoodIllustration triggered={budgetTriggered} />
         </div>
 
-        {/* Big animated stat reveals */}
+        {/* Big animated stat reveals — Ithaca FY2024 ~$75M / ~30k residents */}
         <div className="grid grid-cols-2 gap-4 max-w-xl mx-auto mb-10">
-          <AnimatedStat value={1240} prefix="$" label="Schools / resident / yr"  color={C.navy}    delay={0} />
-          <AnimatedStat value={320}  prefix="$" label="Parks / resident / yr"    color={C.coral}   delay={0.1} />
-          <AnimatedStat value={1120} prefix="$" label="Police & Fire / yr"       color="#E06B5A"   delay={0.2} />
-          <AnimatedStat value={560}  prefix="$" label="Housing / yr"             color={C.sage}    delay={0.3} />
+          <AnimatedStat value={1580} prefix="$" label="Public Safety / resident"  color="#E06B5A"   delay={0} />
+          <AnimatedStat value={479}  prefix="$" label="Parks & Rec / resident"    color={C.sage}    delay={0.1} />
+          <AnimatedStat value={862}  prefix="$" label="Public Works / resident"   color={C.sky}     delay={0.2} />
+          <AnimatedStat value={383}  prefix="$" label="Community Dev / resident"  color="#9B59B6"   delay={0.3} />
         </div>
 
         {/* Rent calculator */}
@@ -571,7 +595,7 @@ export default function Home() {
                 Most urgent this weekend
               </div>
               <h3 className="text-2xl font-extrabold text-white leading-tight mb-3">
-                Food Bank needs 8 more people Saturday
+                Foodnet needs 8 more volunteers this Saturday
               </h3>
               <div className="flex items-center gap-4">
                 <button className="px-6 py-3 rounded-full font-bold hover:scale-105 transition-transform"
@@ -579,7 +603,7 @@ export default function Home() {
                   I'll be there →
                 </button>
                 <span className="text-xs" style={{ color: "rgba(255,255,255,0.7)" }}>
-                  340 families served last month
+                  8,000+ Tompkins residents served each year
                 </span>
               </div>
             </div>
@@ -858,7 +882,7 @@ export default function Home() {
           {(
             [
               { id: "home",   label: "Home",   href: "#home",   Icon: IconHome },
-              { id: "map",    label: "Map",    href: "#urgent", Icon: IconMap },
+              { id: "map",    label: "Map",    href: "#map",    Icon: IconMap },
               { id: "people", label: "People", href: "#people", Icon: IconPeople },
               { id: "money",  label: "Money",  href: "#money",  Icon: IconMoney },
               { id: "help",   label: "Help",   href: "#help",   Icon: IconHelp },
