@@ -157,7 +157,16 @@ function HeroChar() {
 }
 
 // ─── SVG: Rep illustrated avatar ──────────────────────────────────────────────
-function RepAvatar({ color, initials, size = 88 }: { color: string; initials: string; size?: number }) {
+function RepAvatar({ color, initials, size = 88, photoUrl }: { color: string; initials: string; size?: number; photoUrl?: string | null }) {
+  if (photoUrl) {
+    return (
+      <div style={{ width: size, height: size, borderRadius: "50%", overflow: "hidden", flexShrink: 0 }}>
+        <img src={photoUrl} alt={initials} style={{ width: "100%", height: "100%", objectFit: "cover" }}
+          onError={(e) => { (e.target as HTMLImageElement).style.display = "none"; }} />
+      </div>
+    );
+  }
+  // fallback to illustrated SVG avatar
   const hairColor = initials.charCodeAt(0) % 3 !== 2 ? "#2C1810" : "#8B4513";
   return (
     <svg width={size} height={size} viewBox="0 0 90 90" fill="none" aria-hidden="true">
@@ -334,39 +343,24 @@ export default function Home() {
   const openLivePlace = livePlaces.find((p) => p.id === openLivePlaceId) ?? null;
 
   // ── Shared fetch logic ───────────────────────────────────────────────────────
-  const fetchForAddress = async (addr: string, lat: number, lng: number) => {
-    // Start with verified local officials so the section is never blank
+  const fetchForAddress = async (_addr: string, lat: number, lng: number) => {
+    // Seed with verified local officials (Mayor etc.) — always visible instantly
     const merged: LiveRep[] = [...localOfficials];
 
-    const [legRes, civicRes, placesRes] = await Promise.allSettled([
-      fetch(`/api/legislators?lat=${lat}&lng=${lng}`),      // OpenStates — always works
-      fetch(`/api/civic?address=${encodeURIComponent(addr)}`), // Google Civic — optional
+    const [legRes, placesRes] = await Promise.allSettled([
+      fetch(`/api/legislators?lat=${lat}&lng=${lng}`),
       fetch(`/api/places?lat=${lat}&lng=${lng}`),
     ]);
 
-    // OpenStates state + federal legislators (primary source for non-local reps)
     if (legRes.status === "fulfilled" && legRes.value.ok) {
-      const legData = await legRes.value.json();
-      const legOfficials: LiveRep[] = legData.officials ?? [];
+      const legOfficials: LiveRep[] = (await legRes.value.json()).officials ?? [];
       merged.push(...legOfficials);
-    }
-
-    // Google Civic — enriches if the API is enabled; silently skipped if not
-    if (civicRes.status === "fulfilled" && civicRes.value.ok) {
-      const civicData = await civicRes.value.json();
-      const civicOfficials: LiveRep[] = civicData.officials ?? [];
-      // Add any officials not already present (avoid duplicates by name)
-      const existingNames = new Set(merged.map((r) => r.name.toLowerCase()));
-      civicOfficials.forEach((o) => {
-        if (!existingNames.has(o.name.toLowerCase())) merged.push(o);
-      });
     }
 
     setLiveReps(merged);
 
     if (placesRes.status === "fulfilled" && placesRes.value.ok) {
-      const placesData = await placesRes.value.json();
-      setLivePlaces(placesData.places ?? []);
+      setLivePlaces((await placesRes.value.json()).places ?? []);
     }
   };
 
@@ -396,7 +390,7 @@ export default function Home() {
       const formatted  = geoData?.features?.[0]?.place_name ?? address;
       setSearchedAddress(formatted);
 
-      await fetchForAddress(formatted, lat, lng);
+      await fetchForAddress(formatted, lat as number, lng as number);
     } catch (err) {
       console.error(err);
     }
@@ -593,8 +587,8 @@ export default function Home() {
                     className="flex-shrink-0 cursor-pointer" style={{ width: "240px" }}>
                     <div className="rounded-[24px] overflow-hidden"
                       style={{ backgroundColor: "white", boxShadow: "0 4px 24px rgba(0,0,0,0.09)" }}>
-                      <div className="flex items-center justify-center" style={{ backgroundColor: color, height: "130px" }}>
-                        <RepAvatar color={color} initials={rep.initials} size={84} />
+                      <div className="flex items-center justify-center" style={{ backgroundColor: rep.photoUrl ? "transparent" : color, height: "130px" }}>
+                        <RepAvatar color={color} initials={rep.initials} size={84} photoUrl={rep.photoUrl} />
                       </div>
                       <div className="p-5">
                         <div className="text-base font-extrabold leading-tight" style={{ color: C.navy }}>{rep.name}</div>
@@ -906,7 +900,7 @@ export default function Home() {
               </div>
               <div className="px-6 pb-4">
                 <div className="flex items-start gap-4">
-                  <RepAvatar color={openLiveRep.color} initials={openLiveRep.initials} size={68} />
+                  <RepAvatar color={openLiveRep.color} initials={openLiveRep.initials} size={68} photoUrl={openLiveRep.photoUrl} />
                   <div className="flex-1">
                     <h3 className="text-xl font-extrabold" style={{ color: C.navy }}>{openLiveRep.name}</h3>
                     <p className="text-sm" style={{ color: "#6B7280" }}>{openLiveRep.role}</p>
