@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --porch-bg: #FAF9F6;
+  --porch-navy: #1B2A4A;
+  --porch-amber: #E8A020;
+  --porch-sage: #4A7C59;
+  --porch-coral: #E06B5A;
+  --porch-purple: #7C5C9A;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--porch-bg);
+  font-family: 'Inter', system-ui, sans-serif;
+  color: var(--porch-navy);
+}
+
+/* Mapbox GL overrides */
+.mapboxgl-ctrl-logo,
+.mapboxgl-ctrl-attrib {
+  display: none !important;
+}
+
+.mapboxgl-popup-content {
+  border-radius: 12px;
+  padding: 0;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.16);
+  border: 1px solid rgba(0,0,0,0.06);
+}
+
+.mapboxgl-popup-tip {
+  border-top-color: white;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(27,42,74,0.15);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(27,42,74,0.3);
+}
+
+/* Horizontal scroll for rep cards */
+.rep-scroll::-webkit-scrollbar {
+  height: 4px;
+}
+
+/* Chart tooltip */
+.recharts-tooltip-wrapper {
+  border-radius: 8px !important;
+  overflow: hidden;
+}
+
+/* Pulse animation for urgent items */
+@keyframes pulse-amber {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(232,160,32,0.4); }
+  50% { box-shadow: 0 0 0 6px rgba(232,160,32,0); }
+}
+
+.pulse-amber {
+  animation: pulse-amber 2s ease-in-out infinite;
+}
