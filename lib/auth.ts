@@ -3,7 +3,18 @@ import CredentialsProvider from "next-auth/providers/credentials";
 import bcrypt from "bcryptjs";
 import { findUserByEmail } from "@/lib/users";
 
+/**
+ * NextAuth requires a secret to sign JWTs and session cookies.
+ * Without NEXTAUTH_SECRET in production, auth shows "Server error" / configuration error.
+ */
+const authSecret =
+  process.env.NEXTAUTH_SECRET ||
+  (process.env.NODE_ENV !== "production"
+    ? "dev-only-nextauth-secret-min-32-characters-long"
+    : undefined);
+
 export const authOptions: NextAuthOptions = {
+  secret: authSecret,
   providers: [
     CredentialsProvider({
       name: "credentials",

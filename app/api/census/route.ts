@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic";
+
 import { NextRequest, NextResponse } from "next/server";
 
 /** ACS 5-year — supports Ithaca (place 38077) and NYC (place 51000), state 36. */
