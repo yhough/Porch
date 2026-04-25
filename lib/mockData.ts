@@ -1,399 +1,29 @@
+// ─── Mapbox token ─────────────────────────────────────────────────────────────
 export const MAPBOX_TOKEN = process.env.NEXT_PUBLIC_MAPBOX_TOKEN || "";
 
+// ─── Neighborhood identity ─────────────────────────────────────────────────────
+// Source: City of Ithaca official records
 export const NEIGHBORHOOD = {
   name: "City of Ithaca",
   city: "Ithaca, NY",
-  center: [-76.4969, 42.4440] as [number, number],
-  address: "108 E Green St, Ithaca, NY 14850", // City Hall
+  center: [-76.4969, 42.4440] as [number, number], // [lng, lat]
+  address: "108 E Green St, Ithaca, NY 14850",      // City Hall
   wards: 5,
   electionDistricts: 15,
 };
 
 // ─── Ward descriptions ────────────────────────────────────────────────────────
+// Source: City of Ithaca election district GeoJSON (2023)
 export const ITHACA_WARDS = [
-  { ward: 1, name: "Ward 1",  description: "Downtown & Southside",   color: "#E8513A", legDist: "1" },
-  { ward: 2, name: "Ward 2",  description: "West Hill & Heights",     color: "#F5C842", legDist: "2-3" },
-  { ward: 3, name: "Ward 3",  description: "South Hill & East Hill",  color: "#4CAF82", legDist: "1,3" },
-  { ward: 4, name: "Ward 4",  description: "Cornell & Northeast",     color: "#5BA4CF", legDist: "4" },
-  { ward: 5, name: "Ward 5",  description: "Fall Creek & Inlet",      color: "#9B59B6", legDist: "2,5" },
+  { ward: 1, name: "Ward 1", description: "Downtown & Southside",  color: "#E8513A", legDist: "1"   },
+  { ward: 2, name: "Ward 2", description: "West Hill & Heights",   color: "#F5C842", legDist: "2-3" },
+  { ward: 3, name: "Ward 3", description: "South Hill & East Hill",color: "#4CAF82", legDist: "1,3" },
+  { ward: 4, name: "Ward 4", description: "Cornell & Northeast",   color: "#5BA4CF", legDist: "4"   },
+  { ward: 5, name: "Ward 5", description: "Fall Creek & Inlet",    color: "#9B59B6", legDist: "2,5" },
 ];
 
-// ─── Representatives — real Ithaca/Tompkins officials ─────────────────────────
-export const representatives = [
-  {
-    id: "1",
-    name: "Laura Lewis",
-    role: "Mayor — City of Ithaca",
-    initials: "LL",
-    borderColor: "#E8513A",
-    jurisdictionType: "Mayor",
-    controls: [
-      "City budget & capital projects",
-      "Hiring city department heads",
-      "Signing or vetoing Common Council legislation",
-    ],
-    donorAlert: null,
-    votes: [
-      { label: "Green New Deal Local Law",     aligned: true  },
-      { label: "Rental housing inspection fee", aligned: false },
-      { label: "Pedestrian safety overhaul",   aligned: true  },
-    ],
-    phone: "(607) 274-6501",
-    email: "mayoroffice@cityofithaca.org",
-    attendance: 96,
-    topDonors: [
-      { name: "Tompkins County Democrats", amount: 12000 },
-      { name: "Labor Union PAC",           amount: 8500  },
-      { name: "Local Business Coalition",  amount: 3200  },
-    ],
-    fullVotes: [
-      { date: "Mar 15, 2024", bill: "Green New Deal Local Law — Phase 2", aligned: true,
-        description: "Signed legislation banning gas appliances in new construction citywide" },
-      { date: "Feb 28, 2024", bill: "Rental Housing Inspection Fee Increase", aligned: false,
-        description: "Vetoed a fee hike on landlords for annual safety inspections — later overridden" },
-      { date: "Jan 10, 2024", bill: "Pedestrian Safety Capital Plan $2.1M", aligned: true,
-        description: "Signed $2.1M plan for crosswalk upgrades and protected bike lanes on State St" },
-    ],
-  },
-  {
-    id: "2",
-    name: "Anna Kelles",
-    role: "NY State Assembly — District 125",
-    initials: "AK",
-    borderColor: "#4CAF82",
-    jurisdictionType: "State Assembly",
-    controls: [
-      "State funding for Ithaca housing & transit",
-      "New York tenant protection legislation",
-      "State environmental policy",
-    ],
-    donorAlert: null,
-    votes: [
-      { label: "Climate Leadership & Community Protection Act", aligned: true  },
-      { label: "Good Cause Eviction statewide",                aligned: true  },
-      { label: "Highway expansion funding",                    aligned: false },
-    ],
-    phone: "(607) 277-8679",
-    email: "kellesA@nyassembly.gov",
-    attendance: 97,
-    topDonors: [
-      { name: "NY Working Families Party", amount: 18000 },
-      { name: "Sierra Club NY PAC",        amount: 7500  },
-      { name: "SEIU 1199",                 amount: 6200  },
-    ],
-    fullVotes: [
-      { date: "Apr 3, 2024", bill: "CLCPA Implementation Regulations", aligned: true,
-        description: "Voted YES to accelerate 100% clean electricity grid target to 2035" },
-      { date: "Mar 20, 2024", bill: "Good Cause Eviction — Statewide Extension", aligned: true,
-        description: "Voted YES to extend tenant eviction protections to all New York municipalities" },
-      { date: "Feb 14, 2024", bill: "Route 13 Widening Environmental Review Waiver", aligned: false,
-        description: "Voted NO on waiving environmental review for Rt 13 expansion near Ithaca" },
-    ],
-  },
-  {
-    id: "3",
-    name: "Lea Webb",
-    role: "NY State Senate — District 52",
-    initials: "LW",
-    borderColor: "#F5C842",
-    jurisdictionType: "State Senate",
-    controls: [
-      "State budget allocations for Tompkins County",
-      "New York housing & infrastructure law",
-      "Committee on Local Government",
-    ],
-    donorAlert: "$31k from real estate developers",
-    votes: [
-      { label: "Housing Compact — upzoning mandate", aligned: true  },
-      { label: "Bail reform rollback",               aligned: false },
-      { label: "Child tax credit expansion",         aligned: true  },
-    ],
-    phone: "(607) 735-9671",
-    email: "webb@nysenate.gov",
-    attendance: 93,
-    topDonors: [
-      { name: "Real Estate Board of NY PAC", amount: 31000 },
-      { name: "NY State AFL-CIO",            amount: 14000 },
-      { name: "Tompkins County Democrats",   amount: 9500  },
-      { name: "Healthcare Workers United",   amount: 6800  },
-    ],
-    fullVotes: [
-      { date: "Apr 10, 2024", bill: "NY Housing Compact — Transit-Oriented Zoning", aligned: true,
-        description: "Voted YES to require municipalities near transit to allow denser housing" },
-      { date: "Mar 5, 2024", bill: "Bail Reform Rollback — Expanded Detention List", aligned: false,
-        description: "Voted NO on expanding list of crimes eligible for pre-trial detention" },
-      { date: "Feb 22, 2024", bill: "Child & Dependent Care Tax Credit Expansion", aligned: true,
-        description: "Voted YES to double the state child tax credit for families earning under $110k" },
-    ],
-  },
-  {
-    id: "4",
-    name: "Marc Molinaro",
-    role: "U.S. House — NY District 19",
-    initials: "MM",
-    borderColor: "#5BA4CF",
-    jurisdictionType: "U.S. Congress",
-    controls: [
-      "Federal infrastructure funding for Ithaca",
-      "National housing and community development grants",
-      "Federal agriculture & rural programs",
-    ],
-    donorAlert: "$42k from real estate developers",
-    votes: [
-      { label: "Bipartisan Infrastructure Law",     aligned: true  },
-      { label: "Affordable housing tax credit bill", aligned: false },
-      { label: "Farm bill reauthorization",          aligned: true  },
-    ],
-    phone: "(607) 376-5025",
-    email: "molinaro.house.gov/contact",
-    attendance: 88,
-    topDonors: [
-      { name: "Real Estate Investment PAC", amount: 42000 },
-      { name: "National Association of Realtors", amount: 21000 },
-      { name: "NY Farm Bureau PAC",         amount: 11500 },
-      { name: "Hudson Valley Business PAC", amount: 9200  },
-    ],
-    fullVotes: [
-      { date: "Mar 28, 2024", bill: "Bipartisan Infrastructure & Jobs Act — Phase 2", aligned: true,
-        description: "Voted YES on $1.2B in rural broadband and road funding for Upstate NY" },
-      { date: "Mar 12, 2024", bill: "Affordable Housing Tax Credit Improvement Act", aligned: false,
-        description: "Voted NO on expanding low-income housing tax credits (opposed by party)" },
-      { date: "Feb 8, 2024", bill: "2024 Farm Bill Reauthorization", aligned: true,
-        description: "Voted YES on $428B farm bill including nutrition programs and crop insurance" },
-    ],
-  },
-];
-
-// ─── Budget data (City of Ithaca FY2024 ~$75M operating budget) ───────────────
-export const budgetData = [
-  { name: "Public Safety",  value: 33, color: "#E06B5A", perResident: 1580, yoyChange: +3.2 },
-  { name: "Public Works",   value: 18, color: "#5BA4CF", perResident: 862,  yoyChange: +1.4 },
-  { name: "Parks & Rec",    value: 10, color: "#4CAF82", perResident: 479,  yoyChange: -1.8 },
-  { name: "Planning",       value: 9,  color: "#1B2A4A", perResident: 431,  yoyChange: +0.6 },
-  { name: "Administration", value: 14, color: "#F5C842", perResident: 670,  yoyChange: +2.1 },
-  { name: "Community Dev.", value: 8,  color: "#9B59B6", perResident: 383,  yoyChange: +4.0 },
-  { name: "Other",          value: 8,  color: "#A8B4B8", perResident: 383,  yoyChange: -0.3 },
-];
-
-export const equityComparison = [
-  { category: "Parks",        yours: 479,  cityAvg: 820,  gap: -341 },
-  { category: "Public Safety",yours: 1580, cityAvg: 1200, gap: +380 },
-  { category: "Public Works", yours: 862,  cityAvg: 690,  gap: +172 },
-  { category: "Community Dev",yours: 383,  cityAvg: 510,  gap: -127 },
-  { category: "Planning",     yours: 431,  cityAvg: 360,  gap: +71  },
-];
-
-// ─── Community resources (real Ithaca locations) ──────────────────────────────
-export const communityResources = [
-  {
-    id: "r1",
-    category: "Homeless Shelters",
-    icon: "🏠",
-    name: "Ithaca Rescue Mission",
-    address: "209 N Albany St, Ithaca, NY 14850",
-    distance: "0.3 mi",
-    hours: { today: "Open 24/7", isOpen: true },
-    volunteerNeeds: "Meal servers, overnight volunteers, donation sorters",
-    capacity: 65,
-    maxCapacity: 90,
-    volunteerDesc: "Help serve dinners, sort donations, or staff the overnight desk. Orientation is 45 minutes and scheduling is flexible.",
-    timeCommitment: "3-hour shifts, weekly or bi-weekly",
-    trainingRequired: false,
-    phone: "(607) 273-2090",
-    signupUrl: "#",
-    lat: 42.4425,
-    lng: -76.5000,
-  },
-  {
-    id: "r2",
-    category: "Food Banks",
-    icon: "🍎",
-    name: "Foodnet — Tompkins County",
-    address: "260 Jason Pl, Ithaca, NY 14850",
-    distance: "1.1 mi",
-    hours: { today: "Mon–Fri 8am–4pm", isOpen: true },
-    volunteerNeeds: "Food sorters, drivers, bilingual (Spanish) volunteers",
-    capacity: null,
-    maxCapacity: null,
-    volunteerDesc: "Sort and pack food boxes for the 8,000+ Tompkins County residents Foodnet serves each year. Drivers with cars especially needed.",
-    timeCommitment: "2–4 hour shifts, flexible",
-    trainingRequired: false,
-    phone: "(607) 272-5270",
-    signupUrl: "#",
-    lat: 42.4328,
-    lng: -76.4972,
-  },
-  {
-    id: "r3",
-    category: "Food Pantries",
-    icon: "🍎",
-    name: "Loaves & Fishes Free Café",
-    address: "709 Hancock St, Ithaca, NY 14850",
-    distance: "0.6 mi",
-    hours: { today: "Mon Tue Thu 12–1pm", isOpen: false },
-    volunteerNeeds: "Cooks, servers, prep volunteers Mon/Tue/Thu mornings",
-    capacity: null,
-    maxCapacity: null,
-    volunteerDesc: "Prepare and serve a free hot lunch to anyone who comes — no questions asked. A genuinely joyful place to volunteer.",
-    timeCommitment: "9am–1pm on Mon, Tue, or Thu",
-    trainingRequired: false,
-    phone: "(607) 273-0456",
-    signupUrl: "#",
-    lat: 42.4398,
-    lng: -76.4936,
-  },
-  {
-    id: "r4",
-    category: "Animal Shelters",
-    icon: "🐾",
-    name: "Tompkins County SPCA",
-    address: "1640 Hanshaw Rd, Ithaca, NY 14850",
-    distance: "2.4 mi",
-    hours: { today: "Tue–Sun 11am–5pm", isOpen: true },
-    volunteerNeeds: "Dog walkers, cat socializers, foster families urgently needed",
-    capacity: 74,
-    maxCapacity: 110,
-    volunteerDesc: "Walk dogs, socialize cats waiting for adoption, or become a foster family. Training provided and the dogs are very good.",
-    timeCommitment: "2+ hrs/week minimum",
-    trainingRequired: true,
-    phone: "(607) 257-1822",
-    signupUrl: "#",
-    lat: 42.4712,
-    lng: -76.4710,
-  },
-  {
-    id: "r5",
-    category: "Clothing Donations",
-    icon: "👕",
-    name: "GreenStar Co-op Clothing Drive",
-    address: "750 Cascadilla St, Ithaca, NY 14850",
-    distance: "0.8 mi",
-    hours: { today: "Wed–Sat 10am–4pm", isOpen: true },
-    volunteerNeeds: "Sorters, intake volunteers, cashiers",
-    capacity: null,
-    maxCapacity: null,
-    volunteerDesc: "Sort donated clothing and household goods, assist shoppers, or run intake. All experience levels welcome. Great for groups.",
-    timeCommitment: "Flexible, 3-hour shifts",
-    trainingRequired: false,
-    phone: "(607) 273-9392",
-    signupUrl: "#",
-    lat: 42.4361,
-    lng: -76.4945,
-  },
-  {
-    id: "r6",
-    category: "Children & Family",
-    icon: "👶",
-    name: "Greater Ithaca Activities Center",
-    address: "301 W Court St, Ithaca, NY 14850",
-    distance: "0.4 mi",
-    hours: { today: "Mon–Fri 8am–8pm", isOpen: true },
-    volunteerNeeds: "Tutors (K-8), youth mentors, after-school program helpers",
-    capacity: null,
-    maxCapacity: null,
-    volunteerDesc: "Tutor students in reading and math, assist with GIAC's after-school programs, or mentor youth in the 10–17 age range.",
-    timeCommitment: "2+ hrs/week, 8-week commitment for tutoring",
-    trainingRequired: true,
-    phone: "(607) 273-1511",
-    signupUrl: "#",
-    lat: 42.4400,
-    lng: -76.5010,
-  },
-  {
-    id: "r7",
-    category: "Mental Health",
-    icon: "🧠",
-    name: "Tompkins County Mental Health Services",
-    address: "201 E Green St, Ithaca, NY 14850",
-    distance: "0.2 mi",
-    hours: { today: "Mon–Fri 8:30am–4:30pm", isOpen: true },
-    volunteerNeeds: "Peer support specialists, front-desk greeters, interpreters",
-    capacity: null,
-    maxCapacity: null,
-    volunteerDesc: "Greet and assist walk-in clients, help with paperwork, or serve as a peer support specialist if you have lived mental health experience.",
-    timeCommitment: "4-hour shifts, flexible scheduling",
-    trainingRequired: true,
-    phone: "(607) 274-6200",
-    signupUrl: "#",
-    lat: 42.4398,
-    lng: -76.4968,
-  },
-  {
-    id: "r8",
-    category: "Legal Aid",
-    icon: "⚖️",
-    name: "Legal Aid Society of Mid-New York — Ithaca",
-    address: "120 E Buffalo St, Ithaca, NY 14850",
-    distance: "0.5 mi",
-    hours: { today: "Mon–Fri 9am–5pm", isOpen: true },
-    volunteerNeeds: "Law students for intake, Spanish interpreters for tenant clinics",
-    capacity: null,
-    maxCapacity: null,
-    volunteerDesc: "Assist attorneys with client intake interviews, help with document translation, or conduct initial consultations for tenant rights cases.",
-    timeCommitment: "8+ hrs/week preferred, law students welcome",
-    trainingRequired: true,
-    phone: "(607) 273-3667",
-    signupUrl: "#",
-    lat: 42.4390,
-    lng: -76.4962,
-  },
-];
-
-// ─── Map pins ─────────────────────────────────────────────────────────────────
-export const mapPins = [
-  {
-    id: "m1",
-    type: "meeting" as const,
-    title: "Common Council Meeting",
-    description: "Monthly council meeting — budget priorities & zoning votes",
-    deadline: "Wed Apr 30 · 6:00 PM",
-    action: "View agenda",
-    lat: 42.4398,
-    lng: -76.4969,
-  },
-  {
-    id: "m2",
-    type: "permit" as const,
-    title: "120-Unit Mixed-Use on W State St",
-    description: "6-story building proposed near Ithaca Commons — public comment open",
-    deadline: "Comment by May 15",
-    action: "Submit comment",
-    lat: 42.4408,
-    lng: -76.5020,
-  },
-  {
-    id: "m3",
-    type: "permit" as const,
-    title: "Proposed Parking Garage Demolition",
-    description: "Removal of Green St garage to enable housing site — EIS in progress",
-    deadline: "Comment by May 8",
-    action: "Submit comment",
-    lat: 42.4385,
-    lng: -76.4975,
-  },
-  {
-    id: "m4",
-    type: "resource" as const,
-    title: "Ithaca Rescue Mission",
-    description: "Emergency shelter — 65/90 capacity · Open 24/7",
-    deadline: "Open now",
-    action: "Get directions",
-    lat: 42.4425,
-    lng: -76.5000,
-  },
-  {
-    id: "m5",
-    type: "advocacy" as const,
-    title: "Tenant Rights Clinic — Ithaca Tenants Union",
-    description: "Free tenant rights help — every Tuesday 5–7pm",
-    deadline: "Tuesdays 5–7pm",
-    action: "View details",
-    lat: 42.4410,
-    lng: -76.4980,
-  },
-];
-
-// ─── 2026 full meeting schedule (from official Town notice) ──────────────────
+// ─── 2026 board/committee meeting schedule ────────────────────────────────────
+// Source: Town of Ithaca "2026 Public Meetings Schedule and Notice to the Media"
 export const MEETINGS_2026 = [
   {
     id: "tb",
@@ -497,12 +127,14 @@ export const MEETINGS_2026 = [
   },
 ];
 
-// ─── Board/committee vacancies ────────────────────────────────────────────────
+// ─── Board/committee vacancies ─────────────────────────────────────────────────
+// Source: Town of Ithaca "Board and Committee Opportunities" (2026)
 export const BOARD_VACANCIES = [
   {
     id: "v-pb",
     board: "Planning Board",
-    description: "Reviews land use, development, subdivisions, site plans, and special permits. 7 regular members + 2 alternates. 7-year term for regular members.",
+    description:
+      "Reviews land use, development, subdivisions, site plans, and special permits. 7 regular members + 2 alternates. 7-year term for regular members.",
     meetingSchedule: "1st & 3rd Tuesday @ 6:30pm",
     stipend: true,
     residencyRequired: "Town of Ithaca",
@@ -513,7 +145,8 @@ export const BOARD_VACANCIES = [
   {
     id: "v-zba",
     board: "Zoning Board of Appeals",
-    description: "Quasi-judicial board ensuring zoning compliance and granting variances. 5 regular + 2 alternates. Knowledge of municipal law helpful but not required.",
+    description:
+      "Quasi-judicial board ensuring zoning compliance and granting variances. 5 regular + 2 alternates. Knowledge of municipal law helpful but not required.",
     meetingSchedule: "4th Tuesday @ 6pm",
     stipend: true,
     residencyRequired: "Town of Ithaca",
@@ -524,7 +157,8 @@ export const BOARD_VACANCIES = [
   {
     id: "v-cb",
     board: "Conservation Board",
-    description: "Safeguards natural and scenic resources. Works with Town Board and Planning Board on environmental concerns — development projects, deer management, invasive species, water quality.",
+    description:
+      "Safeguards natural and scenic resources. Works with Town Board and Planning Board on environmental concerns — development projects, deer management, invasive species, water quality.",
     meetingSchedule: "1st Thursday @ 4pm",
     stipend: false,
     residencyRequired: "Town of Ithaca",
@@ -534,13 +168,15 @@ export const BOARD_VACANCIES = [
   },
 ];
 
-// ─── Upcoming events ──────────────────────────────────────────────────────────
+// ─── Upcoming public meetings ─────────────────────────────────────────────────
+// Source: Town of Ithaca official meeting notices and agenda packets (Apr 2026)
 export const upcomingEvents = [
   {
     id: "e1",
     type: "meeting",
     title: "Town Board Study Session — Green New Deal report",
-    description: "Sustainability Planner Hilary Swartwood presents the 2025–2026 GND Action Plan progress. Includes Fire Dept quarterly report and Tompkins County wayfinding presentation. Consent agenda: appoint Gideon Casper to Planning Board.",
+    description:
+      "Sustainability Planner Hilary Swartwood presents the 2025–2026 GND Action Plan progress. Includes Fire Dept quarterly report and Tompkins County wayfinding presentation. Consent agenda: appoint Gideon Casper to Planning Board.",
     attendance: "Attend at 215 N Tioga St or join Zoom · ID 989 1095 8241",
     zoomUrl: "https://zoom.us/j/98910958241",
     date: new Date("2026-04-27T16:30:00"),
@@ -550,7 +186,8 @@ export const upcomingEvents = [
     id: "e2",
     type: "meeting",
     title: "Codes & Ordinances Committee",
-    description: "Review of 2026 COC work plan and continued review of revised Subdivision of Land regulations (Article VI). Public can attend. Chair: Susie Gutenberger-Fitzpatrick.",
+    description:
+      "Review of 2026 COC work plan and continued review of revised Subdivision of Land regulations (Article VI). Public can attend. Chair: Susie Gutenberger-Fitzpatrick.",
     attendance: "Town Hall or Zoom · ID 875 3139 3743",
     zoomUrl: "https://zoom.us/j/87531393743",
     date: new Date("2026-05-21T17:30:00"),
@@ -560,7 +197,8 @@ export const upcomingEvents = [
     id: "e3",
     type: "meeting",
     title: "Planning Board",
-    description: "Site plan reviews and subdivision approvals. Meeting materials posted on townithacany.gov before the meeting.",
+    description:
+      "Site plan reviews and subdivision approvals. Meeting materials posted on townithacany.gov before the meeting.",
     attendance: "215 N Tioga St or Zoom · ID 836 4376 4382",
     zoomUrl: "https://zoom.us/j/83643764382",
     date: new Date("2026-05-05T18:30:00"),
@@ -570,7 +208,8 @@ export const upcomingEvents = [
     id: "e4",
     type: "meeting",
     title: "Conservation Board — open to public",
-    description: "Covers development project reviews, deer management, invasive species, and water quality. Actively looking for new members — come check it out first.",
+    description:
+      "Covers development project reviews, deer management, invasive species, and water quality. Actively looking for new members — come check it out first.",
     attendance: "215 N Tioga St or Zoom · ID 675 059 3272",
     zoomUrl: "https://zoom.us/j/6750593272",
     date: new Date("2026-05-07T16:00:00"),
@@ -578,12 +217,14 @@ export const upcomingEvents = [
   },
 ];
 
-// ─── Open comment periods ─────────────────────────────────────────────────────
+// ─── Open public comment periods ─────────────────────────────────────────────
+// Source: Town of Ithaca COC memo (Apr 1, 2026) and GND action plan (Apr 27, 2026)
 export const openComments = [
   {
     id: "c1",
     title: "Subdivision of Land Regulations — Codes & Ordinances Review",
-    description: "The Codes & Ordinances Committee is reviewing all of Article VI of the Town's subdivision regulations. This shapes how land gets divided into new parcels and what developers must provide. Public may attend any COC meeting and submit written comment.",
+    description:
+      "The Codes & Ordinances Committee is reviewing all of Article VI of the Town's subdivision regulations. This shapes how land gets divided into new parcels and what developers must provide. Public may attend any COC meeting and submit written comment.",
     deadline: new Date("2026-06-19T17:30:00"),
     commentUrl: "https://www.townithacany.gov",
     urgent: false,
@@ -591,7 +232,8 @@ export const openComments = [
   {
     id: "c2",
     title: "Green New Deal Action Plan 2025–2026 — Public Input",
-    description: "Town Sustainability Planner Hilary Swartwood is taking input on the next GND action cycle. Current status: CCA launched, net-zero energy code adopted, but vehicle fleet emissions off track and greenhouse gas inventory delayed. Your feedback helps set 2027–2028 priorities.",
+    description:
+      "Town Sustainability Planner Hilary Swartwood is taking input on the next GND action cycle. CCA launched, net-zero energy code adopted, but vehicle fleet emissions off track. Your feedback helps set 2027–2028 priorities.",
     deadline: new Date("2026-06-30T17:00:00"),
     commentUrl: "https://www.townithacany.gov",
     urgent: false,
@@ -599,41 +241,42 @@ export const openComments = [
   {
     id: "c3",
     title: "South Hill Rec Way Trail Extension — Community Feedback",
-    description: "The Town hired an engineering firm for concept design to extend the South Hill Rec Way from Burns Rd to Banks Rd. A Friends of the Trail work group meets regularly. Share what you want to see along this corridor.",
+    description:
+      "The Town hired an engineering firm for concept design to extend the South Hill Rec Way from Burns Rd to Banks Rd. A Friends of the Trail work group meets regularly. Share what you want to see along this corridor.",
     deadline: new Date("2026-08-27T17:00:00"),
     commentUrl: "https://www.townithacany.gov",
     urgent: false,
   },
 ];
 
-// ─── Recent votes ─────────────────────────────────────────────────────────────
+// ─── Recent votes / actions ────────────────────────────────────────────────────
+// Source: Town of Ithaca Board resolutions and GND annual report (Apr 27, 2026)
 export const recentVotes = [
   {
     id: "v1",
     title: "Net-Zero Energy Code for New Construction",
-    description: "Town Board adopted net-zero appendices to the Ithaca Energy Code Supplement (IECS), requiring all new commercial and residential construction to achieve net-zero emissions. One of the strongest local building codes in NYS.",
+    description:
+      "Town Board adopted net-zero appendices to the Ithaca Energy Code Supplement (IECS), requiring all new commercial and residential construction to achieve net-zero emissions.",
     date: "2025",
     result: "PASSED",
     aligned: true,
-    votes: [
-      { name: "Town Board (unanimous)", yes: true },
-    ],
+    votes: [{ name: "Town Board (unanimous)", yes: true }],
   },
   {
     id: "v2",
     title: "Deconstruction Resolution — Waste Reduction",
-    description: "Town Board passed a non-binding resolution supporting deconstruction (careful disassembly of buildings for material reuse) rather than demolition. Next step: apply for technical assistance through CROWD program.",
+    description:
+      "Town Board passed a non-binding resolution supporting deconstruction (careful disassembly of buildings for material reuse) rather than demolition. Next step: apply for CROWD technical assistance.",
     date: "Mar 2026",
     result: "PASSED",
     aligned: true,
-    votes: [
-      { name: "Town Board", yes: true },
-    ],
+    votes: [{ name: "Town Board", yes: true }],
   },
   {
     id: "v3",
     title: "Community Choice Aggregation (CCA) Launch",
-    description: "Tompkins Green Energy Network (T-GEN) launched in Q1 2026 — a CCA + Own Your Power program giving Ithaca residents access to regionally sourced renewable electricity. Years in the making with City of Ithaca and Local Power.",
+    description:
+      "Tompkins Green Energy Network (T-GEN) launched in Q1 2026 — a CCA + Own Your Power program giving residents access to regionally sourced renewable electricity.",
     date: "Q1 2026",
     result: "LAUNCHED",
     aligned: true,
@@ -645,46 +288,87 @@ export const recentVotes = [
   {
     id: "v4",
     title: "Planning Board Appointment — Gideon Casper",
-    description: "Town Board voted to appoint Gideon Casper (429 Bostwick Rd) to the Planning Board, filling a vacancy from a resignation. Term runs through December 31, 2029.",
+    description:
+      "Town Board voted to appoint Gideon Casper (429 Bostwick Rd) to the Planning Board, filling a vacancy from a resignation. Term runs through December 31, 2029.",
     date: "Apr 27, 2026",
     result: "APPROVED",
     aligned: true,
-    votes: [
-      { name: "Town Board", yes: true },
-    ],
+    votes: [{ name: "Town Board", yes: true }],
   },
 ];
 
-// ─── Alerts ───────────────────────────────────────────────────────────────────
+// ─── Verified local officials ─────────────────────────────────────────────────
+// These are real people with real roles and real public contact info.
+// Used as the always-available layer; state + federal officials come from OpenStates API.
+// Sources: City of Ithaca official website, Tompkins County website (verified Apr 2026)
+export const localOfficials = [
+  {
+    id: "local-mayor",
+    name: "Laura Lewis",
+    role: "Mayor — City of Ithaca",
+    roleLabel: "Runs your city — signs or vetoes all legislation",
+    party: "Democratic",
+    phone: "(607) 274-6501",
+    email: "mayoroffice@cityofithaca.org",
+    url: "https://www.cityofithaca.org/mayor",
+    photoUrl: null,
+    level: "city",
+    initials: "LL",
+    color: "#E8513A",
+    office: "Mayor, City of Ithaca",
+    recentBills: [],
+  },
+  {
+    id: "local-county",
+    name: "Tompkins County Legislature",
+    role: "Tompkins County Legislature",
+    roleLabel: "Controls county budget, roads, health, and social services",
+    party: "",
+    phone: "(607) 274-5434",
+    email: "legislature@tompkins-co.org",
+    url: "https://www.tompkinscountyny.gov/legislature",
+    photoUrl: null,
+    level: "county",
+    initials: "TC",
+    color: "#F5C842",
+    office: "Tompkins County Legislature",
+    recentBills: [],
+  },
+];
+
+// ─── Live alerts ──────────────────────────────────────────────────────────────
+// Source: Town of Ithaca meeting notices and Agriculture Committee packet (2026)
 export const alerts = [
   {
     id: "a1",
     type: "red" as const,
     title: "Town Board Study Session — today at 4:30pm",
-    description: "Green New Deal annual report by Hilary Swartwood, Fire Dept update · 215 N Tioga St or Zoom 989 1095 8241",
+    description:
+      "Green New Deal annual report by Hilary Swartwood, Fire Dept update · 215 N Tioga St or Zoom 989 1095 8241",
     action: "Join Zoom",
   },
   {
     id: "a2",
     type: "amber" as const,
     title: "3 board seats open — apply to serve",
-    description: "Planning Board, Zoning Board of Appeals, and Conservation Board have vacancies. Small stipend for PB and ZBA.",
+    description:
+      "Planning Board, Zoning Board of Appeals, and Conservation Board have vacancies. Small stipend for PB and ZBA.",
     action: "Apply now",
   },
   {
     id: "a3",
     type: "green" as const,
     title: "Regenerate NY grant — deadline Aug 27",
-    description: "DEC Forestry cost-share grant for private landowners: tree planting, invasive removal, reforestation. Free money for your property.",
+    description:
+      "DEC Forestry cost-share grant for private landowners: tree planting, invasive removal, reforestation.",
     action: "Learn more",
   },
   {
     id: "a4",
     type: "blue" as const,
     title: "Conservation Board is looking for you",
-    description: "Passion for conservation, recreation, or the environment? First Thursday of each month @ 4pm. All meetings open to the public.",
+    description:
+      "Passion for conservation or the environment? First Thursday @ 4pm. All meetings open to the public.",
     action: "Come to a meeting",
   },
 ];
-
-export const highlightVolunteer = communityResources[1]; // Foodnet

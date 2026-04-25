@@ -4,13 +4,9 @@ import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence, useInView } from "framer-motion";
 import dynamic from "next/dynamic";
 import {
-  representatives,
-  budgetData,
-  communityResources,
   NEIGHBORHOOD,
-  equityComparison,
   BOARD_VACANCIES,
-  MEETINGS_2026,
+  localOfficials,
 } from "@/lib/mockData";
 
 // ─── Live-data types ──────────────────────────────────────────────────────────
@@ -60,7 +56,6 @@ const C = {
   sageLight: "#EDFAF4",
 } as const;
 
-const REP_COLORS = [C.coral, C.yellow, C.sky, C.sage];
 
 const u = (id: string, w = 800) =>
   `https://images.unsplash.com/photo-${id}?w=${w}&auto=format&fit=crop&q=80`;
@@ -305,11 +300,6 @@ const URGENT_CARDS = [
     title: "Foodnet needs food sorters and drivers — flexible hours", cta: "Sign up →" },
 ];
 
-const VOL_TILES = [
-  { label: "Foodnet",           shifts: "2 shifts open this weekend", photo: IMGS.foodbank, color: C.sage, catKey: "Food" },
-  { label: "Tompkins SPCA",     shifts: "Foster families urgently needed", photo: IMGS.animals, color: C.sky, catKey: "Animal" },
-];
-
 const PULSE_ITEMS = [
   { id: "p1", icon: "⚡", text: "Tompkins Green Energy Network launched — Ithaca now has community clean energy", time: "Q1 2026",  color: C.sage },
   { id: "p2", icon: "🗳",  text: "Gideon Casper appointed to Planning Board — term through Dec 2029",              time: "Today",   color: C.coral },
@@ -320,92 +310,94 @@ const PULSE_ITEMS = [
 
 const ANON_COLORS = [C.coral, C.yellow, C.sage, C.sky, C.navy, "#9B59B6", "#E67E22"];
 
-function roleLabel(jType: string) {
-  if (jType === "City Council")   return "Decides what gets built near you";
-  if (jType === "State Assembly") return "Controls state housing laws";
-  if (jType === "U.S. Senate")    return "Controls federal funding";
-  return "Runs your kids' schools";
-}
-
 // ─── Main component ────────────────────────────────────────────────────────────
 export default function Home() {
-  const [address,      setAddress]      = useState("");
-  const [searching,    setSearching]    = useState(false);
-  const [searched,     setSearched]     = useState(false);
-  const [activeNav,    setActiveNav]    = useState<"home"|"map"|"people"|"money"|"help">("home");
-  const [openRepId,    setOpenRepId]    = useState<string | null>(null);
-  const [openVolId,    setOpenVolId]    = useState<string | null>(null);
-  const [rent,         setRent]         = useState(2500);
-  const [liked,        setLiked]        = useState<Record<string, boolean>>({});
+  const [address,        setAddress]        = useState("");
+  const [searching,      setSearching]      = useState(false);
+  const [searched,       setSearched]       = useState(false);
+  const [initLoading,    setInitLoading]    = useState(true);
+  const [activeNav,      setActiveNav]      = useState<"home"|"map"|"people"|"money"|"help">("home");
+  const [rent,           setRent]           = useState(2500);
+  const [liked,          setLiked]          = useState<Record<string, boolean>>({});
 
   // Live API data
-  const [liveReps,          setLiveReps]          = useState<LiveRep[]>([]);
-  const [openLiveRepId,     setOpenLiveRepId]      = useState<string | null>(null);
-  const [livePlaces,        setLivePlaces]         = useState<LivePlace[]>([]);
-  const [openLivePlaceId,   setOpenLivePlaceId]    = useState<string | null>(null);
-  const [liveError,         setLiveError]          = useState<string | null>(null);
-  const [searchedAddress,   setSearchedAddress]    = useState<string>("");
+  const [liveReps,         setLiveReps]         = useState<LiveRep[]>([]);
+  const [openLiveRepId,    setOpenLiveRepId]     = useState<string | null>(null);
+  const [livePlaces,       setLivePlaces]        = useState<LivePlace[]>([]);
+  const [openLivePlaceId,  setOpenLivePlaceId]   = useState<string | null>(null);
+  const [searchedAddress,  setSearchedAddress]   = useState<string>("");
 
   const budgetRef       = useRef<HTMLElement>(null);
   const budgetTriggered = useInView(budgetRef, { once: true, amount: 0.2 });
 
-  const openRep     = representatives.find((r) => r.id === openRepId) ?? null;
-  const openVol     = communityResources.find((r) => r.id === openVolId) ?? null;
-  const openLiveRep = liveReps.find((r) => r.id === openLiveRepId) ?? null;
+  const openLiveRep   = liveReps.find((r) => r.id === openLiveRepId) ?? null;
   const openLivePlace = livePlaces.find((p) => p.id === openLivePlaceId) ?? null;
 
+  // ── Shared fetch logic ───────────────────────────────────────────────────────
+  const fetchForAddress = async (addr: string, lat: number, lng: number) => {
+    // Start with verified local officials so the section is never blank
+    const merged: LiveRep[] = [...localOfficials];
+
+    const [legRes, civicRes, placesRes] = await Promise.allSettled([
+      fetch(`/api/legislators?lat=${lat}&lng=${lng}`),      // OpenStates — always works
+      fetch(`/api/civic?address=${encodeURIComponent(addr)}`), // Google Civic — optional
+      fetch(`/api/places?lat=${lat}&lng=${lng}`),
+    ]);
+
+    // OpenStates state + federal legislators (primary source for non-local reps)
+    if (legRes.status === "fulfilled" && legRes.value.ok) {
+      const legData = await legRes.value.json();
+      const legOfficials: LiveRep[] = legData.officials ?? [];
+      merged.push(...legOfficials);
+    }
+
+    // Google Civic — enriches if the API is enabled; silently skipped if not
+    if (civicRes.status === "fulfilled" && civicRes.value.ok) {
+      const civicData = await civicRes.value.json();
+      const civicOfficials: LiveRep[] = civicData.officials ?? [];
+      // Add any officials not already present (avoid duplicates by name)
+      const existingNames = new Set(merged.map((r) => r.name.toLowerCase()));
+      civicOfficials.forEach((o) => {
+        if (!existingNames.has(o.name.toLowerCase())) merged.push(o);
+      });
+    }
+
+    setLiveReps(merged);
+
+    if (placesRes.status === "fulfilled" && placesRes.value.ok) {
+      const placesData = await placesRes.value.json();
+      setLivePlaces(placesData.places ?? []);
+    }
+  };
+
+  // ── Auto-fetch for Ithaca on mount ───────────────────────────────────────────
+  useEffect(() => {
+    const [lng, lat] = NEIGHBORHOOD.center;
+    fetchForAddress(NEIGHBORHOOD.address, lat, lng)
+      .catch(console.error)
+      .finally(() => setInitLoading(false));
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  // ── Address search ───────────────────────────────────────────────────────────
   const handleSearch = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!address.trim()) return;
     setSearching(true);
-    setLiveError(null);
 
     try {
-      // 1. Geocode with Mapbox
-      const token = process.env.NEXT_PUBLIC_MAPBOX_TOKEN;
-      const geoUrl = `https://api.mapbox.com/geocoding/v5/mapbox.places/${encodeURIComponent(address)}.json?access_token=${token}&limit=1&country=us`;
-      const geoRes  = await fetch(geoUrl);
-      const geoData = geoRes.ok ? await geoRes.json() : null;
-      const [lng, lat] = geoData?.features?.[0]?.center ?? [-76.4969, 42.4440];
+      const token  = process.env.NEXT_PUBLIC_MAPBOX_TOKEN;
+      const geoRes = await fetch(
+        `https://api.mapbox.com/geocoding/v5/mapbox.places/${encodeURIComponent(address)}.json` +
+        `?access_token=${token}&limit=1&country=us`
+      );
+      const geoData   = geoRes.ok ? await geoRes.json() : null;
+      const [lng, lat] = geoData?.features?.[0]?.center ?? NEIGHBORHOOD.center;
       const formatted  = geoData?.features?.[0]?.place_name ?? address;
       setSearchedAddress(formatted);
 
-      // 2. Parallel: Civic Info, OpenStates legislators, Google Places
-      const [civicRes, legRes, placesRes] = await Promise.allSettled([
-        fetch(`/api/civic?address=${encodeURIComponent(formatted)}`),
-        fetch(`/api/legislators?lat=${lat}&lng=${lng}`),
-        fetch(`/api/places?lat=${lat}&lng=${lng}`),
-      ]);
-
-      // Civic officials
-      if (civicRes.status === "fulfilled" && civicRes.value.ok) {
-        const civicData = await civicRes.value.json();
-        const civicOfficials: LiveRep[] = civicData.officials ?? [];
-
-        // Legislators — enrich state officials with real bill data
-        if (legRes.status === "fulfilled" && legRes.value.ok) {
-          const legData = await legRes.value.json();
-          const legislators: any[] = legData.legislators ?? [];
-          const billsByName: Record<string, any[]> = {};
-          legislators.forEach((l) => { billsByName[l.name] = l.recentBills; });
-
-          civicOfficials.forEach((rep) => {
-            if (rep.level === "state" && billsByName[rep.name]) {
-              rep.recentBills = billsByName[rep.name];
-            }
-          });
-        }
-
-        setLiveReps(civicOfficials);
-      }
-
-      // Places
-      if (placesRes.status === "fulfilled" && placesRes.value.ok) {
-        const placesData = await placesRes.value.json();
-        setLivePlaces(placesData.places ?? []);
-      }
-    } catch (err: any) {
-      setLiveError("Couldn't load live data — showing Ithaca defaults.");
+      await fetchForAddress(formatted, lat, lng);
+    } catch (err) {
       console.error(err);
     }
 
@@ -419,8 +411,6 @@ export default function Home() {
   const roadTax   = Math.round(annual * 0.09);
   const parkTax   = Math.round(annual * 0.08);
 
-  // Suppress unused import warnings (used via BOARD_VACANCIES / MEETINGS_2026 downstream)
-  void budgetData; void equityComparison; void MEETINGS_2026;
 
   return (
     <div className="min-h-screen font-sans" style={{ backgroundColor: C.bg, paddingBottom: "90px" }}>
@@ -480,25 +470,11 @@ export default function Home() {
               ))}
             </div>
 
-            {searched && !liveError && liveReps.length > 0 && (
+            {searched && (
               <motion.div initial={{ opacity: 0, scale: 0.88 }} animate={{ opacity: 1, scale: 1 }}
                 className="mt-5 inline-flex items-center gap-2 px-5 py-3 rounded-full font-bold text-white"
                 style={{ backgroundColor: C.sage }}>
-                ✓ Found {liveReps.length} officials for {searchedAddress.split(",")[0]} — scroll down
-              </motion.div>
-            )}
-            {searched && liveError && (
-              <motion.div initial={{ opacity: 0, scale: 0.88 }} animate={{ opacity: 1, scale: 1 }}
-                className="mt-5 inline-flex items-center gap-2 px-5 py-3 rounded-full font-bold"
-                style={{ backgroundColor: "rgba(255,255,255,0.2)", color: "white" }}>
-                ✓ Showing Ithaca defaults — scroll to explore
-              </motion.div>
-            )}
-            {searched && !liveError && liveReps.length === 0 && !searching && (
-              <motion.div initial={{ opacity: 0, scale: 0.88 }} animate={{ opacity: 1, scale: 1 }}
-                className="mt-5 inline-flex items-center gap-2 px-5 py-3 rounded-full font-bold text-white"
-                style={{ backgroundColor: C.sage }}>
-                ✓ Got it — scroll to explore
+                ✓ {liveReps.length > 0 ? `Found ${liveReps.length} officials for ${searchedAddress.split(",")[0]}` : "Loading your officials…"} — scroll down
               </motion.div>
             )}
           </motion.div>
@@ -588,19 +564,22 @@ export default function Home() {
         </div>
 
         {/* Live indicator */}
-        {liveReps.length > 0 && (
-          <div className="px-6 mb-4 flex items-center gap-2">
-            <div className="pulse-dot w-2 h-2 rounded-full" style={{ backgroundColor: C.sage }} />
-            <span className="text-xs font-semibold" style={{ color: C.sage }}>
-              Live · {liveReps.length} officials for {searchedAddress.split(",")[0] || "your address"}
-            </span>
-          </div>
-        )}
+        <div className="px-6 mb-4 flex items-center gap-2">
+          <div className="pulse-dot w-2 h-2 rounded-full" style={{ backgroundColor: C.sage }} />
+          <span className="text-xs font-semibold" style={{ color: C.sage }}>
+            {initLoading
+              ? "Loading your officials…"
+              : `Live · ${liveReps.length} officials for ${(searchedAddress || NEIGHBORHOOD.address).split(",")[0]}`}
+          </span>
+        </div>
 
         <div className="flex gap-4 overflow-x-auto no-scrollbar pl-6 pr-6 pb-3 mt-4">
-          {/* Show live reps if we have them, otherwise show mock reps */}
-          {liveReps.length > 0
-            ? liveReps.map((rep, i) => {
+          {initLoading
+            ? [0, 1, 2, 3].map((i) => (
+                <div key={i} className="flex-shrink-0 rounded-[24px] animate-pulse bg-gray-100"
+                  style={{ width: 240, height: 300 }} />
+              ))
+            : liveReps.map((rep, i) => {
                 const color = rep.color;
                 const PARTY_COLORS: Record<string, string> = { Democratic: C.sky, Republican: C.coral, Independent: C.sage };
                 const partyColor = PARTY_COLORS[rep.party] ?? "#9B59B6";
@@ -643,48 +622,6 @@ export default function Home() {
                         <button className="mt-4 w-full py-3 rounded-full text-sm font-bold text-white hover:opacity-90"
                           style={{ backgroundColor: color }}>
                           See details →
-                        </button>
-                      </div>
-                    </div>
-                  </motion.div>
-                );
-              })
-            : representatives.map((rep, i) => {
-                const color = REP_COLORS[i % REP_COLORS.length];
-                return (
-                  <motion.div key={rep.id}
-                    initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, margin: "-40px" }}
-                    transition={{ delay: i * 0.1, type: "spring", stiffness: 240, damping: 22 }}
-                    whileHover={{ y: -6, transition: { duration: 0.18 } }}
-                    onClick={() => setOpenRepId(rep.id)}
-                    className="flex-shrink-0 cursor-pointer" style={{ width: "240px" }}>
-                    <div className="rounded-[24px] overflow-hidden"
-                      style={{ backgroundColor: "white", boxShadow: "0 4px 24px rgba(0,0,0,0.09)" }}>
-                      {rep.donorAlert && (
-                        <div className="px-3 py-1.5 text-[11px] font-bold flex items-center gap-1"
-                          style={{ backgroundColor: "#FEF3F2", color: "#B91C1C" }}>
-                          ⚠ {rep.donorAlert}
-                        </div>
-                      )}
-                      <div className="flex items-center justify-center" style={{ backgroundColor: color, height: "130px" }}>
-                        <RepAvatar color={color} initials={rep.initials} size={84} />
-                      </div>
-                      <div className="p-5">
-                        <div className="text-base font-extrabold leading-tight" style={{ color: C.navy }}>{rep.name}</div>
-                        <div className="text-xs mt-1 font-medium" style={{ color: "#6B7280" }}>{roleLabel(rep.jurisdictionType)}</div>
-                        <div className="flex gap-2 mt-4">
-                          {rep.votes.slice(0, 3).map((v, vi) => (
-                            <motion.div key={vi}
-                              initial={{ scale: 0 }} whileInView={{ scale: 1 }} viewport={{ once: true }}
-                              transition={{ delay: i * 0.1 + vi * 0.07, type: "spring", stiffness: 400 }}
-                              className="w-5 h-5 rounded-full" title={v.label}
-                              style={{ backgroundColor: v.aligned ? C.sage : C.coral }} />
-                          ))}
-                        </div>
-                        <button className="mt-4 w-full py-3 rounded-full text-sm font-bold text-white hover:opacity-90"
-                          style={{ backgroundColor: color }}>
-                          See record →
                         </button>
                       </div>
                     </div>
@@ -786,20 +723,21 @@ export default function Home() {
         </div>
 
         {/* Live places indicator */}
-        {livePlaces.length > 0 && (
-          <div className="px-6 mb-2 flex items-center gap-2">
-            <div className="pulse-dot w-2 h-2 rounded-full" style={{ backgroundColor: C.sage }} />
-            <span className="text-xs font-semibold" style={{ color: C.sage }}>
-              Live · {livePlaces.length} real places near you
-            </span>
-          </div>
-        )}
+        <div className="px-6 mb-2 flex items-center gap-2">
+          <div className="pulse-dot w-2 h-2 rounded-full" style={{ backgroundColor: C.sage }} />
+          <span className="text-xs font-semibold" style={{ color: C.sage }}>
+            {initLoading ? "Loading nearby places…" : `Live · ${livePlaces.length} places near ${(searchedAddress || NEIGHBORHOOD.city).split(",")[0]}`}
+          </span>
+        </div>
 
         <div className="px-6 grid grid-cols-2 gap-4">
-          {livePlaces.length > 0
-            ? livePlaces.slice(0, 6).map((place, i) => {
+          {initLoading
+            ? [0, 1, 2, 3].map((i) => (
+                <div key={i} className="rounded-[20px] animate-pulse bg-gray-100" style={{ height: 180 }} />
+              ))
+            : livePlaces.slice(0, 6).map((place, i) => {
                 const colors = [C.sage, C.sky, C.coral, C.yellow, "#9B59B6", "#E67E22"];
-                const color = colors[i % colors.length];
+                const color  = colors[i % colors.length];
                 return (
                   <motion.div key={place.id}
                     initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }}
@@ -807,44 +745,21 @@ export default function Home() {
                     transition={{ delay: i * 0.08, type: "spring", stiffness: 200, damping: 22 }}
                     whileHover={{ scale: 1.04, transition: { duration: 0.15 } }}
                     onClick={() => setOpenLivePlaceId(place.id)}
-                    className="relative rounded-[20px] overflow-hidden cursor-pointer flex flex-col justify-between"
-                    style={{ height: "180px", backgroundColor: color + "18", border: `2px solid ${color}28` }}>
+                    className="rounded-[20px] cursor-pointer flex flex-col justify-between"
+                    style={{ height: 180, backgroundColor: color + "18", border: `2px solid ${color}28` }}>
                     <div className="p-4 flex-1 flex flex-col justify-between">
                       <div>
                         <div className="text-3xl mb-2">{place.icon}</div>
                         <div className="text-sm font-extrabold leading-snug" style={{ color: C.navy }}>{place.name}</div>
                       </div>
                       <div>
-                        <div className="text-xs font-semibold mt-1" style={{ color }}>
-                          {place.category}
-                        </div>
+                        <div className="text-xs font-semibold mt-1" style={{ color }}>{place.category}</div>
                         <div className="text-xs mt-0.5" style={{ color: "#9CA3AF" }}>
                           {place.distanceMi} away
-                          {place.isOpen === true && " · Open now"}
+                          {place.isOpen === true  && " · Open now"}
                           {place.isOpen === false && " · Closed"}
                         </div>
                       </div>
-                    </div>
-                  </motion.div>
-                );
-              })
-            : VOL_TILES.map((tile, i) => {
-                const res = communityResources.find((r) => r.category.toLowerCase().includes(tile.catKey.toLowerCase()));
-                return (
-                  <motion.div key={tile.label}
-                    initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: i * 0.1, type: "spring", stiffness: 200, damping: 22 }}
-                    whileHover={{ scale: 1.04, transition: { duration: 0.15 } }}
-                    onClick={() => res && setOpenVolId(res.id)}
-                    className="relative rounded-[20px] overflow-hidden cursor-pointer"
-                    style={{ height: "180px" }}>
-                    <img src={tile.photo} alt="" className="absolute inset-0 w-full h-full object-cover" />
-                    <div className="absolute inset-0"
-                      style={{ background: `linear-gradient(to top,${tile.color}CC 0%,${tile.color}66 55%,${tile.color}22 100%)` }} />
-                    <div className="relative z-10 p-4 h-full flex flex-col justify-end">
-                      <div className="text-base font-extrabold text-white">{tile.label}</div>
-                      <div className="text-xs mt-0.5" style={{ color: "rgba(255,255,255,0.82)" }}>{tile.shifts}</div>
                     </div>
                   </motion.div>
                 );
@@ -973,170 +888,6 @@ export default function Home() {
           ))}
         </div>
       </section>
-
-      {/* ══ REP BOTTOM SHEET ═════════════════════════════════════════════ */}
-      <AnimatePresence>
-        {openRepId && openRep && (
-          <>
-            <motion.div key="rep-bg" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
-              onClick={() => setOpenRepId(null)} className="fixed inset-0 z-40"
-              style={{ backgroundColor: "rgba(0,0,0,0.48)" }} />
-            <motion.div key="rep-sheet"
-              initial={{ y: "100%" }} animate={{ y: 0 }} exit={{ y: "100%" }}
-              transition={{ type: "spring", damping: 32, stiffness: 320 }}
-              className="fixed bottom-0 left-0 right-0 z-50 overflow-y-auto rounded-t-[32px]"
-              style={{ backgroundColor: C.bg, maxHeight: "90vh", paddingBottom: "env(safe-area-inset-bottom,24px)" }}>
-              <div className="flex justify-center pt-3 pb-2">
-                <div className="w-10 h-1 rounded-full bg-gray-200" />
-              </div>
-              <div className="px-6 pb-4">
-                <div className="flex items-start gap-4">
-                  <RepAvatar
-                    color={REP_COLORS[representatives.findIndex((r) => r.id === openRepId) % REP_COLORS.length]}
-                    initials={openRep.initials} size={68} />
-                  <div className="flex-1">
-                    <h3 className="text-xl font-extrabold" style={{ color: C.navy }}>{openRep.name}</h3>
-                    <p className="text-sm" style={{ color: "#6B7280" }}>{openRep.role}</p>
-                    <div className="flex flex-wrap gap-2 mt-2">
-                      <span className="px-3 py-1 rounded-full text-xs font-bold"
-                        style={{ backgroundColor: C.sageLight, color: "#2E7D52" }}>
-                        {openRep.attendance}% attendance
-                      </span>
-                      {openRep.donorAlert && (
-                        <span className="px-3 py-1 rounded-full text-xs font-bold"
-                          style={{ backgroundColor: "#FEF3F2", color: "#B91C1C" }}>
-                          ⚠ {openRep.donorAlert}
-                        </span>
-                      )}
-                    </div>
-                  </div>
-                  <button onClick={() => setOpenRepId(null)}
-                    className="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0"
-                    style={{ backgroundColor: "#F3F4F6" }} aria-label="Close">
-                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                      <path d="M1 1l12 12M13 1L1 13" stroke="#6B7280" strokeWidth="2" strokeLinecap="round" />
-                    </svg>
-                  </button>
-                </div>
-              </div>
-              <div style={{ height: 1, backgroundColor: "#F3F4F6" }} />
-              <div className="px-6 py-5">
-                <h4 className="text-base font-extrabold mb-4" style={{ color: C.navy }}>Voting history</h4>
-                <div className="space-y-4">
-                  {openRep.fullVotes.map((v, i) => (
-                    <div key={i} className="flex items-start gap-3">
-                      <div className="w-3 h-3 rounded-full flex-shrink-0 mt-1"
-                        style={{ backgroundColor: v.aligned ? C.sage : C.coral }} />
-                      <div>
-                        <p className="text-sm font-semibold" style={{ color: C.navy }}>{v.description}</p>
-                        <p className="text-xs mt-0.5" style={{ color: "#9CA3AF" }}>{v.date}</p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-              <div style={{ height: 1, backgroundColor: "#F3F4F6" }} />
-              <div className="px-6 py-5">
-                <h4 className="text-base font-extrabold mb-4" style={{ color: C.navy }}>Who funds their campaigns</h4>
-                <div className="space-y-3">
-                  {openRep.topDonors.map((d, i) => {
-                    const pct = (d.amount / Math.max(...openRep.topDonors.map((x) => x.amount))) * 100;
-                    return (
-                      <div key={i}>
-                        <div className="flex justify-between text-xs mb-1">
-                          <span className="font-medium" style={{ color: "#374151" }}>{d.name}</span>
-                          <span className="font-bold" style={{ color: C.navy }}>${d.amount.toLocaleString()}</span>
-                        </div>
-                        <div className="h-2 rounded-full" style={{ backgroundColor: "#F3F4F6" }}>
-                          <motion.div className="h-full rounded-full" initial={{ width: 0 }}
-                            animate={{ width: `${pct}%` }}
-                            transition={{ duration: 0.65, delay: i * 0.1 }}
-                            style={{ backgroundColor: C.coral }} />
-                        </div>
-                      </div>
-                    );
-                  })}
-                </div>
-              </div>
-              <div className="px-6 pb-8 pt-2">
-                <a href={`mailto:${openRep.email}`}
-                  className="block w-full py-4 rounded-full font-bold text-white text-center hover:opacity-90"
-                  style={{ backgroundColor: C.coral }}>
-                  📧 Contact them
-                </a>
-              </div>
-            </motion.div>
-          </>
-        )}
-      </AnimatePresence>
-
-      {/* ══ VOLUNTEER BOTTOM SHEET ═══════════════════════════════════════ */}
-      <AnimatePresence>
-        {openVolId && openVol && (
-          <>
-            <motion.div key="vol-bg" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
-              onClick={() => setOpenVolId(null)} className="fixed inset-0 z-40"
-              style={{ backgroundColor: "rgba(0,0,0,0.48)" }} />
-            <motion.div key="vol-sheet"
-              initial={{ y: "100%" }} animate={{ y: 0 }} exit={{ y: "100%" }}
-              transition={{ type: "spring", damping: 32, stiffness: 320 }}
-              className="fixed bottom-0 left-0 right-0 z-50 overflow-y-auto rounded-t-[32px]"
-              style={{ backgroundColor: C.bg, maxHeight: "80vh", paddingBottom: "env(safe-area-inset-bottom,24px)" }}>
-              <div className="flex justify-center pt-3 pb-2">
-                <div className="w-10 h-1 rounded-full bg-gray-200" />
-              </div>
-              <div className="px-6 py-3">
-                <div className="flex items-start justify-between gap-3 mb-4">
-                  <div>
-                    <span className="inline-block px-3 py-1 rounded-full text-xs font-bold mb-2"
-                      style={{ backgroundColor: openVol.hours.isOpen ? C.sageLight : "#FEF3F2",
-                               color: openVol.hours.isOpen ? "#2E7D52" : "#B91C1C" }}>
-                      {openVol.hours.isOpen ? "Open now" : "Closed"} · {openVol.hours.today}
-                    </span>
-                    <h3 className="text-xl font-extrabold" style={{ color: C.navy }}>{openVol.name}</h3>
-                    <p className="text-sm mt-1" style={{ color: "#6B7280" }}>
-                      {openVol.address} · {openVol.distance}
-                    </p>
-                  </div>
-                  <button onClick={() => setOpenVolId(null)}
-                    className="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0"
-                    style={{ backgroundColor: "#F3F4F6" }} aria-label="Close">
-                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                      <path d="M1 1l12 12M13 1L1 13" stroke="#6B7280" strokeWidth="2" strokeLinecap="round" />
-                    </svg>
-                  </button>
-                </div>
-                <p className="text-sm leading-relaxed p-4 rounded-[16px] mb-4"
-                  style={{ backgroundColor: "#F9FAFB", color: "#374151" }}>
-                  {openVol.volunteerDesc}
-                </p>
-                <div className="grid grid-cols-2 gap-3 mb-5">
-                  <div className="p-3 rounded-[12px]" style={{ backgroundColor: C.sageLight }}>
-                    <div className="text-[11px] font-bold mb-0.5" style={{ color: "#2E7D52" }}>Time needed</div>
-                    <div className="text-sm font-semibold" style={{ color: C.navy }}>{openVol.timeCommitment}</div>
-                  </div>
-                  <div className="p-3 rounded-[12px]" style={{ backgroundColor: "#FFF8F6" }}>
-                    <div className="text-[11px] font-bold mb-0.5" style={{ color: "#6B7280" }}>Training</div>
-                    <div className="text-sm font-semibold" style={{ color: C.navy }}>
-                      {openVol.trainingRequired ? "Required (provided)" : "Not required"}
-                    </div>
-                  </div>
-                </div>
-                <a href={openVol.signupUrl}
-                  className="block mb-3 w-full py-4 rounded-full font-bold text-white text-center hover:opacity-90"
-                  style={{ backgroundColor: C.sage }}>
-                  Sign up to volunteer →
-                </a>
-                <a href={`tel:${openVol.phone}`}
-                  className="block w-full py-3 rounded-full font-semibold text-center"
-                  style={{ backgroundColor: "#F3F4F6", color: C.navy }}>
-                  {openVol.phone}
-                </a>
-              </div>
-            </motion.div>
-          </>
-        )}
-      </AnimatePresence>
 
       {/* ══ LIVE REP BOTTOM SHEET ════════════════════════════════════════ */}
       <AnimatePresence>
