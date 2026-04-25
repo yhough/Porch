@@ -1,7 +1,8 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useCallback } from "react";
 import { motion, AnimatePresence, useInView } from "framer-motion";
+import { signOut, useSession } from "next-auth/react";
 import dynamic from "next/dynamic";
 import {
   NEIGHBORHOOD,
@@ -41,6 +42,21 @@ interface LivePlace {
   lat: number;
   lng: number;
   distanceMi: string;
+}
+
+/** Row from USASpending `spending_by_award` (field keys match API). */
+interface FederalAwardRow {
+  internal_id?: number;
+  "Award ID"?: string;
+  "Recipient Name"?: string;
+  "Award Amount"?: number;
+  "Awarding Agency"?: string;
+  "Awarding Sub Agency"?: string;
+  "Start Date"?: string;
+  "End Date"?: string;
+  Description?: string;
+  "Award Type"?: string;
+  generated_internal_id?: string;
 }
 
 const WardMap = dynamic(() => import("@/components/WardMap"), { ssr: false });
@@ -113,6 +129,53 @@ function AnimatedStat({
       </div>
       <div className="text-xs font-bold mt-1 leading-tight" style={{ color: C.navy + "99" }}>{label}</div>
     </motion.div>
+  );
+}
+
+function FederalAwardCardInner({
+  stripe,
+  amount,
+  recipient,
+  agency,
+  subAgency,
+  desc,
+  awardType,
+}: {
+  stripe: string;
+  amount?: number;
+  recipient: string;
+  agency: string;
+  subAgency?: string;
+  desc?: string;
+  awardType?: string;
+}) {
+  return (
+    <div className="flex gap-3 items-start">
+      <div className="w-1 rounded-full flex-shrink-0 self-stretch min-h-[48px]" style={{ backgroundColor: stripe }} />
+      <div className="flex-1 min-w-0">
+        <div className="flex flex-wrap items-baseline justify-between gap-2">
+          <span className="text-lg font-extrabold leading-tight" style={{ color: C.navy }}>{recipient}</span>
+          {typeof amount === "number" && (
+            <span className="text-base font-black tabular-nums flex-shrink-0" style={{ color: C.sage }}>
+              ${amount.toLocaleString(undefined, { maximumFractionDigits: 0 })}
+            </span>
+          )}
+        </div>
+        <p className="text-xs font-bold mt-1" style={{ color: "#6B7280" }}>
+          {agency}
+          {subAgency && subAgency !== agency ? ` · ${subAgency}` : ""}
+        </p>
+        {awardType && (
+          <span className="inline-block mt-2 text-[10px] font-bold px-2 py-0.5 rounded-full"
+            style={{ backgroundColor: stripe + "22", color: C.navy }}>
+            {awardType}
+          </span>
+        )}
+        {desc && (
+          <p className="text-xs font-medium mt-2 leading-snug line-clamp-3" style={{ color: "#4B5563" }}>{desc}</p>
+        )}
+      </div>
+    </div>
   );
 }
 
@@ -323,6 +386,24 @@ const PULSE_ITEMS = [
 
 const ANON_COLORS = [C.coral, C.yellow, C.sage, C.sky, C.navy, "#9B59B6", "#E67E22"];
 
+// ─── Sign-out button ──────────────────────────────────────────────────────────
+function SignOutButton() {
+  const { data: session } = useSession();
+  if (!session) return null;
+  return (
+    <button
+      onClick={() => signOut({ callbackUrl: "/signin" })}
+      className="absolute top-4 right-4 z-20 flex items-center gap-2 px-4 py-2 rounded-full text-xs font-bold backdrop-blur-sm transition-opacity hover:opacity-80"
+      style={{ backgroundColor: "rgba(255,255,255,0.18)", color: "white", border: "1px solid rgba(255,255,255,0.3)" }}
+    >
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+        <path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4M16 17l5-5-5-5M21 12H9" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+      </svg>
+      Sign out
+    </button>
+  );
+}
+
 // ─── Main component ────────────────────────────────────────────────────────────
 export default function Home() {
   const [address,        setAddress]        = useState("");
@@ -342,6 +423,37 @@ export default function Home() {
 
   const budgetRef       = useRef<HTMLElement>(null);
   const budgetTriggered = useInView(budgetRef, { once: true, amount: 0.2 });
+
+  const federalBlockRef = useRef<HTMLDivElement>(null);
+  const federalVisible  = useInView(federalBlockRef, { once: true, amount: 0.12 });
+  const federalAutoStarted = useRef(false);
+  const [federalRows,    setFederalRows]    = useState<FederalAwardRow[]>([]);
+  const [federalLoading, setFederalLoading] = useState(false);
+  const [federalError,   setFederalError]   = useState<string | null>(null);
+
+  const loadFederalSpending = useCallback(async () => {
+    setFederalLoading(true);
+    setFederalError(null);
+    try {
+      const res = await fetch("/api/federal-spending");
+      const data = await res.json();
+      if (!res.ok) {
+        const msg = typeof data.error === "string" ? data.error : "Could not load federal spending";
+        throw new Error(msg);
+      }
+      setFederalRows(Array.isArray(data.results) ? data.results : []);
+    } catch (e) {
+      setFederalError(e instanceof Error ? e.message : "Something went wrong");
+    } finally {
+      setFederalLoading(false);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (!federalVisible || federalAutoStarted.current) return;
+    federalAutoStarted.current = true;
+    loadFederalSpending();
+  }, [federalVisible, loadFederalSpending]);
 
   const openLiveRep   = liveReps.find((r) => r.id === openLiveRepId) ?? null;
   const openLivePlace = livePlaces.find((p) => p.id === openLivePlaceId) ?? null;
@@ -415,6 +527,7 @@ export default function Home() {
 
       {/* ══ SECTION 1: HERO ══════════════════════════════════════════════ */}
       <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
+        <SignOutButton />
         <div className="absolute inset-0">
           <img src={IMGS.hero} alt="" className="w-full h-full object-cover" />
           <div className="absolute inset-0"
@@ -657,6 +770,111 @@ export default function Home() {
           <AnimatedStat value={862}  prefix="$" label="Public Works / resident"   color={C.sky}     delay={0.2} />
           <AnimatedStat value={383}  prefix="$" label="Community Dev / resident"  color="#9B59B6"   delay={0.3} />
         </div>
+
+        {/* Federal spending (USASpending.gov) */}
+        <motion.div
+          ref={federalBlockRef}
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.1 }}
+          transition={{ duration: 0.45 }}
+          className="rounded-[28px] p-6 max-w-xl mx-auto mb-10"
+          style={{ backgroundColor: "white", boxShadow: "0 4px 20px rgba(0,0,0,0.07)" }}
+        >
+          <div className="flex items-start justify-between gap-3 mb-1">
+            <h3 className="text-xl font-extrabold leading-tight" style={{ color: C.navy }}>
+              Federal money in Ithaca 🇺🇸
+            </h3>
+            <span className="text-[10px] font-bold uppercase tracking-wide px-2 py-1 rounded-full flex-shrink-0"
+              style={{ backgroundColor: C.sky + "22", color: C.navy }}>
+              Live data
+            </span>
+          </div>
+          <p className="text-sm font-medium mb-5" style={{ color: "#6B7280" }}>
+            Largest federal grants with work performed in Ithaca, NY (2019–2025). Source:{" "}
+            <a href="https://www.usaspending.gov" target="_blank" rel="noreferrer" className="underline font-bold" style={{ color: C.sky }}>
+              USAspending.gov
+            </a>
+            .
+          </p>
+
+          {federalLoading && (
+            <div className="space-y-3" aria-busy="true" aria-label="Loading federal spending">
+              {[0, 1, 2, 3].map((i) => (
+                <div key={i} className="rounded-[20px] h-[88px] animate-pulse" style={{ backgroundColor: "#F3F4F6" }} />
+              ))}
+            </div>
+          )}
+
+          {!federalLoading && federalError && (
+            <div className="rounded-[20px] p-5" style={{ backgroundColor: "#FEF2F2", border: `1px solid ${C.coral}44` }}>
+              <p className="text-sm font-bold mb-1" style={{ color: C.coral }}>Couldn&apos;t load federal data</p>
+              <p className="text-xs font-medium mb-4" style={{ color: "#7F1D1D" }}>{federalError}</p>
+              <button
+                type="button"
+                onClick={() => loadFederalSpending()}
+                className="px-5 py-2.5 rounded-full text-sm font-bold text-white transition-opacity hover:opacity-90"
+                style={{ backgroundColor: C.coral }}
+              >
+                Try again
+              </button>
+            </div>
+          )}
+
+          {!federalLoading && !federalError && federalRows.length === 0 && (
+            <p className="text-sm font-medium py-6 text-center" style={{ color: "#9CA3AF" }}>
+              No grant awards matched this search.
+            </p>
+          )}
+
+          {!federalLoading && !federalError && federalRows.length > 0 && (
+            <ul className="space-y-3 max-h-[min(520px,55vh)] overflow-y-auto pr-1 no-scrollbar">
+              {federalRows.map((row, idx) => {
+                const amount = row["Award Amount"];
+                const recipient = row["Recipient Name"] ?? "—";
+                const agency = row["Awarding Agency"] ?? "—";
+                const subAgency = row["Awarding Sub Agency"];
+                const desc = row.Description;
+                const awardType = row["Award Type"];
+                const awardUrl = row.generated_internal_id
+                  ? `https://www.usaspending.gov/award/${row.generated_internal_id}`
+                  : null;
+                const stripe = [C.coral, C.sage, C.sky, C.yellow, "#9B59B6"][idx % 5];
+                return (
+                  <li key={`${row.internal_id ?? row["Award ID"] ?? idx}`}>
+                    {awardUrl ? (
+                      <a href={awardUrl} target="_blank" rel="noreferrer"
+                        className="block rounded-[20px] p-4 text-left transition-transform hover:scale-[1.01] active:scale-[0.99]"
+                        style={{ backgroundColor: "#FAFAFA", border: `1px solid ${stripe}33`, boxShadow: "0 2px 12px rgba(0,0,0,0.04)" }}>
+                        <FederalAwardCardInner
+                          stripe={stripe}
+                          amount={amount}
+                          recipient={recipient}
+                          agency={agency}
+                          subAgency={subAgency}
+                          desc={desc}
+                          awardType={awardType}
+                        />
+                      </a>
+                    ) : (
+                      <div className="rounded-[20px] p-4" style={{ backgroundColor: "#FAFAFA", border: `1px solid ${stripe}33` }}>
+                        <FederalAwardCardInner
+                          stripe={stripe}
+                          amount={amount}
+                          recipient={recipient}
+                          agency={agency}
+                          subAgency={subAgency}
+                          desc={desc}
+                          awardType={awardType}
+                        />
+                      </div>
+                    )}
+                  </li>
+                );
+              })}
+            </ul>
+          )}
+        </motion.div>
 
         {/* Rent calculator */}
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
