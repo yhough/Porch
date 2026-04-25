@@ -1,42 +1,47 @@
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 
 const USASPENDING_URL =
   "https://api.usaspending.gov/api/v2/search/spending_by_award/";
 
-/** Grant-type awards only (single award_type_codes group per USASpending rules). */
 const GRANT_TYPE_CODES = ["02", "03", "04", "05", "F001"];
 
-const DEFAULT_BODY = {
-  filters: {
-    award_type_codes: GRANT_TYPE_CODES,
-    place_of_performance_locations: [
-      { country: "USA", state: "NY", city: "Ithaca" },
-    ],
-    time_period: [{ start_date: "2019-10-01", end_date: "2025-09-30" }],
-  },
-  fields: [
-    "Award ID",
-    "Recipient Name",
-    "Award Amount",
-    "Awarding Agency",
-    "Awarding Sub Agency",
-    "Start Date",
-    "End Date",
-    "Description",
-    "Award Type",
-  ],
-  page: 1,
-  limit: 12,
-  sort: "Award Amount",
-  order: "desc",
-} as const;
+export async function GET(req: NextRequest) {
+  const { searchParams } = new URL(req.url);
+  const city = searchParams.get("city") === "nyc" ? "nyc" : "ithaca";
 
-export async function GET() {
+  const cityFilter =
+    city === "nyc"
+      ? { country: "USA", state: "NY", city: "New York" }
+      : { country: "USA", state: "NY", city: "Ithaca" };
+
+  const body = {
+    filters: {
+      award_type_codes: GRANT_TYPE_CODES,
+      place_of_performance_locations: [cityFilter],
+      time_period: [{ start_date: "2019-10-01", end_date: "2025-09-30" }],
+    },
+    fields: [
+      "Award ID",
+      "Recipient Name",
+      "Award Amount",
+      "Awarding Agency",
+      "Awarding Sub Agency",
+      "Start Date",
+      "End Date",
+      "Description",
+      "Award Type",
+    ],
+    page: 1,
+    limit: 12,
+    sort: "Award Amount",
+    order: "desc",
+  };
+
   try {
     const res = await fetch(USASPENDING_URL, {
       method: "POST",
       headers: { "Content-Type": "application/json", Accept: "application/json" },
-      body: JSON.stringify(DEFAULT_BODY),
+      body: JSON.stringify(body),
       next: { revalidate: 3600 },
     });
 

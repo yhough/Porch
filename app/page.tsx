@@ -8,6 +8,7 @@ import {
   getTaxBreakdown, repIsAligned, placeMatchedIssues, cardRelevanceScore,
   inferRepIssues, type TaxBreakdown,
 } from "@/lib/personalization";
+import { detectCity, CITY_CONFIGS, type CityId } from "@/lib/cities";
 import dynamic from "next/dynamic";
 import {
   NEIGHBORHOOD,
@@ -116,8 +117,6 @@ interface CensusSnapshot {
 
 const WardMap = dynamic(() => import("@/components/WardMap"), { ssr: false });
 
-/** Bias autocomplete toward Tompkins / Ithaca (minLng, minLat, maxLng, maxLat). */
-const ITHACA_SEARCH_BBOX = `${NEIGHBORHOOD.center[0] - 0.12},${NEIGHBORHOOD.center[1] - 0.14},${NEIGHBORHOOD.center[0] + 0.12},${NEIGHBORHOOD.center[1] + 0.12}`;
 
 // ─── Color tokens ─────────────────────────────────────────────────────────────
 const C = {
@@ -416,16 +415,150 @@ const URGENT_CARDS = [
     url: "https://www.youtube.com/@CityofIthacaPublicMeetings" },
 ];
 
-const PULSE_ITEMS = [
-  { id: "p1", icon: "🏗", text: "309 College Ave: 8-story, 77-unit mixed-use building with ground-floor retail proposed — old fire station to be demolished", time: "Apr 28, 2026", color: C.sky },
-  { id: "p2", icon: "📜", text: "Charter Revision Commission proposes moving Ithaca elections to even years, establishing decennial redistricting, and giving Common Council budget levy authority", time: "Apr 16, 2026", color: "#9B59B6" },
-  { id: "p3", icon: "🏠", text: "IURA adopts 2026 HUD Action Plan — $1.17M for affordable housing, Ross House (10 units for homeless), and youth housing scholarships", time: "Apr 23, 2026", color: C.sage },
-  { id: "p4", icon: "⚖️", text: "City Council Code of Conduct adopted and Ethics Advisory Board holds inaugural meeting — reviewing disclosure statements", time: "Apr 22–27, 2026", color: C.yellow },
-  { id: "p5", icon: "🚧", text: "Seneca Street Parking Garage closed indefinitely — 1973 structure exceeded its lifespan, redevelopment planned", time: "Apr 10, 2026", color: C.coral },
-  { id: "p6", icon: "💰", text: "Ithaca awarded $10 million NYS Downtown Revitalization Initiative grant for MLK Jr. St corridor — new housing & public spaces", time: "Apr 2026", color: C.sage },
-  { id: "p7", icon: "🏘", text: "Citywide PUD (Planned Unit Development) public hearing held — major zoning rewrite and affordable housing alignment underway", time: "Apr 15, 2026", color: C.sky },
-  { id: "p8", icon: "⚡", text: "Tompkins Green Energy Network (T-GEN) launched — community clean energy now available for Ithaca residents", time: "Q1 2026", color: C.muted },
+type PulseCategoryId =
+  | "education"
+  | "environment"
+  | "housing"
+  | "governance"
+  | "infrastructure"
+  | "economy";
+
+interface PulseItem {
+  id: string;
+  category: PulseCategoryId;
+  /** Green card = positive civic trend; red = setback or risk. */
+  trend: "positive" | "negative";
+  icon: string;
+  text: string;
+  time: string;
+}
+
+const PULSE_CATEGORY_ORDER: PulseCategoryId[] = [
+  "education",
+  "environment",
+  "housing",
+  "governance",
+  "infrastructure",
+  "economy",
 ];
+
+const PULSE_CATEGORY_LABELS: Record<PulseCategoryId, string> = {
+  education: "Education",
+  environment: "Environment & climate",
+  housing: "Housing & neighborhoods",
+  governance: "Governance & democracy",
+  infrastructure: "Infrastructure & mobility",
+  economy: "Economy & funding",
+};
+
+const PULSE_TREND_STYLES = {
+  positive: {
+    bg: "#ECFDF5",
+    border: "#22C55E",
+    badgeBg: "#DCFCE7",
+    badgeText: "#166534",
+    badgeLabel: "Positive trend",
+  },
+  negative: {
+    bg: "#FEF2F2",
+    border: "#F87171",
+    badgeBg: "#FEE2E2",
+    badgeText: "#991B1B",
+    badgeLabel: "Negative trend",
+  },
+} as const;
+
+const PULSE_ITEMS: PulseItem[] = [
+  {
+    id: "p-ed1",
+    category: "education",
+    trend: "positive",
+    icon: "📚",
+    text: "Ithaca City School District and partners continue expanding literacy supports and after-school access heading into the 2026–27 cycle.",
+    time: "Spring 2026",
+  },
+  {
+    id: "p8",
+    category: "environment",
+    trend: "positive",
+    icon: "⚡",
+    text: "Tompkins Green Energy Network (T-GEN) launched — community clean energy now available for Ithaca residents.",
+    time: "Q1 2026",
+  },
+  {
+    id: "p1",
+    category: "housing",
+    trend: "positive",
+    icon: "🏗",
+    text: "309 College Ave: 8-story, 77-unit mixed-use with retail proposed — adds housing supply downtown (fire station site would be redeveloped).",
+    time: "Apr 28, 2026",
+  },
+  {
+    id: "p3",
+    category: "housing",
+    trend: "positive",
+    icon: "🏠",
+    text: "IURA adopts 2026 HUD Action Plan — $1.17M for affordable housing, Ross House (10 units for homeless), and youth housing scholarships.",
+    time: "Apr 23, 2026",
+  },
+  {
+    id: "p7",
+    category: "housing",
+    trend: "positive",
+    icon: "🏘",
+    text: "Citywide PUD (Planned Unit Development) hearing held — zoning rewrite aligned with affordable housing goals.",
+    time: "Apr 15, 2026",
+  },
+  {
+    id: "p2",
+    category: "governance",
+    trend: "positive",
+    icon: "📜",
+    text: "Charter Revision Commission proposes even-year elections, decennial redistricting, and stronger Common Council budget levy authority.",
+    time: "Apr 16, 2026",
+  },
+  {
+    id: "p4",
+    category: "governance",
+    trend: "positive",
+    icon: "⚖️",
+    text: "City Council Code of Conduct adopted; Ethics Advisory Board holds inaugural meeting and reviews disclosure statements.",
+    time: "Apr 22–27, 2026",
+  },
+  {
+    id: "p5",
+    category: "infrastructure",
+    trend: "negative",
+    icon: "🚧",
+    text: "Seneca Street Parking Garage closed indefinitely — 1973 structure exceeded its lifespan; downtown parking squeezed until alternatives scale up.",
+    time: "Apr 10, 2026",
+  },
+  {
+    id: "p6",
+    category: "economy",
+    trend: "positive",
+    icon: "💰",
+    text: "Ithaca awarded $10 million NYS Downtown Revitalization Initiative grant for the MLK Jr. St corridor — housing, business, and public space investment.",
+    time: "Apr 2026",
+  },
+];
+
+function groupPulseByCategory(items: PulseItem[]) {
+  const byCat = new Map<PulseCategoryId, PulseItem[]>();
+  for (const id of PULSE_CATEGORY_ORDER) byCat.set(id, []);
+  for (const item of items) {
+    byCat.get(item.category)!.push(item);
+  }
+  return PULSE_CATEGORY_ORDER
+    .filter((id) => (byCat.get(id) ?? []).length > 0)
+    .map((id) => ({
+      id,
+      label: PULSE_CATEGORY_LABELS[id],
+      items: byCat.get(id)!,
+    }));
+}
+
+const PULSE_SECTIONS = groupPulseByCategory(PULSE_ITEMS);
 
 const ANON_COLORS = [C.coral, C.yellow, C.sage, C.sky, C.navy, "#9B59B6", "#E67E22"];
 
@@ -971,6 +1104,10 @@ export default function Home() {
   const [openLivePlaceId,  setOpenLivePlaceId]   = useState<string | null>(null);
   const [searchedAddress,  setSearchedAddress]   = useState<string>("");
 
+  // Multi-city
+  const [detectedCity,     setDetectedCity]      = useState<CityId>("ithaca");
+  const [searchCoords,     setSearchCoords]      = useState<{ lat: number; lng: number } | null>(null);
+
   // Permit / civic-action flow
   const [nearbyPermit,     setNearbyPermit]      = useState<PermitData | null>(null);
   const [permitSheetOpen,  setPermitSheetOpen]   = useState(false);
@@ -980,16 +1117,16 @@ export default function Home() {
 
   const federalBlockRef = useRef<HTMLDivElement>(null);
   const federalVisible  = useInView(federalBlockRef, { once: true, amount: 0.12 });
-  const federalAutoStarted = useRef(false);
+  const lastFederalCity = useRef<CityId | null>(null);
   const [federalRows,    setFederalRows]    = useState<FederalAwardRow[]>([]);
   const [federalLoading, setFederalLoading] = useState(false);
   const [federalError,   setFederalError]   = useState<string | null>(null);
 
-  const loadFederalSpending = useCallback(async () => {
+  const loadFederalSpending = useCallback(async (city: CityId = "ithaca") => {
     setFederalLoading(true);
     setFederalError(null);
     try {
-      const res = await fetch("/api/federal-spending");
+      const res = await fetch(`/api/federal-spending?city=${city}`);
       const data = await res.json();
       if (!res.ok) {
         const msg = typeof data.error === "string" ? data.error : "Could not load federal spending";
@@ -1004,21 +1141,23 @@ export default function Home() {
   }, []);
 
   useEffect(() => {
-    if (!federalVisible || federalAutoStarted.current) return;
-    federalAutoStarted.current = true;
-    loadFederalSpending();
-  }, [federalVisible, loadFederalSpending]);
+    if (!federalVisible) return;
+    if (lastFederalCity.current === detectedCity) return;
+    lastFederalCity.current = detectedCity;
+    setFederalRows([]);
+    loadFederalSpending(detectedCity);
+  }, [federalVisible, detectedCity, loadFederalSpending]);
 
-  const censusAutoStarted = useRef(false);
+  const lastCensusCity = useRef<CityId | null>(null);
   const [censusData,    setCensusData]    = useState<CensusSnapshot | null>(null);
   const [censusLoading, setCensusLoading] = useState(false);
   const [censusError,   setCensusError]   = useState<string | null>(null);
 
-  const loadCensus = useCallback(async () => {
+  const loadCensus = useCallback(async (city: CityId = "ithaca") => {
     setCensusLoading(true);
     setCensusError(null);
     try {
-      const res = await fetch("/api/census");
+      const res = await fetch(`/api/census?city=${city}`);
       const data = await res.json();
       if (!res.ok) {
         const msg = typeof data.error === "string" ? data.error : "Could not load Census data";
@@ -1033,18 +1172,19 @@ export default function Home() {
   }, []);
 
   useEffect(() => {
-    if (!budgetTriggered || censusAutoStarted.current) return;
-    censusAutoStarted.current = true;
-    loadCensus();
-  }, [budgetTriggered, loadCensus]);
+    if (!budgetTriggered) return;
+    if (lastCensusCity.current === detectedCity) return;
+    lastCensusCity.current = detectedCity;
+    setCensusData(null);
+    loadCensus(detectedCity);
+  }, [budgetTriggered, detectedCity, loadCensus]);
 
   const openLiveRep   = liveReps.find((r) => r.id === openLiveRepId) ?? null;
   const openLivePlace = livePlaces.find((p) => p.id === openLivePlaceId) ?? null;
 
   // ── Shared fetch logic ───────────────────────────────────────────────────────
-  const fetchForAddress = async (_addr: string, lat: number, lng: number) => {
-    // Seed with verified local officials (Mayor etc.) — always visible instantly
-    const merged: LiveRep[] = [...localOfficials];
+  const fetchForAddress = async (_addr: string, lat: number, lng: number, cityId?: CityId) => {
+    const merged: LiveRep[] = cityId !== "nyc" ? [...localOfficials] : [];
 
     const [legRes, placesRes] = await Promise.allSettled([
       fetch(`/api/legislators?lat=${lat}&lng=${lng}`),
@@ -1088,12 +1228,15 @@ export default function Home() {
     return () => document.removeEventListener("mousedown", onDoc);
   }, []);
 
-  const discoverNearbyPermit = async (lat: number, lng: number) => {
+  const discoverNearbyPermit = async (lat: number, lng: number, cityId?: CityId) => {
+    const city = cityId ?? detectedCity;
+    const apiPath = CITY_CONFIGS[city].permitsApiPath;
     try {
-      const permitRes = await fetch(`/api/permits?lat=${lat}&lng=${lng}`);
+      const permitRes = await fetch(`${apiPath}?lat=${lat}&lng=${lng}`);
       if (permitRes.ok) {
         const { permits } = await permitRes.json();
         if (permits?.length > 0) setNearbyPermit(permits[0]);
+        else setNearbyPermit(null);
       }
     } catch {
       /* ignore */
@@ -1126,7 +1269,7 @@ export default function Home() {
         const url =
           `https://api.mapbox.com/geocoding/v5/mapbox.places/${encodeURIComponent(q)}.json` +
           `?access_token=${token}&country=us&limit=8&autocomplete=true` +
-          `&proximity=${proxLng},${proxLat}&bbox=${ITHACA_SEARCH_BBOX}` +
+          `&proximity=${proxLng},${proxLat}` +
           `&types=address,poi,place,locality,neighborhood`;
         const res = await fetch(url, { signal: ac.signal });
         const data = res.ok ? await res.json() : null;
@@ -1150,15 +1293,18 @@ export default function Home() {
     skipSuggestEffect.current = true;
     const [lng, lat] = feature.center;
     const formatted = feature.place_name;
+    const city = detectCity(feature);
     setAddress(formatted);
     setSuggestions([]);
     setSuggestOpen(false);
     setSuggestHighlight(-1);
+    setDetectedCity(city);
+    setSearchCoords({ lat, lng });
     setSearching(true);
     try {
       setSearchedAddress(formatted);
-      await fetchForAddress(formatted, lat, lng);
-      await discoverNearbyPermit(lat, lng);
+      await fetchForAddress(formatted, lat, lng, city);
+      await discoverNearbyPermit(lat, lng, city);
     } catch (err) {
       console.error(err);
     } finally {
@@ -1187,17 +1333,20 @@ export default function Home() {
       let lng: number;
       let lat: number;
       let formatted: string;
+      let resolvedCity: CityId = "ithaca";
       if (token) {
         const [proxLng, proxLat] = NEIGHBORHOOD.center;
         const geoRes = await fetch(
           `https://api.mapbox.com/geocoding/v5/mapbox.places/${encodeURIComponent(address.trim())}.json` +
-          `?access_token=${token}&limit=1&country=us&proximity=${proxLng},${proxLat}&bbox=${ITHACA_SEARCH_BBOX}`
+          `?access_token=${token}&limit=1&country=us&proximity=${proxLng},${proxLat}`
         );
         const geoData = geoRes.ok ? await geoRes.json() : null;
         const f0 = geoData?.features?.[0] as MapboxSuggestFeature | undefined;
         if (f0?.center) {
           [lng, lat] = f0.center;
           formatted = f0.place_name ?? address.trim();
+          resolvedCity = detectCity(f0);
+          setDetectedCity(resolvedCity);
         } else {
           [lng, lat] = NEIGHBORHOOD.center;
           formatted = address.trim();
@@ -1206,9 +1355,10 @@ export default function Home() {
         [lng, lat] = NEIGHBORHOOD.center;
         formatted = address.trim();
       }
+      setSearchCoords({ lat, lng });
       setSearchedAddress(formatted);
-      await fetchForAddress(formatted, lat, lng);
-      await discoverNearbyPermit(lat, lng);
+      await fetchForAddress(formatted, lat, lng, resolvedCity);
+      await discoverNearbyPermit(lat, lng, resolvedCity);
     } catch (err) {
       console.error(err);
     }
@@ -1257,7 +1407,11 @@ export default function Home() {
     return bScore - aScore;
   });
 
-  const sortedUrgentCards = [...URGENT_CARDS].sort((a, b) =>
+  const cityConfig      = CITY_CONFIGS[detectedCity];
+  const cityUrgentCards = cityConfig.urgentCards;
+  const cityPulseItems  = cityConfig.pulseItems;
+
+  const sortedUrgentCards = [...cityUrgentCards].sort((a, b) =>
     cardRelevanceScore(b.title, userIssues) - cardRelevanceScore(a.title, userIssues)
   );
 
@@ -1299,7 +1453,7 @@ export default function Home() {
               <br /><span style={{ color: C.yellow }}>Find out what it is.</span>
             </h1>
             <p className="text-sm mb-4 font-medium" style={{ color: C.muted }}>
-              Type your Ithaca address to see your ward, who represents you, and where the money goes.
+              Type your address to see your district, who represents you, and where the money goes.
             </p>
 
             <form onSubmit={handleSearch} className="mb-4">
@@ -1321,7 +1475,7 @@ export default function Home() {
                     aria-autocomplete="list"
                     aria-expanded={suggestOpen && suggestions.length > 0}
                     aria-controls="address-suggestions"
-                    placeholder="e.g. 301 W Court St, Ithaca"
+                    placeholder={detectedCity === "nyc" ? "e.g. 350 Jay St, Brooklyn" : "e.g. 301 W Court St, Ithaca"}
                     className="flex-1 px-6 text-base outline-none"
                     style={{ height: "56px", color: C.navy, backgroundColor: "white", minWidth: 0 }}
                   />
@@ -1387,7 +1541,7 @@ export default function Home() {
               {[
                 `🏛 ${liveReps.length > 0 ? `${liveReps.length} real officials` : "Your officials"}`,
                 "💰 Your tax breakdown",
-                "🗺 5 wards & 15 districts",
+                detectedCity === "nyc" ? "🗺 51 council districts" : "🗺 5 wards & 15 districts",
               ].map((t) => (
                 <div key={t} className="px-4 py-2 rounded-full text-sm font-semibold"
                   style={{ backgroundColor: "white", color: C.muted, border: `1px solid ${C.border}` }}>
@@ -1561,18 +1715,24 @@ export default function Home() {
           <motion.h2 initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }} transition={{ duration: 0.4 }}
             className="text-3xl font-extrabold" style={{ color: C.navy }}>
-            Your ward. Your voice. 🗺
+            {detectedCity === "nyc" ? "Your council district. 🗺" : "Your ward. Your voice. 🗺"}
           </motion.h2>
           <div className="mt-2 w-14 h-1.5 rounded-full" style={{ backgroundColor: C.coral }} />
           <p className="mt-2 text-base font-medium" style={{ color: "#6B7280" }}>
-            Ithaca has 5 wards and 15 election districts. Tap yours.
+            {detectedCity === "nyc"
+              ? "NYC has 51 council districts. Tap yours to explore."
+              : "Ithaca has 5 wards and 15 election districts. Tap yours."}
           </p>
         </div>
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }} transition={{ duration: 0.5 }}
           className="max-w-xl mx-auto"
           style={{ boxShadow: "0 4px 20px rgba(0,0,0,0.08)", borderRadius: "24px" }}>
-          <WardMap />
+          <WardMap
+            cityId={detectedCity}
+            searchLat={searchCoords?.lat}
+            searchLng={searchCoords?.lng}
+          />
         </motion.div>
       </section>
 
@@ -1761,12 +1921,23 @@ export default function Home() {
           <NeighborhoodIllustration triggered={budgetTriggered} />
         </div>
 
-        {/* Big animated stat reveals — Ithaca FY2024 ~$75M / ~30k residents */}
+        {/* Big animated stat reveals */}
         <div className="grid grid-cols-2 gap-4 max-w-xl mx-auto mb-10">
-          <AnimatedStat value={1580} prefix="$" label="Public Safety / resident"  color="#E06B5A"   delay={0} />
-          <AnimatedStat value={479}  prefix="$" label="Parks & Rec / resident"    color={C.sage}    delay={0.1} />
-          <AnimatedStat value={862}  prefix="$" label="Public Works / resident"   color={C.sky}     delay={0.2} />
-          <AnimatedStat value={383}  prefix="$" label="Community Dev / resident"  color="#9B59B6"   delay={0.3} />
+          {detectedCity === "nyc" ? (
+            <>
+              <AnimatedStat value={1349} prefix="$" label="Public Safety / resident"   color="#E06B5A"  delay={0} />
+              <AnimatedStat value={90}   prefix="$" label="Parks & Rec / resident"     color={C.sage}   delay={0.1} />
+              <AnimatedStat value={289}  prefix="$" label="Sanitation / resident"      color={C.sky}    delay={0.2} />
+              <AnimatedStat value={1530} prefix="$" label="Social Services / resident" color="#9B59B6"  delay={0.3} />
+            </>
+          ) : (
+            <>
+              <AnimatedStat value={1580} prefix="$" label="Public Safety / resident"  color="#E06B5A"  delay={0} />
+              <AnimatedStat value={479}  prefix="$" label="Parks & Rec / resident"    color={C.sage}   delay={0.1} />
+              <AnimatedStat value={862}  prefix="$" label="Public Works / resident"   color={C.sky}    delay={0.2} />
+              <AnimatedStat value={383}  prefix="$" label="Community Dev / resident"  color="#9B59B6"  delay={0.3} />
+            </>
+          )}
         </div>
 
         {/* U.S. Census Bureau — ACS 5-year (Ithaca city) */}
@@ -1780,7 +1951,7 @@ export default function Home() {
         >
           <div className="flex items-start justify-between gap-3 mb-1">
             <h3 className="text-xl font-extrabold leading-tight" style={{ color: C.navy }}>
-              Ithaca by the numbers 📊
+              {detectedCity === "nyc" ? "New York City by the numbers 📊" : "Ithaca by the numbers 📊"}
             </h3>
             <span className="text-[10px] font-bold uppercase tracking-wide px-2 py-1 rounded-full flex-shrink-0"
               style={{ backgroundColor: C.sage + "28", color: C.navy }}>
@@ -1809,7 +1980,7 @@ export default function Home() {
               <p className="text-xs font-medium mb-4" style={{ color: "#6B7280" }}>{censusError}</p>
               <button
                 type="button"
-                onClick={() => loadCensus()}
+                onClick={() => loadCensus(detectedCity)}
                 className="px-5 py-2.5 rounded-full text-sm font-bold text-white transition-opacity hover:opacity-90"
                 style={{ backgroundColor: C.coral }}
               >
@@ -1889,7 +2060,7 @@ export default function Home() {
         >
           <div className="flex items-start justify-between gap-3 mb-1">
             <h3 className="text-xl font-extrabold leading-tight" style={{ color: C.navy }}>
-              Federal money in Ithaca 🇺🇸
+              {detectedCity === "nyc" ? "Federal money in NYC 🇺🇸" : "Federal money in Ithaca 🇺🇸"}
             </h3>
             <span className="text-[10px] font-bold uppercase tracking-wide px-2 py-1 rounded-full flex-shrink-0"
               style={{ backgroundColor: C.sky + "22", color: C.navy }}>
@@ -1897,7 +2068,7 @@ export default function Home() {
             </span>
           </div>
           <p className="text-sm font-medium mb-5" style={{ color: "#6B7280" }}>
-            Largest federal grants with work performed in Ithaca, NY (2019–2025). Source:{" "}
+            Largest federal grants with work performed in {detectedCity === "nyc" ? "New York City" : "Ithaca, NY"} (2019–2025). Source:{" "}
             <a href="https://www.usaspending.gov" target="_blank" rel="noreferrer" className="underline font-bold" style={{ color: C.sky }}>
               USAspending.gov
             </a>
@@ -1918,7 +2089,7 @@ export default function Home() {
               <p className="text-xs font-medium mb-4" style={{ color: "#7F1D1D" }}>{federalError}</p>
               <button
                 type="button"
-                onClick={() => loadFederalSpending()}
+                onClick={() => loadFederalSpending(detectedCity)}
                 className="px-5 py-2.5 rounded-full text-sm font-bold text-white transition-opacity hover:opacity-90"
                 style={{ backgroundColor: C.coral }}
               >
@@ -2011,7 +2182,7 @@ export default function Home() {
                 { label: "Federal income tax", amount: taxBreakdown.federal,  color: C.coral },
                 { label: "NY state income tax", amount: taxBreakdown.stateNY, color: C.yellow },
                 { label: "Social Security & Medicare", amount: taxBreakdown.fica, color: C.sky },
-                { label: "Local / Tompkins Co.", amount: taxBreakdown.local,  color: C.sage },
+                { label: detectedCity === "nyc" ? "Local / NYC" : "Local / Tompkins Co.", amount: taxBreakdown.local, color: C.sage },
               ].map(({ label, amount, color }) => (
                 <div key={label}>
                   <div className="flex justify-between text-sm mb-1.5">
@@ -2104,21 +2275,44 @@ export default function Home() {
             <div className="absolute inset-0"
               style={{ background: "linear-gradient(155deg,rgba(76,175,130,0.82) 0%,rgba(76,175,130,0.55) 100%)" }} />
             <div className="relative z-10 p-6 flex flex-col justify-end" style={{ minHeight: "260px" }}>
-              <div className="text-xs font-bold mb-1" style={{ color: "rgba(255,255,255,0.75)" }}>
-                Most urgent this weekend
-              </div>
-              <h3 className="text-2xl font-extrabold text-white leading-tight mb-3">
-                Foodnet needs 8 more volunteers this Saturday
-              </h3>
-              <div className="flex items-center gap-4">
-                <button className="px-6 py-3 rounded-full font-bold hover:scale-105 transition-transform"
-                  style={{ backgroundColor: "white", color: C.coral }}>
-                  I'll be there →
-                </button>
-                <span className="text-xs" style={{ color: "rgba(255,255,255,0.7)" }}>
-                  8,000+ Tompkins residents served each year
-                </span>
-              </div>
+              {detectedCity === "nyc" ? (
+                <>
+                  <div className="text-xs font-bold mb-1" style={{ color: "rgba(255,255,255,0.75)" }}>
+                    Volunteer opportunities
+                  </div>
+                  <h3 className="text-2xl font-extrabold text-white leading-tight mb-3">
+                    City Harvest needs food rescue volunteers this week
+                  </h3>
+                  <div className="flex items-center gap-4">
+                    <a href="https://www.cityharvest.org/volunteer/" target="_blank" rel="noreferrer"
+                      className="px-6 py-3 rounded-full font-bold hover:scale-105 transition-transform inline-block"
+                      style={{ backgroundColor: "white", color: C.coral }}>
+                      Sign up →
+                    </a>
+                    <span className="text-xs" style={{ color: "rgba(255,255,255,0.7)" }}>
+                      1.5M+ New Yorkers face food insecurity
+                    </span>
+                  </div>
+                </>
+              ) : (
+                <>
+                  <div className="text-xs font-bold mb-1" style={{ color: "rgba(255,255,255,0.75)" }}>
+                    Most urgent this weekend
+                  </div>
+                  <h3 className="text-2xl font-extrabold text-white leading-tight mb-3">
+                    Foodnet needs 8 more volunteers this Saturday
+                  </h3>
+                  <div className="flex items-center gap-4">
+                    <button className="px-6 py-3 rounded-full font-bold hover:scale-105 transition-transform"
+                      style={{ backgroundColor: "white", color: C.coral }}>
+                      I'll be there →
+                    </button>
+                    <span className="text-xs" style={{ color: "rgba(255,255,255,0.7)" }}>
+                      8,000+ Tompkins residents served each year
+                    </span>
+                  </div>
+                </>
+              )}
             </div>
           </motion.div>
         </div>
@@ -2183,16 +2377,50 @@ export default function Home() {
           }
         </div>
 
-        {/* Board vacancies sub-section */}
+        {/* Board vacancies / civic opportunities sub-section */}
         <div className="px-6 mt-8">
           <h3 className="text-xl font-extrabold mb-1" style={{ color: C.navy }}>
-            Serve on a board 🏛
+            Serve your community 🏛
           </h3>
           <p className="text-sm mb-4" style={{ color: "#6B7280" }}>
             Real decisions. Real impact. No experience required.
           </p>
           <div className="space-y-3">
-            {BOARD_VACANCIES.map((v, i) => (
+            {(detectedCity === "nyc"
+              ? [
+                  {
+                    id: "nyc-cb",
+                    board: "Community Board Member",
+                    description: "Each of NYC's 59 community boards reviews land use, permits, and local services. Members are volunteer appointments — apply through your borough president or ask your council member to nominate you.",
+                    meetingSchedule: "Monthly public hearings",
+                    stipend: false,
+                    contact: "nyc.gov/cau",
+                    urgency: "open",
+                    residencyRequired: "District resident",
+                  },
+                  {
+                    id: "nyc-pb",
+                    board: "Participatory Budgeting",
+                    description: "NYC Council lets residents vote on how to spend $1M per district. Join your council member's committee to propose projects, outreach to neighbors, and help run the vote.",
+                    meetingSchedule: "Fall cycle, annual",
+                    stipend: false,
+                    contact: "council.nyc.gov",
+                    urgency: "open",
+                    residencyRequired: "District resident, 11+",
+                  },
+                  {
+                    id: "nyc-ccrb",
+                    board: "Civilian Complaint Review Board",
+                    description: "Independent board that investigates NYPD misconduct. Compensated member positions are filled by appointment from the Mayor and City Council — applications reviewed on a rolling basis.",
+                    meetingSchedule: "Monthly + committee meetings",
+                    stipend: true,
+                    contact: "nyc.gov/ccrb",
+                    urgency: "open",
+                    residencyRequired: "NYC resident",
+                  },
+                ]
+              : BOARD_VACANCIES
+            ).map((v, i) => (
               <motion.div key={v.id}
                 initial={{ opacity: 0, y: 14 }} whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -2237,9 +2465,32 @@ export default function Home() {
         <motion.h2 initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }} transition={{ duration: 0.4 }}
           className="text-3xl font-extrabold mb-2" style={{ color: C.navy }}>
-          {NEIGHBORHOOD.name} is waking up 🌱
+          {cityConfig.name} is waking up 🌱
         </motion.h2>
         <div className="mb-8 w-14 h-1.5 rounded-full" style={{ backgroundColor: C.sage }} />
+
+        {/* NYC: simple chip-style pulse feed */}
+        {detectedCity === "nyc" && (
+          <div className="space-y-2.5 max-w-lg mb-10">
+            {cityPulseItems.map((item, i) => (
+              <motion.div key={item.id}
+                initial={{ opacity: 0, x: -16 }} whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.07, duration: 0.35 }}
+                className="flex items-center gap-3 px-4 py-3.5 rounded-[16px] bg-white"
+                style={{ boxShadow: "0 2px 10px rgba(0,0,0,0.05)" }}>
+                <div className="w-9 h-9 rounded-full flex-shrink-0 flex items-center justify-center text-base"
+                  style={{ backgroundColor: item.color + "18" }}>
+                  {item.icon}
+                </div>
+                <div className="flex-1 min-w-0">
+                  <p className="text-sm font-medium leading-snug" style={{ color: C.navy }}>{item.text}</p>
+                  <p className="text-[11px] mt-0.5" style={{ color: "#9CA3AF" }}>{item.time}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        )}
 
         {/* Civic health ring */}
         <div className="flex flex-col items-center mb-10">
@@ -2270,39 +2521,67 @@ export default function Home() {
             ))}
           </div>
           <p className="text-xs mt-2 font-medium" style={{ color: "#9CA3AF" }}>
-            Civic health · {NEIGHBORHOOD.name}
+            Civic health · {cityConfig.name}
           </p>
         </div>
 
-        {/* Compact notification chips */}
-        <div className="space-y-2.5 max-w-lg mx-auto">
-          {PULSE_ITEMS.map((item, i) => (
-            <motion.div key={item.id}
-              initial={{ opacity: 0, x: -16 }} whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.07, duration: 0.35, ease: "easeOut" }}
-              className="flex items-center gap-3 px-4 py-3.5 rounded-[16px] bg-white"
-              style={{ boxShadow: "0 2px 10px rgba(0,0,0,0.05)" }}>
-              <div className="w-9 h-9 rounded-full flex-shrink-0 flex items-center justify-center text-base"
-                style={{ backgroundColor: item.color + "18" }}>
-                {item.icon}
+        {/* 3-column Ithaca pulse grid — hidden for NYC since chip feed above covers it */}
+        {detectedCity !== "nyc" && (
+        <div
+          className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-x-5 gap-y-10 items-start"
+          aria-label="Neighborhood pulse by category"
+        >
+          {PULSE_SECTIONS.map((section, si) => (
+            <div key={section.id} className="min-w-0 flex flex-col">
+              <h3
+                className="text-sm font-extrabold uppercase tracking-wider mb-3 pb-2 border-b-2"
+                style={{ color: C.navy, borderColor: C.border }}
+              >
+                {section.label}
+              </h3>
+              <div className="space-y-2.5 flex-1">
+                {section.items.map((item, i) => {
+                  const ts = PULSE_TREND_STYLES[item.trend];
+                  return (
+                    <motion.div key={item.id}
+                      initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: si * 0.04 + i * 0.04, duration: 0.35, ease: "easeOut" }}
+                      className="flex items-start gap-2.5 px-3 py-3 rounded-[14px] border-2"
+                      style={{
+                        backgroundColor: ts.bg,
+                        borderColor: ts.border,
+                        boxShadow: "0 2px 12px rgba(28,37,52,0.06)",
+                      }}>
+                      <div className="w-8 h-8 rounded-full flex-shrink-0 flex items-center justify-center text-sm"
+                        style={{ backgroundColor: "rgba(255,255,255,0.85)", border: `1px solid ${ts.border}55` }}>
+                        {item.icon}
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <span className="inline-block text-[9px] font-extrabold uppercase tracking-wide px-1.5 py-0.5 rounded-full mb-1"
+                          style={{ backgroundColor: ts.badgeBg, color: ts.badgeText }}>
+                          {ts.badgeLabel}
+                        </span>
+                        <p className="text-xs font-medium leading-snug" style={{ color: C.navy }}>{item.text}</p>
+                        <p className="text-[10px] mt-1 font-semibold" style={{ color: C.faint }}>{item.time}</p>
+                      </div>
+                      <motion.button whileHover={{ scale: 1.12 }} whileTap={{ scale: 0.88 }}
+                        onClick={() => setLiked((p) => ({ ...p, [item.id]: !p[item.id] }))}
+                        className="flex-shrink-0 mt-0.5" aria-label="React">
+                        <svg width="16" height="16" viewBox="0 0 20 20" fill="none">
+                          <path d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z"
+                            fill={liked[item.id] ? ts.border : "none"}
+                            stroke={liked[item.id] ? ts.border : "#D1D5DB"} strokeWidth="1.5" />
+                        </svg>
+                      </motion.button>
+                    </motion.div>
+                  );
+                })}
               </div>
-              <div className="flex-1 min-w-0">
-                <p className="text-sm font-medium leading-snug truncate" style={{ color: C.navy }}>{item.text}</p>
-                <p className="text-[11px] mt-0.5" style={{ color: "#9CA3AF" }}>{item.time}</p>
-              </div>
-              <motion.button whileHover={{ scale: 1.3 }} whileTap={{ scale: 0.8 }}
-                onClick={() => setLiked((p) => ({ ...p, [item.id]: !p[item.id] }))}
-                className="flex-shrink-0" aria-label="React">
-                <svg width="18" height="18" viewBox="0 0 20 20" fill="none">
-                  <path d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z"
-                    fill={liked[item.id] ? C.coral : "none"}
-                    stroke={liked[item.id] ? C.coral : "#D1D5DB"} strokeWidth="1.5" />
-                </svg>
-              </motion.button>
-            </motion.div>
+            </div>
           ))}
         </div>
+        )}
       </section>
 
       {/* ══ LIVE REP BOTTOM SHEET ════════════════════════════════════════ */}

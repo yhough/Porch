@@ -1,8 +1,7 @@
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 
-/** ACS 5-year; Ithaca city, NY — place 38077, state 36 (see data.census.gov). */
-const CENSUS_URL =
-  "https://api.census.gov/data/2022/acs/acs5";
+/** ACS 5-year — supports Ithaca (place 38077) and NYC (place 51000), state 36. */
+const CENSUS_URL = "https://api.census.gov/data/2022/acs/acs5";
 
 const VARIABLES = [
   "NAME",
@@ -21,7 +20,11 @@ function parseCensusInt(raw: string | undefined): number | null {
   return n;
 }
 
-export async function GET() {
+export async function GET(req: NextRequest) {
+  const { searchParams } = new URL(req.url);
+  const city = searchParams.get("city") === "nyc" ? "nyc" : "ithaca";
+  const placeCode = city === "nyc" ? "51000" : "38077";
+
   const key = process.env.CENSUS_API_KEY?.trim();
   if (!key) {
     return NextResponse.json(
@@ -32,7 +35,7 @@ export async function GET() {
 
   const params = new URLSearchParams({
     get: VARIABLES,
-    for: "place:38077",
+    for: `place:${placeCode}`,
     in: "state:36",
     key,
   });
@@ -73,7 +76,7 @@ export async function GET() {
         : null;
 
     return NextResponse.json({
-      name: rec.NAME ?? "Ithaca city, New York",
+      name: rec.NAME ?? (city === "nyc" ? "New York city, New York" : "Ithaca city, New York"),
       population: parseCensusInt(rec.B01003_001E),
       medianHouseholdIncome: parseCensusInt(rec.B19013_001E),
       medianHomeValue: parseCensusInt(rec.B25077_001E),
