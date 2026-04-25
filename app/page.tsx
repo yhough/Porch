@@ -299,22 +299,26 @@ function WaveDivider({ fill, flip }: { fill: string; flip?: boolean }) {
 
 // ─── Static content ────────────────────────────────────────────────────────────
 const URGENT_CARDS = [
-  { id: "u1", photo: IMGS.council,  badge: { text: "Today 4:30pm", bg: C.coral },
-    title: "Town Board Study Session — Green New Deal annual report", cta: "Join Zoom →" },
-  { id: "u2", photo: IMGS.building, badge: { text: "Comment open", bg: C.sky },
-    title: "Subdivision rules under review — COC wants your input", cta: "Weigh in →" },
-  { id: "u3", photo: IMGS.volunteer, badge: { text: "3 seats open", bg: C.yellow },
-    title: "Planning Board, ZBA & Conservation Board need volunteers", cta: "Apply →" },
-  { id: "u4", photo: IMGS.foodbank, badge: { text: "This weekend", bg: C.sage },
-    title: "Foodnet needs food sorters and drivers — flexible hours", cta: "Sign up →" },
+  { id: "u1", photo: IMGS.building, badge: { text: "🚨 Closed", bg: C.coral },
+    title: "Seneca Street Garage shut — safety concerns. Use Green St or Cayuga St instead.", cta: "Read update →",
+    url: "https://www.cityofithacany.gov/CivicAlerts.aspx?AID=1402" },
+  { id: "u2", photo: IMGS.council, badge: { text: "Apr 28 @ 6pm", bg: C.sky },
+    title: "Planning & Development Board meeting — open to the public. Your chance to be heard.", cta: "City Hall →",
+    url: "https://www.cityofithacany.gov/Calendar.aspx?EID=6566" },
+  { id: "u3", photo: IMGS.ballot, badge: { text: "💰 Big win", bg: C.sage },
+    title: "Ithaca wins $10 million state grant for MLK Jr. St corridor — new housing & public spaces", cta: "Read more →",
+    url: "https://www.cityofithacany.gov/CivicAlerts.aspx?AID=1400" },
+  { id: "u4", photo: IMGS.volunteer, badge: { text: "3 seats open", bg: C.yellow },
+    title: "Planning Board, ZBA & Conservation Board need volunteers — stipend available", cta: "Apply →",
+    url: "https://www.cityofithacany.gov/542/Boards-and-Committees" },
 ];
 
 const PULSE_ITEMS = [
-  { id: "p1", icon: "⚡", text: "Tompkins Green Energy Network launched — Ithaca now has community clean energy", time: "Q1 2026",  color: C.sage },
-  { id: "p2", icon: "🗳",  text: "Gideon Casper appointed to Planning Board — term through Dec 2029",              time: "Today",   color: C.coral },
-  { id: "p3", icon: "🌿", text: "Town Board passed Deconstruction Resolution — buildings get reused, not bulldozed", time: "Mar 2026", color: C.yellow },
-  { id: "p4", icon: "🛤",  text: "Engineering firm hired to extend South Hill Rec Way from Burns Rd to Banks Rd",   time: "Jan 2026", color: C.sky },
-  { id: "p5", icon: "🏗",  text: "Net-zero energy code now required for all new construction in Ithaca",           time: "2025",     color: "#9B59B6" },
+  { id: "p1", icon: "💰", text: "Ithaca awarded $10 million NYS Downtown Revitalization Initiative grant for MLK Jr. St corridor", time: "Apr 23, 2026", color: C.sage },
+  { id: "p2", icon: "🚧", text: "Seneca Street Parking Garage closed indefinitely — 1973 structure exceeded its lifespan, redevelopment planned", time: "Apr 10, 2026", color: C.coral },
+  { id: "p3", icon: "🗳",  text: "5 new Common Council members sworn in — Robin Trumble, Hannah Shvets, Pat Sewell, Joe Kirby & Jorge Defendini", time: "Jan 7, 2026", color: C.yellow },
+  { id: "p4", icon: "⚡", text: "Tompkins Green Energy Network (T-GEN) launched — community clean energy now available for Ithaca residents", time: "Q1 2026", color: C.sky },
+  { id: "p5", icon: "🏗",  text: "Net-zero energy code now required for all new construction in Ithaca — city takes on climate action", time: "2025",     color: "#9B59B6" },
 ];
 
 const ANON_COLORS = [C.coral, C.yellow, C.sage, C.sky, C.navy, "#9B59B6", "#E67E22"];
@@ -534,8 +538,14 @@ export default function Home() {
               </div>
               <div className="absolute bottom-0 left-0 right-0 p-5">
                 <h3 className="text-lg font-extrabold text-white leading-snug mb-4">{card.title}</h3>
-                <button className="px-5 py-2.5 rounded-full text-sm font-bold transition-transform hover:scale-105"
-                  style={{ backgroundColor: "white", color: C.navy }}>{card.cta}</button>
+                {card.url ? (
+                  <a href={card.url} target="_blank" rel="noreferrer"
+                    className="inline-block px-5 py-2.5 rounded-full text-sm font-bold transition-transform hover:scale-105"
+                    style={{ backgroundColor: "white", color: C.navy }}>{card.cta}</a>
+                ) : (
+                  <button className="px-5 py-2.5 rounded-full text-sm font-bold transition-transform hover:scale-105"
+                    style={{ backgroundColor: "white", color: C.navy }}>{card.cta}</button>
+                )}
               </div>
             </motion.div>
           ))}
