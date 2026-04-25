@@ -9,13 +9,14 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
 
-  const { address, age, gender, ethnicity, issues, party } = await req.json();
+  const { address, age, gender, ethnicity, income, issues, party } = await req.json();
 
   updateUserOnboarding(session.user.id, {
     address: address ?? "",
     age: age ? Number(age) : null,
     gender: gender ?? "",
     ethnicity: ethnicity ?? "",
+    income: income ?? "",
     issues: Array.isArray(issues) ? issues : [],
     party: party ?? "",
   });

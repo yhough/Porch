@@ -26,5 +26,26 @@
       "party": "democratic",
       "completedAt": "2026-04-25T18:35:11.513Z"
     }
+  },
+  {
+    "id": "7fd4cc54-17d4-4535-bdf5-520acdf7f168",
+    "name": "Yaelin Hough",
+    "email": "schmoofyy@gmail.com",
+    "passwordHash": "$2b$12$0lf3MzrBCrbQnfRwQPfDSOTGkAkVAFRQG3NpF.6HyJP3n8b.C5hcC",
+    "createdAt": "2026-04-25T18:41:01.329Z",
+    "onboarding": {
+      "address": "232A Baker Tower, Ithaca, NY 14853",
+      "age": 19,
+      "gender": "Woman",
+      "ethnicity": "Asian / Pacific Islander",
+      "income": "Under $25,000",
+      "issues": [
+        "education",
+        "environment",
+        "gun_policy"
+      ],
+      "party": "democratic",
+      "completedAt": "2026-04-25T18:41:31.872Z"
+    }
   }
 ]

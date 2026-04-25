@@ -3,6 +3,7 @@
 import { useState, useRef, useEffect, useCallback } from "react";
 import { motion, AnimatePresence, useInView } from "framer-motion";
 import { signOut, useSession } from "next-auth/react";
+import { ISSUES, PARTIES } from "@/lib/onboardingData";
 import dynamic from "next/dynamic";
 import {
   NEIGHBORHOOD,
@@ -386,21 +387,216 @@ const PULSE_ITEMS = [
 
 const ANON_COLORS = [C.coral, C.yellow, C.sage, C.sky, C.navy, "#9B59B6", "#E67E22"];
 
-// ─── Sign-out button ──────────────────────────────────────────────────────────
-function SignOutButton() {
-  const { data: session } = useSession();
-  if (!session) return null;
+// ─── Profile types ────────────────────────────────────────────────────────────
+interface UserProfile {
+  id: string;
+  name: string;
+  email: string;
+  onboarding: {
+    completedAt: string;
+    address: string;
+    age: number | null;
+    gender: string;
+    ethnicity: string;
+    income: string;
+    issues: string[];
+    party: string;
+  } | null;
+}
+
+// ─── Profile avatar button (hero top-right) ───────────────────────────────────
+function ProfileButton({ name, onClick }: { name: string; onClick: () => void }) {
+  const initials = name.split(" ").filter(Boolean).map((w) => w[0]).slice(0, 2).join("").toUpperCase();
   return (
     <button
-      onClick={() => signOut({ callbackUrl: "/signin" })}
-      className="absolute top-4 right-4 z-20 flex items-center gap-2 px-4 py-2 rounded-full text-xs font-bold backdrop-blur-sm transition-opacity hover:opacity-80"
-      style={{ backgroundColor: "rgba(255,255,255,0.18)", color: "white", border: "1px solid rgba(255,255,255,0.3)" }}
+      onClick={onClick}
+      className="absolute top-4 right-4 z-20 w-11 h-11 rounded-full flex items-center justify-center font-extrabold text-sm transition-opacity hover:opacity-85"
+      style={{
+        backgroundColor: "rgba(255,255,255,0.22)",
+        color: "white",
+        border: "2px solid rgba(255,255,255,0.4)",
+        backdropFilter: "blur(8px)",
+      }}
     >
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
-        <path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4M16 17l5-5-5-5M21 12H9" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-      </svg>
-      Sign out
+      {initials}
     </button>
+  );
+}
+
+// ─── Profile bottom sheet ─────────────────────────────────────────────────────
+function ProfileSheet({ profile, onClose }: { profile: UserProfile; onClose: () => void }) {
+  const ob = profile.onboarding;
+  const initials = profile.name.split(" ").filter(Boolean).map((w) => w[0]).slice(0, 2).join("").toUpperCase();
+  const partyObj = ob?.party ? PARTIES.find((p) => p.id === ob.party) : null;
+  const memberYear = new Date(
+    profile.onboarding?.completedAt ?? Date.now()
+  ).getFullYear();
+
+  return (
+    <>
+      {/* Backdrop */}
+      <motion.div
+        key="profile-bg"
+        initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
+        onClick={onClose}
+        className="fixed inset-0 z-40"
+        style={{ backgroundColor: "rgba(0,0,0,0.48)" }}
+      />
+
+      {/* Sheet */}
+      <motion.div
+        key="profile-sheet"
+        initial={{ y: "100%" }} animate={{ y: 0 }} exit={{ y: "100%" }}
+        transition={{ type: "spring", damping: 32, stiffness: 320 }}
+        className="fixed bottom-0 left-0 right-0 z-50 rounded-t-[32px] overflow-y-auto"
+        style={{ backgroundColor: C.bg, maxHeight: "92vh", paddingBottom: "env(safe-area-inset-bottom,24px)" }}
+      >
+        {/* Handle */}
+        <div className="flex justify-center pt-3 pb-1">
+          <div className="w-10 h-1 rounded-full bg-gray-200" />
+        </div>
+
+        {/* Header */}
+        <div className="px-6 pt-4 pb-5 flex items-center gap-4">
+          <div className="w-16 h-16 rounded-full flex-shrink-0 flex items-center justify-center font-extrabold text-xl text-white"
+            style={{ backgroundColor: C.coral }}>
+            {initials}
+          </div>
+          <div className="flex-1 min-w-0">
+            <p className="text-xl font-extrabold leading-tight truncate" style={{ color: C.navy }}>{profile.name}</p>
+            <p className="text-sm mt-0.5 truncate" style={{ color: "#6B7280" }}>{profile.email}</p>
+            {ob?.completedAt && (
+              <p className="text-xs mt-1 font-medium" style={{ color: "#9CA3AF" }}>Member since {memberYear}</p>
+            )}
+          </div>
+          <button onClick={onClose}
+            className="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0"
+            style={{ backgroundColor: "#F3F4F6" }}>
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+              <path d="M1 1l12 12M13 1L1 13" stroke="#6B7280" strokeWidth="2" strokeLinecap="round" />
+            </svg>
+          </button>
+        </div>
+
+        {ob ? (
+          <>
+            <div style={{ height: 1, backgroundColor: "#F3F4F6" }} />
+
+            {/* Location */}
+            {ob.address && (
+              <div className="px-6 py-4">
+                <p className="text-xs font-bold uppercase tracking-wider mb-2" style={{ color: "#9CA3AF" }}>Location</p>
+                <div className="flex items-start gap-2">
+                  <span className="text-base mt-0.5">📍</span>
+                  <p className="text-sm font-medium leading-snug" style={{ color: C.navy }}>{ob.address}</p>
+                </div>
+              </div>
+            )}
+
+            {/* Demographics */}
+            {(ob.age || ob.gender || ob.ethnicity || ob.income) && (
+              <>
+                <div style={{ height: 1, backgroundColor: "#F3F4F6" }} />
+                <div className="px-6 py-4">
+                  <p className="text-xs font-bold uppercase tracking-wider mb-3" style={{ color: "#9CA3AF" }}>About you</p>
+                  <div className="flex flex-wrap gap-2">
+                    {ob.age && (
+                      <span className="px-3 py-1.5 rounded-full text-sm font-bold"
+                        style={{ backgroundColor: C.sky + "18", color: C.sky }}>
+                        {ob.age} yrs old
+                      </span>
+                    )}
+                    {ob.gender && ob.gender !== "Prefer not to say" && (
+                      <span className="px-3 py-1.5 rounded-full text-sm font-bold"
+                        style={{ backgroundColor: C.sage + "18", color: "#2E7D52" }}>
+                        {ob.gender}
+                      </span>
+                    )}
+                    {ob.ethnicity && ob.ethnicity !== "Prefer not to say" && (
+                      <span className="px-3 py-1.5 rounded-full text-sm font-bold"
+                        style={{ backgroundColor: C.yellow + "22", color: "#7A6010" }}>
+                        {ob.ethnicity}
+                      </span>
+                    )}
+                    {ob.income && ob.income !== "Prefer not to say" && (
+                      <span className="px-3 py-1.5 rounded-full text-sm font-bold"
+                        style={{ backgroundColor: "#9B59B6" + "18", color: "#9B59B6" }}>
+                        💵 {ob.income}
+                      </span>
+                    )}
+                  </div>
+                </div>
+              </>
+            )}
+
+            {/* Issues */}
+            {ob.issues.length > 0 && (
+              <>
+                <div style={{ height: 1, backgroundColor: "#F3F4F6" }} />
+                <div className="px-6 py-4">
+                  <p className="text-xs font-bold uppercase tracking-wider mb-3" style={{ color: "#9CA3AF" }}>
+                    Issues I care about
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                    {ob.issues.map((id) => {
+                      const issue = ISSUES.find((i) => i.id === id);
+                      if (!issue) return null;
+                      return (
+                        <span key={id} className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-sm font-bold"
+                          style={{ backgroundColor: C.coral + "14", color: C.coral }}>
+                          {issue.icon} {issue.label}
+                        </span>
+                      );
+                    })}
+                  </div>
+                </div>
+              </>
+            )}
+
+            {/* Party */}
+            {partyObj && (
+              <>
+                <div style={{ height: 1, backgroundColor: "#F3F4F6" }} />
+                <div className="px-6 py-4">
+                  <p className="text-xs font-bold uppercase tracking-wider mb-3" style={{ color: "#9CA3AF" }}>Party</p>
+                  <span className="px-4 py-2 rounded-full text-sm font-extrabold"
+                    style={{ backgroundColor: partyObj.color + "18", color: partyObj.color }}>
+                    {partyObj.label}
+                  </span>
+                </div>
+              </>
+            )}
+          </>
+        ) : (
+          <div className="px-6 py-6 text-center">
+            <p className="text-sm font-medium mb-4" style={{ color: "#6B7280" }}>
+              You haven&apos;t set up your profile yet.
+            </p>
+            <a href="/onboarding"
+              className="inline-block px-6 py-3 rounded-full font-bold text-white text-sm"
+              style={{ backgroundColor: C.coral }}>
+              Set up profile →
+            </a>
+          </div>
+        )}
+
+        {/* Actions */}
+        <div style={{ height: 1, backgroundColor: "#F3F4F6" }} />
+        <div className="px-6 pt-4 pb-6 flex flex-col gap-3">
+          <a href="/onboarding"
+            className="block w-full py-3.5 rounded-full font-bold text-center border-2 text-sm"
+            style={{ borderColor: "#E5E7EB", color: C.navy, backgroundColor: "white" }}>
+            Edit profile
+          </a>
+          <button
+            onClick={() => signOut({ callbackUrl: "/signin" })}
+            className="w-full py-3.5 rounded-full font-bold text-sm"
+            style={{ backgroundColor: "#FEF2F2", color: "#B91C1C" }}>
+            Sign out
+          </button>
+        </div>
+      </motion.div>
+    </>
   );
 }
 
@@ -413,6 +609,9 @@ export default function Home() {
   const [activeNav,      setActiveNav]      = useState<"home"|"map"|"people"|"money"|"help">("home");
   const [rent,           setRent]           = useState(2500);
   const [liked,          setLiked]          = useState<Record<string, boolean>>({});
+  const [profileOpen,    setProfileOpen]    = useState(false);
+  const [userProfile,    setUserProfile]    = useState<UserProfile | null>(null);
+  const { data: session } = useSession();
 
   // Live API data
   const [liveReps,         setLiveReps]         = useState<LiveRep[]>([]);
@@ -480,6 +679,14 @@ export default function Home() {
     }
   };
 
+  // ── Fetch user profile ────────────────────────────────────────────────────────
+  useEffect(() => {
+    fetch("/api/user/profile")
+      .then((r) => r.ok ? r.json() : null)
+      .then((d) => { if (d) setUserProfile(d); })
+      .catch(() => {});
+  }, []);
+
   // ── Auto-fetch for Ithaca on mount ───────────────────────────────────────────
   useEffect(() => {
     const [lng, lat] = NEIGHBORHOOD.center;
@@ -527,7 +734,9 @@ export default function Home() {
 
       {/* ══ SECTION 1: HERO ══════════════════════════════════════════════ */}
       <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        <SignOutButton />
+        {session?.user && (
+          <ProfileButton name={session.user.name ?? "U"} onClick={() => setProfileOpen(true)} />
+        )}
         <div className="absolute inset-0">
           <img src={IMGS.hero} alt="" className="w-full h-full object-cover" />
           <div className="absolute inset-0"
@@ -1273,6 +1482,13 @@ export default function Home() {
               </div>
             </motion.div>
           </>
+        )}
+      </AnimatePresence>
+
+      {/* ══ PROFILE SHEET ════════════════════════════════════════════════ */}
+      <AnimatePresence>
+        {profileOpen && userProfile && (
+          <ProfileSheet profile={userProfile} onClose={() => setProfileOpen(false)} />
         )}
       </AnimatePresence>
 

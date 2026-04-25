@@ -9,6 +9,7 @@ export interface OnboardingData {
   age: number | null;
   gender: string;
   ethnicity: string;
+  income: string;
   issues: string[];
   party: string;
 }
