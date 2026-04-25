@@ -1,5 +1,7 @@
 import type { NextAuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
+import bcrypt from "bcryptjs";
+import { findUserByEmail } from "@/lib/users";
 
 export const authOptions: NextAuthOptions = {
   providers: [
@@ -11,9 +13,24 @@ export const authOptions: NextAuthOptions = {
       },
       async authorize(credentials) {
         if (!credentials?.email || !credentials?.password) return null;
-        if (credentials.email !== process.env.AUTH_EMAIL) return null;
-        if (credentials.password !== process.env.AUTH_PASSWORD) return null;
-        return { id: "1", name: "Porch User", email: process.env.AUTH_EMAIL! };
+
+        // Check registered users first
+        const user = findUserByEmail(credentials.email);
+        if (user) {
+          const valid = await bcrypt.compare(credentials.password, user.passwordHash);
+          if (!valid) return null;
+          return { id: user.id, name: user.name, email: user.email };
+        }
+
+        // Fall back to env-var demo account
+        if (
+          credentials.email === process.env.AUTH_EMAIL &&
+          credentials.password === process.env.AUTH_PASSWORD
+        ) {
+          return { id: "admin", name: "Admin", email: process.env.AUTH_EMAIL! };
+        }
+
+        return null;
       },
     }),
   ],

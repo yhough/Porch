@@ -13,18 +13,45 @@ const C = {
   bg:     "#FFFDF9",
 };
 
-export default function SignInPage() {
+export default function SignUpPage() {
   const router = useRouter();
+  const [name,     setName]     = useState("");
   const [email,    setEmail]    = useState("");
   const [password, setPassword] = useState("");
+  const [confirm,  setConfirm]  = useState("");
   const [loading,  setLoading]  = useState(false);
   const [error,    setError]    = useState("");
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setLoading(true);
     setError("");
 
+    if (password !== confirm) {
+      setError("Passwords don't match.");
+      return;
+    }
+    if (password.length < 8) {
+      setError("Password must be at least 8 characters.");
+      return;
+    }
+
+    setLoading(true);
+
+    const res = await fetch("/api/auth/register", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ name, email, password }),
+    });
+
+    const data = await res.json();
+
+    if (!res.ok) {
+      setError(data.error ?? "Something went wrong. Please try again.");
+      setLoading(false);
+      return;
+    }
+
+    // Auto sign-in after successful registration
     const result = await signIn("credentials", {
       email,
       password,
@@ -32,7 +59,7 @@ export default function SignInPage() {
     });
 
     if (result?.error) {
-      setError("Incorrect email or password. Try again.");
+      setError("Account created but sign-in failed. Try signing in manually.");
       setLoading(false);
     } else {
       router.push("/");
@@ -66,15 +93,38 @@ export default function SignInPage() {
             </svg>
           </motion.div>
           <h1 className="text-3xl font-extrabold tracking-tight" style={{ color: C.navy }}>
-            Welcome back
+            Create your account
           </h1>
           <p className="mt-2 text-[15px] font-medium" style={{ color: "#6B7280" }}>
-            Sign in to explore your neighborhood
+            Join your neighborhood on Porch
           </p>
         </div>
 
         {/* Form */}
         <form onSubmit={handleSubmit} className="space-y-4">
+          <div>
+            <label
+              className="block text-sm font-bold mb-1.5"
+              style={{ color: C.navy }}
+              htmlFor="name"
+            >
+              Full name
+            </label>
+            <input
+              id="name"
+              type="text"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              placeholder="Jane Smith"
+              required
+              autoComplete="name"
+              className="w-full px-4 py-3.5 rounded-[14px] text-base outline-none border-2 transition-colors duration-150"
+              style={{ borderColor: "#E5E7EB", backgroundColor: "white", color: C.navy }}
+              onFocus={(e)  => (e.target.style.borderColor = C.coral)}
+              onBlur={(e)   => (e.target.style.borderColor = "#E5E7EB")}
+            />
+          </div>
+
           <div>
             <label
               className="block text-sm font-bold mb-1.5"
@@ -111,9 +161,32 @@ export default function SignInPage() {
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              placeholder="••••••••"
+              placeholder="Min. 8 characters"
               required
-              autoComplete="current-password"
+              autoComplete="new-password"
+              className="w-full px-4 py-3.5 rounded-[14px] text-base outline-none border-2 transition-colors duration-150"
+              style={{ borderColor: "#E5E7EB", backgroundColor: "white", color: C.navy }}
+              onFocus={(e)  => (e.target.style.borderColor = C.coral)}
+              onBlur={(e)   => (e.target.style.borderColor = "#E5E7EB")}
+            />
+          </div>
+
+          <div>
+            <label
+              className="block text-sm font-bold mb-1.5"
+              style={{ color: C.navy }}
+              htmlFor="confirm"
+            >
+              Confirm password
+            </label>
+            <input
+              id="confirm"
+              type="password"
+              value={confirm}
+              onChange={(e) => setConfirm(e.target.value)}
+              placeholder="Re-enter your password"
+              required
+              autoComplete="new-password"
               className="w-full px-4 py-3.5 rounded-[14px] text-base outline-none border-2 transition-colors duration-150"
               style={{ borderColor: "#E5E7EB", backgroundColor: "white", color: C.navy }}
               onFocus={(e)  => (e.target.style.borderColor = C.coral)}
@@ -151,23 +224,23 @@ export default function SignInPage() {
                   className="inline-block w-4 h-4 rounded-full border-2 animate-spin"
                   style={{ borderColor: "rgba(255,255,255,0.3)", borderTopColor: "white" }}
                 />
-                Signing in…
+                Creating account…
               </span>
             ) : (
-              "Sign in →"
+              "Create account →"
             )}
           </button>
         </form>
 
-        {/* Link to sign-up */}
+        {/* Link to sign-in */}
         <p className="text-center text-sm font-medium mt-6" style={{ color: "#6B7280" }}>
-          Don&apos;t have an account?{" "}
+          Already have an account?{" "}
           <Link
-            href="/signup"
+            href="/signin"
             className="font-bold hover:underline"
             style={{ color: C.coral }}
           >
-            Sign up
+            Sign in
           </Link>
         </p>
 
