@@ -116,6 +116,7 @@ interface CensusSnapshot {
 }
 
 const WardMap = dynamic(() => import("@/components/WardMap"), { ssr: false });
+const NycDistrictMap = dynamic(() => import("@/components/NycDistrictMap"), { ssr: false });
 
 
 // ─── Color tokens ─────────────────────────────────────────────────────────────
@@ -559,6 +560,83 @@ function groupPulseByCategory(items: PulseItem[]) {
 }
 
 const PULSE_SECTIONS = groupPulseByCategory(PULSE_ITEMS);
+
+const NYC_PULSE_ITEMS: PulseItem[] = [
+  {
+    id: "n-ed1",
+    category: "education",
+    trend: "positive",
+    icon: "🏫",
+    text: "NYC DOE expands 3-K for All and free pre-K seats — over 100,000 children enrolled citywide ahead of the 2025–26 school year.",
+    time: "2025",
+  },
+  {
+    id: "n4",
+    category: "environment",
+    trend: "positive",
+    icon: "🌱",
+    text: "Local Law 97 carbon caps take effect — larger buildings must cut emissions or pay $268/ton over limit. First fines assessed in 2025.",
+    time: "2025",
+  },
+  {
+    id: "n2",
+    category: "housing",
+    trend: "positive",
+    icon: "🏘",
+    text: "City of Yes for Housing Opportunity passed — NYC's largest upzoning in decades, enabling transit-oriented density and ADUs citywide.",
+    time: "Dec 2024",
+  },
+  {
+    id: "n7",
+    category: "housing",
+    trend: "positive",
+    icon: "🏗",
+    text: "NYCHA RAD conversion accelerating — public housing units transitioning to Section 8 platform to unlock capital repair funding.",
+    time: "2025–2026",
+  },
+  {
+    id: "n6",
+    category: "governance",
+    trend: "negative",
+    icon: "⚖️",
+    text: "Adams administration under ongoing federal investigation — deputy mayors managing day-to-day city operations.",
+    time: "2025–2026",
+  },
+  {
+    id: "n8",
+    category: "governance",
+    trend: "positive",
+    icon: "🗳",
+    text: "NYC mayoral primary 2025: open race, ranked-choice voting, candidates from all five boroughs — first open race since 2013.",
+    time: "Jun 2025",
+  },
+  {
+    id: "n1",
+    category: "infrastructure",
+    trend: "positive",
+    icon: "🚗",
+    text: "Congestion pricing active — $9 toll for passenger cars entering Manhattan below 60th St. MTA directing revenue to capital improvements.",
+    time: "Jan 2025",
+  },
+  {
+    id: "n5",
+    category: "infrastructure",
+    trend: "positive",
+    icon: "🚇",
+    text: "MTA Canarsie Tunnel repairs complete — L train fully restored after $800M flood remediation project following Hurricane Sandy.",
+    time: "2025",
+  },
+  {
+    id: "n3",
+    category: "economy",
+    trend: "positive",
+    icon: "💰",
+    text: "NYC FY2026 budget adopted at $114.5B — public education, housing, and shelter services are the top three spending categories.",
+    time: "Jun 2025",
+  },
+];
+
+const NYC_PULSE_SECTIONS = groupPulseByCategory(NYC_PULSE_ITEMS);
 
 const ANON_COLORS = [C.coral, C.yellow, C.sage, C.sky, C.navy, "#9B59B6", "#E67E22"];
 
@@ -1444,10 +1522,13 @@ export default function Home() {
         <div className="relative z-10 text-center px-6 max-w-xl mx-auto w-full">
           <motion.div initial={{ opacity: 0, y: 32 }} animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.85, ease: "easeOut" }}>
-            <div className="mb-2 text-3xl font-black tracking-tight" style={{ color: C.navy, letterSpacing: "-0.02em" }}>
+            <div
+              className="mb-8 sm:mb-10 md:mb-12 -mt-20 sm:-mt-24 md:-mt-32 lg:-mt-36 text-3xl font-black tracking-tight"
+              style={{ color: C.navy, letterSpacing: "-0.02em" }}
+            >
               porch<span style={{ color: C.coral }}>.</span>
             </div>
-            <h1 className="font-extrabold leading-tight mb-2"
+            <h1 className="font-extrabold leading-tight mb-2 mt-3 sm:mt-4"
               style={{ fontSize: "clamp(26px,5vw,42px)", color: C.navy }}>
               Your neighborhood has a story.
               <br /><span style={{ color: C.yellow }}>Find out what it is.</span>
@@ -1728,11 +1809,18 @@ export default function Home() {
           viewport={{ once: true }} transition={{ duration: 0.5 }}
           className="max-w-xl mx-auto"
           style={{ boxShadow: "0 4px 20px rgba(0,0,0,0.08)", borderRadius: "24px" }}>
-          <WardMap
-            cityId={detectedCity}
-            searchLat={searchCoords?.lat}
-            searchLng={searchCoords?.lng}
-          />
+          {detectedCity === "nyc" ? (
+            <NycDistrictMap
+              searchLat={searchCoords?.lat}
+              searchLng={searchCoords?.lng}
+            />
+          ) : (
+            <WardMap
+              cityId={detectedCity}
+              searchLat={searchCoords?.lat}
+              searchLng={searchCoords?.lng}
+            />
+          )}
         </motion.div>
       </section>
 
@@ -2469,29 +2557,6 @@ export default function Home() {
         </motion.h2>
         <div className="mb-8 w-14 h-1.5 rounded-full" style={{ backgroundColor: C.sage }} />
 
-        {/* NYC: simple chip-style pulse feed */}
-        {detectedCity === "nyc" && (
-          <div className="space-y-2.5 max-w-lg mb-10">
-            {cityPulseItems.map((item, i) => (
-              <motion.div key={item.id}
-                initial={{ opacity: 0, x: -16 }} whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.07, duration: 0.35 }}
-                className="flex items-center gap-3 px-4 py-3.5 rounded-[16px] bg-white"
-                style={{ boxShadow: "0 2px 10px rgba(0,0,0,0.05)" }}>
-                <div className="w-9 h-9 rounded-full flex-shrink-0 flex items-center justify-center text-base"
-                  style={{ backgroundColor: item.color + "18" }}>
-                  {item.icon}
-                </div>
-                <div className="flex-1 min-w-0">
-                  <p className="text-sm font-medium leading-snug" style={{ color: C.navy }}>{item.text}</p>
-                  <p className="text-[11px] mt-0.5" style={{ color: "#9CA3AF" }}>{item.time}</p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        )}
-
         {/* Civic health ring */}
         <div className="flex flex-col items-center mb-10">
           <div className="relative" style={{ width: "172px", height: "172px" }}>
@@ -2525,13 +2590,12 @@ export default function Home() {
           </p>
         </div>
 
-        {/* 3-column Ithaca pulse grid — hidden for NYC since chip feed above covers it */}
-        {detectedCity !== "nyc" && (
+        {/* 3-column pulse grid */}
         <div
           className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-x-5 gap-y-10 items-start"
           aria-label="Neighborhood pulse by category"
         >
-          {PULSE_SECTIONS.map((section, si) => (
+          {(detectedCity === "nyc" ? NYC_PULSE_SECTIONS : PULSE_SECTIONS).map((section, si) => (
             <div key={section.id} className="min-w-0 flex flex-col">
               <h3
                 className="text-sm font-extrabold uppercase tracking-wider mb-3 pb-2 border-b-2"
@@ -2581,7 +2645,6 @@ export default function Home() {
             </div>
           ))}
         </div>
-        )}
       </section>
 
       {/* ══ LIVE REP BOTTOM SHEET ════════════════════════════════════════ */}
