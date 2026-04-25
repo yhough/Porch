@@ -1,0 +1,1510 @@
+JANUARY 21st 2026
+COMMITTEE OF THE WHOLE MEETING-B
+AGENDA- REVISED
+Date: Wednesday January 21, 2026
+Time: 6:00 PM
+Location: 108 E. Green Street Ithaca NY 14850
+Watch Online: https://www.youtube.com/@CityofIthacaPublicMeetings
+1. Call To Order
+1.1. Emergency Evacuation Notice
+1.2. Agenda Review
+2. Public Works & Operations
+2.1. Sustainability- Distributed Energy Resources Plan
+3. Public Safety
+3.1. Community Responder Unit- ROOTS
+4. Finance & Administration
+4.1. Financial Reporting, Audit Readiness
+5. Intergovernmantal Relations
+6. City Staff Reports- Council Review & Discussion
+7. Council Liaison & Working Groups- Reports & Updates
+8. Meeting Wrap-Up
+8.1. Meeting Adjourn
+No Public Comment
+Not all meetings have a Public Comment segment. The City of Ithaca wants to hear from you!
+You are encouraged to share your thoughts with Common Council.
+To Submit Written Comments please use the link below. Written comments submitted will be
+compiled and entered into the record.
+Submit Written Comments
+About This Meeting
+Committee of the Whole meetings are organized by general topic areas to help the public and Council better
+understand the focus of each meeting. While each meeting has a primary theme, items may be scheduled on
+either agenda as needed to balance workloads, meet timing requirements, or accommodate scheduling needs.
+1
+
+CITY OF ITHACA
+108 East Green Street, Ithaca, New York 14850-6590
+Sustainability
+Shaniqua Lewis, Deputy City Clerk
+MEMORANDUM
+TO: COMMITTEE OF THE WHOLE
+FROM: Director of Sustainability
+DATE: January 21, 2026
+RE: Sustainability- Distributed Energy Resources Plan
+ITEM #: 2.1
+Amendments to the Distributed Energy Resources Plan
+ATTACHMENTS:
+RE- Final DER Plan 01.26.pdf
+DER Plan -Reso 01.26.pdf
+2
+
+1
+CITY OF ITHACA
+LOCAL DISTRIBUTED ENERGY RESOURCE PLAN
+REVISED VERSION
+Draft - October 6, 2025)
+Introduction
+The City of Ithaca approved a Local Law in 2022 establishing a Community Choice
+Aggregation (CCA) program, which allowed for collective purchasing of electricity and
+natural gas supplies and sought to achieve city-wide decarbonization through Distributed
+Energy Resources (DERs)), which are locally sited renewable energy and energy
+efficiency measures. The law also provided for the participation of other Tompkins
+County municipalities in these programs through an intermunicipal agreement known as
+Tompkins Green Energy Network ("T-GEN") The local law was codified as Chapter 20 in
+the City of Ithaca Code. In ____, 2023, the City of Ithaca Common Council approved its
+“Local Distributed Energy Resource Plan for Community Choice Aggregation” (the
+“2023 Plan”).
+In June of 2025, the City deleted and replaced City Code Chapter 20 to comply with New York
+State Public Service Commission rules. The new Chapter 20 is titled “A Local Law
+Amending Chapter 20, Community Choice Aggregation (Energy) Program, of
+the Ithaca City Code.”
+Because the 2023 Plan tracked the 2022 law that is no longer in effect, the Common
+Council will rescind the 2023 Plan and adopt this Local Distributed Energy Resource Plan
+(“Local DER Plan”) as the next “step” in the process for the formation of the City's CCA
+and DER Programs,. This document refers to sections of the new 2025 Local Law ("A Local
+Law Adding A Distributed Energy Resources Article To City of Ithaca Code Chapter 20,
+Community Choice Aggregation (Energy) Program and Distributed Energy Resources Program"),
+italicized and with the “§” symbol for citation. Definitions of terms appear at the bottom
+of this document.
+The Local DER Plan reflects recognition of the limitations of city-wide decarbonization
+through Renewable Energy Certificates (RECs) that are referred to as “green” or
+“renewable” centralized grid power and “net metering.” Instead, the Plan follows a
+localization and self-consumption strategy for DER design that seeks to provide (1)
+savings to DER users and (2) a return on investment to DER owners, resulting from the
+avoided cost of natural gas, electric grid power and vehicle fuel purchasing relative to the
+cost of DER installation, operation, and administration.
+The Local DER Plan recognizes that the goals of the City’s Green New Deal program
+depend upon the effective engagement of energy consumers that live and work here. The
+Plan recognizes obstacles to engagement, and seeks collaboration between the City and
+Town of Ithaca to simplify and standardize participation to maximize the number of
+3
+
+2
+residents and businesses that are eligible and have the opportunity to participate. To be
+inclusive, the Plan employs both individual investment and cooperative investment. The
+Plan’s references to “Cooperatives,” “Shares” and “investments” are descriptive; details
+about the precise legal forms are being explored.
+The Local DER Plan will be augmented by Article 1 (Community Choice Aggregation)
+of City Code Chapter 20. Article 1 organizes a form of cooperation through aggregation
+of energy demand, and the collective purchasing of electricity and gas Supply through the
+passive mechanism of opt-out enrollment. The Local DER Plan will result in a program
+that offers any Eligible Investor in the City of Ithaca an entirely voluntary option to
+become Site Owners and/or Users of DERs. This is a deliberate facilitation to reduce the
+amount of grid power and natural gas supplied to CCA customers or others who become
+DER Investors. Use of DER-connected electric vehicles (EVs) will also physically reduce
+DER Investors' gasoline and diesel use.
+By uniting these services under the Local DER Plan, the City enables an organized and
+deliberate transition from conventional supplies to DERs for all "addressable" sources of
+carbon in the City of Ithaca: power, heat, transportation, and waste (Addressable
+Carbon).
+The City’s next steps following the adoption of a new City Local Law Chapter 20 will be
+(1) adoption of this Local DER Plan, (2) selection of a CCA Administrator and DER
+Administrator, (3) participation in communication and outreach for CCA and DER
+programs(4) selection of electricity and gas Supply following Request(s) for Proposals
+submitted by the CCA Administrator, and (5) oversight of ongoing DER program
+activities. This Local DER Plan focuses on the DER program.
+Distributed Energy Resources (DER) as Authorized by the Local Law
+In 2025, the City of Ithaca and Town of Ithaca also adopted similar Local Laws to create a
+CCA and DER program, define their purposes, articulate their structures, and authorize
+activities of the City, Town, and a CCA Administrator and DER Administrator to
+implement the program. Article 2 of the City Local Law Chapter 20 (DER Local Law) is
+as follows.
+§20-12. Legislative Findings; Intent and Purpose; Authority.
+A. The City of Ithaca has long demonstrated its commitment to sustainability and
+community-wide greenhouse gas reduction from energy use, transportation, land use
+and waste management.
+B. On May 5, 2021, the City adopted a new Energy Code Supplement.
+C. On November 3, 2021, the City established a goal to increase energy efficiency and
+reduce greenhouse gas emissions from energy use in existing buildings by promoting
+city-wide Energy Efficiency Retrofitting and Thermal Load Electrification.
+D. Following electrification of thermal loads, electricity use will become one of the most
+significant contributors to local greenhouse gas emissions in new and existing
+buildings.
+4
+
+3
+E. The DER Administrator will administer energy services in a manner that expands
+access to solar and other Distributed Energy Resources by administering optional
+enrollment of Eligible Investors in voluntary investments in DER, and administer a
+bookkeeping, financing and customer engagement umbrella for such Eligible
+Investors.
+F. To create the necessary capacity to run the program, this Chapter establishes a third
+party- based process, using a DER Administrator to manage a community-wide
+energy transition, administer multiple suppliers and community-owned DERs on a
+citywide, building-by-building and block-by-block level in the City of Ithaca, and
+offer support to other subsequent municipalities that join the City through an
+intermunicipal agreement, to facilitate enrollment, reporting and bill processing for
+voluntary investment by residents and businesses within their jurisdictional
+boundaries.
+G. Furthermore, the DER Administrator may provide direct technical support to other
+member municipalities who need assistance analyzing data, identifying DER sites,
+engaging customers in voluntary investment, prequalifying contractors to bid on
+projects, and prequalifying lenders to finance projects.
+This Local DER Plan is a voluntary act of the City of Ithaca to further define, support, and
+promote the DER program and to encourage and facilitate DER ownership opportunities
+within the City. This Local DER Plan specifies how the City will provide support and
+oversight for the DER program to launch, and how continuing DER development will be
+maintained for the duration of the DER program.
+To accomplish these goals, the Local DER Plan provides for the use of a DER
+Administrator to manage the DER activities on behalf of the City. The Local DER Plan
+creates a process for municipal support and oversight of DER activities by the DER
+Administrator. This Plan also defines the method of compensation for a DER Administrator
+for DER implementation, the specific figures for which will be determined by negotiation
+with the DER Administrator that is selected to run the program.
+The Local DER Plan specifies how it will be implemented by the DER Administrator.
+Among other things, the DER Administrator will implement a town-wide DER voluntary
+investment program.
+As the Local Law specifies, this program is authorized by the City of Ithaca, under Local
+Law according to any applicable New York State PSC DER rules and procedures.
+§20-13A. The City of Ithaca hereby establishes a DER program that is governed by
+the City’s Local Distributed Energy Resource Plan, which Plan the Common Council
+may adopt and amend from time to time by resolution.
+The Local DER Plan reflects the Local Law in using a DER Administrator to manage the
+DER activities on behalf of the City.
+§20-13B. The City of Ithaca may select a third party as DER Administrator.
+5
+
+4
+This program will employ standard agreement templates that the DER Administrator will
+draft for co-investment by different kinds of customers for different kinds of DERs. The
+DER Administrator will submit proposed templates to a designated City representative for
+a sign-off before they are made executable by Eligible Investors. Proposed templates will
+be adapted to customer and DER types to provide a voluntary investment opportunity for
+all Eligible Investors.
+The core decarbonization mission as stated in Chapter 20, and implementable through the
+Local DER Plan, is to decarbonize buildings through the development of onsite and
+nearby DERs designed primarily for Self-Consumption through Interoperability of onsite
+and nearby power, heat, transportation and waste systems, including appliance
+automation, demand dispatch, nanogrids, microgrids, thermal loops, micro-districts and
+mini-districts, on and where desired and feasible within properties, and between adjoining
+properties throughout the City. It is the purpose of this program to design and install
+DERs in a manner that significantly reduces DER Users’ demand of greenhouse gas-
+producing heating and transportation fuels, by providing all or part of Users’ energy needs
+with onsite DERs. It is also the intention of this Plan, where desired and feasible, to install
+EV chargers at or near DER sites on sidewalks, public properties and municipal rights of
+way, as well as on municipal properties and meters. This program establishes a planning
+process between the DER Administrator and City of Ithaca to accomplish this mission.
+This program is city-wide, extending eligibility for DER share ownership to all Eligible
+Investors, and encompassing power, heat, transportation and waste. A robust and
+cooperative relationship between the DER Administrator and the City is a critical
+component to provide residents and businesses with adequate support to participate in a
+successful community wide energy transition. Engagement must be actively supported
+and coordinated in a sustained manner to provide public awareness of and trust in the
+DER program and effectively engage residents and businesses over time.
+The DER Administrator will provide similar work for other municipalities that join the
+City and Town of Ithaca, or with a group formed by Intermunicipal Agreement (IMA) if
+one is created. Details on a potential IMA follow in subsequent sections.
+§20-13 D. The City of Ithaca's intermunicipal agreement with the Town of Ithaca
+and other municipalities in Tompkins County, and potentially municipalities in
+adjoining counties, may also support Eligible Investors' access to DERs, including
+potentially the City's Energy Efficiency Retrofitting and Thermal Load
+Electrification Program resources, and shall include a process for other
+municipalities in Tompkins County to offer their Eligible Investors such resources
+to join the DER program.
+6
+
+5
+Description of City of Ithaca Local DER Plan for CCA
+I. Approach
+The Local DER Plan will offer Eligible Investors the ability to share Distributed Energy
+Resources (DERs), in order to localize investment and economic benefits for DER
+Investors in their neighborhood and City. In coordination with the City's CCA electricity
+and gas Supply program under PSC oversight, the DER Administrator will administer a
+local DER program under municipal oversight.
+The program offers a broad range of technologies configured for maximum physical
+decarbonization across all four sectors of “Addressable Carbon,” including electricity,
+heating/cooling/hot water, transportation, and waste. This will provide City residents and
+businesses with more choices and more flexible ways to participate, in order to acheive
+the high levels of participation required to reach community wide climate goals.
+The program is focused on community and online engagement and robust use of
+municipal communication platforms to provide ongoing education and outreach, in order
+to both inform and simplify participation for all community members.
+The DER program is focused on facilitating physical sharing by neighbors and collocation
+of DERs, where desired and feasible, and co-invesment, in order to achieve economies of
+scale that may increase the affordability of DER technologies for more people, which can
+also increase participation levels in the community.
+The program is focused on DER systems design for onsite Self-Consumption in order to
+make a community-wide DER build out possible 1) avoiding the imposition of costs on
+distribution utility customers, and 2) minimizing grid upgrade delays by the utility to
+achieve the City's more accelerated climate goal timeline. The avoidance of unnecessary
+costs and delays facilitates the accelerated installation of DERs by a greater number of
+customers than would otherwise be feasible under conventional net metering programs
+and is more appropriate for city-wide approaches to decarbonization.
+Finally, the program’s inclusiveness and flexibility will enable a multi-site acquisition
+approach to DER development in order to achieve a desired scale of climate impact in a
+timely way.
+II. Decarbonize All Addressable Carbon through DER
+7
+
+6
+Paths to decarbonizing electricity are blocked by the legacy energy system. The grid has
+reached its limits as a business model and is itself a cause of carbon emissions as a result
+of losses during energy transmission and the need for Spinning Reserves, not to mention
+the direct carbon emissions associated with building high voltage transmission lines and
+clearcutting transmission corridors. Much of a building’s energy requirements can be
+generated on-block, making strictly centralized business models of renewables, like net
+metering, increasingly economically obsolete. Renewable Energy Certificate trading
+regimes dilute carbon benefits, cause new environmental justice issues, confuse
+consumers and undermine public trust in renewables as a climate pathway. Energy from
+renewable technologies is already competitive with market power, and much more stable
+in price. Sharing technologies like electric vehicles sharing and renewable nanogrids,
+microgrids, thermal loops, micro-districts and mini-districts are widely demonstrated
+niche markets. An effective program for engaging and aggregating DER Investors to help
+them design and solicit proposals from DER Vendors can reduce engineering costs to
+make energy from DERs more competitive in price and potentially increase community
+participation levels. The DER Administrator is charged with facilitating this physical
+transition of building decarbonization as defined in chapter 20.
+§20-13. DER Program Established.
+E. The DER Administrator may evaluate local DER opportunities, facilitate DER
+procurement, and advise Eligible Investors regarding bids for DER projects.
+F. The DER Administrator may directly enroll Eligible Investors through an opt-in
+procedure into the following DER investment options:
+1) To purchase an individually-owned DER project
+2) To Opt-Up to purchase Shares in a neighborhood DER project; and
+3) To Opt-With neighbors in a Cooperative to own and operate on-site DERs.
+The DER Administrator will engage DER Lenders and other prequalified financial
+partners designated by the City to provide loans or other financing for DER, and track
+ongoing performance of each DER Investor's investment including a list and analysis of
+DER costs, avoided energy costs, and net savings.
+A. DER Program Eligibility
+Any resident, business, institution, or government agency in the City that is an Eligible
+Investor and is using services for electricity, heating, transportation or waste, is eligible to
+participate in the DER program, provided that such participation shall depend upon the
+availability of DER projects, and the availability of Shares that some DER projects may
+employ to facilitate co-investment .
+§20-13K. All Eligible Investors shall be eligible to participate in DER Shares and
+Cooperatives, provided that their ability to participate shall depend upon the
+availability of DER projects and financing.
+8
+
+7
+B. Aggregating Local DER Demand
+Third party DER Vendors are typically siloed by technology, dependent on utility tariffs,
+and are often either not advanced enough in their technology applications (e.g., stand-
+alone solar PV), or are prohibitively expensive for many consumers (e.g., solar PV plus a
+wall battery). Disorganized customers generally lack information to choose or evaluate
+advanced local renewable energy systems. Disintegrated energy choices in current
+markets separate decision-making about electricity, heat, transportation, and waste into
+isolated acts. Disaggregated customers lack market power to achieve project economies of
+scale, and often cannot afford additional engineering costs associated with more
+advanced, Interoperable DERs.
+The DER program approach to these decarbonization challenges is to engage the
+community as Eligible Investors and DER Users in replacing multiple fossil fuel uses with
+DERs onsite or in the neighborhood. Renewable electricity sharing systems require
+cooperation in a building. Power and heat sharing systems require aggregation and
+facilitation. Sharing in a neighborhood requires an agreement between DER Users and
+interested neighbors. Changes in waste management practices and public sector energy
+projects require ongoing coordination between a municipality, local and regional agencies
+and service providers. The DER Administrator will prioritize the support of local agencies
+and services, in order to facilitate coordination of DER investment.
+C. Serving “All Energy”
+The CCA DER program will decarbonize city-wide through diversified local DER
+investment to decarbonize power, heating and vehicles through electrification bundled
+with onsite renewables and efficiency measures. On a parallel track, the program will seek
+to help local waste managers decarbonize waste management through waste separation
+and conversion practices. DER measures by carbon source include:
+● Onsite renewable plug loads
+○ Onsite renewable microgrid
+○ Onsite renewable nanogrid
+○ Energy efficiency measures
+○ Appliance integration
+○ EV integration
+● Onsite solar electric powered, geothermal, and solar heat
+○ Thermal loops, micro-districts, and mini-districts
+○ Heat pumps
+9
+
+8
+● Switch to onsite EVs
+○ Onsite RE chargers for self-consumption (V2B)
+○ EV sharing
+○ Sharer EV rental
+○ Neighborhood renewable EV renting
+● Engagement of T-GEN member municipalities to reduce solid waste and
+sewer waste dumping and incineration
+○ Separation
+○ Re-use (e.g., composting)
+○ Conversion to hydrogen for DER
+○ Detoxification and/or sequestration of toxic residues
+D. DER Design
+DERs will be designed to avoid distribution system obstacles to city-wide decarbonization
+(e.g., upgrade costs). Self-consumption, rather than net metering and export of electricity,
+will incorporate electrification to onsite renewable heat, and use of DER-connected
+electric vehicles. A DER will significantly reduce, but is unlikely to eliminate grid use,
+and may entirely eliminate a User’s natural gas consumption. The program will facilitate
+both individual DER investment and sharing by neighbors, as well as collocation of
+shared heat, power, and EV facilities, by designing DER technology to fit Users’ onsite
+and nearby energy needs. Facilitating neighbor sharing and the interoperability of DER
+components will facilitate self-consumption. DER systems will be designed primarily
+under a non-exporting specification, and where feasible, will incorporate an “islanding”
+capability for onsite resilience and/or grid autonomy.
+DER sharing platforms will consist of singular and combined stakeholder nanogrids,
+microgrids and/or thermal loops using multi-stakeholder cooperative ownership
+agreements to enable joint co-investment, ownership and use of DERs. Sharing will
+employ a multi-benefit microgrid ledger in which ownership is split between Cooperative
+Members, with energy savings and dividends resulting from DER use divided between
+them. Owners, partners, and stakeholders may include citizens, small businesses,
+technology services providers, institutions and government entities. DER systems,
+whether shared or individual, will range from installations in single family homes or small
+to medium sized businesses, to larger DERs on multi-residential buildings, mixed use
+buildings, large commercial and institutional buildings, and/or government facilities.
+III. Individual Voluntary Investment
+10
+
+9
+Individual consumers may also voluntarily invest singularly in DER products that provide
+onsite renewable packaged with interoperable electrified heating and/or transportation.
+Renewable energy technologies adapted to DER site conditions and User group energy
+needs will be combined with electrification and efficiency measures to maximize savings
+from demand reduction and onsite DER Self- Consumption.
+All DERs, including DER designed for individual voluntary investment participants, will
+be primarily designed for Self-Consumption.
+The use of an electric vehicle and a switch in heating systems, as well as implementation of
+energy efficiency measures, will be bundled together in packages to deliver self-
+consumption to the DER user.
+Depending on an individual investor type and size, a DER package may include a
+nanogrid, microgrid, thermal loop, micro-district, or mini-district.
+For purposes of this document individual DER investment will also be facilitated for
+Eligible Investors wishing to finance and own a DER project meaning they are the solar
+DER User and 100% Share owner, exercising site control at a location where DERs are
+installed.
+IV. DER Cooperation and Sharing: Users, Sharers, Site Owners
+DER Cooperatives will facilitate universal access to DERs by enabling greater
+stakeholder diversity, and enhancing community education, inclusion and sharing for the
+program. Cooperative Agreements will be entered into through mutual negotiation
+between Members, in compliance with the relative legal instruments, and will be signed
+by authorized representatives of the parties. There are three different types of Members in
+a Cooperative, defined by using the DER, owning Shares in the DER, and owning the host
+location where DERs are installed:
+● Share Owners who are Users of the DERs ("Users")
+● Share Owners who are not Users of the DERs ("Sharers")
+● Site Owner(s) who may be sharers or users of the DERs ("Site Owners")
+The approach will be flexible and sensitive to site control options. Site Owners may own,
+use, and share DER at their discretion. A Share owner may or may not be a DER User,
+but only Share owners may be DER Users. Sharers who, for example, do not own or hold
+a long-term lease for their dwelling/enterprise, or own or lease a building ill-suited to
+DERs, may purchase Shares without being Users, may be partial Users (such as sharing
+an electric vehicle or thermal loop) or may in the future become Users if conditions
+permit. The DER Administrator will work with Sharer/User(s) and Site Owner(s) to
+11
+
+10
+determine how many Share/Non-User applicants are allowable for individual DER
+projects. Sharers/Users and Site Owners may also self-organize their own Sharer group
+and work with the DER Administrator as such.
+Sharer/Users will be off-takers of energy from a DER system and will enter mutually into
+an agreement to determine compensation terms between Sharers, User/Sharers and Site
+Owners.
+EVs included as components of DERs may be used by DER Investors whether or not such
+DER Investors inhabit a building hosting the DERs.
+Thermal loops and mini-districts included in components of DERs may be used by DER
+Investors whether or not such Investors inhabit a building hosting electricity-generating
+DERs
+Every share, whether owned by a User, Sharer, or Site Owner, will have equal value and
+receive equal treatment. Apart from DER loan repayment, savings from avoided electricity
+consumption, natural gas consumption and vehicle fuel consumption will be divided
+between the Shares. The DER Administrator will prepare and submit standard
+Cooperative Agreement template(s) for review and sign-off by designated City staff, for
+use by DER Cooperative groups to define the terms between Users, Sharers, and Site
+Owners of a DER project.
+The process of creating Cooperative Agreements will be as follows:
+● Cooperative Agreement standard template sign-off by a representative of the
+municipality
+● Cooperative Agreement signed by Sharer/Users and Site Owners
+● Sharers who are not Users then enrolled
+● DER Loan or other financing application to a prequalified lender or City finance
+partner is processed
+11
+Under the Shares approach, prospective Sharer/Users will form a Cooperative, with
+agreement of the Site Owner(s), which will mutually establish the terms of DERs usage.
+Sharers must agree to the terms of the Cooperative Agreement, join as Members of the
+Co-op as Sharers, and purchase Shares that are defined within the terms and limitations of
+the Co-op’s adopted Cooperative Agreement. Loans or financing will be executed either
+individually or as a group, as desired and feasible.
+The DER Administrator manages procurement on behalf of residents or businesses who
+sign up to voluntarily invest in local and onsite DERs.
+A Cooperative group will contract with prequalified DER Vendor(s) and DER Lender(s)
+solicited by the DER Administrator, who will employ an RFI/RFP or RFQ and “Job
+12
+
+11
+Order” procurement approach.
+V. Roles of the DER Administrator
+The DER Administrator will manage DER supplier procurement, as described in Article 2
+of City of Ithaca Code Chapter 20, and will prioritize inclusivity in the energy transition.
+The DER Administrator will be responsible for regulatory compliance with state agencies
+for DER activities, DER procurement, solicitations, management, analysis, and DER
+Vendor and Lender prequalification, Cooperative Agreements, contracts, and DER
+Investor support.
+The DER Administrator will be responsible for managing DER site acquisition and will
+provide a supporting role in DER site planning and permitting activities for multi-site
+acquisition of Site Owners and building occupants (DER off-takers).
+The DER Administrator will be responsible for representing the program to the City’s
+staff and Common Council, managing communication processes and participating in any
+public hearings, and providing support to City staff for coordinating municipal agency
+cooperation and partnership activities, including state agency and university cooperation
+and partnerships, and applications for state, federal and nonprofit funding.
+The DER Administrator will manage data, data collection, analysis and reporting with the
+City, Eligible Investors, DER Investors, Suppliers, DER Vendors, DER Lenders and City-
+designated finance partners, including the following:
+● Data analysis including GIS, Profits and Losses Modeling, customer-specific
+confidential data collection, management, and use for DER facility siting, design,
+tracking and reporting to customers
+● Data sharing with DER Vendors, Lenders, and finance partners for billing,
+updating DER Investor web portals and reporting purposes
+○ DER program performance reporting to the DER Investor
+○ Summary of DER project performance reporting to DER Investor
+○ Summary of DER projects and program performance to the municipality,
+analyzing performance and recommending program improvements, needed
+changes and new procedures to improve program performance for
+municipal sign-off or Common Council action
+○ Contractor performance evaluation, database of warranties and agreements
+● Direct communication to diverse Eligible Investor and DER Investor groups
+The DER Administrator will utilize, among others and as needed, the following steps for
+DER development:
+13
+
+12
+● Data, survey, site analysis
+● User enrollment
+● Site acquisition
+● Planning
+● Cooperative Agreement or individual customer commitment to consider DER
+Vendor proposal(s)
+● RFP/solicitation bid acceptance
+● Permits
+● Shares enrollment by neighbors
+● Finance/loan
+● Finalize contract with DER Vendor(s)
+● Track DER installation
+● DER data tracking/reporting
+A. DER Administrator Enrollment of Participants in DER Voluntary
+Investment
+The DER Administrator will manage enrollment of Eligible Investors as DER Investors
+and administer dedicated billing and reporting for Sharers and Users and Site Owners of a
+DER.
+All Consumers of electricity and/or natural gas within the geographic boudaries of the
+City of Ithaca will become eligible for DER Voluntary Investment as described in Chapter
+20:
+§20-2 Definitions. ELIGIBLE INVESTOR(s) or INVESTOR(s) shall mean
+consumer(s) of electricity and/or natural gas who receive Default Service from the
+Distribution Utility, at one or more locations within the geographic boundaries of
+the City of Ithaca.
+§20-13 DER Program Established.
+C. The DER Administrator may establish a system of Energy Loan Accounts to
+engage Eligible Investors, prequalify lenders, and track the performance of DER
+investments by Eligible Investors who elect to voluntarily invest in DERs.
+E. The DER Administrator may evaluate local DER opportunities, facilitate DER
+procurement, and advise Eligible Investors regarding bids for DER projects.
+J. All Eligible Investors electing to participate in a DER Investment shall be
+enrolled on an affirmative voluntary, opt-in basis, whether individually, or through
+a decision to Opt-Up to own shares in DERs, or to Opt-With to own DERs through
+membership in a Cooperative.
+The DER Administrator may provide a DER Sharer and User ledger for the Members of
+each Cooperative, and collect and report pertinent data to such Members for use with the
+ledger according to the terms of its Cooperative Agreement. The provision of energy usage
+data, and lender data to Users, Sharers and Site Owners may be administered by the DER
+14
+
+13
+Administrator.
+§20-13 G. The DER Administrator may create a system of Cooperative ownership
+to facilitate transactions and settlements by Share owners of a DER project to
+compensate each other for ownership and use of such DER Equity, and may
+facilitate funding, including through the City of Ithaca's Energy Efficiency
+Retrofitting and Thermal Load Electrification Program or other sources.
+The DER Administrator will separately prequalify and engage DER Lenders to provide
+loans to Voluntary Investors. The DER Administrator will also prequalify City-designated
+partners or other low-cost financing options to offer building decarbonization financing
+products to Eligible Investors or Cooperatives, such as the City's Energy Efficiency
+Retrofitting and Thermal Load Electrification Program or other approved sources, such as
+Climate Bonds.
+The DER Administrator may choose to engage with one or more Program Organizers to
+educate and engage both Customers in the City of Ithaca and the municipal governments
+in and around Tompkins County to join or participate in the DER program.
+§20-13I. The DER Administrator may designate one or more Program Organizers
+to assist in the education and engagement of Eligible Consumers, Eligible Investors
+and municipalities in Tompkins County to participate in the DER program.
+The DER Administrator will provide a dedicated bookkeeping platform for DER
+Investors.
+The DER Administrator will organize DER Investor Cooperatives through “Opt-With”
+enrollment. Opt-With customers will voluntarily invest in a local DER project through a
+Cooperative. For Customers unable to be Users but wishing to invest in Shares, the DER
+Administrator will enroll Sharers as an “Opt-Up” enrollment, based on the availability of
+Shares in local DER projects. Opt-Up and Opt-With customers will enter into a
+Cooperative agreement to allocate payments and/or dividends amongst members, and to
+secure and Energy Loan or other financing, as desired and feasible, in order to voluntarily
+invest in a local DER project.
+§ 20-14 Voluntary Investment Enrollment Process.
+A. An Eligible Investor's decision to invest in DERs may involve financing, including
+loans by prequalified lenders, DER Loan Accounts, and cooperative agreements with
+co-investors, as appropriate.
+B. A choice to purchase DERs individually will place a consumer on a list to
+participate in a DER investment on their property.
+C. A choice to “Opt-Up” for Shares will place a consumer on a list to participate
+financially in a nearby DER project once it is available.
+D. A choice to “Opt-With” neighbors and building owners by becoming members of a
+15
+
+14
+Cooperative will place a consumer on a list to participate physically in an onsite DER
+project, pending site availability and completion of an agreement to share savings, by
+the members of a Cooperative facilitated by the CCA Administrator.
+The DER Administrator will assist participants relative to Cooperative, Vendor and
+Lender engagement processes.
+B. DER Data Management
+The DER Administrator will coordinate data collection with Suppliers, and make all
+collected data available to the City at its request.
+§20-16 DER Data Protection Requirements.
+A. City of Ithaca departments and other CCA program member municipalities
+involved in supporting the CCA program and DER Shares service and DER
+Cooperative service will share energy data and other data with their respective
+CCA and DER Administrators to tailor DER products to Eligible Consumers and
+Eligible Investors, and to facilitate Investor engagement, program administration,
+operations, billing and collection, provided that any use of an Eligible Consumer's
+Customer-Specific Data for DER-related purposes will be conditioned upon receipt
+of affirmative permission from each customer who elects to receive DER investment
+offers and/or become a DER Investor.
+B. Customer-Specific Data shall be protected in a manner compliant with,
+collectively:
+1. All national, state and local laws, regulations or other government standards
+relating to the protection of information that identifies or can be used to identify an
+individual with respect to the CCA Administrator's, DER Administrator’s and City
+of Ithaca’s processing of confidential utility information;
+2. The Distribution Utility's internal requirements and procedures relating to the
+protection of information that identifies or can be used to identify an individual with
+respect to the City of Ithaca or its representative's processing of confidential utility
+information; and
+3. The PSC CCA Orders and PSC rules, regulations and guidelines relating to
+confidential data.
+C. DER Administrator Customer Service
+The DER Administrator will establish and manage a customer call center and a customer-
+specific online account system. Customer service will include direct mail and be
+referenced in City of Ithaca CCA and DER Outreach and Education activities.
+§ 20-15. DER Investors shall be provided Investor account support by the DER
+Administrator, including a toll-free telephone number available during normal
+business hours (9:00 a.m. to 5:00 p.m. Eastern time, Monday through Friday) to
+resolve concerns, answer questions, and transact business with respect to the
+service received from the DER provider, as well as a secure Investor-specific online
+account, scheduled direct mail, and messages inserted into City of Ithaca scheduled
+16
+
+15
+direct mail and public notices.
+The DER Administrator’s DER Outreach and Education activities – via municipal
+communications, web communications, and direct mail - will include the following:
+● Prospective Cooperatives engaged by group based on building occupancy and Site
+Owner authorization
+● Shares participants engaged individually based on sign-up and enrollment
+authorization
+● Cooperative group facilitation and data sharing between participants
+● Monthly educational messages about program using municipal channels
+● Performing requested data analysis for any customer
+● Enterprise web site management with customer specific accounts
+● Free media, direct mail, monthly live public webinars
+● Recorded webinar series
+D. DER Administrator Engagement Activities
+The DER Administrator’s Voluntary Investor engagement activities will include the
+following:
+● Assist in public community meetings
+● Create and manage DER RFPs/solicitations with DER Vendors
+● Engage Common Council/Town Board/ Intermunicipal Agreement and an advisory
+group in developing Community DERs on municipal properties, equipment, and
+fleets
+● Solicit Site Owners
+● Solicit DER Users
+● Solicit DER Sharers
+● Engage social service agencies and community organizations, as appropriate, to
+solicit Assistance Program Participants (APP) and Low to Moderate Income
+(LMI) shares investors
+● Engage neighbors to sign Cooperative Agreements including occupants and
+owners, residential, commercial and institutions
+● Engage individuals to participate in local DER voluntary investment
+● Engage (non-APP) Low- to Moderate Income residents
+● Engage large commercial customers in DER voluntary investment
+● Provide the municipality, on a monthly basis, all materials and messaging for its
+municipal public distribution, web site, notices, and communications platforms
+The DER Administrator’s primary customer engagement method will be as follows:
+● DER Investors who are both Sharers and Users - web, mail
+● DER Investors who are Sharers - web, phone
+17
+
+16
+● DER Site Owners - phone, mail
+The DER Administrator will maintain a website and online customer relationship
+management and/or customer engagement system to augment customer service.
+The DER Administrator’s Eligible Investor and DER Investor engagement, including
+Outreach and Education, Site Owner consent and contracts, will be as follows:
+● Site acquisition, lease writing, support for planning, permitting
+● Co-op education, outreach, engagement, and implementation
+● Cooperative Agreement writing including Shares, Users and Site Owners
+● Shares customer education, outreach, engagement, and enrollment
+● Shares term sheet based on Cooperative Agreement
+The DER Administrator’s Sharer engagement, including waitlisting, enrollment, and
+Sharer Agreement, will be as follows:
+● CCA-related Opt-out notification information and links to DER web page and
+Customer Service number
+● Customer-specific web account
+● Explanation of Cooperative, Sharing and individual investment terms
+● Web and phone support for contract signing
+The DER Administrator’s Individual DER Voluntary Investment engagement will provide
+DER procurement for Eligible Investors who wish to own and use DERs individually.
+The DER Administrator will facilitate communication in collaboration with the City to
+engage with Eligible Investors. Approved communications will reflect recognition of the
+program as community-driven and as facilitating communitywide decarbonization, in
+which all residents and businesses are eligible to own and/or use neighborhood-sited
+DERs. A municipally designated representative of the City may review and sign off on
+these messages ahead of release.
+E. DER Administrator Engagement of DER Vendors and Lenders
+The DER Administrator’s engagement of DER Vendors, Lenders, and Site Owners may
+include the following activities:
+● Define Vendor program
+● Prequalify DER Vendors
+● Issue RFPs
+● Negotiate contracts
+● Confirm Data Sharing Agreement
+18
+
+17
+● Define Lender program
+● Solicit bank participation
+● Prequalify DER Lenders
+● Secure DER leases
+● Solicit owner participation in DER voluntary investment
+● Negotiate building owner provisions in Cooperative Agreement
+F. DER Administrator DER Reporting
+The DER Administrator will separately provide annual Local DER reports to an individual
+customer and the City.
+§20-18. An annual report shall be prepared by the DER Administrator, which
+report shall be filed with the Common Council of the City of Ithaca by March 31 of
+each year and cover the previous calendar year. DER annual reports shall include,
+at a minimum, number of Eligible Investors served, number of complaints received,
+carbon reductions resulting, and administrative costs collected. Information shall
+be broken down by municipality, where applicable.
+G. DER Administrator Compensation
+The funding source of the DER Administrator’s compensation for work performed on
+behalf of the DER Voluntary Investment program, is described in the Local Law as
+follows:
+§20-17. The DER Administrator may collect, or cause to be collected, funds from
+DER Investor payments, DER developers or DER lenders, to pay for administrative
+costs associated with running the DER program.
+The contract with a DER Administrator will involve a five-year term with an option to
+renew. The DER Administrator will charge a DER procurement fee that is a fixed
+percentage of project value, to be negotiated between the City and DER Administrator in
+a DER Administrator Agreement, which will be paid to the DER Administrator
+irrespective of which DER Vendor, DER Lender or City-designated finance partner is
+selected. Compensation shall be paid either upon commissioning of DER as an upfront
+payment by the DER Vendor, Lender or other City-designated financial partner, or
+otherwise on an ongoing basis as percentage of monthly loan repayment for the full
+maturity, as is required by the City and accepted by the DER Administrator. Customers
+who self-finance DERs and do not require an energy loan will pay the DER procurement
+fee as part of the installed system cost up-front or in installments.
+VI. Roles of the Municipality
+A. Engagement with DER Administrator and T-GEN Member
+19
+
+18
+Municipalities
+The DER Administrator will report to an advisory group designated by the City, as well as
+individually to a designated City representative. The DER Administrator will continue to
+have regularly scheduled Zoom meetings every two weeks with the Advisory Group and
+once a week with the designated City representative. A CCA Advisory Group was
+established by the City of Ithaca’s Local CCA Law to develop and review CCA related
+proposals, to act as the City of Ithaca’s agent in approving proposals, and where
+appropriate to forward information regarding such approvals to the Common Council for
+ratification. The City may expand the scope of topics covered by the CCA Advisory Group
+to also covcer DER programs. Membership in the advisory group will include City Staff
+and City of Ithaca Common Council members. The advisory group will host the meetings
+on the City and/or Town’s Zoom account or in person as its members deem appropriate.
+§10. “CCA Advisory Group.
+A. A CCA Advisory Group is hereby established to develop and review CCA related
+proposals, act as the City of Ithaca’s agent in awarding said proposals, and forward
+information regarding such awards to the Common Council for ratification.
+B. Membership to the CCA Advisory Group shall include City Staff and City of
+Ithaca Common Council.”
+An Intermunicipal Agreement for the City and Town of Ithaca may be signed to coordinate
+and cooperate around their CCA and DER programs. The Intermunicipal Agreement will
+be developed following the approval of this Local DER Implementation Plan and selection
+of a DER Administrator.
+The CCA Administrator will engage interested municipalities within or near Tompkins
+County to join the City and Town of Ithaca by seeking to join T-GEN.
+B. Governance, Outreach, Education
+1. Two-Year Governance Schedule
+A Two-Year Governance Schedule includes continuing biweekly meetings of the CCA and
+DER Advisory Group, Common Council Meetings by request of the Advisory Group, and
+if created, monthly meetings of an intermunicipal group.
+2. Public Outreach and Education Schedule
+The Public Meetings and Tabling Schedule from February 2026 to September 2026, is as
+follows:
+MTG O&E DETAILED TIMELINE
+# O&E ITEM
+20
+
+19
+PHASE I O&E (INITIAL - MIN. 60 DAYS, up to 90) Months One and Two
+*All Meetings & Sessions live broadcasted & recorded by municipality &
+posted on LP & Municipal Websites
+*All 10 Day Notices on LP website, Municipal CCA web pages, Municipal
+printed/posted notices, ROBOCALL
+1: 10 Day Notice of In-Person Hybrid Public Meeting 1
+Physical Supplemental - Municipal tax or water bill insert
+Electronic Supplemental - TV or radio interviews (suggestions?)
+Physical Supplemental - Poster/Municipal Flyer
+Physical Supplemental - Newspaper print ad
+Public Meeting 1 City (in person)
+Public Meeting 1 Town (in person)
+DER City
+DER Town
+2: 10 Day Notice Zoom Information Session 1
+Electronic Supplemental - Municipal email
+Physical Supplemental - Newspaper print ad
+Information Session 1 City (Zoom)
+Information Session 1 Town (Zoom)
+DER City
+DER Town
+3: 10 Day Notice Zoom Information Session 2
+Electronic Supplemental - Municipal social media
+Physical Supplemental - Poster/Municipal flyers
+Information Session 2 City (Zoom)
+Information Session 2 Town (Zoom)
+DER City
+DER Town
+4: 10 Day Notice in-Person Hybrid Public Meeting 2
+Electronic Supplemental - Municipal digital newsletter
+Physical Supplemental - Municipal postcards?
+Public Meeting 2 City (in person)
+Public Meeting 2 Town (in person)
+DER City
+DER Town
+21
+
+20
+Month Three
+PHASE II O&E (POST AWARD - MIN. 30 DAYS) Month Four
+5: 10 Day Notice of In-Person Hybrid Public Meeting 3
+Physical Supplemental - Municipal tax or water bill insert
+Electronic Supplemental - TV or radio interviews (suggestions?)
+Physical Supplemental - Poster/Municipal flyers
+Physical Supplemental - Newspaper print advertisement
+Public Meeting 3 City (in person)
+Public Meeting 3 Town (in person)
+DER City
+DER Town
+6: 10 Day Notice Zoom Information Session 3
+Electronic Supplemental - Municipal email
+Physical Supplemental - Posters/Municipal Flyers
+Information Session 3 City (Zoom)
+Information Session 3 Town (Zoom)
+DER City
+DER Town
+7: 10 Day Notice Zoom Information Session 4
+Electronic Supplemental - Municipal social media
+Physical Supplemental - Newspaper print advertisement
+Information Session 4 City (Zoom)
+Information Session 4 Town (Zoom)
+DER City
+DER Town
+8: 10 Day Notice in-Person Hybrid Public Meeting 4
+Electronic Supplemental - Municipal digital newsletter
+Physical Supplemental - Municipal postcards?
+Public Meeting 4 City (in person)
+Public Meeting 4 Town (in person)
+DER City
+DER Town
+Month Five
+PHASE III O&E (OPT-OUT - MIN. 30 DAYS) Month Six
+22
+
+21
+10 Day Notice Public Meeting 5 (add notice in Opt-Out Notification
+9: Letter)
+Physical Supplemental - Municipal tax or water bill insert
+Electronic Supplemental - Municipal digital newsletter
+Physical Supplemental - Newspaper print advertisement
+Electronic Supplemental - TV or radio interviews (suggestions?)
+Physical Supplemental - Municipal postcards
+Public Meeting 5 City (in person)
+Public Meeting 5 Town (in person)
+DER City
+DER Town
+10: 10 Day Notice Information Session 5 (Zoom)
+Physical Supplemental - Tabling with flyers
+Electronic Supplemental - Municipal social media
+Electronic Supplemental - Municipal email
+Information Session 5 City (Zoom)
+Information Session 5 Town (Zoom)
+DER City
+DER Town
+City representatives will participate in DER Outreach and Education meetings as follows:
+● City and Town meetings on the same day at different times and locations
+● Some are physical meetings with webinars, some just webinars.
+● All meetings open to the public, with focus on different kinds of local
+energy users and local market participants
+● A City or Town representative will sit on a panel at each meeting in its
+jurisdiction.
+● The DER Administrator will facilitate the meetings, in person at most but
+not all
+● After launch a shift to web-, direct mail- and phone-based engagement
+3. Why Municipal Governance of Local DER Plan is important
+While the City is not required to submit a DER implementation plan to the PSC,
+successful implementation will require municipal involvement, particularly the use of
+municipal communications channels to conduct outreach, education and marketing of the
+23
+
+22
+DER Administrator’s DER program to local residents and businesses. The DER
+Administrator will engage the City, Cooperatives and individuals in an ongoing energy
+transition planning process to navigate the several elements of a city-wide energy
+transition, year to year, until the City’s Green New Deal climate goals are met.
+A successful energy transition will involve many ongoing activities and be iterative in
+nature, with evolution and learning based on experience to be more climate impactful and
+increase participation levels. DERs use public space, like EV charging sites. City
+departments may choose to own and share DERs based on ongoing collaboration with the
+DER Administrator. Coordination of these activities will involve important local
+procurement, permitting, planning coordination and cooperation.
+4. Municipal Roles in Local DER Program
+Roles by the municipality in the Local DER program include the following.
+● Common Council/Town Board: ongoing oversight, staff reports, agendized
+items, action items
+● Advisory Group: focused on City development of DERs across T-GEN member
+jurisdictions and will approve DER Cooperative and Shares agreement templates
+● Scheduled meeting management
+● Sign-off on DER Administrator’s proposed DER Voluntary Investor
+agreement templates
+○ DER Cooperative Agreement
+○ Shares agreement
+○ Other agreements with Users, Sharers and Building Site Owners
+that are requested by the DER Administrator on an ongoing as-
+needed basis, as different kinds of customers and projects present
+new approaches that require the signature of a designated City
+representative
+● Process for DER Administrator to share data and explore development of
+DER proposals to municipality on Municipal Buildings and Fleets
+● Reports to Common Council/Town Board
+● Intermunicipal Agreement (if formed) will add a layer of meetings
+5. The DER Governance Process
+The DER voluntary investment process will be solely focused on DER development as
+defined, across “addressable carbon” sectors: power, heat, vehicles, waste. Periodic public
+hearings will be held. The DER Administrator will attend meetings, in person or by
+internet, of the Advisory Board / Intermunicipal Agreement group created by the DER
+Local Law to focus on increasing DER adoption, cooperation and oversight. Ongoing web
+public meetings with evolving educational content will be provided by the DER
+Administrator based on local experiences and project development, to maintain current
+24
+
+23
+and engagement-oriented content. The DER Administrator will be provided with a City
+representative to request sign-offs as required by this Local Plan. The Advisory Board
+may vote to recommend actions to member municipalities.
+Municipally initiated changes or DER Administrator-requested changes by a
+representative of the municipality will be overseen by the Advisory Group, Intermunicipal
+Agreement (if and when created), or where deemed appropriate, Common Council.
+C. Municipal Staff Roles
+The Director of Sustainability (or successor position) will facilitate communication and
+coordination processes for internal communications and decision making. When questions
+or potential changes arise within municipal departments, the DER Administrator and lead
+staff will communicate to resolve questions in a timely manner.
+D. Municipal Properties
+The City may designate all City-owned properties and rights-of-way available, where
+allowed by law, for accommodation and connection of DERs, including microgrids, electric
+vehicle chargers, and geothermal microdistricts, and if appropriate will develop protocols
+for DER access.
+E. Municipal Communication Roles
+The City of Ithaca will provide communications support to the DER Administrator for
+DER program outreach, education, and promotion to the public.
+● Municipal Insert Process
+○ DER Administrator will provide a municipal representative with
+updated short announcements to distribute interdepartmentally for
+distribution and/or verbal announcements at public meetings
+○ Municipality will place announcements, where appropriate and as
+space allows, in its public meeting agendas on a continuing basis
+for the duration of the DER program, to announce DER program
+updates and explain people’s eligibility to participate in a local
+DER project, announce upcoming meetings, and provide program
+contacts
+○ Municipality will insert a DER Administrator message on the front
+page of its web site for the duration of the program, linked to a
+dedicated municipality web page that features links to designated
+DER and associated CCA outreach and education web page(s).
+● Scheduled Municipal Mail Inserts
+25
+
+24
+○ Where feasible, the municipality will insert announcements into any
+regularly scheduled mail to local residents and businesses.
+○ Announcements will include information about the DER
+Administrator's name and location, the CCA and DER roles
+designated by the municipality, and where technically feasible, a
+QR code linking to the DER Administrator Outreach and Education
+web page for their municipality
+○ May also include opportunities, news, announcements, information,
+events, contacts, regarding DERs Shares, Cooperatives and
+individual investment.
+Designated City staff will work with appropriate City Departments, Committees
+and Boards to share information through approved DER Administrator outreach
+and education insertions in their materials.
+● City Forms to be Considered for DER Administrator Insertions
+○ Residential water bills
+○ Parking permits
+○ Parking tickets
+○ General bills
+○ Commercial water bill
+○ Tax bill
+○ Occupancy Tax
+○ Building permits
+○ Electrical permits
+● City Departments Materials / Postings
+○ City Attorney/City Prosecutor
+○ City Clerk/Public Information & Technology
+○ Finance Department/Chamberlain's Office
+○ Greater Ithaca Activities Center
+○ Human Resources
+○ Ithaca Fire Department
+○ Ithaca Police Department
+○ Ithaca Urban Renewal Agency
+○ Ithaca Youth Bureau
+○ Mayor's Office
+○ Public Works
+○ Planning, Building, Zoning & Econ. Development
+● City Boards and Committees, Agendas, Meeting Announcements
+26
+
+25
+○ City Administration Committee
+○ Planning & Economic Development Committee
+○ Board of Public Works
+○ Board of Zoning Appeals
+○ Cable Access Oversight Committee
+○ Civil Service Commission
+Ithaca Landmarks Preservation Commission
+○ Sustainability and Climate Justice Commission
+VII DER Consulting Schedule of City of Ithaca with Town and City of Ithaca
+A. September-November 2025
+Sessions: One with City (Mayor, City Attorney, Planning, DPW, Sustainability) and one with
+Town (Supervisor, Deputy Supervisor, Planning, Public Works, Sustainability
+Subjects: DER program planning - data sharing, research needs, designation of staff liaisons,
+communications support, initial discussion of municipal DER projects, buildings, properties, fleets,
+procurement activities, existing projects.
+B. December 2025-March 2026
+Sessions: One with City (Mayor, City Attorney, Planning, DPW, Sustainability Sta) and one
+withTown (Supervisor, Deputy Supervisor, Planning, Public Works, Sustainability)
+Subjects: DER program structure, role of City and Town, specific departments, Municipal DER
+projects, and ownership sharing, as well as additional options like Green Bonds and franchise
+opportunities.
+27
+
+26
+VIII. Definitions
+ADDRESSABLE CARBON shall mean greenhouse gas emissions from electricity,
+heating, cooling, hot water, transportation vehicles, sewer waste and solid waste.
+ADVISORY GROUP — Group established by the City of Ithaca’s CCA Local Law to
+support the Common Council and Town Board, as well as other municipalities that may join
+T-GEN in the future, with CCA governance.
+AGGREGATED DATA shall mean aggregated and anonymized information including
+the number of Eligible Consumers by service class, the aggregated peak demand (kW)
+(for electricity) by month for the past twelve (12) months, by service class, and the
+aggregated energy (kWh) for electricity or volumetric consumption for gas by month for
+the past twelve (12) months by service class.
+ASSISTANCE PROGRAM PARTICIPANTS or APPs shall mean Low-to-Moderate-
+Income residents designated by the Tompkins County Department of Social Services.
+CARBON FREE ELECTRICITY or CFE shall mean electricity generated without
+combustion of fossil fuels, including solar, wind, nuclear, hydropower, organic waste,
+hydrogen and geothermal energy.
+COMMUNITY CHOICE AGGREGATION PROGRAM (CCA) shall mean the program
+authorized by Article 1 of City Code Chapter 20, and which will implement the Master
+Implementation Plan of the City’s chosen CCA Administrator provided that Plan has been
+approved by the PSC.
+CCA ADMINISTRATOR shall mean a party designated by the City which shall be duly
+authorized to put out for bid the total amount of electricity and natural gas being
+purchased by participating consumers and larger local DERs that may be incorporated
+into the CCA supply. The CCA Administrator shall be responsible for CCA program
+organization, public outreach, data, administration, procurement, and communications.
+CLIMATE BOND shall mean a fixed-income financial instrument used to fund projects
+that have positive climate impacts.
+COOPERATIVE shall mean a group formed by building owners and Eligible Investors to
+invest mutually in onsite DERs.
+COOPERATIVE AGREEMENT shall mean agreements between DER Users, DER
+Sharers and Site Owners
+CUSTOMER shall mean an Eligible Consumer who has elected to receive Basic Service
+from the CCA program.
+CUSTOMER SPECIFIC DATA shall mean energy account-specific information, personal
+data and utility data for all Eligible Consumers in the municipality eligible for opt-out
+enrollment based on the terms of PSC CCA Order, and the CCA program design,
+28
+
+27
+30
+including the customer of record’s name, mailing address, telephone number, account
+number, and primary language, if available, and any customer-specific alternate billing
+name, address, and phone number.
+DEFAULT SERVICE — See definition in City Code § 20-2.
+DEPARTMENT OF PUBLIC SERVICE or DPS shall mean the New York State
+Department of Public Service which has a broad mandate to ensure access to safe, reliable
+utility service at just and reasonable rates. The Department is the staff arm of the Public
+Service Commission (PSC).
+DISTRIBUTED ENERGY RESOURCES or DERs shall mean local renewable energy
+projects and energy efficiency measures, shared renewables like community solar and
+shares and cooperatives, renewable heat and hot water systems, energy management,
+energy storage, microgrid projects, geothermal heat loop projects, electric vehicles and
+charging systems, local renewable hydrogen fuel cells, and other innovative Reforming
+the Energy Vision (REV) initiatives that optimize system benefits, target and address load
+pockets/profile within the City of Ithaca, and reduce cost of energy for DER Users.
+DER ADMINISTRATOR shall mean a third party designated by the City of Ithaca to
+administer, under municipal oversight, DER activities within City boundaries, including
+DERs implemented in coordination with the City’s CCA program.
+DER LENDER shall mean a local lending institution that is prequalified by the DER
+Administrator to provide loans to Voluntary Investors
+DER LOCAL LAW shall mean Article II of Chapter, Distributed Energy Resources
+Program, of the City of Ithaca Code is amended by adding Article 2 (Distributed Energy
+Resources), adopted in 2025.
+DER INVESTOR shall mean an Eligible Investor who invests in a DER project under
+this program.
+DER VENDOR shall mean A DER provider, developer, integrator, consortium or
+component seller.
+DISTRIBUTION UTILITY shall mean New York State Electric and Gas Corporation
+(NYSEG), or any successor thereto.
+ELIGIBLE CONSUMERS shall mean consumers of electricity and/or natural gas.
+ELIGIBLE INVESTORS shall mean Consumers of electricity and/or natural gas who
+receive Default Service from teh Distribution Utility, at one or more locations within the
+geographic boundaries of the City of Ithaca
+ENERGY EFFICIENCY RETROFITTING AND THERMAL LOAD
+29
+ELECTRIFICATION PROGRAM shall mean the City of Ithaca’s program with financial
+
+28
+partners to determine potential energy efficiency improvements on residential and
+commercial buildings, and provide financing for voluntary loans and leasing programs
+that building owners may use to pay for efficiency and electrification projects, with
+emphasis on serving disadvantaged communities.
+ENERGY LOAN ACCOUNT shall mean An individual Customer's DER investment
+repayment, Shares loan repayment or Cooperative loan repayment account voluntarily
+subscribed by an Eligible Investor to finance their DER investment.
+EQUITY shall mean ownership benefits, financial and/or physical, from participating in
+voluntary investments in local DER.
+INTERMUNICIPAL AGREEMENT or IMA shall mean an agreement between the City
+of Ithaca and one or more other New York municipalities.
+INTEROPERABILITY or Interoperable shall mean a characteristic of an energy product
+or system, such as a photovoltaic array, to work with other energy products or systems,
+such as appliances or an electric vehicle.
+MASTER IMPLEMENTATION PLAN shall mean a document submitted to the New
+York Public Service Commission as part of the approval of a CCA Administrator.
+MEMBER or COOPERATIVE MEMBER shall mean a member of a DER Cooperative
+who owns Share(s), is a User of DERs, or both, and may include a Site Owner.
+MUNICIPAL ACCOUNTS shall mean the electricity and gas accounts that serve
+municipal government-related operations.
+OPT-UP shall mean an affirmative decision of an Eligible Investor to voluntarily invest
+in a local DER project in the form of Shares.
+OPT-WITH shall mean an affirmative decision of an Eligible Investor to voluntarily
+invest in a local DER project in the form of Cooperative membership.
+PROGRAM ORGANIZER shall mean a designated local nonprofit organization
+responsible for educating energy users about participation in the DER program's
+voluntary investment opportunities, as well as supporting the organization of
+Cooperatives by neighbors. This group will typically secure participation from local
+governments and engage in preliminary outreach and education around DERs.
+PSC CCA ORDERS shall mean the several Orders concerning Community Choice
+Aggregation by the New York State Public Service Commission’s (Case 14-M- 0224)
+including the “Order Authorizing Framework for Community Choice Aggregation Opt-
+Out Program,” issued on April 21, 2016; the “Order Approving Community Choice
+Aggregation Programs with Modifications” issued on January 18, 2018; the “Order
+Modifying Community Choice Aggregation Programs and Establishing Further Process”
+issued on January 19, 2023; and the “Order Modifying Outreach and Education
+Requirements and Directing Program Evaluation” issued on November 19, 2024.
+PUBLIC SERVICE COMMISSION or PSC shall mean New York State Public Service
+Commission.
+30
+
+29
+SELF-CONSUMPTION — Producing and consuming electricity and/or heat onsite, as
+opposed to exporting power onto the grid for sale to a third-party off-taker, such as
+through net metering.
+SHARES — Units of ownership by an Eligible Investor in local DERs, whether through
+investment in a designated DER project that is located in a nearby building, or through
+membership enrollment in a designated on-site DER Cooperative.
+SHARER shall mean an owner of DER Share(s).
+SITE OWNER shall mean the owner of a building or property who consents to participate
+in a DER project either alone or by joining a DER Cooperative.
+SPINNING RESERVES shall mean the extra generating capacity that is available by
+increasing the power output of generators that are connected to the power system, for a
+variety of purposes including the provision of balancing capacity for intermittent
+renewable generators such as a solar farm or wind farm.
+SUPPLIERS/SUPPLY shall mean ESCOs that procure electric power and natural gas for
+Eligible Consumers in connection with City Code Chapter 20.
+T-GEN shall mean Tompkins Green Energy Network.
+USER shall mean A DER or DER Share owner who is also an off-taker of energy from a DER.
+VOLUNTARY INVESTOR shall mean an Eligible Investor who invests in a DER.
+31
+
+CITY OF ITHACA
+RESOLUTION TO ADOPT REVISED LOCAL DISTRIBUTED ENERGY RESOURCES PLAN
+Whereas, the City of Ithaca has demonstrated its desire and commitment to be a leader in
+sustainability and social equity, as exemplified by the adoption and reaffirmation of the
+Ithaca Green New Deal; and
+Whereas, the Ithaca Green New Deal, adopted in 2019 and reaffirmed unanimously in May
+2025, included a goal of community-wide carbon neutrality by 2030; and
+Whereas, a reduction in greenhouse gas (GHG) emissions will require a combination of
+both a reduction of energy use and of carbon content in energy consumed; and
+Whereas, to achieve these two goals, the Green New Deal will need to rapidly deploy
+renewable energy products, or DERs, through a multitude of diverse and affordable
+pathways; and
+Whereas, the City of Ithaca Common Council initially adopted the DER Plan and its sister
+program, CCA, as Chapter 20 of the City Code on January 7th, 2023; and
+Whereas, on June 18th, 2025 Common Council amended Chapter 20 in its entirety for the
+purposes of more clearly separating the DER and CCA Plans, per Public Service
+Commission guidance; and
+Whereas, Chapter 20 of the City Code is now Local Law 04-2025, which consists solely of
+the CCA program guidelines, and this proposed, revised DER Plan is a standalone
+document that reflects the amendments made to Chapter 20; and
+RESOLVED, that the City of Ithaca adopts the Revised Local Distributed Energy Resources
+(DER) Plan in complement to Community Choice Aggregation.
+32
+
+CITY OF ITHACA
+108 East Green Street, Ithaca, New York 14850-6590
+City Manager's Office
+Shaniqua Lewis, Deputy City Clerk
+MEMORANDUM
+TO: COMMITTEE OF THE WHOLE
+FROM: Acting City Manager
+DATE: January 21, 2026
+RE: Community Responder Unit- ROOTS
+ITEM #: 3.1
+A new community responder program, tentatively named the ROOTS Team (Responders
+Offering Outreach, Trust, and Support), was proposed to the Ithaca Common Council in
+September 2025 (Reimagining Public Safety-Ithaca NY Official Website). The proposal was
+not funded in the 2026 City of Ithaca Budget, though there was interest expressed by Council
+members to have the conversation continue and a new proposal be brought forward in 2026.
+To develop the proposal in 2025, staff benchmarked existing programs in the U.S., interviewed
+the Ithaca Police Department and other government and community agencies, and reviewed
+of previous policy directives from the Common Council made to date. The updated resolution
+brought forth today for Council’s consideration scales back the scope of the program to start
+small and use existing available funding for three years as the program is piloted.
+ATTACHMENTS:
+REVISED 1.21.2026 Memo Re ROOTS (1).pdf
+Resolution- Early 2026 ROOTS Resolution.pdf
+33
+
+.
+M E M O R A N D U M
+Date: January 16, 2026
+To: Common Council
+From: Acting City Manager Dominick Recckio, Community Justice Center Project Director
+Monalita Smiley
+RE: Updated Resolution and Planning for Community Responder Unit
+EXECUTIVE SUMMARY
+A new community responder program, tentatively named the ROOTS Team (Responders Offering
+Outreach, Trust, and Support), was proposed to the Ithaca Common Council in September 2025
+(Reimagining Public Safety | Ithaca, NY - Official Website). The proposal did not receive additional
+funding in the 2026 City of Ithaca Budget, though there was interest expressed by Council
+members to have the conversation continue and a new proposal be brought forward in 2026.
+To develop the proposal in 2025, staff benchmarked existing programs in the U.S., interviewed the
+Ithaca Police Department and other government and community agencies, and reviewed of
+previous policy directives from the Common Council made to date.
+The updated resolution brought forth today for Council’s consideration leverages existing available
+funding for three years as the program is phased in to meet the long-range policy goal of
+reimagining process.
+Changes to the scope include:
+• Phasing in the establishment of a community responder program to start with no more
+than three (3) City of Ithaca community responder personnel, as well as associated
+equipment, programming, and training
+• Consider an initial focus on a defined geographic area of the City of Ithaca where there are
+elevated calls for law enforcement service and/or need for additional outreach and
+community response services as determined by City staff
+• Utilizing previously budgeted and encumbered funds annually for three years, with any
+new general fund budget requests beginning for year three (2028)
+34
+
+• Further clarification that the Community Justice Center, Homeless Encampment
+Response, and Law Enforcement Assisted Diversion (LEAD) programs under the City
+Manager’s Office shall operate in support of and coordination with the community
+responder program and in partnership with the Ithaca Police Department
+PROJECT HISTORY, BACKGROUND, & ANALYSIS
+This proposal builds on the work of community members who have contributed greatly to this effort
+over many years, informing the City of Ithaca and Tompkins County on implementing Reimagining
+Public Safety initiatives. Specifically, community members of color have provided invaluable
+contributions of time and input to help make a program like this one a reality in Ithaca.
+Interviews have been completed with 17 local public safety agencies, government divisions, and
+community-based not-for-profit agencies, providing insights to develop a right-sized community
+responder program for Ithaca. Interviews examined community response and service delivery work
+already being conducted (formally and informally), as well as what agencies see as the role of a
+new community responder program (detailed in September 2025 memo).
+Coordination with existing programs and the Ithaca Police Department are essential for the
+success of a pilot community responder unit. The City of Ithaca Police Department has
+implemented complementary programming including community policing, a mental health co-
+responder team (CARE), and a violence interrupter program as part of its Gun Involved Violence
+Elimination initiative, which are well positioned to partner closely with a community responder
+unit.
+This updated resolution includes the directive to consider an initial focus on a defined geographic
+area of the City of Ithaca where there are elevated calls for law enforcement service and/or need
+for additional outreach and community response services as determined by City staff. While
+further analysis will be completed to influence the final decision on a pilot geographic zone once
+the program begins, the Community Justice Center Data Analyst provided this initial
+recommendation for such a pilot zone selection:
+Based on analysis of 2024 IPD Incident Based Report data with traffic-related incidents
+removed, Beat 202 (West) emerges as the strongest candidate for a one-zone unarmed
+response team pilot. The most relevant indicator is the volume and consistency of low-risk,
+service-oriented calls that remain once traffic activity is excluded. Beat 202 shows the
+highest concentration of appropriate calls, including assist citizens, welfare checks,
+property checks, verbal disputes, and other low-risk, high-frequency incidents. These calls
+are largely residential and neighborhood-based, creating conditions well suited to
+engagement with residents, de-escalation, leading to opportunities for community trust and
+relationship building. Beat 202 would also provide an opportunity to work on operationalizing
+35
+
+the unit, collect data in a baseline year, and work with IPD to refine their coordination around
+call diversion and caseload management, which can open the door to future expansion.
+POLICY ALIGNMENT STATEMENT
+Common Council has resolved to develop and implement such a program, most recently via its
+2025 Legislative Priorities, “Expand and institutionalize unarmed and community-based crisis
+response as a complement to traditional policing.”
+In April 2023 Common Council adopted a Special Committee Report directing City staff to
+“Develop and initiate a pilot program utilizing unarmed responders to respond to non-violent calls
+for service.” That report includes additional background on the initiative.
+MAYORAL RESPONSE TO POLICY ALIGNMENT STATEMENT
+Pursuant to section C-11 of the Ithaca City Charter and Common Council Resolution 5.1 dated
+September 17, 2025, the Mayor shall review Policy Alignment Statements for completeness and
+provide commentary on alignment for Council consideration.
+This proposal adheres closely to the adopted policy direction of Common Council Resolution 6.3,
+dated April 5, 2023, entitled “Adopting Report of the Special Committee for Public Safety.”
+Specifically, a directive to establish a team of peer support specialists who can co-respond with
+law enforcement as appropriate to non-violent calls for assistance, but not be under the purview of
+law enforcement with the role of:
+• Providing a team of peer support specialists to co-respond with law enforcement as
+appropriate, and serve as an alternative to a law enforcement-only response to address
+behavioral health and other related crisis;
+• Conducting assessments of the needs of the affected individuals and their families;
+• Managing and overseeing immediate support plan for each impacted individual and their
+family;
+• Organizing and coordinating all information on applicable and available services and
+partner agencies to respond to the needs for the impacted individuals and their family;
+• Connecting individuals with appropriate services and follow through until a hand off to a
+fixed support system can be confirmed;
+• Managing the information on responses, personal information of individuals and relevant
+data for reporting;
+• Providing aid to reduce dependence on, and divert away from, law enforcement response
+systems;
+• Working with the City’s LEAD team.
+36
+
+This proposal clearly satisfies Council’s adopted policy direction but does so in a risk-managed,
+incremental way that prioritizes feasibility, interdepartmental buy-in, and cost.
+PROPOSED SOLUTION
+A thorough analysis of interview responses, example programs, and key issues led to the
+identification of the following elements that will help to make a community responder program
+successful. Interviews with community agencies included an open-ended question asking what
+success for a community responder program would look like to them. Several of these elements
+are adapted from themes shared in those responses.
+• Provides a teamwork approach with police
+• Builds trust with community
+• Reflects community values, involves people with lived experience
+• Collects data for constant improvement and iteration
+• Adds capacity to community outreach efforts
+• Integrates within existing emergency response system
+• Collaborates with community agencies
+• Preserves and enhances capacity of existing community agencies
+• Offers more pathways for violence prevention
+• Effectively provides wraparound health and human services
+Proposing the Ithaca ROOTS Team:
+Mission Statement:
+Ithaca's community responder unit conducts outreach, builds trust, and offers support to
+community members in need. They respond when dispatched, when requested by IPD, and
+when they proactively observe a situation where they can help. A teamwork approach with
+police and other community agencies enhances the capacity and effectiveness of the
+existing emergency response and social services systems.
+Vision Statement:
+Ithaca’s community responder program reduces overreliance on policing and
+disproportionate contact between minorities and the criminal justice system while
+providing ample access to supportive services for community members in need.
+QUESTIONS FOR COUNCIL AND NEXT STEPS
+Common Council should determine whether the scaled back pilot program proposal will serve as
+the initial desired model, and if so, adopt the proposed resolution.
+37
+
+The proposed resolution directs staff to begin phased implementation of the program by:
+• Draft job descriptions for community responders in compliance with Civil Service
+• Develop community responder policies and procedures in consultation with the Tompkins
+County 911 Dispatch Center and Ithaca Police Department leadership
+• Outline complementary programming related to service delivery
+• Annually review available grant or outside funding opportunities to cover program costs
+• Hiring of future community response team members should be through an interview
+committee including the Deputy City Manager, Community Justice Center, Ithaca Police
+Department, and community representation
+BUDGET IMPLICATIONS & FUNDING
+~$750,000 has been encumbered from previous budget cycles. If a scaled back pilot program is
+Council’s desired model, staff propose the following allocation of encumbered funding:
+Year Encumbered Funds Drawdown Key Budget Items Notes
+2026 $200,000 Partial year pilot
+period
+2027 $350,000 • 2-3 Community First full year of
+Responder staff operations
+2028 $200,000 (remainder secured via positions Necessary to budget
+newly budgeted funds or unspent • Training for full amount based
+prior encumbrances, budget • Equipment on analysis of initial
+proposal will be delivered in pilot years
+2027).
+PUBLIC FEEDBACK
+This and other elements of the Reimagining Public Safety initiative have received a significant
+amount of feedback over nearly a half-decade. Further detail on past feedback can be found in a
+2023 Special Committee Report as well as the initial Public Safety, Reimagined report and the
+subsequent implementation report.
+Interviews with community agencies were completed in 2025 and are detailed in the September
+2025 memo to Council. All agencies interviewed were invited to an August 2025 feedback session
+where the general outline of this proposal was shared.
+A feedback session was held with REACH Medical’s Peer Advisory Board which includes people
+with lived experience in the criminal justice system and with addiction and/or homelessness.
+Additional public feedback from key stakeholders and the public will be sought as the program is
+fully developed and implemented over the next several months.
+38
+
+39
+
+January 16, 2026
+Resolution Re: Phased Establishment of a Community Responder Model in the City of
+Ithaca
+WHEREAS, the City of Ithaca has committed to a Reimagining Public Safety initiative
+including the introduction of unarmed community responders, and
+WHEREAS, Common Council has resolved on several occasions to develop and
+implement such a program, most recently via its 2025 Legislative Priorities, “Expand and
+institutionalize unarmed and community-based crisis response as a complement to
+traditional policing,” and
+WHEREAS, in April 2023 Common Council adopted a Special Committee Report directing
+City staff to “Develop and initiate a pilot program utilizing unarmed responders to respond
+to non-violent calls for service,” and
+WHEREAS, community members have contributed greatly to this effort over many years,
+informing the City of Ithaca and Tompkins County on implementing Reimagining Public
+Safety initiatives. Specifically, community members of color have provided invaluable
+contributions of time and input to help make a program like this one a reality in Ithaca, and
+WHEREAS, Common Council received a proposal for such a community responder unit on
+September 17, 2025 with a subsequent presentation on September 24, 2025, and
+WHEREAS, interviews have been completed with 17 local public safety agencies,
+government divisions, and community-based not-for-profit agencies, providing insights to
+develop a community responder program for Ithaca. Interviews examined community
+response and service delivery work already being conducted (formally and informally), as
+well as what agencies see as the role of a new community responder program, and
+WHEREAS, the City of Ithaca Police Department has implemented complementary
+programming including community policing, a mental health co-responder team (CARE),
+and a violence interrupter program as part of its Gun Involved Violence Elimination
+initiative, which are well positioned to partner closely with a community responder unit,
+and
+WHEREAS the Council of State Governments defines Community Responder Units as:
+offering an additional option for first response. Composed of multidisciplinary
+professionals trained to address behavioral health and quality-of-life concerns,
+community responder programs provide a person-centered response to 911 and other
+40
+
+emergency calls for service. Integrating community responder programs into first response
+systems ensures that all calls for service can receive the most appropriate response,
+NOW THEREFORE BE IT RESOLVED, that the City of Ithaca Common Council commits to
+the phased establishment of a community responder program in alignment with the
+proposal delivered in a September 17, 2025, legislative memo prepared by the Deputy City
+Manager and Community Justice Center, and be it further
+RESOLVED, that under existing budgetary constraints the City of Ithaca Common Council
+is in favor of phasing in the establishment of a community responder program to start with
+no more than three (3) City of Ithaca community responder personnel, as well as
+associated equipment, programming, and training, and be it further
+RESOLVED, that the initial phase of implementation include the consideration of a
+possible focus on a defined geographic area of the City of Ithaca where there are elevated
+calls for law enforcement service and/or need for additional outreach and community
+response services as determined by City staff, and be it further
+RESOLVED, that a budget for the phased program be developed utilizing previously
+budgeted and encumbered funds annually for three years, with any new general fund
+budget requests beginning for year three (2028), and be it further
+RESOLVED, that the community responder program be developed with this initial mission
+and vision:
+Mission Statement:
+Ithaca's community responder unit conducts outreach, builds trust, and offers
+support to community members in need. They respond when dispatched, when
+requested by IPD, and when they proactively observe a situation where they can
+help. A teamwork approach with police and other community agencies enhances
+the capacity and effectiveness of the existing emergency response and social
+services systems.
+Vision Statement:
+Ithaca’s community responder program reduces overreliance on policing and
+disproportionate contact between minorities and the criminal justice system while
+providing ample access to supportive services for community members in need.
+And be it further,
+RESOLVED, that the Community Justice Center, Homeless Encampment Response, and
+Law Enforcement Assisted Diversion (LEAD) programs under the City Manager’s Office
+41
+
+shall operate in support of and coordination with the community responder program and in
+partnership with the Ithaca Police Department, and be it further
+RESOLVED, that the City of Ithaca Common Council directs City staff to draft job
+descriptions for community responders in compliance with Civil Service and develop
+community responder policies and procedures in consultation with the Tompkins County
+911 Dispatch Center and Ithaca Police Department leadership, and outline
+complementary programming related to service delivery, and be it further,
+RESOLVED, that City staff should annually review available grant or outside funding
+opportunities to cover program costs, and be it further,
+RESOLVED, hiring of future community response team members should be through an
+interview committee including the Deputy City Manager, Community Justice Center, Ithaca
+Police Department, and community representation, and be it further
+RESOLVED, that the City of Ithaca Common Council thanks community members,
+community agencies, Ithaca Police Department officers and leadership, and other City
+staff from the City Manager’s Office, Ithaca Fire Department, Building Division, and Parking
+Enforcement for their invaluable input throughout this process in support of developing
+and implementing a successful community responder program in the City of Ithaca.
+42
+
+CITY OF ITHACA
+108 East Green Street, Ithaca, New York 14850-6590
+City Manager's Office
+Shaniqua Lewis, Deputy City Clerk
+MEMORANDUM
+TO: COMMITTEE OF THE WHOLE
+FROM: Acting City Manager, Dominick Recckio
+DATE: January 21, 2026
+RE: Financial Reporting, Audit Readiness
+ITEM #: 4.1
+ATTACHMENTS:
+Memo- Bonadio Financial Reporting Audit Readiness.pdf
+43
+
+M E M O R A N D U M
+Date: January 16, 2026
+To: Common Council
+From: Acting City Manager Dominick Recckio
+RE: Financial Reporting, Audit Readiness
+EXECUTIVE SUMMARY
+In order to proceed with the City of Ithaca’s 2022-2025 financial audits, existing financial records and
+internal financial systems must be corrected and properly maintained. The Bonadio Group, an industry-
+leading accounting and consulting firm, has been contracted by the City to provide these services.
+PROJECT HISTORY, BACKGROUND, & ANALYSIS
+The Bonadio Group was originally contracted by the City to preform audits. Upon commencement of that
+contracted work, deficiencies in the City’s severely outdated financial reporting and records systems
+were identified, several of which resulted from new financial reporting standards going into effect in 2022
+and subsequent years. These deficiencies prevented an accurate audit from being performed. The City
+has amended its contract with Bonadio to perform a multi-phase financial consulting project that will
+result in more complete, transparent and accurate financial records
+Retaining expert consultants to complete this work for the City will result in the City completing past-due
+audits and preparing for financial reporting requirements moving forward.
+Bonadio staff are in constant contact with staff from our Controllers Office and will conduct work
+remotely in the immediate term with on-site work occurring as needed in the future. The Acting City
+Manager will meet with Bonadio project leadership at least monthly to receive progress reports and
+provide management oversight.
+Bonadio staff in conjunction with the Acting City Manager and Acting Controller will provide further
+updates as the project progresses.
+44
+
+Once the requisite financial cleanup and reporting work is complete, the City will proceed with
+conducting audits for 2022, 2023, 2024, and 2025 in rapid succession as resources allow.
+This project is beginning this month (January 2026). At this time staff cannot offer a timeline for
+completion.
+POLICY ALIGNMENT STATEMENT
+This action promotes a stable, transparent, and forward-looking fiscal foundation that sustains core
+services, enables strategic investment, and ensures equitable resource allocation across the
+community. The City will better maintain long-term structural balance and proactively pursue financial
+resilience.
+BUDGET IMPLICATIONS & FUNDING
+This project is being initially funded by the pre-existing budget for the completion of audit-related work.
+Staff will return to council as additional financial resources are needed to complete this project and
+initiate the audits.
+45

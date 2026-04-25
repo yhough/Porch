@@ -1,0 +1,13613 @@
+November 12th 2025
+Special Meeting Of Common Council
+2026 Budget Voting Meeting- REVISED
+Date: Wednesday November 12, 2025
+Time: 6:00 PM
+Location: 108 E Green Street Council Chambers 3rd Floor
+Watch Online: https://www.youtube.com/@CityofIthacaPublicMeetings
+1. Call To Order
+1.1. Emergency Evacuation Notice
+1.2. Agenda Review
+2. Special Order of Business
+2.1. Joint ILPC Ordinance Discussion
+2.2. Adoption of the 2026 Budget
+2.3. Adoption of 2026 Tax Rate
+2.4. Adoption of 2026 Ithaca Area Wastewater Treatment Plant Budget
+3. Meeting Wrap-Up
+No Public Comment
+Not all meetings have a Public Comment segment. The City of Ithaca wants to hear from you!
+You are encouraged to share your thoughts with Common Council using the options below:
+To Submit Written Comments please use the link below.
+Public Comment Form
+*Written comments submitted will be compiled and entered into the record.
+1
+
+M E M O R A N D U M
+Date: November 7, 2026
+To: Common Council
+From: Deb Mohlenhoff, City Manager
+RE: Final 2026 Budget Information & Summary
+At its November 5th meeting, the Common Council approved several amendments to the proposed 2026 budget. This
+memo summarizes those changes, and a revised budget summary document is attached for your final review prior to
+adopting the 2026 budget. With these amendments and the final calculations, this results in a tax levy increase of 4.11%.
+SUMMARY OF AMENDMENTS:
+1. Stopgap Package – no changes were made to the City Manager’s proposed package totaling $2,379,699.
+Item Dept Name Amount Account Type Notes
+1Various Line Reductions DPW $ 145,000 see memo Reduction Specific DPW Reductions
+2Various Line Reductions IFD $ 10,000 A3410 - 5210 Reduction Able to remove $10,000 related to the dispatch room renovations
+3Various Line Reductions IPD $ 20,000 A3210-5425, 5450 Reduction Reduction in Office Expense and Advertising
+4Phones citywide $ 10,450 5405 lines Reduction Based on past actuals
+5Advertising citywide $ 10,000 5450 lines Reduction Based on actuals, excludes Police
+6Technology Reserves DICE $ 50,000 A9951-5000 Reduction Wanted to start this instead of put extra money in operating for IT infrastructure, can start in 2027
+7Proposed Fee Increases (CC) various $ 117,789 Various Fee IncreaseStill work to be done on implementation of new fees, might impact participation/compliance
+8Increase garage rates to $2.25 an hour (CC) DPW $ 127,000 A5650-1720 Fee IncreaseNeed to develop communication and implementation plan on parking changes
+9Implement Street Parking on Saturdays (CC) DPW $ 85,000 A5651-1740 Fee IncreaseNeed to develop communication and implementation plan on parking changes
+10Implement Garage Parking on Saturdays (CC) DPW $ 110,000 A5650-1720 Fee IncreaseNeed to develop communication and implementation plan on parking changes
+11Lower Budget for Unemployment Ins admin $ 5 ,000 A9050-9050 Reduction Based on actuals from past 5 years (excluding COVID data)
+12Lower Workers Comp by 10% admin $ 123,694 9040 lines Reduction Based on actuals from past 4 years
+13Office Expenses various $ 10,475 5425 various Reduction Based on actuals (excludes IPD)
+14LDC Partnership - Reflected admin $ 107,000 A6989 Adjustment Adjustment to how LDC payment reflected in budget (700k will not be reflected in summary)
+15Emergency Reserves - Bridges DPW $ 100,000 A9951-5000 Reduction Bridge repairs are required when bridges are flagged and we need to be compliant.
+16Emergency Repair Fund DPW $ 400,000 A9951-5000 Reduction Funds set aside for emergency repairs in facilities, i.e., City Elevator breaks
+17Vacancy Rate to 5.5% admin $ 247,500 n/a Adjustment Further scrutiny on vacant positions
+18Reduce Mgmt. Increase to 1% various $ 76,648 Various Reduction Risk of long-term compression issues if we restart the trend of eliminating raise, could drop to 2% instead
+19Going Up to Tax Cap 4.3% n/a $ 269,665 n/a Adjustment Remaining under the cap is the goal but if we get closer to it we risk an inadvertent override
+20OTR Differential n/a $ 354,478 n/a Adjustment This was the differential provided to Council to offset some recommended OTRs
+$ 2,379,699
+The changes from this package are reflected in the following locations:
+Revenue and Expense lines adjusted accordingly and are viewable at the Online Budget Book at this link:
+https://bit.ly/COI2026BudgetIndex
+The new fee schedule (attached) has been updated accordingly.
+This also left a differential of $158,275 to apply to any amendments.
+2
+
+2. Elimination of Capital Funds Borrowing – General Fund - This does not impact Revenues or Expenses but
+eliminates the ability for these items to be acquired through borrowing:
+G E N E R A L F U N D
+Project Title Department Estimated Other Funding Sources
+Cost Funded
+Public Safety Camera Expansion DICE $166,000 $0 $150,000
+Fleet Vehicles IPD $481,000 $0 $375,000
+Tractor IYB $63,350 $0 $63,350
+TOTAL $588,350
+As discussed at the Council meeting, departments may submit requests to the Common Council for additional
+operational funding at a future date.
+3. Tompkins County Public Library - $15,000 increase to expenses
+$15,000 added to account line A1012-5435.
+4. DPW Various Adjustments – net $8,000 increase to expenses after budget adjustments
+These changes will be reflected in these individual lines in the online budget book:
+https://bit.ly/COI2026BudgetIndex
+5. TCAT Over Target Request - $500,000
+$500,000 will be placed in restricted contingency, funded from the fund balance. This change will be reflected as a
+$500,000 increase in expenses in the A1990-5000 account line, offset by a corresponding $500,000 appropriation
+from the fund balance to maintain a balanced budget.
+6. Remove addition of Parks Manager Position to the roster – no impact on budget
+3
+
+To better manage the growing number of amenities at Stewart Park and address the increased workload on the
+Department of Public Works staff proposed repurposing a vacant Assistant Supervisor of Streets position into a Parks
+Manager position. The Common Council passed an amendment to not add Parks Manager to the roster.
+7. Fund CARE Team position for IPD - $66,000
+$66,000 added to account line A3120-5435-05000 (contracts) as this is a County program and we will contribute via the
+conditions set out in an MOU.
+4
+
+RESOLUTION: Adoption of 2026 Budget
+WHEREAS, this Common Council is now considering adoption of the Amended Executive
+Budget for 2026 at its November 12, 2025 meeting as approved by the Committee of the
+Whole, and
+WHEREAS, it is the consensus of this Common Council that the total appropriations and
+estimated revenues, as set forth in said Amended Executive Budget for 2026, and as those
+amounts may be altered by action of this Common Council at its November 12, 2025 meeting,
+are adequate for the operation of the City during 2026; now, therefore be it
+RESOLVED, That this Common Council accepts and approves said Amended Executive
+Budget for 2026, together with any additional changes made in said budget at Council's
+November 12, 2025 meeting as the City of Ithaca Budget for 2026, in the total amount of
+$111,458,496 and be it further
+RESOLVED, That the following sections of the 2026 Budget be approved:
+A) General Fund Appropriations
+B) Water Fund Appropriations
+C) Sewer Fund Appropriations
+D) Solid Waste Fund Appropriations
+E) Sidewalk Special District Fund Appropriations
+F) Stormwater Drainage Special District Fund Appropriations
+G) General Fund Revenues & Fee Schedule
+H) Water Fund Revenues
+I) Sewer Fund Revenues
+J) Solid Waste Fund Revenues
+K) Sidewalk Special District Fund Revenue
+L) Stormwater Drainage Special District Fund Revenue
+M) Debt Retirement Schedule
+N) Capital Projects
+O) Schedule of Funded Personnel - General Fund
+P) Schedule of Funded Personnel - Water & Sewer Fund
+Q) Schedule of Funded Personnel - Solid Waste Fund
+R) Schedule of Funded Personnel - Sidewalk Special District Fund
+S) Schedule of Funded Personnel – Stormwater Drainage Special District Fund
+T) Authorized Equipment - General Fund
+U) Authorized Equipment - Water Fund
+V) Authorized Equipment - Sewer Fund
+5
+
+Resolution: Adoption of 2026 Tax Rate
+WHEREAS, the 2026 City of Ithaca Budget was approved, adopted, and confirmed in
+the total amount of $111,458,496 on November 12th, 2025 in accordance with a
+detailed Budget on file in the Office of the City Controller, and
+WHEREAS, available and estimated revenues and budget adjustments total
+$76,685,914 leaving $34,772,582 as the amount to be raised by taxation, and
+WHEREAS, the Assessment Roll for 2025 certified and filed by the Assessment
+Department of Tompkins County, has been footed and approved and shows the total
+net taxable valuation as
+$2,839,963,647 , and
+RESOLVED, That the tax rate for general purposes, for the fiscal year 2026, be, and
+the same hereby is, established and fixed at $12.24 per $1,000 of taxable valuation
+as shown, certified and extended against the respective properties on the 2025 Tax
+Roll, thereby making a total tax levy, as near as may be, of $34,772,582 and be it
+further
+RESOLVED, That the amount of said tax levy be spread, and the same hereby is
+levied upon and against the respective properties as shown on said City Tax Roll, in
+accordance with their respective net taxable valuation, at the rate of $12.24 per $1,000
+of such taxable valuation, and be it further
+RESOLVED, That the City Chamberlain be, and hereby is, directed to extend and
+apportion the City Tax as above, and that upon the completion of the extension of
+said Roll, the City Clerk shall prepare a warrant on the City Chamberlain for the
+collection of said levy; and the City Manager and the City Clerk hereby are authorized
+and directed to sign and affix the corporate seal to such warrant and forthwith to file
+the same with said Tax Roll with the City Chamberlain, and be it further
+RESOLVED, That upon the execution and filing of said warrant and Tax Roll with the
+City Chamberlain, the amounts of the City Tax set opposite each and every property
+6
+
+shall hereby become liens, due, payable and collectible in accordance with
+provisions of the City Charter and other laws applicable thereto, and be it further
+RESOLVED, That the total sum of $111,458,496 be appropriated in accordance with
+the adopted Budget to the respective Boards, Offices, and Departments of the City,
+for the purposes respectively set forth therein. The 2025 Assessment Roll has been
+completed and approved by the Assessment Department of Tompkins County and
+resulted in the following valuation:
+Total Value of Real Property-$6,773,304,592
+Less: Value of Exempt Property-$3,933,340,945
+Net Value of Taxable Property $2,839,963,647
+7
+
+Adoption of 2026 Ithaca Area Wastewater Treatment Plant Budget
+WHEREAS, this Common Council is now considering adoption of the Joint Activity Fund Budget
+for 2026 as approved by the Committee of the Whole, and
+WHEREAS, it is the consensus of this Common Council that the total appropriations and
+estimated revenues, as set forth in said Joint Activity Fund Budget for 2026 and as those
+amounts may be altered by action of the Common Council at its November 12, 2025 meeting,
+are adequate for the operation of the Ithaca Area Wastewater Treatment Plant during 2026;
+now, therefore, be it
+RESOLVED, That this Common Council accepts and approves said Joint Activity Fund
+Budget for 2026, together with any additional changes made in said budget at Council’s
+November 12, 2025 meeting, as the Ithaca Area Wastewater Treatment Plant Joint Activity
+Fund Budget for 2026, in the total amount of $7,545,582; and be it further
+RESOLVED, That the following sections of the 2026 Ithaca Area Wastewater Treatment Plant
+Joint Activity Fund Budget be approved:
+A. Joint Activity Fund Appropriations
+B. Joint Activity Fund Revenues
+C. Schedule of Positions – Joint Activity Fund
+8
+
+$ 2 , 8 3 9 , 9 6 3 , 6 4 7
+T A X A B L E A S S E S S E D P R O P E R
+B A L A N C E O F A P P R O P R I A T I O N S T O
+T O T A L R E V E N U E S & A D J U S T M E
+V A C A N C Y R A T E A D J U S T M E N T
+U S E O F F U N D B A L A N C E
+T O T A L E S T I M A T E D R E V E N U E S
+F E D E R A L A ID
+S T A T E A ID
+IN T E R F U N D T R A N S F E R S
+M IS C E L L A N E O U S
+C O M P E N S A T IO N F O R L O S S
+S A L E O F P R O P E R T Y A N D
+F IN E S & F O R F E IT U R E S
+L IC E N S E S & P E R M IT S
+U S E O F M O N E Y & P R O P E R T Y
+IN T E R G O V E R N M E N T A L C H A R G E S
+H O M E & C O M M U N IT Y S E R V IC E S
+C U L T U R E & R E C R E A T IO N
+T R A N S P O R T A T IO N
+P U B L IC S A F E T Y
+G E N E R A L G O V E R N M E N T
+N O N - P R O P E R T Y T A X IT E M S
+R E A L P R O P E R T Y T A X IT E M S
+E S T I M A T E D R E V E N U E S
+T O T A L A P P R O P R I A T I O N S
+IN T E R F U N D T R A N S F E R S
+R E T IR E M E N T B E N E F IT S
+H O M E & C O M M U N IT Y S E R V IC E S
+C U L T U R E & R E C R E A T IO N
+T R A N S P O R T A T IO N
+P U B L IC S A F E T Y
+G E N E R A L G O V E R N M E N T S U P P O R
+A P P R O P R I A T I O N S
+2 0 2 6 B u d g e t S u m m a r y
+T
+B
+N
+T
+Y V
+E R
+T S
+A
+A
+L
+I
+U
+S
+E
+E D B Y R E A
+$
+$
+$
+$
+$
+L
+1 2 . 2 4 0 0
+2 0 2 6 T A X R A T E
+P R O P E R T Y T A X E
+1 1 1 , 4 5 8 , 4 9 6
+2 , 6 4 7 , 5 0 0
+1 , 6 3 5 , 7 8 9
+1 0 7 , 1 7 5 , 2 0 7
+7 0 , 0 0 0
+3 ,8 7 6 ,0 8 1
+1 ,9 0 6 ,0 4 7
+4 , 4 2 1 , 4 8 7
+3 8 3 , 0 5 0
+7 0 1 , 0 0 0
+1 , 5 8 2 , 4 3 3
+1 , 1 4 8 , 3 3 2
+6 , 6 0 4 , 2 2 3
+2 0 , 0 3 5 , 2 9 1
+1 , 5 3 9 , 2 3 9
+3 , 6 3 7 , 0 0 0
+4 2 1 , 2 5 0
+2 6 3 , 4 0 0
+2 2 , 9 9 0 , 1 4 5
+3 7 , 5 9 6 , 2 2 9
+1 1 1 , 4 5 8 , 4 9 6
+1 , 6 3 5 , 7 4 9
+6 , 2 3 2 , 2 1 5
+2 3 , 7 0 5 , 7 4 4
+1 3 , 1 6 7 , 1 3 2
+2 0 , 2 3 0 , 0 7 6
+3 2 , 0 8 0 , 6 6 1
+1 4 , 4 0 6 , 9 1 9
+T O T A L
+U P D A T
+S
+E
+:
+D 1
+$
+$
+$
+$
+$
+1 - 0 7 - 2
+$
+T
+G
+0 2
+3 4 , 7 7 2 , 5 8 2
+A X L E V Y
+8 9 , 1 4 3 , 6 5 1
+2 , 6 4 7 , 5 0 0
+5 0 0 , 0 0 0
+8 5 , 9 9 6 , 1 5 1
+7 0 , 0 0 0
+3 , 8 7 6 , 0 8 1
+1 , 8 1 5 , 9 3 0
+4 , 4 2 1 , 4 8 7
+3 7 4 , 0 5 0
+7 0 1 , 0 0 0
+1 , 5 2 0 , 4 3 3
+1 , 1 4 8 , 3 3 2
+6 , 5 8 4 , 2 2 3
+2 0 0 , 2 5 0
+1 , 5 3 9 , 2 3 9
+3 , 6 3 7 , 0 0 0
+4 2 1 , 2 5 0
+2 6 3 , 4 0 0
+2 2 , 9 9 0 , 1 4 5
+3 6 , 4 3 3 , 3 3 1
+8 9 , 1 4 3 , 6 5 1
+9 6 1 , 7 4 9
+6 , 2 3 2 , 2 1 5
+3 , 9 1 1 , 0 0 4
+1 3 , 1 6 7 , 1 3 2
+1 9 , 0 6 7 , 1 7 8
+3 2 , 0 8 0 , 6 6 1
+1 3 , 7 2 3 , 7 1 2
+F U N D
+E N E R A L
+5 C IT Y O F IT H A
+$
+$
+$
+$
+$
+C A
+9 , 0 8 0 , 2 8 6
+0
+9 , 0 8 0 , 2 8 6
+6 , 0 0 0
+6 2 , 0 0 0
+9 ,0 1 2 ,2 8 6
+9 , 0 8 0 , 2 8 6
+3 7 0 , 0 0 0
+8 , 3 4 7 , 7 1 3
+3 6 2 , 5 7 3
+F U N D
+W A T E R
+- 2 0 2 6 B U D G E T S U M
+$
+$
+$
+$
+$
+M A R Y O
+9 , 8 4 8 , 4 1 4
+1 , 0 7 5 , 4 5 9
+8 , 7 7 2 , 9 5 5
+3 , 0 0 0
+2 0 , 0 0 0
+8 , 7 4 9 , 9 5 5
+9 , 8 4 8 , 4 1 4
+3 0 4 , 0 0 0
+9 , 2 2 3 , 7 8 0
+3 2 0 , 6 3 4
+F U N D
+S E W E R
+F A L L F U N D S
+$
+$
+$
+$
+$
+F
+W
+S
+U
+A
+O
+7 3 0 , 9 1 7
+0
+7 3 0 , 9 1 7
+9 0 , 1 1 7
+6 4 0 , 8 0 0
+7 3 0 , 9 1 7
+7 3 0 , 9 1 7
+N D
+S T E
+L I D
+$
+$
+$
+$
+$
+I M
+D
+P
+S
+I
+R
+I D
+1 , 1 6 2 , 8 9 8
+0
+1 , 1 6 2 , 8 9 8
+1 , 1 6 2 , 8 9 8
+1 , 1 6 2 , 8 9 8
+1 , 1 6 2 , 8 9 8
+S T R I C T
+O V E M E N T
+E W A L K
+$
+$
+$
+$
+$
+S T O
+F
+R
+1 , 4 9 2 , 3 3 0
+6 0 , 3 3 0
+1 , 4 3 2 , 0 0 0
+1 , 4 3 2 , 0 0 0
+0
+1 , 4 9 2 , 3 3 0
+1 , 4 9 2 , 3 3 0
+U N D
+M W A T E R
+10
+
+R o w #
+5
+5
+5
+5
+5
+5
+4
+4
+4
+4
+4
+4
+4
+4
+4
+4
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+5
+4
+3
+2
+1
+0
+9
+8
+7
+6
+5
+4
+3
+2
+1
+0
+9
+8
+7
+6
+5
+4
+3
+2
+1
+0
+9
+8
+7
+6
+5
+4
+3
+2
+1
+0
+9
+8
+7
+6
+5
+4
+3
+2
+1
+0
+9
+8
+7
+6
+5
+4
+3
+2
+1
+C
+C
+C
+C
+C
+C
+C
+C
+C
+C
+C
+C
+C
+C
+C
+C
+C
+C
+C
+C
+C
+C
+C
+C
+C
+C
+C
+C
+C
+C
+C
+C
+C
+C
+C
+C
+C
+C
+C
+C
+C
+C
+C
+C
+C
+C
+C
+C
+C
+C
+C
+C
+C
+C
+C
+D
+le r k
+le r k
+le r k
+le r k
+le r k
+le r k
+le r k
+le r k
+le r k
+le r k
+le r k
+le r k
+le r k
+le r k
+le r k
+le r k
+le r k
+le r k
+le r k
+le r k
+le r k
+le r k
+le r k
+le r k
+le r k
+le r k
+le r k
+le r k
+le r k
+le r k
+le r k
+le r k
+le r k
+le r k
+le r k
+le r k
+le r k
+le r k
+le r k
+le r k
+le r k
+le r k
+le r k
+le r k
+le r k
+le r k
+le r k
+h a m
+h a m
+h a m
+h a m
+h a m
+h a m
+h a m
+h a m
+e p a
+'s O
+'s O
+'s O
+'s O
+'s O
+'s O
+'s O
+'s O
+'s O
+'s O
+'s O
+'s O
+'s O
+'s O
+'s O
+'s O
+'s O
+'s O
+'s O
+'s O
+'s O
+'s O
+'s O
+'s O
+'s O
+'s O
+'s O
+'s O
+'s O
+'s O
+'s O
+'s O
+'s O
+'s O
+'s O
+'s O
+'s O
+'s O
+'s O
+'s O
+'s O
+'s O
+'s O
+'s O
+'s O
+'s O
+'s O
+b e
+b e
+b e
+b e
+b e
+b e
+b e
+b e
+r t m
+ffic e
+ffic e
+ffic e
+ffic e
+ffic e
+ffic e
+ffic e
+ffic e
+ffic e
+ffic e
+ffic e
+ffic e
+ffic e
+ffic e
+ffic e
+ffic e
+ffic e
+ffic e
+ffic e
+ffic e
+ffic e
+ffic e
+ffic e
+ffic e
+ffic e
+ffic e
+ffic e
+ffic e
+ffic e
+ffic e
+ffic e
+ffic e
+ffic e
+ffic e
+ffic e
+ffic e
+ffic e
+ffic e
+ffic e
+ffic e
+ffic e
+ffic e
+ffic e
+ffic e
+ffic e
+ffic e
+ffic e
+r la in
+r la in
+r la in
+r la in
+r la in
+r la in
+r la in
+r la in
+e n t o r D iv is io n
+O
+O
+O
+O
+O
+F
+F
+F
+H
+R
+M
+M
+M
+M
+M
+M
+M
+M
+M
+M
+C
+C
+C
+C
+C
+C
+C
+C
+C
+E
+N
+S
+S
+S
+L
+L
+D
+D
+D
+R
+A
+D
+M
+M
+M
+M
+S
+N
+O
+T
+T
+C
+P
+M
+T
+F
+u t d o o r D in in g - A n n u a l P e r m it (A p r 1 -M a r 3 1 ? )
+u t d o o r D in in g - S e a s o n a l P e r m it (A p r 1 -O c t 3 1 ? )
+u t d o o r D in in g - A p p lic a t io n F e e - N e w O p e r a t o r s
+u t d o o r D in in g - A p p lic a t io n F e e - R e t u r n in g O p e r a t o r s
+U T D O O R D IN IN G F E E S
+o o d T r u c k P e r m it - A n n u a l (A p r 1 -M a r 3 1 )
+o o d T r u c k P e r m it - S e a s o n a l (A p r 1 -O c t 3 1 )
+o o d T r u c k s
+e r it a g e P e r m it (L o u ie 's L u n c h )
+o u t e -b a s e d (e .g .: ic e c r e a m t r u c k )
+o b ile F o o d V e n d in g - S in g le -D a y E v e n t
+o b ile F o o d V e n d in g P e r m it - A n n u a l (A p r 1 -M a r 3 1 )
+o b ile F o o d V e n d in g P e r m it - S e a s o n a l (A p r 1 -O c t 3 1 )
+o b ile F o o d V e n d in g
+o b ile N o n -F o o d V e n d in g P e r m it - A n n u a l (A p r 1 -M a r 3 1
+o b ile N o n -F o o d V e n d in g P e r m it - S e a s o n a l (A p r 1 -O c t 3
+o b ile N o n -F o o d V e n d in g
+o b ile V e n d in g - A p p lic a t io n F e e - R e t u r n in g V e n d o r s
+o b ile V e n d in g - A p p lic a t io n F e e - N e w V e n d o r s
+O B IL E V E N D IN G F E E S
+o m m o n s - S m a ll E v e n t s u s e > 4 h o u r s , F r i-S u n
+o m m o n s - S m a ll E v e n t s u s e > 4 h o u r s , M o n -T h u
+o m m o n s - S m a ll E v e n t s u s e 2 -4 h o u r s , F r i-S u n
+o m m o n s - S m a ll E v e n t s u s e 2 -4 h o u r s , M o n -T h u
+o m m o n s - S m a ll E v e n t s u s e < 2 h o u r s , F r i-S u n
+o m m o n s - S m a ll E v e n t s u s e < 2 h o u r s , M o n -T h u
+o m m o n s - B e r n ie M ilt o n P a v ilio n R e n t a l
+o m m o n s U s e - E le c t r ic a l B o lla r d
+O M M O N S U S E
+x p e d it e d E v e n t P r o c e s s in g F e e
+o is e P e r m it
+p e c ia l E v e n t F e e - L a r g e
+p e c ia l E v e n t F e e - M e d iu m
+p e c ia l E v e n t F e e -S m a ll
+ic e n s e - C h ic k e n P e r m it
+ic e n s e - G o in g o u t o f B u s in e s s
+o g T a g R e p la c e m e n t
+o g L ic e n s e - N o t S p a y e d / N e u t e r e d
+o g L ic e n s e - S p a y e d / N e u t e r e d
+e s id e n t ia l P a r k in g V is it o r P a s s
+n n u a l R e s id e n t ia l P a r k in g P e r m it
+o m e s t ic P a r t n e r s h ip
+a r r ia g e - O n e D a y O ffic ie n t
+a r r ia g e T r a n s c r ip t
+a r r ia g e lic e n s e - m ilit a r y
+a r r ia g e lic e n s e - s t a n d a r d
+T A N D A R D L IC E N S E S
+S F fe e
+n lin e C C F e e s
+a x s e a r c h
+a x n o t ic e fe e
+o p ie s / R e p r in t s / R e c e ip t s
+a r k in g t ic k e t la t e fe e
+is c . B ill la t e fe e
+a x la t e fe e
+e e N a m e
+C i t y o f I t h a c a C o m b i n e
+)
+1
+d
+)
+F e e L
+O u t d o o r D in in g
+O u t d o o r D in in g
+O u t d o o r D in in g
+O u t d o o r D in in g
+F o o d T r u c k p e r m it fe e
+F o o d T r u c k p e r m it fe e
+M o b ile F o o d V e n d in g
+M o b ile F o o d V e n d in g
+M o b ile F o o d V e n d in g
+M o b ile F o o d V e n d in g
+M o b ile F o o d V e n d in g
+M o b ile N o n -F o o d V e n
+M o b ile N o n -F o o d V e n
+M o b ile V e n d in g
+M o b ile V e n d in g
+C o m m o n s U s e
+C o m m o n s U s e
+C o m m o n s U s e
+C o m m o n s U s e
+C o m m o n s U s e
+C o m m o n s U s e
+C o m m o n s U s e
+C o m m o n s U s e
+A d m in is t r a t iv e F e e
+N o is e p e r m it
+E v e n t p e r m it
+E v e n t p e r m it
+E v e n t p e r m it
+L iv e s t o c k lic e n s e
+C o m m e r c ia l lic e n s e
+P e t lic e n s e
+P e t lic e n s e
+P e t lic e n s e
+P a r k in g p e r m it
+P a r k in g p e r m it
+M a r r ia g e lic e n s e
+O ffic ia l s e r v ic e
+P u b lic R e c o r d s
+M a r r ia g e lic e n s e
+M a r r ia g e lic e n s e
+T r a n s a c t io n fe e
+T r a n s a c t io n fe e
+S e r v ic e F e e
+S e r v ic e F e e
+S e r v ic e F e e
+L a t e fe e
+L a t e fe e
+L a t e fe e
+F e e T y p e
+i s t - 2 0 2 6 B u d g
+s
+s
+d in g
+d in g
+e t
+$ 1 .8 0
+$ 1 .5 0
+$ 1 0 0 .0 0
+$ 5 0 .0 0
+$ 3 ,8 1 3 .0 0
+$ 3 ,1 8 0 .0 0
+$ 4 ,5 7 2 .0 0
+$ 4 3 0 .0 0
+$ 6 0 .0 0
+$ 1 ,2 2 9 .0 0
+$ 1 ,0 2 5 .0 0
+$ 6 1 5 .0 0
+$ 5 1 4 .0 0
+$ 5 0 .0 0
+$ 1 0 0 .0 0
+$ 3 0 .0 0
+$ 2 0 .0 0
+$ 2 0 .0 0
+$ 1 0 .0 0
+$ 1 0 .0 0
+$ 5 .0 0
+$ 1 0 0 .0 0
+$ 2 0 .0 0
+$ 2 0 0 .0 0
+$ 5 0 .0 0
+$ 5 0 0 .0 0
+$ 2 5 0 .0 0
+$ 1 0 0 .0 0
+$ 3 5 .0 0
+$ 5 0 0 .0 0
+$ 1 .0 0
+$ 2 5 .0 0
+$ 1 5 .0 0
+$ 1 0 .0 0
+$ 4 5 .0 0
+$ 4 0 .0 0
+$ 2 5 .0 0
+$ 1 0 .0 0
+$ 1 7 .5 0
+$ 4 0 .0 0
+$ 2 5 .0 0
+c a r d a n d fe e
+fr o n t - v a r ie s b y
+r e s id e n t u p
+P a id b y
+$ 6 5 .0 0
+$ 2 .0 0
+$ 3 .0 0
+$ 1 5 .0 0
+1 %
+a d d 'l
+5 b a s e ; 1 %
+c o s t
+C u r r e n t f e e
+p
+p
+p
+a
+p
+p
+p
+p
+p
+p
+p
+p
+p
+a
+p
+p
+p
+p
+p
+p
+p
+p
+p
+r
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+m
+F
+e r s q u a r e fo o t
+e r s q u a r e fo o t
+e r a p p lic a t io n
+n n u a l
+e r y e a r
+e r s e a s o n
+e r y e a r
+e r s e a s o n
+e r d a y
+e r y e a r
+e r s e a s o n
+e r y e a r
+e r s e a s o n
+p p lic a t io n
+e r r e n e w e d
+e r n e w a p p lic a t io n
+e r s e s s io n
+e r s e s s io n
+e r s e s s io n
+e r s e s s io n
+e r s e s s io n
+e r s e s s io n
+e r e v e n t
+e c e p t a c le
+e r b o lla r d / e le c t r ic a
+e r e v e n t
+e r e v e n t
+e r e v e n t
+e r e v e n t
+e r e v e n t
+e r h o u s e h o ld
+e r b u s in e s s
+e r t a g
+e r d o g
+e r d o g
+e r p a s s (2 w k s )
+e r y e a r
+e r lic e n s e
+e r s e r v ic e
+e r r e q u e s t
+e r lic e n s e
+e r lic e n s e
+e r t r a n s a c t io n
+e r t r a n s a c t io n
+e r s e a r c h
+e r n o t ic e
+e r p a g e
+e r t ic k e t
+e r m o n t h
+o n t h ly
+e e u n it
+l
+11
+
+R o w
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+#
+2
+2
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+9
+9
+9
+9
+9
+9
+9
+9
+9
+9
+8
+8
+8
+8
+8
+8
+8
+8
+8
+8
+7
+7
+7
+7
+7
+7
+7
+7
+7
+7
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+5
+5
+5
+5
+1
+0
+9
+8
+7
+6
+5
+4
+3
+2
+1
+0
+9
+8
+7
+6
+5
+4
+3
+2
+1
+0
+9
+8
+7
+6
+5
+4
+3
+2
+1
+0
+9
+8
+7
+6
+5
+4
+3
+2
+1
+0
+9
+8
+7
+6
+5
+4
+3
+2
+1
+0
+9
+8
+7
+6
+5
+4
+3
+2
+1
+0
+9
+8
+7
+6
+F
+F
+F
+F
+F
+F
+F
+F
+F
+F
+F
+F
+F
+F
+F
+F
+F
+F
+F
+F
+F
+F
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+C
+C
+C
+C
+C
+C
+C
+C
+C
+C
+C
+C
+C
+C
+C
+C
+C
+C
+C
+C
+C
+C
+C
+C
+C
+D
+ir e D e p
+ir e D e p
+ir e D e p
+ir e D e p
+ir e D e p
+ir e D e p
+ir e D e p
+ir e D e p
+ir e D e p
+ir e D e p
+ir e D e p
+ir e D e p
+ir e D e p
+ir e D e p
+ir e D e p
+ir e D e p
+ir e D e p
+ir e D e p
+ir e D e p
+ir e D e p
+ir e D e p
+ir e D e p
+IA C
+IA C
+IA C
+IA C
+IA C
+IA C
+IA C
+IA C
+IA C
+IA C
+IA C
+IA C
+IA C
+IA C
+IA C
+IA C
+IA C
+IA C
+IA C
+le r k 's O
+le r k 's O
+le r k 's O
+le r k 's O
+le r k 's O
+le r k 's O
+le r k 's O
+le r k 's O
+le r k 's O
+le r k 's O
+le r k 's O
+le r k 's O
+le r k 's O
+le r k 's O
+le r k 's O
+le r k 's O
+le r k 's O
+le r k 's O
+le r k 's O
+le r k 's O
+le r k 's O
+le r k 's O
+le r k 's O
+le r k 's O
+le r k 's O
+e p a r t m
+t
+t
+t
+t
+t
+t
+t
+t
+t
+t
+t
+t
+t
+t
+t
+t
+t
+t
+t
+t
+t
+t
+ffic e
+ffic e
+ffic e
+ffic e
+ffic e
+ffic e
+ffic e
+ffic e
+ffic e
+ffic e
+ffic e
+ffic e
+ffic e
+ffic e
+ffic e
+ffic e
+ffic e
+ffic e
+ffic e
+ffic e
+ffic e
+ffic e
+ffic e
+ffic e
+ffic e
+e n t o r D iv is io n
+H a z a r d o u s M a t e r ia ls P e r m it
+F u m ig a t io n a n d In s e c t ic id a l F o g g in g p e r m it
+F r u it R ip e n in g p e r m it
+F o o d T r u c k p e r m it - S in g le U s e
+F o o d T r u c k p e r m it - 6 m o n t h s
+F o o d T r u c k p e r m it - 1 2 m o n t h s
+F la m m a b le F in is h e s p e r m it
+F ir e w o r k s p e r m it
+F ir e fig h t e r s t a ffin g fo r F lo w T e s t in g
+F ir e T r u c k fo r F lo w T e s t in g
+F ir e S a fe t y R e v ie w
+F ir e P r o t e c t io n S y s t e m In s t a lla t io n
+F ir e In s p e c t io n
+E x p lo s iv e s p e r m it
+E n e r g y S t o r a g e S y s t e m p e r m it
+E le v a t o r p e r m it
+C o m b u s t ib le S t o r a g e p e r m it
+C o m b u s t ib le D u s t O p e r a t io n s p e r m it
+C e r t ific a t e o f C o m p lia n c e - C o m m e r c ia l In s p e c t io n
+B o n fir e P e r m it
+A s s e m b ly p e r m it
+A s p h a lt K e t t le s
+B o x in g p e r p e r s o n
+A le x H a le y P o o l F a m ily S e a s o n P a s s
+A le x H a le y P o o l In d iv id u a l S e a s o n P a s s
+A le x H a le y P o o l D a y P a s s
+R o o m R e n t a l - G y m (fo r p r o fit )
+R o o m R e n t a l - G y m (n o n p r o fit )
+R o o m R e n t a l - T e e n L o u n g e (fo r p r o fit )
+R o o m R e n t a l - T e e n L o u n g e (n o n p r o fit )
+R o o m R e n t a l - D a F o r t (fo r p r o fit )
+R o o m R e n t a l - D a F o r t (n o n p r o fit )
+R o o m R e n t a l - C o n fe r e n c e R o o m # 1 2 4 (fo r p r o fit )
+R o o m R e n t a l - C o n fe r e n c e R o o m # 1 2 4 (n o n p r o fit )
+A B B L a d u lt b a s k e t b a ll (p e r t e a m )
+R R B L t e e n b a s k e t b a ll (p e r c h ild d e p e n d in g o n d iv is io n )
+2 0 2 4 -2 5 A ft e r S c h o o l (a d d it io n a l c h ild r e n )
+2 0 2 4 -2 5 A ft e r S c h o o l (in c o m e b a s e d ) fo r t h e s c h o o l y e a r
+2 0 2 4 s ix -w e e k s u m m e r c a m p b a s k e t b a ll (in c o m e b a s e d )
+2 0 2 4 s ix -w e e k s u m m e r c a m p (in c o m e b a s e d )
+S e n io r p r o g r a m (6 0 y r s a n d u p )
+O u t d o o r D in in g - F u ll Y e a r
+O u t d o o r D in in g - H a lf Y e a r
+R e t a il- F u ll Y e a r
+R e t a il- H a lf Y e a r
+F o o d - F u ll Y e a r (3 0 0 s f p e r s p a c e )
+F o o d - H a lf Y e a r (3 0 0 s f p e r s p a c e )
+M o b ile V e n d in g F e e s
+T e le c o m m u n ic a t io n s - S h a r e d C o n d u it
+T e le c o m m u n ic a t io n s - D e d ic a t e d C o n d u it
+T e le c o m U t ilit ie s
+C a s c a d illa B o a t C lu b U t ilit ie s
+C a s c a d illa B o a t H o u s e - Im p r o v e d
+Ia c o v e lli P a r k in g A g r e e m e n t / y r (p e r s f)
+P a r k la n d
+B o a t S lip s (e a c h )
+A ll O t h e r R e s id e n t ia l A r e a s
+L ig h t In d u s t r ia l
+M a r in e C o m m e r c ia l
+A ll O t h e r D o w n t o w n C o m m e r c ia l
+P r im a r y H ig h w a y C o m m e r c ia l (R t 1 3 / E lm ir a R o a d C o r r id o
+It h a c a C o m m o n s , p r im a r y o r s e c o n d a r y
+C o lle g e t o w n a n d C o lle g e -o r ie n t e d
+G e n e r a l P r o p e r t y U s e
+U S E O F C IT Y P R O P E R T Y
+O u t d o o r D in in g - V io la t io n F e e s
+F e e N a m e
+r )
+O p e r a t in g P e r m
+O p e r a t in g P e r m
+O p e r a t in g P e r m
+O p e r a t in g P e r m
+O p e r a t in g P e r m
+O p e r a t in g P e r m
+O p e r a t in g P e r m
+O p e r a t in g P e r m
+F lo w T e s t in g
+F lo w T e s t in g
+P la n r e v ie w
+In s p e c t io n
+In s p e c t io n
+O p e r a t in g P e r m
+O p e r a t in g P e r m
+O p e r a t in g P e r m
+O p e r a t in g P e r m
+O p e r a t in g P e r m
+O p e r a t in g P e r m
+O p e r a t in g P e r m
+O p e r a t in g P e r m
+O p e r a t in g P e r m
+P r o g r a m F e e
+F a c ilit y E n t r y F e
+F a c ilit y E n t r y F e
+F a c ilit y E n t r y F e
+F a c ilit y R e n t a l
+F a c ilit y R e n t a l
+F a c ilit y R e n t a l
+F a c ilit y R e n t a l
+F a c ilit y R e n t a l
+F a c ilit y R e n t a l
+F a c ilit y R e n t a l
+F a c ilit y R e n t a l
+P r o g r a m F e e
+P r o g r a m F e e
+P r o g r a m F e e
+P r o g r a m F e e
+P r o g r a m F e e
+P r o g r a m F e e
+P r o g r a m F e e
+U s e o f C it y P r o p
+U s e o f C it y P r o p
+U s e o f C it y P r o p
+U s e o f C it y P r o p
+U s e o f C it y P r o p
+U s e o f C it y P r o p
+U s e o f C it y P r o p
+U s e o f C it y P r o p
+U s e o f C it y P r o p
+U s e o f C it y P r o p
+U s e o f C it y P r o p
+U s e o f C it y P r o p
+U s e o f C it y P r o p
+U s e o f C it y P r o p
+U s e o f C it y P r o p
+U s e o f C it y P r o p
+U s e o f C it y P r o p
+U s e o f C it y P r o p
+U s e o f C it y P r o p
+U s e o f C it y P r o p
+U s e o f C it y P r o p
+U s e o f C it y P r o p
+U s e o f C it y P r o p
+O u t d o o r D in in g
+F e e T y p e
+it
+it
+it
+it
+it
+it
+it
+it
+it
+it
+it
+it
+it
+it
+it
+it
+it
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+t
+t
+t
+t
+t
+t
+t
+t
+t
+t
+t
+t
+t
+t
+t
+t
+t
+t
+t
+t
+t
+t
+t
+y
+y
+y
+y
+y
+y
+y
+y
+y
+y
+y
+y
+y
+y
+y
+y
+y
+y
+y
+y
+y
+y
+y
+$ 8 5 .0 0
+$ 8 5 .0 0
+$ 8 5 .0 0
+$ 8 5 .0 0
+$ 1 6 0 .0 0
+$ 2 1 0 .0 0
+$ 8 5 .0 0
+$ 8 5 .0 0
+$ 1 7 0 .0 0
+$ 1 5 0 .0 0
+$ 8 5 .0 0
+$ 8 5 .0 0
+$ 8 5 .0 0
+$ 8 5 .0 0
+$ 8 5 .0 0
+$ 8 5 .0 0
+$ 8 5 .0 0
+$ 8 5 .0 0
+$ 8 5 .0 0
+$ 8 5 .0 0
+$ 8 5 .0 0
+$ 8 5 .0 0
+$ 1 0 0 .0 0
+$ 2 3 0 .0 0
+$ 6 0 .0 0
+$ 3 .5 0
+$ 6 0 .0 0
+$ 5 0 .0 0
+$ 5 0 .0 0
+$ 4 0 .0 0
+$ 5 0 .0 0
+$ 4 0 .0 0
+$ 3 5 .0 0
+$ 2 5 .0 0
+$ 2 5 0 .0 0
+$ 8 5 .0 0
+s lid in g
+s lid in g
+s lid in g
+s lid in g
+$ 5 5 .0 0
+$ 2 .2 5
+$ 1 .8 8
+$ 7 .8 8
+$ 6 .5 6
+$ 1 5 .7 4
+$ 1 3 .1 3
+$ 6 7 .0 0
+$ 2 .0 7
+$ 1 ,2 8 7 .5 6
+$ 2 .0 2
+$ 1 .9 3
+$ 0 .2 7
+$ 5 3 8 .8 2
+$ 0 .4 6
+$ 0 .6 0
+$ 0 .6 3
+$ 0 .9 1
+$ 1 .5 4
+$ 3 .6 2
+$ 4 .4 2
+0 0
+$ 2 5 0 / $ 5 0 0 / $ 1 ,0
+c o s t
+C u r r e n t f e e
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+n
+2
+F
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+o
+n
+e
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+t
+d
+e
+p e r m it
+p e r m it
+p e r m it
+p e r m it
+p e r m it
+p e r m it
+p e r m it
+p e r m it
+h o u r
+h o u r
+h o u r
+in s p e c t io n
+h o u r
+p e r m it
+p e r m it
+e le v a t o r
+p e r m it
+p e r m it
+h o u r
+p e r m it
+p e r m it
+p e r m it
+y e a r
+s e a s o n
+s e a s o n
+d a y
+h o u r
+h o u r
+h o u r
+h o u r
+h o u r
+h o u r
+h o u r
+h o u r
+t e a m
+c h ild
+c h ild
+c h ild
+c h ild
+c h ild
+p r o g r a m
+s q u a r e fo o t
+s q u a r e fo o t
+s q u a r e fo o t
+s q u a r e fo o t
+s q u a r e fo o t
+s q u a r e fo o t
+lin e a r fo o t
+lin e a r fo o t
+y e a r
+s q u a r e fo o t
+s q u a r e fo o t
+s q u a r e fo o t
+b o a t s lip
+s q u a r e fo o t
+s q u a r e fo o t
+s q u a r e fo o t
+s q u a r e fo o t
+s q u a r e fo o t
+s q u a r e fo o t
+s q u a r e fo o t
+ic e
+/ 3 r d / 4 t h + v io
+u n it
+la t io n
+12
+
+R o w
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+#
+8
+8
+8
+8
+8
+8
+8
+7
+7
+7
+7
+7
+7
+7
+7
+7
+7
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+5
+5
+5
+5
+5
+5
+5
+5
+5
+5
+4
+4
+4
+4
+4
+4
+4
+4
+4
+4
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+2
+2
+2
+2
+2
+2
+2
+2
+6
+5
+4
+3
+2
+1
+0
+9
+8
+7
+6
+5
+4
+3
+2
+1
+0
+9
+8
+7
+6
+5
+4
+3
+2
+1
+0
+9
+8
+7
+6
+5
+4
+3
+2
+1
+0
+9
+8
+7
+6
+5
+4
+3
+2
+1
+0
+9
+8
+7
+6
+5
+4
+3
+2
+1
+0
+9
+8
+7
+6
+5
+4
+3
+2
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+F
+F
+F
+F
+F
+F
+F
+F
+F
+F
+F
+F
+F
+F
+F
+F
+F
+D
+a r k in g
+a r k in g
+a r k in g
+a r k in g
+a r k in g
+a r k in g
+a r k in g
+a r k in g
+a r k in g
+a r k in g
+a r k in g
+a r k in g
+a r k in g
+a r k in g
+a r k in g
+a r k in g
+a r k in g
+a r k in g
+a r k in g
+a r k in g
+a r k in g
+a r k in g
+a r k in g
+a r k in g
+a r k in g
+a r k in g
+a r k in g
+a r k in g
+a r k in g
+a r k in g
+a r k in g
+a r k in g
+a r k in g
+a r k in g
+a r k in g
+a r k in g
+a r k in g
+a r k in g
+a r k in g
+a r k in g
+a r k in g
+a r k in g
+a r k in g
+a r k in g - C
+a r k in g - C
+a r k in g - C
+a r k in g - C
+a r k in g - C
+ir e D e p t
+ir e D e p t
+ir e D e p t
+ir e D e p t
+ir e D e p t
+ir e D e p t
+ir e D e p t
+ir e D e p t
+ir e D e p t
+ir e D e p t
+ir e D e p t
+ir e D e p t
+ir e D e p t
+ir e D e p t
+ir e D e p t
+ir e D e p t
+ir e D e p t
+e p a r t m e
+a
+a
+a
+a
+a
+n
+y u
+y u
+y u
+y u
+y u
+t o
+g
+g
+g
+g
+g
+r
+a G a r
+a G a r
+a G a r
+a G a r
+a G a r
+D iv is
+a g e
+a g e
+a g e
+a g e
+a g e
+io n
+O
+"
+O
+H
+F
+F
+D
+D
+C
+C
+B
+B
+A
+A
+V
+L
+W
+M
+W
+D
+H
+D
+L
+S
+M
+W
+D
+H
+S
+L
+S
+M
+W
+D
+H
+G
+V
+A
+H
+B
+W
+V
+S
+M
+M
+D
+H
+C
+W
+T
+T
+T
+T
+S
+P
+P
+O
+O
+O
+O
+L
+H
+H
+H
+H
+F
+v e r t im e M e t e r
+O t h e r "
+b s t r u c t io n o f L a n e / A lle y
+a n d ic a p (P a r k in g v io la t io n s )
+ir e h y d r a n t / F ir e z o n e (P a r k in g v io la t io n s )
+a ile d t o o b e y s ig n
+r iv e w a y (P a r k in g v io la t io n s )
+o u b le p a r k in g (P a r k in g v io la t io n s )
+u r b (P a r k in g v io la t io n s )
+r o s s w a lk (P a r k in g v io la t io n s )
+u s s t o p / T a x i s t a n d (P a r k in g v io la t io n s )
+e t w e e n c u r b a n d w a lk (P a r k in g v io la t io n s )
+c c e s s (P a r k in g v io la t io n s )
+b a n d o n e d (P a r k in g v io la t io n s )
+IO L A T IO N S
+o s t t ic k e t fe e
+o r k e r 's s p e c ia l - M -F 1 0 h o u r s p e r d a y (D r y d e n R
+o n t h ly p e r m it - 2 4 / 7 a c c e s s (D r y d e n R o a d G a r a g
+e e k ly r a t e - 2 4 h o u r (D r y d e n R o a d G a r a g e )
+a ily M a x im im u m (D r y d e n R o a d G a r a g e )
+o u r ly R a t e (D r y d e n R o a d G a r a g e )
+R Y D E N R O A D G A R A G E
+o s t t ic k e t fe e
+p e c ia l e v e n t - p e r e n t r y / p e r d a y (S e n e c a S t r e e t G
+o n t h ly p e r m it (S e n e c a S t r e e t G a r a g e )
+e e k ly r a t e (S e n e c a S t r e e t G a r a g e )
+a ily M a x im im u m (S e n e c a S t r e e t G a r a g e )
+o u r ly R a t e (S e n e c a S t r e e t G a r a g e )
+E N E C A S T R E E T G A R A G E
+o s t t ic k e t fe e
+p e c ia l e v e n t - p e r e n t r y / p e r d a y (G r e e n S t r e e t G a
+o n t h ly p e r m it (G r e e n S t r e e t G a r a g e )
+e e k ly r a t e (G r e e n S t r e e t G a r a g e )
+a ily M a x im im u m (G r e e n S t r e e t G a r a g e )
+o u r ly R a t e (G r e e n S t r e e t G a r a g e )
+R E E N S T R E E T G A R A G E
+is it o r p e r m it (R e s id e n t ia l P e r m it P a r k in g )
+n n u a l p e r m it (R e s id e n t ia l P e r m it P a r k in g )
+o u r ly r a t e (O n -S t r e e t P a r k in g )
+o o t fe e
+e s t E n d p a r k in g p e r m it
+is it o r p a r k in g p e r m it fe e
+T R E E T P A R K IN G F E E S
+o n t h ly p r e m iu m p e r m it (C a y u g a G a r a g e )
+o n t h ly p e r m it (C a y u g a G a r a g e )
+a ily m a x im iu m (C a y u g a G a r a g e )
+o u r ly r a t e (C a y u g a G a r a g e )
+A Y U G A G A R A G E
+o o d w o r k in g p e r m it
+ir e R e b u ild in g a n d T ir e S t o r a g e p e r m it
+e m p o r a r y P r o p a n e p e r m it - S in g le U s e
+e m p o r a r y P r o p a n e p e r m it - 6 m o n t h s
+e m p o r a r y P r o p a n e p e r m it - 1 2 m o n t h s
+u g a r h o u s e A lt e r n a t iv e A c t iv it y p e r m it
+la n R e v ie w
+a r k in g G a r a g e p e r m it
+u t d o o r A s s e m b ly E v e n t s
+u t d o o o r F ir e p la c e C o m m e r c ia l O c c u p a n c y
+p e n F la m e p e r m it
+c c u p a n c y In s p e c t io n
+u m b e r y a r d p e r m it
+o t W o r k p e r m it - S in g le U s e
+o t W o r k p e r m it - 6 m o n t h s
+o t W o r k p e r m it - 1 2 m o n t s h
+ig h P ile d S t o r a g e p e r m it
+e e N a m e
+o
+e
+a
+r
+a d G
+)
+r a g e
+a g e )
+a
+)
+r a g e )
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+S
+S
+M
+P
+S
+S
+G
+G
+G
+G
+O
+O
+O
+O
+O
+O
+P
+O
+O
+O
+O
+H
+O
+O
+O
+O
+O
+F
+a r k in g v io la t io n
+a r k in g v io la t io n
+a r k in g v io la t io n
+a r k in g v io la t io n
+a r k in g v io la t io n
+a r k in g v io la t io n
+a r k in g v io la t io n
+a r k in g v io la t io n
+a r k in g v io la t io n
+a r k in g v io la t io n
+a r k in g v io la t io n
+a r k in g v io la t io n
+a r k in g v io la t io n
+a r k in g v io la t io n
+a r a g e p a r k in g r a t e
+a r a g e p a r k in g p e r m
+a r a g e p a r k in g p e r m
+a r a g e p a r k in g r a t e
+a r a g e p a r k in g r a t e
+a r a g e p a r k in g r a t e
+a r a g e p a r k in g r a t e
+a r a g e p a r k in g r a t e
+a r a g e p a r k in g p e r m
+a r a g e p a r k in g r a t e
+a r a g e p a r k in g r a t e
+a r a g e p a r k in g r a t e
+a r a g e p a r k in g r a t e
+a r a g e p a r k in g r a t e
+a r a g e p a r k in g p e r m
+a r a g e p a r k in g r a t e
+a r a g e p a r k in g r a t e
+a r a g e p a r k in g r a t e
+t r e e t p a r k in g p e r m
+t r e e t p a r k in g p e r m
+e t e r e d s t r e e t p a r k
+a r k in g v io la t io n
+t r e e t p a r k in g p e r m
+t r e e t p a r k in g p e r m
+a r a g e p a r k in g p e r m
+a r a g e p a r k in g p e r m
+a r a g e p a r k in g r a t e
+a r a g e p a r k in g r a t e
+p e r a t in g P e r m it
+p e r a t in g P e r m it
+p e r a t in g P e r m it
+p e r a t in g P e r m it
+p e r a t in g P e r m it
+p e r a t in g P e r m it
+la n r e v ie w
+p e r a t in g P e r m it
+p e r a t in g P e r m it
+p e r a t in g P e r m it
+p e r a t in g P e r m it
+o u s in g P e r m it
+p e r a t in g P e r m it
+p e r a t in g P e r m it
+p e r a t in g P e r m it
+p e r a t in g P e r m it
+p e r a t in g P e r m it
+e e T y p e
+it
+it
+it
+it
+it
+it
+in g
+it
+it
+it
+it
+$ 1 5 .0 0
+$ 3 0 .0 0
+$ 5 0 .0 0
+/ $ 1 5 0 / $ 2 0 0
+$ 1 0 0
+$ 5 0 .0
+$ 3 0 .0
+$ 3 5 .0
+$ 3 0 .0
+$ 2 5 .0
+$ 3 0 .0
+$ 3 0 .0
+$ 2 5 .0
+$ 5 0 .0
+$ 2 5 .0
+$ 2 0 .0
+$ 1 8 5 .0
+$ 2 3 2 .0
+$ 7 1 .0
+$ 1 8 .0
+$ 2 .0
+$ 2 0 .0
+$ 7 .0
+$ 1 1 7 .0
+$ 3 9 .0
+$ 1 2 .0
+$ 2 .2
+$ 2 0 .0
+$ 7 .0
+$ 1 1 7 .0
+$ 3 9 .0
+$ 1 2 .0
+$ 2 .2
+$ 1 0 .0
+$ 4 5 .0
+$ 2 .5
+$ 5 0 .0
+$ 3 5 .0
+$ 1 0 .0
+$ 1 8 0 .0
+$ 1 0 8 .0
+$ 1 2 .0
+$ 2 .2
+$ 8 5 .0
+$ 8 5 .0
+$ 8 5 .0
+$ 1 6 0 .0
+$ 2 1 0 .0
+$ 8 5 .0
+$ 8 5 .0
+$ 8 5 .0
+$ 2 1 0 .0
+$ 8 5 .0
+$ 8 5 .0
+$ 8 5 .0
+$ 8 5 .0
+$ 8 5 .0
+$ 1 6 0 .0
+$ 2 1 0 .0
+$ 8 5 .0
+c o s t
+C u r r e n t f e e
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+5
+0
+0
+0
+0
+0
+5
+0
+0
+0
+0
+0
+0
+0
+0
+0
+5
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+d
+p
+p
+p
+p
+p
+p
+d
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+F
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+a
+e
+e
+e
+e
+e
+e
+a
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+y
+r
+r
+r
+r
+r
+r
+y
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+e
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+m
+m
+w
+d
+h
+o
+e
+m
+w
+d
+h
+o
+e
+m
+w
+d
+h
+p
+y
+h
+o
+p
+p
+m
+m
+d
+h
+p
+p
+p
+p
+p
+p
+h
+p
+p
+p
+p
+h
+p
+p
+p
+p
+p
+u
+c c u r r e n
+c c u r r e n
+c c u r r e n
+c c u r r e n
+c c u r r e n
+c c u r r e n
+c c u r r e n
+c c u r r e n
+c c u r r e n
+c c u r r e n
+c c u r r e n
+c c u r r e n
+c c u r r e n
+c c u r r e n
+c c u r r e n
+o n t h
+o n t h
+e e k
+a y
+o u r
+c c u r r e n
+n t r y ; g o
+o n t h
+e e k
+a y
+o u r
+c c u r r e n
+n t r y ; g o
+o n t h
+e e k
+a y
+o u r
+e r m it (2
+e a r
+o u r
+c c u r r e n
+e r m it
+e r m it
+o n t h
+o n t h
+a y
+o u r
+e r m it
+e r m it
+e r m it
+e r m it
+e r m it
+e r m it
+o u r
+e r m it
+e r m it
+e r m it
+e r m it
+o u r
+e r m it
+e r m it
+e r m it
+e r m it
+e r m it
+n it
+c e
+c e
+c e
+c e
+c e
+c e
+c e
+c e
+c e
+c e
+c e
+c e
+c e
+c e
+c e
+c e
+o d fo
+c e
+o d fo
+w k s )
+c e
+r
+r
+fu
+fu
+ll
+ll
+13
+
+R o w
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+#
+2
+2
+2
+2
+2
+2
+2
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+9
+9
+9
+9
+9
+9
+9
+9
+9
+9
+8
+8
+8
+6
+5
+4
+3
+2
+1
+0
+9
+8
+7
+6
+5
+4
+3
+2
+1
+0
+9
+8
+7
+6
+5
+4
+3
+2
+1
+0
+9
+8
+7
+6
+5
+4
+3
+2
+1
+0
+9
+8
+7
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+D
+la n n in g
+la n n in g
+la n n in g
+la n n in g
+la n n in g
+la n n in g
+la n n in g
+la n n in g
+la n n in g
+la n n in g
+la n n in g
+la n n in g
+la n n in g
+la n n in g
+la n n in g
+la n n in g
+la n n in g
+la n n in g
+la n n in g
+la n n in g
+la n n in g
+la n n in g
+la n n in g
+la n n in g
+la n n in g
+la n n in g
+la n n in g
+a r k in g
+a r k in g
+a r k in g
+a r k in g
+a r k in g
+a r k in g
+a r k in g
+a r k in g
+a r k in g
+a r k in g
+a r k in g
+a r k in g
+a r k in g
+e p a r t m
+&
+&
+&
+&
+&
+&
+&
+&
+&
+&
+&
+&
+&
+&
+&
+&
+&
+&
+&
+&
+&
+&
+&
+&
+&
+&
+&
+e
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+n t
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+o
+v
+v
+v
+v
+v
+v
+v
+v
+v
+v
+v
+v
+v
+v
+v
+v
+v
+v
+v
+v
+v
+v
+v
+v
+v
+v
+v
+r
+e lo p m
+e lo p m
+e lo p m
+e lo p m
+e lo p m
+e lo p m
+e lo p m
+e lo p m
+e lo p m
+e lo p m
+e lo p m
+e lo p m
+e lo p m
+e lo p m
+e lo p m
+e lo p m
+e lo p m
+e lo p m
+e lo p m
+e lo p m
+e lo p m
+e lo p m
+e lo p m
+e lo p m
+e lo p m
+e lo p m
+e lo p m
+D iv is
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+io
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+t
+t
+t
+t
+t
+t
+t
+t
+t
+t
+t
+t
+t
+t
+t
+t
+t
+t
+t
+t
+t
+t
+t
+t
+t
+t
+t
+P
+C
+M
+S
+R
+$
+$
+$
+U
+C
+2
+1
+2
+S
+N
+L
+H
+E
+C
+S
+V
+V
+R
+D
+F
+O
+H
+Y
+W
+V
+U
+T
+S
+S
+R
+P
+P
+P
+O
+O
+F
+e n a lt y F e e : W o r k d o n e w it h o u t a p e
+o m m e r c ia l o r o t h e r p lu m b in g w o r k
+u lt ip le R e s id e n c e s
+in g le F a m ily R e s id e n c e s
+e n o v a t io n s a n d a d d it io n s
+5 0 0 ,0 0 0 +
+1 0 0 ,0 0 1 -$ 5 0 0 ,0 0 0
+2 5 ,0 0 0 -$ 1 0 0 ,0 0 0
+n d e r $ 2 5 k
+o m m e r c ia l o r o t h e r p lu m b in g w o r k
+1 + U n it s
+1 -2 0 U n it s
+-1 0 U n it s
+in g le F a m ily R e s id e n c e s
+e w C o n s t r u c t io n
+ic e n s e R e n e w a l F e e - m u s t b e r e n e w
+V A C C o n t r a c t o r L ic e n s e
+le c t r ic a l C o n t r a c t o r L ic e n s e
+o n t r a c t o r L ic e n s e s
+u r c h a r g e p e r v io la t io n fo r e a c h 3
+io la t io n s (2 n d r e in s p e c t io n )
+io la t io n s (1 s t r e in s p e c t io n )
+e in s p e c t io n a d m in is t r a t iv e fe e
+o r m it o r ie s
+r a t e r n it y H o u s e a n d S o r o r it y H o u s e s
+n e a n d T w o F a m ily H o m e s
+o u s in g In s p e c t io n F e e s
+a r d P a r k in g
+r o n g D ir e c t io n
+io la t io n L a t e F e e
+n in s p e c t e d
+r u c k Z o n e
+id e w a lk
+c h o o l Z o n e
+e s id e n t ia l P e r m it Z o n e
+r o h ib it e d A r e a
+r iv a t e P r o p e r t y
+a r k in g R a m p O v e r n ig h t w / o P e r m it
+v e r t im e Z o n e
+v e r t im e N ig h t , O d d / E v e n
+e e N a m e
+r
+e
+m
+d
+it
+a n n u a lly
+P
+R
+R
+R
+C
+C
+C
+C
+N
+N
+N
+N
+C
+C
+C
+H
+H
+H
+H
+H
+H
+H
+P
+P
+L
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+F
+e r m it fe e
+e n o v a t io n fe e
+e n o v a t io n fe e
+e n o v a t io n fe e
+o m m e r c ia l p lu m
+o m m e r c ia l p lu m
+o m m e r c ia l p lu m
+o m m e r c ia l p lu m
+e w C o n s t r u c t io n
+e w C o n s t r u c t io n
+e w C o n s t r u c t io n
+e w C o n s t r u c t io n
+o n t r a c t o r L ic e n c
+o n t r a c t o r L ic e n c
+o n t r a c t o r L ic e n c
+o u s in g In s p e c t io
+o u s in g In s p e c t io
+o u s in g In s p e c t io
+o u s in g In s p e c t io
+o u s in g In s p e c t io
+o u s in g In s p e c t io
+o u s in g In s p e c t io
+a r k in g v io la t io n
+a r k in g v io la t io n
+a t e fe e
+a r k in g v io la t io n
+a r k in g v io la t io n
+a r k in g v io la t io n
+a r k in g v io la t io n
+a r k in g v io la t io n
+a r k in g v io la t io n
+a r k in g v io la t io n
+a r k in g v io la t io n
+a r k in g v io la t io n
+a r k in g v io la t io n
+e e T y p e
+b in
+b in
+b in
+b in
+F e
+F e
+F e
+F e
+e F
+e F
+e F
+n F
+n F
+n F
+n F
+n F
+n F
+n F
+g w
+g w
+g w
+g w
+e
+e
+e
+e
+e e
+e e
+e e
+e e
+e e
+e e
+e e
+e e
+e e
+e e
+o
+o
+o
+o
+r
+r
+r
+r
+k
+k
+k
+k
+fe
+fe
+fe
+fe
+e
+e
+e
+e
+$ 5 0 0 .0 0
+$ 3 0 0 .0 0
+$ 1 5 0 .0 0
+$ 1 0 0 .0 0
+$ 1 ,0 0 0 .0 0
+$ 7 0 0 .0 0
+$ 4 5 0 .0 0
+$ 3 0 0 .0 0
+$ 6 0 0 .0 0
+$ 3 0 0 .0 0
+$ 1 5 0 .0 0
+$ 1 2 5 .0 0
+$ 1 0 0 .0 0
+$ 5 0 .0 0
+$ 1 0 0 .0 0
+$ 5 .0 0
+$ 1 5 .0 0
+$ 1 0 .0 0
+$ 4 0 .0 0
+$ 1 .5 0
+$ 1 0 .0 0
+$ 7 .0 0
+$ 2 0 / $ 3 0 / $ 5 0
+$ 1 5 .0 0
+$ 1 5 .0 0
+$ 2 5 .0 0
+s c a lin g
+$ 3 0 / $ 4 5 / $ 6 0
+$ 2 5 .0 0
+$ 3 0 .0 0
+$ 1 5 / $ 3 0 / $ 4 5
+s c a lin g
+$ 3 0 / $ 4 5 / $ 6 0
+$ 3 0 .0 0
+$ 2 5 .0 0
+$ 1 5 .0 0
+$ 1 5 + $ 1 5 p e r
+c o s t
+C u r r e n t f e e
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+F
+e r o c c u r r e
+lu s $ 2 0 p e
+lu s $ 1 5 p e
+lu s $ 1 5 p e
+lu s $ 2 0 p e
+lu s $ 2 0 p e
+lu s $ 2 0 p e
+lu s $ 2 0 p e
+lu s $ 1 5 p e
+lu s $ 1 5 p e
+lu s $ 1 5 p e
+lu s $ 1 5 p e
+e r y e a r
+e r lic e n c e
+e r lic e n c e
+e r v io la t io
+e r v io la t io
+e r v io la t io
+e r r e in s p e
+e r r o o m
+e r r o o m
+e r r o o m
+e r o c c u r r e
+e r o c c u r r e
+e r o c c u r r e
+e r o c c u r r e
+e r o c c u r r e
+e r o c c u r r e
+e r o c c u r r e
+e r o c c u r r e
+e r o c c u r r e
+e r o c c u r r e
+e r o c c u r r e
+e r o c c u r r e
+e r o c c u r r e
+e e u n it
+n c e
+r fix
+r fix
+r fix
+r fix
+r fix
+r fix
+r fix
+r fix
+r fix
+r fix
+r fix
+n
+n
+n
+c t io
+n c e
+n c e
+n c e
+n c e
+n c e
+n c e
+n c e
+n c e
+n c e
+n c e
+n c e
+n c e
+n c e
+t
+t
+t
+t
+t
+t
+t
+t
+t
+t
+t
+n
+u
+u
+u
+u
+u
+u
+u
+u
+u
+u
+u
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+14
+
+R o w
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+#
+5
+5
+5
+5
+5
+5
+5
+5
+5
+5
+4
+4
+4
+4
+4
+4
+4
+4
+4
+4
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+2
+2
+2
+9
+8
+7
+6
+5
+4
+3
+2
+1
+0
+9
+8
+7
+6
+5
+4
+3
+2
+1
+0
+9
+8
+7
+6
+5
+4
+3
+2
+1
+0
+9
+8
+7
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+D
+la
+la
+la
+la
+la
+la
+la
+la
+la
+la
+la
+la
+la
+la
+la
+la
+la
+la
+la
+la
+la
+la
+la
+la
+la
+la
+la
+la
+la
+la
+la
+la
+la
+e
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+p
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+a
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+r t
+g
+g
+g
+g
+g
+g
+g
+g
+g
+g
+g
+g
+g
+g
+g
+g
+g
+g
+g
+g
+g
+g
+g
+g
+g
+g
+g
+g
+g
+g
+g
+g
+g
+m
+&
+&
+&
+&
+&
+&
+&
+&
+&
+&
+&
+&
+&
+&
+&
+&
+&
+&
+&
+&
+&
+&
+&
+&
+&
+&
+&
+&
+&
+&
+&
+&
+&
+e
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+n t
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+o
+v
+v
+v
+v
+v
+v
+v
+v
+v
+v
+v
+v
+v
+v
+v
+v
+v
+v
+v
+v
+v
+v
+v
+v
+v
+v
+v
+v
+v
+v
+v
+v
+v
+r
+e lo p m
+e lo p m
+e lo p m
+e lo p m
+e lo p m
+e lo p m
+e lo p m
+e lo p m
+e lo p m
+e lo p m
+e lo p m
+e lo p m
+e lo p m
+e lo p m
+e lo p m
+e lo p m
+e lo p m
+e lo p m
+e lo p m
+e lo p m
+e lo p m
+e lo p m
+e lo p m
+e lo p m
+e lo p m
+e lo p m
+e lo p m
+e lo p m
+e lo p m
+e lo p m
+e lo p m
+e lo p m
+e lo p m
+D iv is
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+io
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+t
+t
+t
+t
+t
+t
+t
+t
+t
+t
+t
+t
+t
+t
+t
+t
+t
+t
+t
+t
+t
+t
+t
+t
+t
+t
+t
+t
+t
+t
+t
+t
+t
+$ 5 0 0 ,0 0 1 -$ 5 ,0 0 0 ,0 0 0 v a lu a t io n D e m o lit io n F e e 0 .8 %
+$ 5 0 ,0 0 1 -$ 5 0 0 ,0 0 0 v a lu a t io n D e m o lit io n F e e 0 .9 %
+$ 5 0 0 1 -$ 5 0 ,0 0 0 v a lu a t io n D e m o lit io n F e e 1 .0 %
+$ 0 -$ 5 0 0 0 v a lu a t io n D e m o lit io n F e e $ 5 0 .0 0
+B u ild in g o r D e m o lit io n s P e r m it ( p e r C it y C o d e )
+r e q u e s t e d ) P la n r e v ie w fe e s c h e d u le
+P la n r e v ie w fo r p r o je c t s e x c e e d in g $ 5 ,0 0 0 (w h e r e n o p e r m it 5 0 % o f p e r m it
+o b je c t s P la n r e v ie w $ 7 5 .0 0
+C o n s u lt a t io n a n d P la n r e v ie w fo r p r e lim in a r y o r c o n c e p t u a l
+P la n R e v ie w F e e s
+B Z A , IL P C , S it e P la n R e v ie w a n d S u b d iv is io n S ig n s S ig n a g e fe e $ 1 5 .0 0
+R e v ie w ) P la n n e d u n it d e v e lo p m e n t F e e $ 5 ,0 0 0 .0 0
+P la n n e d u n it d e v e lo p m e n t ( $ 2 ,5 0 0 o f f e e g o e s t o S it e P la n
+L im it e d s it e p la n r e v ie w L im it e d S it e P la n R e v ie w F e e $ 5 0 .0 0
+M o d ifie d S it e P la n R e v ie w : $ 5 0 ,0 0 0 o r M o r e S it e P la n R e v ie w F e e $ 2 5 0 .0 0
+M o d ifie d S it e P la n R e v ie w : L e s s t h a n $ 5 0 ,0 0 0 S it e P la n R e v ie w F e e $ 1 5 0 .0 0
+F u ll S it e P la n R e v ie w : O v e r $ 1 0 0 ,0 0 0 (S it e P la n R e v ie w ) S it e P la n R e v ie w F e e $ 1 .5 0
+F u ll S it e P la n R e v ie w : $ 5 0 ,0 0 1 t o $ 1 0 0 ,0 0 0 S it e P la n R e v ie w F e e $ 3 0 0 .0 0
+F u ll S it e P la n R e v ie w : $ 1 0 ,0 0 0 t o $ 5 0 ,0 0 0 S it e P la n R e v ie w F e e $ 1 5 0 .0 0
+F u ll S it e P la n R e v ie w : L e s s t h a n $ 1 0 ,0 0 0 S it e P la n R e v ie w F e e $ 7 5 .0 0
+S it e P la n R e v ie w
+M o r e t h a n 1 0 L o t s (S u b d iv is io n s ) S p e c ia l P e r m it F e e o v e r 1 0
+5 0 .0 0 e a c h L o t
+$ 5 0 0 .0 0 + $
+3 t o 1 0 L o t s (S u b d iv is io n s ) S p e c ia l P e r m it F e e $ 5 0 0 .0 0
+1 o r 2 L o t s (S u b d iv is io n s ) S p e c ia l P e r m it F e e $ 1 0 0 .0 0
+B e d -a n d -B r e a k fa s t In n s / A ll O t h e r s (S p e c ia l P e r m it s ) S p e c ia l P e r m it F e e $ 1 5 0 .0 0
+O c c u p a t io n s (S p e c ia l P e r m it s ) S p e c ia l P e r m it F e e $ 1 0 0 .0 0
+A c c e s s o r y A p a r t m e n t s , B e d -a n d -B r e a k fa s t H o m e s , a n d H o m e
+S p e c ia l P e r m it s
+Z o n in g P e r m it s (Z o n in g A p p e a l A p p lic a t io n F e e s ) Z o n in g A p p e a l F e e $ 5 0 .0 0
+Z o n in g D e t e r m in a t io n L e t t e r (Z o n in g A p p e a l A p p lic a t io n F e e s ) Z o n in g A p p e a l F e e $ 5 0 .0 0
+Z o n in g C o m p lia n c e L e t t e r (Z o n in g A p p e a l A p p lic a t io n F e e s ) Z o n in g A p p e a l F e e $ 5 0 .0 0
+A ll U s e V a r ia n c e s (Z o n in g A p p e a l A p p lic a t io n F e e s ) Z o n in g A p p e a l F e e $ 3 0 0 .0 0
+A p p e a l A p p lic a t io n F e e s ) Z o n in g A p p e a l F e e $ 1 5 0 .0 0
+o r D e s ig n e e o f D ir e c t o r o f P la n n in g a n d D e v e lo p m e n t (Z o n in g
+A p p e a ls t o a n In t e r p r e t a t io n o f D ir e c t o r o f Z o n in g A d m in is t r a t io n
+P r o p e r t ie s , o r S ig n V a r ia n c e s (Z o n in g A p p e a l A p p lic a t io n F e e s ) Z o n in g A p p e a l F e e $ 1 5 0 .0 0
+A r e a V a r ia n c e s fo r M u lt ip le -R e s id e n c e B u ild in g s , C o m m e r c ia l
+(Z o n in g A p p e a l A p p lic a t io n F e e s ) Z o n in g A p p e a l F e e $ 1 0 0 .0 0
+A ll O t h e r A r e a V a r ia n c e s fo r O n e - a n d T w o -F a m ily D w e llin g s
+D w e llin g s (Z o n in g A p p e a l A p p lic a t io n F e e s ) Z o n in g A p p e a l F e e $ 5 0 .0 0
+A r e a V a r ia n c e s fo r D e c k o r S w im m in g P o o l, O n e -a n d T w o -F a m ily
+Z o n in g A p p e a l A p p lic a t io n F e e s
+F e e N a m e F e e T y p e c o s t
+C u r r e n t f e e
+w
+o
+w
+o
+w
+o
+p
+p
+p
+p
+p
+p
+p
+c
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+F
+o r k
+f t o t a l v a lu a t io n o
+o r k
+f t o t a l v a lu a t io n o
+o r k
+f t o t a l v a lu a t io n o
+e r p r o je c t
+e r h o u r
+e r S ig n
+e r d e v e lo p m e n t
+e r r e v ie w
+e r r e v ie w
+e r r e v ie w
+o n s t r u c t io n c o s t s
+e r $ 1 ,0 0 0 o f
+e r r e v ie w
+e r r e v ie w
+e r r e v ie w
+e r a p p lic a t io n
+e r a p p lic a t io n
+e r a p p lic a t io n
+e r a p p lic a t io n
+e r a p p lic a t io n
+e r a p p lic a t io n
+e r a p p lic a t io n
+e r a p p lic a t io n
+e r a p p lic a t io n
+e r a p p lic a t io n
+e r a p p lic a t io n
+e r a p p lic a t io n
+e r a p p lic a t io n
+e e u n it
+f
+f
+f
+15
+
+R o w
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+#
+8
+8
+8
+8
+8
+8
+8
+7
+7
+7
+7
+7
+7
+7
+7
+7
+7
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+5
+4
+3
+2
+1
+0
+9
+8
+7
+6
+5
+4
+3
+2
+1
+0
+9
+8
+7
+6
+5
+4
+3
+2
+1
+0
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+D
+la
+la
+la
+la
+la
+la
+la
+la
+la
+la
+la
+la
+la
+la
+la
+la
+la
+la
+la
+la
+la
+la
+la
+la
+la
+la
+la
+e
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+p
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+a
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+r t
+g
+g
+g
+g
+g
+g
+g
+g
+g
+g
+g
+g
+g
+g
+g
+g
+g
+g
+g
+g
+g
+g
+g
+g
+g
+g
+g
+m
+&
+&
+&
+&
+&
+&
+&
+&
+&
+&
+&
+&
+&
+&
+&
+&
+&
+&
+&
+&
+&
+&
+&
+&
+&
+&
+&
+e
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+n t
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+o
+v
+v
+v
+v
+v
+v
+v
+v
+v
+v
+v
+v
+v
+v
+v
+v
+v
+v
+v
+v
+v
+v
+v
+v
+v
+v
+v
+r
+e lo p m
+e lo p m
+e lo p m
+e lo p m
+e lo p m
+e lo p m
+e lo p m
+e lo p m
+e lo p m
+e lo p m
+e lo p m
+e lo p m
+e lo p m
+e lo p m
+e lo p m
+e lo p m
+e lo p m
+e lo p m
+e lo p m
+e lo p m
+e lo p m
+e lo p m
+e lo p m
+e lo p m
+e lo p m
+e lo p m
+e lo p m
+D iv is
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+io
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+t
+t
+t
+t
+t
+t
+t
+t
+t
+t
+t
+t
+t
+t
+t
+t
+t
+t
+t
+t
+t
+t
+t
+t
+t
+t
+t
+T r a n s fe r s w it c h e s
+F ir e a la r m p a n e ls , b a t t e r y p a c k s
+M o t o r s > 2 h p
+H V A c c o n n e c t io n s
+2 0 8 + v A p p lia n c e s a n d r e c e p t a c le s
+A F C I/ G F C I d e v ic e s
+1 2 0 v o p e n in g s a n d lig h t fix t u r e s
+D e v ic e s a n d E q u ip m e n t In s p e c t io n F e e s
+E x t r a t r ip fe e
+B a s e p e r m it (2 t r ip s in c lu d e d )
+S m a ll J o b F e e & S u r v e y s (1 t r ip , u p t o (5 ) 1 2 0 v o p e n in g s
+E le c t r ic a l P e r m it & In s p e c t io n F e e s (p e r C it y C o d e )
+R e c o n c ilia t io n F e e
+6 m o n t h s
+F o r b u ild in g p r o je c t s w it h v a lu e u p t o $ 5 0 ,0 0 1 a n d g r e a t e r - a ft e r
+F o r b u ild in g p r o je c t s w it h v a lu e u p t o $ 5 0 ,0 0 0 - a ft e r 6 m o n t h s
+6 m o n t h s
+F o r b u ild in g p r o je c t s w it h v a lu e u p t o $ 5 0 ,0 0 1 a n d g r e a t e r - fir s t
+F o r b u ild in g p r o je c t s w it h v a lu e u p t o $ 5 0 ,0 0 0 - fir s t 6 m o n t h s
+T e m p o r a r y C e r t if ic a t e o f O c c u p a n c y
+is s u e d
+C e r t ific a t e o f o c c u p a n c y , fo r a b u ild in g w h e r e n o p e r m it h a s b e e n
+C lo s in g t h e p e r m it
+B u ild in g p e r m it r e n e w a l fo r 2 4 m o n t h s
+b u s in e s s h o u r s
+R e q u e s t e d in s p e c t io n s o u t s id e o f t h e b u ild in g d iv is io n n o r m a l
+o f t h e w o r k
+s c o p e o f w o r k t h a t d id n o t r e s u lt in a n in c r e a s e in t h e v a lu a t io n
+A d d it io n a l p la n r e v ie w o r in s p e c t io n s r e q u ir e d b y c h a n g e s t o
+s c o p e o f w o r k , a d d it io n o r r e v is io n s t o a p p r o v e d p la n s
+A d d it io n a l p la n r e v ie w o r in s p e c t io n s r e q u ir e d b y c h a n g e s t o
+A m e n d m e n t s t o t h e is s u e s p e r m it
+$ 5 0 0 ,0 0 0 ,0 0 1 + v a lu a t io n
+F e e N a m e
+E
+E
+E
+E
+E
+E
+E
+E
+E
+E
+T
+T
+T
+T
+C
+A
+A
+A
+A
+D
+F
+le c t r ic a l P e r m it
+le c t r ic a l P e r m it
+le c t r ic a l P e r m it
+le c t r ic a l P e r m it
+le c t r ic a l P e r m it
+le c t r ic a l P e r m it
+le c t r ic a l P e r m it
+le c t r ic a l P e r m it
+le c t r ic a l P e r m it
+le c t r ic a l P e r m it
+e m p C e r t ific a t e
+e m p C e r t ific a t e
+e m p C e r t ific a t e
+e m p C e r t ific a t e
+lo s in g F e e
+m e n d m e n t F e e
+m e n d m e n t F e e
+m e n d m e n t F e e
+m e n d m e n t F e e
+e m o lit io n F e e
+e e T y p e
+&
+&
+&
+&
+&
+&
+&
+&
+&
+&
+o
+o
+o
+o
+In
+In
+In
+In
+In
+In
+In
+In
+In
+In
+f O
+f O
+f O
+f O
+s p
+s p
+s p
+s p
+s p
+s p
+s p
+s p
+s p
+s p
+c c
+c c
+c c
+c c
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+u
+u
+u
+u
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+m
+m
+m
+m
+t
+t
+t
+t
+t
+t
+t
+t
+t
+t
+io
+io
+io
+io
+io
+io
+io
+io
+io
+io
+p
+p
+p
+p
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+a
+a
+a
+a
+F
+F
+F
+F
+F
+F
+F
+F
+F
+F
+n c
+n c
+n c
+n c
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+y
+y
+y
+y
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+F
+F
+F
+F
+e
+e
+e
+e
+e
+e
+e
+e
+$ 2 5 .0 0
+$ 2 5 .0 0
+$ 2 5 .0 0
+$ 2 5 .0 0
+$ 1 2 .0 0
+$ 3 .0 0
+$ 0 .7 5
+$ 7 5 .0 0
+$ 1 0 0 .0 0
+$ 7 5 .0 0
+p e r m it fe e
+fe e s - o r ig in a l
+A m e n d m e n t
+5 0 %
+$ 1 0 0 .0 0
+3 5 %
+$ 1 0 0 .0 0
+$ 7 5 .0 0
+$ 5 0 o r 1 0 %
+$ 1 0 0 .0 0
+$ 7 5 .0 0
+w o r k .
+c o m p le t e d
+v a lu a t io n o f
+a p p lie d t o
+s c h e d u le
+P e r m it fe e
+0 .7 %
+c o s t
+C u r r e n t f e e
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+w
+w
+v
+s
+o
+w
+w
+v
+s
+o
+t
+r
+p
+P
+p
+w
+o
+F
+e r in s p e c t io n
+e r in s p e c t io n
+e r in s p e c t io n
+e r in s p e c t io n
+e r in s p e c t io n
+e r in s p e c t io n
+e r in s p e c t io n
+e r in s p e c t io n
+e r in s p e c t io n
+e r in s p e c t io n
+h ic h e v e r is le s s .
+o r k , o r $ 2 ,5 0 0 ,
+a lu a t io n o f c o m p le t e
+c h e d u le a p p lie d t o
+f b u ild in g p e r m it fe e
+h ic h e v e r is le s s .
+o r k , o r $ 2 ,5 0 0 ,
+a lu a t io n o f c o m p le t e
+c h e d u le a p p lie d t o
+f b u ild in g p e r m it fe e
+io n
+e v ie w / a n a ly s is / in s p e
+e r h o u r o f
+e r H o u r
+e r h o u r
+o r k
+f t o t a l v a lu a t io n o f
+e e u n it
+d
+d
+c
+16
+
+R o w
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+#
+2
+2
+2
+2
+2
+2
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+9
+9
+9
+9
+9
+9
+9
+9
+9
+9
+8
+8
+8
+5
+4
+3
+2
+1
+0
+9
+8
+7
+6
+5
+4
+3
+2
+1
+0
+9
+8
+7
+6
+5
+4
+3
+2
+1
+0
+9
+8
+7
+6
+5
+4
+3
+2
+1
+0
+9
+8
+7
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+D
+o lic e D e p
+o lic e D e p
+o lic e D e p
+o lic e D e p
+o lic e D e p
+o lic e D e p
+o lic e D e p
+o lic e D e p
+o lic e D e p
+o lic e D e p
+o lic e D e p
+o lic e D e p
+o lic e D e p
+o lic e D e p
+o lic e D e p
+o lic e D e p
+o lic e D e p
+o lic e D e p
+o lic e D e p
+o lic e D e p
+o lic e D e p
+o lic e D e p
+o lic e D e p
+o lic e D e p
+o lic e D e p
+o lic e D e p
+la n n in g &
+la n n in g &
+la n n in g &
+la n n in g &
+la n n in g &
+la n n in g &
+la n n in g &
+la n n in g &
+la n n in g &
+la n n in g &
+la n n in g &
+la n n in g &
+la n n in g &
+e p a r t m e
+t
+t
+t
+t
+t
+t
+t
+t
+t
+t
+t
+t
+t
+t
+t
+t
+t
+t
+t
+t
+t
+t
+t
+t
+t
+t
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+n t
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+o
+v
+v
+v
+v
+v
+v
+v
+v
+v
+v
+v
+v
+v
+r
+e lo p m
+e lo p m
+e lo p m
+e lo p m
+e lo p m
+e lo p m
+e lo p m
+e lo p m
+e lo p m
+e lo p m
+e lo p m
+e lo p m
+e lo p m
+D iv is
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+io
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+t
+t
+t
+t
+t
+t
+t
+t
+t
+t
+t
+t
+t
+S c e n e / A c c id e n t C le a n -u p a n d / o r S t a n d -b y T im e
+e x t r a o r d in a r y e q u ip m e n t
+t r u c k s o r m o r e t h a n o n e t o w t r u c k , a c r a n e , o r o t h e r
+E x t r a o r d in a r y R e m o v a l: r e q u ir in g t h e u s e o f H e a v y D u t y t o w
+R e c o v e r y
+V e h ic le r e le a s e a ft e r h o o k u p b u t b e fo r e t o w t r u c k m o v e s
+r e p o r t
+D o llie s / F la t b e d / R o llb a c k - if r e q u ir e d a n d d o c u m e n t e d in p o lic e
+W in c h O u t w it h o u t T o w
+r e p o r t
+W in c h O u t w it h T o w - if r e q u ir e d a n d d o c u m e n t e d in p o lic e
+L ig h t D u t y T o w n , 2 4 / 7 / 3 6 5
+r e v e n u e m a y d if f e r .
+a llo w e d t o c h a r g e . T h e a m o u n t t h e C it y r e c e iv e s b a c k in
+T o w in g C h a r g e s - N o t e : T h e s e a r e f e e s T o w C o m p a n ie s a r e
+Y e a r ly
+N o n -e x e m p t S o lic it o r 's P e r m it - A d d it io n a l v e h ic le a ft e r fir s t -
+M o n t h ly
+N o n -e x e m p t S o lic it o r 's P e r m it - A d d it io n a l v e h ic le a ft e r fir s t -
+N o n -e x e m p t S o lic it o r 's P e r m it - 1 v e h ic le - Y e a r ly
+N o n -e x e m p t S o lic it o r 's P e r m it - 1 v e h ic le - M o n t h ly
+N o n -e x e m p t S o lic it o r 's P e r m it - N o v e h ic le - Y e a r ly
+N o n -e x e m p t S o lic it o r 's P e r m it - N o v e h ic le - M o n t h ly
+E x e m p t S o lic it o r (n o t -fo r -p r o fit )
+S o lic it o r 's P e r m it s
+T a x i o w n e r lic e n s e (N e w o r R e n e w a l)
+T a x i lic e n s e (R e n e w a l)
+T a x i lic e n s e (N e w )
+T a x i L ic e n s e
+s e t b y t h e s e r v ic e ]
+A c c id e n t r e p o r t r e q u e s t s - fr o m C a r F a x , L e x is N e x is [ t h is p r ic e is
+L o c a l b a c k g r o u n d c h e c k
+V is a c le a r a n c e le t t e r
+B a c k g r o u n d C h e c k s & R e p o r t s
+IP D la b o r & e q u ip m e n t
+R e c ip r o c a l L ic e n s e
+S u b fe e d s = B a s e p e r m it fe e p lu s
+> 6 0 0 A = B a s e p e r m it fe e p lu s :
+2 0 1 A t o 6 0 0 A = B a s e p e r m it fe e p lu s
+2 0 0 A o r le s s (in c lu d e s 1 s u b p a n e l)
+E le c t r ic a l S e r v ic e s
+S o la r M ic r o in v e r t e r
+s o la r In v e r t e r
+S o la r P a n e l
+E le v a t o r s
+T r a n s fo r m e r s
+E m e r g e n c y d e v ic e s (a la r m s , e x it s ig n s , e m e r g e n c y lig h t s )
+G e n e r a t o r s
+F e e N a m e
+T
+T
+T
+T
+T
+T
+T
+T
+S
+S
+S
+S
+S
+S
+S
+T
+T
+T
+R
+B
+B
+L
+S
+S
+S
+S
+S
+E
+E
+E
+E
+E
+E
+E
+F
+o w in g fe e
+o w in g fe e
+o w in g fe e
+o w in g fe e
+o w in g fe e
+o w in g fe e
+o w in g fe e
+o w in g fe e
+o lic it o r P e r m it fe
+o lic it o r P e r m it fe
+o lic it o r P e r m it fe
+o lic it o r P e r m it fe
+o lic it o r P e r m it fe
+o lic it o r P e r m it fe
+o lic it o r P e r m it fe
+a x i L ic e n s e F e e
+a x i L ic e n s e F e e
+a x i L ic e n s e F e e
+e p o r t fe e
+a c k g r o u n d c h e c k
+a c k g r o u n d c h e c k
+a b o r
+e r v ic e F e e
+e r v ic e F e e
+e r v ic e F e e
+e r v ic e F e e
+e r v ic e F e e
+le c t r ic a l P e r m it &
+le c t r ic a l P e r m it &
+le c t r ic a l P e r m it &
+le c t r ic a l P e r m it &
+le c t r ic a l P e r m it &
+le c t r ic a l P e r m it &
+le c t r ic a l P e r m it &
+e e T y p e
+e
+e
+e
+e
+e
+e
+e
+In
+In
+In
+In
+In
+In
+In
+s
+s
+s
+s
+s
+s
+s
+p
+p
+p
+p
+p
+p
+p
+e
+e
+e
+e
+e
+e
+e
+c
+c
+c
+c
+c
+c
+c
+t
+t
+t
+t
+t
+t
+t
+io
+io
+io
+io
+io
+io
+io
+n
+n
+n
+n
+n
+n
+n
+F
+F
+F
+F
+F
+F
+F
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+in c u r r e d .
+A c t u a l c o s t s
+in c u r r e d .
+A c t u a l c o s t s
+$ 3 2 5 .0
+$ 5 0 .0
+$ 2 5 .0
+m in .
+a ft e r fir s t 1 5
+m in . A d d l $ 3 5
+$ 1 0 0 fo r fir s t 1
+$ 2 5 .0
+$ 2 0 0 .0
+$ 1 0 0 .0
+$ 1 5 .0
+$ 2 0 0 .0
+$ 3 0 .0
+$ 1 0 0 .0
+$ 1 5 .0
+$ 0 .0
+$ 2 5 .0
+$ 5 .0
+$ 1 0 .0
+$ 1 1 .0
+$ 5 .0
+$ 5 .0
+$ 7 2 .0
+R e fe r t o c o d
+$ 4 0 .0
+$ 2 2 5 .0
+$ 7 5 .0
+B a s e F e
+$ 1 .0
+$ 2 0 .0
+$ 2 .0
+$ 1 0 0 .0
+$ 5 0 .0
+$ 2 .0
+$ 2 5 .0
+c o s t
+C u r r e n t f e e
+0
+0
+0
+5
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+e
+0
+0
+0
+e
+0
+0
+0
+0
+0
+0
+0
+p
+p
+p
+p
+p
+p
+m
+p
+p
+m
+p
+p
+m
+p
+p
+p
+P
+P
+p
+P
+P
+P
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+F
+e r
+e r
+e r
+e r
+e r
+e r
+in
+e r
+e r
+in
+e r
+e r
+in
+e r
+e r
+e r
+e r
+e r
+e r
+e r
+e r
+e r
+e r
+e r
+e r
+e r
+e r
+e r
+e r
+e r
+e r
+e r
+e e
+h o u r
+o c c u r r e n c e
+o c c u r r e n c e
+o c c u r r e n c e
+o c c u r r e n c e
+y e a r
+im u m
+m o n t h - 2 m
+y e a r
+im u m
+m o n t h - 2 m
+y e a r
+im u m
+m o n t h - 2 m
+y e a r
+v e c h ic le
+lic e n s e
+lic e n s e
+r e p o r t
+c h e c k
+le t t e r
+h o u r
+p e r m it
+p e r m it
+p e r m it
+in s p e c t io n
+in s p e c t io n
+in s p e c t io n
+in s p e c t io n
+in s p e c t io n
+in s p e c t io n
+in s p e c t io n
+u n it
+o
+o
+o
+n
+n
+n
+t
+t
+t
+h
+h
+h
+17
+
+R o w
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+#
+6
+5
+5
+5
+5
+5
+5
+5
+5
+5
+5
+4
+4
+4
+4
+4
+4
+4
+4
+4
+4
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+2
+2
+2
+2
+0
+9
+8
+7
+6
+5
+4
+3
+2
+1
+0
+9
+8
+7
+6
+5
+4
+3
+2
+1
+0
+9
+8
+7
+6
+5
+4
+3
+2
+1
+0
+9
+8
+7
+6
+S
+S
+S
+S
+S
+S
+S
+S
+S
+S
+S
+S
+S
+S
+S
+S
+S
+S
+S
+S
+S
+S
+S
+S
+S
+S
+S
+S
+S
+S
+P
+P
+P
+P
+P
+D
+t r e e t s &
+t r e e t s &
+t r e e t s &
+t r e e t s &
+t r e e t s &
+t r e e t s &
+t r e e t s &
+t r e e t s &
+t r e e t s &
+t r e e t s &
+t r e e t s &
+t r e e t s &
+t r e e t s &
+t r e e t s &
+t r e e t s &
+t r e e t s &
+t r e e t s &
+t r e e t s &
+t r e e t s &
+t r e e t s &
+t r e e t s &
+t r e e t s &
+t r e e t s &
+t r e e t s &
+t r e e t s &
+t r e e t s &
+t r e e t s &
+t r e e t s &
+t r e e t s &
+t r e e t s &
+o lic e D e
+o lic e D e
+o lic e D e
+o lic e D e
+o lic e D e
+e p a r t m
+F a c ilit ie
+F a c ilit ie
+F a c ilit ie
+F a c ilit ie
+F a c ilit ie
+F a c ilit ie
+F a c ilit ie
+F a c ilit ie
+F a c ilit ie
+F a c ilit ie
+F a c ilit ie
+F a c ilit ie
+F a c ilit ie
+F a c ilit ie
+F a c ilit ie
+F a c ilit ie
+F a c ilit ie
+F a c ilit ie
+F a c ilit ie
+F a c ilit ie
+F a c ilit ie
+F a c ilit ie
+F a c ilit ie
+F a c ilit ie
+F a c ilit ie
+F a c ilit ie
+F a c ilit ie
+F a c ilit ie
+F a c ilit ie
+F a c ilit ie
+p t
+p t
+p t
+p t
+p t
+e n t o r D
+s (D
+s (D
+s (D
+s (D
+s (D
+s (D
+s (D
+s (D
+s (D
+s (D
+s (D
+s (D
+s (D
+s (D
+s (D
+s (D
+s (D
+s (D
+s (D
+s (D
+s (D
+s (D
+s (D
+s (D
+s (D
+s (D
+s (D
+s (D
+s (D
+s (D
+iv is
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+io
+W
+W
+W
+W
+W
+W
+W
+W
+W
+W
+W
+W
+W
+W
+W
+W
+W
+W
+W
+W
+W
+W
+W
+W
+W
+W
+W
+W
+W
+W
+n
+)
+)
+)
+)
+)
+)
+)
+)
+)
+)
+)
+)
+)
+)
+)
+)
+)
+)
+)
+)
+)
+)
+)
+)
+)
+)
+)
+)
+)
+)
+Y
+Y
+T
+G
+R
+L
+T
+G
+M
+P
+C
+C
+D
+D
+D
+D
+D
+D
+S
+M
+M
+M
+M
+M
+M
+M
+M
+M
+M
+M
+N
+c
+F
+F
+O
+m
+E
+e
+V
+F
+a r d W a s t e T a g u p t o 5 0 lb s (T r a s h a n d Y a r d W a s t e T a g s )
+e llo w T r a s h T a g u p t o 3 5 lb s (T r a s h a n d Y a r d W a s t e T a g s )
+R A S H & Y A R D W A S T E
+C
+e c ip r o c a l R a t e - M a r k T w a in G C , S t o n e h e n g e s G C , T r u m a n s b
+e a g u e F e e
+o u r n a m e n t F e e
+H IN (G o lf H a n d ic a p In fo r m a t io n N e t w o r k ) m e m b e r s h ip fe e
+is c e lla n e o u s G o lf F e e s
+u ll C a r t
+a r t R e n t a l - 1 8 h o le s
+a r t R e n t a l - 9 h o le s
+a ily F e e : L e a g u e F e e (W e e k d a y )
+a ily F e e : 1 8 -H o le W it h C a r t (W e e k d a y )
+a ily F e e : 9 -H o le W it h C a r t (W e e k d a y )
+a ily F e e : 1 8 -H o le W a lk in g (W e e k d a y )
+a ily F e e : 9 -H o le W a lk in g (W e e k d a y )
+a ily G r e e n s F e e s
+e a s o n R a n g e P a s s (R e s e r v e d fo r m e m b e r s )
+e m b e r s h ip F e e : 1 / 4 S e a s o n
+e m b e r s h ip F e e : H a lf S e a s o n
+e m b e r s h ip F e e : R e t ir e d C it y E m p lo y e e
+e m b e r s h ip F e e : C it y E m p lo y e e
+e m b e r s h ip F e e : Y o u n g A d u lt (1 8 -2 4 )
+e m b e r s h ip F e e : W e e k d a y O n ly , In d iv id u a l
+e m b e r s h ip F e e : J u n io r In d iv id u a l (1 2 -1 7 )
+e m b e r s h ip F e e : D o m e s t ic C o u p le
+e m b e r s h ip F e e : S e n io r (6 2 + )
+e m b e r s h ip F e e : In d iv id u a l
+e m b e r s h ip F e e s
+E W M A N G O L F C O U R S E
+h e c k s d u r in g s c h o o l b r e a k s
+e e fo r r e q u e s t e d p r o p e r t y c h e c k s - e .g ., fr a t e r n it y p r o p e r t y
+in e fo r U n fix e d F a u lt y B u r g la r A la r m - a ft e r fir s t r e s p o n s e .
+t h e r P o lic e S e r v ic e s
+u s t b e c o o r d in a t e d t h r o u g h IP D .
+m e r g e n c y a ft e r -h o u r r e le s a s e o r r e le a s e o f p e r s o n a l p r o p e r t
+n t e r s y a r d .
+e h ic le s t o r a g e in t o w y a r d - fe e s b e g in 2 4 h o u r s a ft e r v e h ic le
+e e N a m e
+u
+y
+r g
+-
+T
+T
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+G
+P
+P
+T
+T
+F
+r a s h / Y a r d W a s t e P ic k u
+r a s h / Y a r d W a s t e P ic k u
+o lf M is c . F e e s
+o lf M is c . F e e s
+o lf M is c . F e e s
+o lf M is c . F e e s
+o lf D a ily & R e n t a l F e e
+o lf D a ily & R e n t a l F e e
+o lf D a ily & R e n t a l F e e
+o lf D a ily & R e n t a l F e e
+o lf D a ily & R e n t a l F e e
+o lf D a ily & R e n t a l F e e
+o lf D a ily & R e n t a l F e e
+o lf D a ily & R e n t a l F e e
+o lf M e m b e r s h ip F e e
+o lf M e m b e r s h ip F e e
+o lf M e m b e r s h ip F e e
+o lf M e m b e r s h ip F e e
+o lf M e m b e r s h ip F e e
+o lf M e m b e r s h ip F e e
+o lf M e m b e r s h ip F e e
+o lf M e m b e r s h ip F e e
+o lf M e m b e r s h ip F e e
+o lf M e m b e r s h ip F e e
+o lf M e m b e r s h ip F e e
+a t r o l s e r v ic e s
+a t r o l s e r v ic e s
+o w in g fe e
+o w in g fe e
+e e T y p e
+p
+p
+$
+c
+C
+2
+o
+u
+0 (9
+s t
+r r e
+$ 1 .5
+$ 6 .0
+); $ 3 0 (1 8
+$ 1 5 .0
+$ 3 0 .0
+$ 2 5 .0
+$ 5 .0
+$ 1 4 .0
+$ 1 2 .0
+$ 1 4 .0
+$ 3 0 .0
+$ 2 5 .0
+$ 2 4 .0
+$ 2 0 .0
+$ 7 5 .0
+$ 1 4 0 .0
+$ 3 5 0 .0
+$ 5 0 0 .0
+$ 4 0 0 .0
+$ 3 5 0 .0
+$ 5 0 0 .0
+$ 1 2 0 .0
+$ 9 7 5 .0
+$ 6 0 0 .0
+$ 6 6 0 .0
+$ 0 .0
+$ 0 .0
+$ 5 0 .0
+$ 5 0 .0
+n t f e e
+0
+0
+)
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+p e r
+p e r
+1 p
+p e r
+p e r
+p e r
+p e r
+p e r
+p e r
+p e r
+p e r
+p e r
+p e r
+p e r
+p e r
+p e r
+p e r
+p e r
+p e r
+p e r
+p e r
+p e r
+p e r
+p e r
+p e r
+p e r
+p e r
+p e r
+p e r
+F e e
+t a g
+t a g
+e r s o n + c a r
+p e r s o n
+p e r s o n
+y e a r
+p u ll c a r t
+p e r s o n
+p e r s o n
+d a y
+d a y
+d a y
+d a y
+d a y
+y e a r
+1 / 4 s e a s o n
+h a lf s e a s o n
+y e a r
+y e a r
+y e a r
+y e a r
+y e a r
+y e a r
+y e a r
+y e a r
+o c c u r r e n c e
+o c c u r r e n c e
+o c c u r r e n c e
+d a y
+u n it
+t
+18
+
+R o w
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+#
+9
+9
+9
+9
+9
+9
+9
+9
+9
+9
+8
+8
+8
+8
+8
+8
+8
+8
+8
+7
+7
+7
+7
+7
+7
+7
+7
+7
+7
+6
+6
+6
+6
+6
+6
+6
+6
+6
+9
+8
+7
+6
+5
+4
+3
+2
+1
+0
+9
+8
+7
+6
+5
+4
+2
+1
+0
+9
+8
+7
+6
+5
+4
+3
+2
+1
+0
+9
+8
+7
+6
+5
+4
+3
+2
+1
+Y
+Y
+W
+W
+W
+W
+W
+W
+W
+W
+W
+W
+W
+W
+W
+W
+W
+W
+W
+W
+S
+S
+S
+S
+S
+S
+S
+S
+S
+S
+S
+S
+S
+S
+S
+S
+S
+S
+D
+o u t h B u r e a u
+o u t h B u r e a u
+a t e r & S e w e r (D P W
+a t e r & S e w e r (D P W
+a t e r & S e w e r (D P W
+a t e r & S e w e r (D P W
+a t e r & S e w e r (D P W
+a t e r & S e w e r (D P W
+a t e r & S e w e r (D P W
+a t e r & S e w e r (D P W
+a t e r & S e w e r (D P W
+a t e r & S e w e r (D P W
+a t e r & S e w e r (D P W
+a t e r & S e w e r (D P W
+a t e r & S e w e r (D P W
+a t e r & S e w e r (D P W
+a t e r & S e w e r (D P W
+a t e r & S e w e r (D P W
+a t e r & S e w e r (D P W
+a t e r & S e w e r (D P W
+t r e e t s & F a c ilit ie s (D
+t r e e t s & F a c ilit ie s (D
+t r e e t s & F a c ilit ie s (D
+t r e e t s & F a c ilit ie s (D
+t r e e t s & F a c ilit ie s (D
+t r e e t s & F a c ilit ie s (D
+t r e e t s & F a c ilit ie s (D
+t r e e t s & F a c ilit ie s (D
+t r e e t s & F a c ilit ie s (D
+t r e e t s & F a c ilit ie s (D
+t r e e t s & F a c ilit ie s (D
+t r e e t s & F a c ilit ie s (D
+t r e e t s & F a c ilit ie s (D
+t r e e t s & F a c ilit ie s (D
+t r e e t s & F a c ilit ie s (D
+t r e e t s & F a c ilit ie s (D
+t r e e t s & F a c ilit ie s (D
+t r e e t s & F a c ilit ie s (D
+e p a r t m e n t o r D iv is
+)
+)
+)
+)
+)
+)
+)
+)
+)
+)
+)
+)
+)
+)
+)
+)
+)
+)
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+io
+W
+W
+W
+W
+W
+W
+W
+W
+W
+W
+W
+W
+W
+W
+W
+W
+W
+W
+n
+)
+)
+)
+)
+)
+)
+)
+)
+)
+)
+)
+)
+)
+)
+)
+)
+)
+)
+S
+P
+A
+D
+D
+R
+R
+R
+R
+R
+R
+R
+c
+M
+B
+B
+M
+O
+W
+S
+W
+F
+T
+S
+A
+A
+R
+S
+M
+T
+T
+S
+P
+S
+S
+S
+S
+S
+M
+F
+t e w a r t P a r k L a r g e (P ic n ic ) P a v ilio n (r e s id e n t s
+a v ilio n R e n t a l
+ll o t h e r s p e c ia l s e r v ic e s
+a t a lo g - a d d it io n a l e le c t r o n ic
+a t a lo g - fir s t e le c t r o n ic
+e q u e s t fo r E n t r y - 3 r d + n o t ic e
+e q u e s t fo r E n t r y - 2 n d n o t ic e
+e p la c e A M R m e t e r h e a d (n e g lig e n c e )
+e p la c e m e n t m e t e r (a ft e r h o u r s , w it h c a ll-in )
+e p la c e m e n t M e t e r (a ft e r h o u r s , n o c a ll-in )
+e p la c e m e n t M e t e r (b u s in e s s h o u r s )
+e s id e n t ia l m e t e r t e s t in g
+u r b s t o p
+e t e r r e m o v a l, m e t e r r e s e t t in g , t u r n in g w a t e
+u lk w a t e r (O v e r 5 0 0 g a llo n s )
+u lk w a t e r (fir s t 5 0 0 g a llo n s )
+e t e r e d w a t e r fo r s p e c ia l u s e s
+t h e r S e r v ic e s
+a t e r / S e w e r s p e c ia l r e a d w it h b ill
+e w e r la t e fe e
+a t e r la t e fe e
+u ll s t r e e t C lo s u r e
+r a v e l la n e C lo s u r e
+t r e e t C lo s u r e
+ll o t h e r z o n e s -d iv e r t t o o t h e r s id e o f s t r e e t
+ll o t h e r z o n e s -d iv e r t t o p a r k in g la n e
+e s id e n t ia l R 1 a n d R 2 Z o n e
+id e w a lk C lo s u r e
+e t e r B a g s / N o P a r k in g S ig n s
+o r e s e r v e P a id o n -s t r e e t p a r k in g
+o r e s e r v e N o n -p a id o n -s t r e e t p a r k in g
+ig n D e p o s it
+a r k in g S p a c e s (2 0 ft le n g t h in p a r k in g o r lo a d
+T R E E T P E R M IT S
+t o r m w a t e r la t e fe e
+t o r m w a t e r fe e a s s e s s m e n t
+t o r m w a t e r f e e s
+id e w a lk S n o w R e m o v a l (m in im u m )
+IS C E L L A N E O U S F E E S
+e e N a m e
+)
+r o
+in g
+ff o
+z o
+r
+n
+o n
+e )
+a t t h e
+P
+S
+L
+L
+S
+S
+S
+S
+S
+S
+P
+R
+R
+R
+S
+S
+P
+F
+a v ilio n r e n t a l fe
+e r v ic e F e e
+a t e fe e
+a t e fe e
+t r e e t C lo s u r e
+t r e e t C lo s u r e
+t r e e t C lo s u r e
+id e w a lk C lo s u r e
+id e w a lk C lo s u r e
+id e w a lk C lo s u r e
+u b lic W o r k s F e e
+e s e r v e d P a r k in g
+e s e r v e d P a r k in g
+e s e r v e d P a r k in g
+t o r m w a t e r fe e
+t o r m w a t e r fe e
+u b lic W o r k s F e e
+e e T y p e
+e
+S
+S
+S
+p
+p
+p
+a
+a
+a
+c
+c
+c
+e
+e
+e
+fe
+fe
+fe
+e
+e
+e
+$ 5 0 .0 0
+B ille d a t c o s t
+$ 4 5 .0 0
+$ -
+$ 1 0 0 .0 0
+$ 2 5 .0 0
+$ 6 0 .0 0
+$ 2 2 0 .0 0
+$ 1 2 5 .0 0
+$ 5 0 .0 0
+$ 1 5 0 .0 0
+$ 4 0 .0 0
+$ 1 0 0 .0 0
+$ 1 0 0 .0 0
+$ 2 0 0 .0 0
+$ 4 5 .0 0
+m o n t h )
++ 1 % (e a c h
+5 % fir s t m o n t h
+m o n t h )
++ 1 % (e a c h
+5 % fir s t m o n t h
+$ 1 0 0 .0 0
+$ 5 0 .0 0
+$ 5 0 0 .0 0
+$ 2 0 0 .0 0
+$ 1 0 0 .0 0
+$ 5 .0 0
+$ 2 0 .0 0
+$ 5 .0 0
+$ 2 0 .0 0
++ 1 %
+5 % fir s t m o n t h
+q .a s p x ? T ID = 3 7
+y o fit h a c a .o r g / fa
+h t t p s :/ / w w w .c it
+S e e
+$ 5 0 .0 0
+c o s t
+C u r r e n t f e e
+H
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+g
+p
+p
+a
+d
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+e
+p
+F
+o u r s
+e r h o u r , u p t o 7
+e r r e q u e s t
+e r r e q u e s t
+e r r e q u e s t
+e r b illin g c y c le
+e r b illin g c y c le
+lu s c o s t o f m e t e r
+lu s c o s t o f m e t e r
+lu s c o s t o f m e t e r
+lu s c o s t o f m e t e r
+e r t e s t
+e r e v e n t
+a llo n s
+lu s $ 2 5 p e r 1 0 0 0
+e r lo a d
+ft e r
+a y s ) t h e n $ 5 0 p e r d
+e r d a y (fir s t s e v e n
+e r r e q u e s t
+e r m o n t h
+e r m o n t h
+e r d a y
+e r d a y
+e r w e e k
+e r w e e k
+e r w e e k
+e r s ig n
+e r d a y p e r s p a c e
+e r d a y p e r s p a c e
+e r s ig n
+a c h m o n t h
+e r e v e n t
+e e u n it
+a y
+19
+
+R o w
+4
+4
+4
+4
+4
+4
+4
+4
+4
+4
+4
+4
+4
+4
+4
+4
+4
+4
+4
+4
+4
+4
+4
+4
+4
+4
+4
+4
+4
+4
+4
+4
+4
+4
+4
+4
+4
+4
+4
+4
+4
+4
+4
+4
+4
+4
+4
+4
+4
+4
+4
+4
+4
+4
+#
+5
+5
+5
+5
+4
+4
+4
+4
+4
+4
+4
+4
+4
+4
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+3
+2
+1
+0
+9
+8
+7
+6
+5
+4
+3
+2
+1
+0
+9
+8
+7
+6
+5
+4
+3
+2
+1
+0
+9
+8
+7
+6
+5
+4
+3
+2
+1
+0
+9
+8
+7
+6
+5
+4
+3
+2
+1
+0
+9
+8
+7
+6
+5
+4
+3
+2
+1
+0
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+D
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+e
+u
+u
+u
+u
+u
+u
+u
+u
+u
+u
+u
+u
+u
+u
+u
+u
+u
+u
+u
+u
+u
+u
+u
+u
+u
+u
+u
+u
+u
+u
+u
+u
+u
+u
+u
+u
+u
+u
+u
+u
+u
+u
+u
+u
+u
+u
+u
+u
+u
+u
+u
+u
+u
+u
+p
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+a r t m
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+n
+a u
+a u
+a u
+a u
+a u
+a u
+a u
+a u
+a u
+a u
+a u
+a u
+a u
+a u
+a u
+a u
+a u
+a u
+a u
+a u
+a u
+a u
+a u
+a u
+a u
+a u
+a u
+a u
+a u
+a u
+a u
+a u
+a u
+a u
+a u
+a u
+a u
+a u
+a u
+a u
+a u
+a u
+a u
+a u
+a u
+a u
+a u
+a u
+a u
+a u
+a u
+a u
+a u
+a u
+t o r D iv is io n
+S
+S
+S
+L
+L
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+C
+t
+S
+R
+R
+R
+R
+U
+N
+L
+L
+L
+U
+A
+B
+B
+B
+C
+C
+C
+C
+C
+C
+C
+C
+C
+S
+S
+S
+S
+S
+S
+S
+S
+S
+S
+S
+S
+F
+e a s o n P a s s - C h ild (R e s id e n t s )
+e a s o n P a s s - T o d d le r (R e s id e n t s )
+e a s o n P a s s - In fa n t (R e s id e n t s )
+o n g C o u r s e L a p S w im (N o n r e s id e n t s )
+o n g C o u r s e L a p S w im (R e s id e n t s )
+u b lic S w im - S e n io r (n o n r e s id e n t s / o r g a n iz a t io n s )
+u b lic S w im - A d u lt (n o n r e s id e n t s / o r g a n iz a t io n s )
+u b lic S w im - S t u d e n t (n o n r e s id e n t s / o r g a n iz a t io n s )
+u b lic S w im - C h ild (n o n r e s id e n t s / o r g a n iz a t io n s )
+u b lic S w im - T o d d le r (n o n r e s id e n t s / o r g a n iz a t io n s )
+u b lic S w im - In fa n t (n o n r e s id e n t s / o r g a n iz a t io n s )
+u b lic S w im - S e n io r (R e s id e n t s )
+u b lic S w im - A d u lt (R e s id e n t s )
+u b lic S w im - S t u d e n t (R e s id e n t s )
+u b lic S w im - C h ild (R e s id e n t s )
+u b lic S w im - T o d d le r (R e s id e n t s )
+u b lic S w im - In fa n t (R e s id e n t s )
+a s s P a r k P o o l
+im e s )
+w im m in g P o o l - L a n e r e n t a l (O n ly d u r in g d e s ig n a t e d la p s w im
+in k (N o n -Ic e S e a s o n )
+in k (Ic e S e a s o n ) w it h B r o o m b a ll E q u ip m e n t
+in k (Ic e S e a s o n )
+in k a n d P o o l
+n io n fie ld lig h t s (In a d d it io n t o fie ld u s e fe e s )
+o n -le a g u e : B a s e b a ll/ S o ft b a ll fie ld s
+e a g u e : B a s e b a ll/ S o ft b a ll fie ld s (D ir t In fie ld )
+e a g u e : B a s e b a ll/ S o ft b a ll fie ld s (G r a s s In fie ld )
+in e d m u lt iu s e fie ld s
+n lin e d m u lt iu s e fie ld s o r p a r k g r e e n s p a c e s
+t h le t ic F ie ld a n d G r e e n s p a c e
+o a t B a c k R e n t a l: C a s s & S t e w a r t P a r k n o n -r e s id e n t s
+o a t B a c k R e n t a l: C a s s & S t e w a r t P a r k r e s id e n t s
+o a t R a c k
+a s s P a r k S p e c ia l E v e n t (B o t h p a v ilio n s m u s t b e r e n t e d )
+a s s P a r k B B Q P a v ilio n (n o n r e s id e n t s / o r g a n iz a t io n s )
+a s s P a r k B B Q P a v ilio n (n o n r e s id e n t s / o r g a n iz a t io n s )
+a s s P a r k B B Q P a v ilio n (r e s id e n t s )
+a s s P a r k B B Q P a v ilio n (r e s id e n t s )
+a s s P a r k L a r g e P a v ilio n (n o n r e s id e n t s / o r g a n iz a t io n s )
+a s s P a r k L a r g e P a v ilio n (n o n r e s id e n t s / o r g a n iz a t io n s )
+a s s P a r k L a r g e P a v ilio n (r e s id e n t s )
+a s s P a r k L a r g e P a v ilio n (r e s id e n t s )
+t e w a r t P a r k S p e c ia l E v e n t (A ll 3 p a v ilio n s m u s t b e r e n t e d )
+t e w a r t P a r k B B Q p a v ilio n (n o n r e s id e n t s / o r g a n iz a t io n s )
+t e w a r t P a r k B B Q p a v ilio n (n o n r e s id e n t s / o r g a n iz a t io n s )
+t e w a r t P a r k B B Q p a v ilio n (r e s id e n t s )
+t e w a r t P a r k B B Q p a v ilio n (r e s id e n t s )
+t e w a r t P a r k S m a ll (T e a ) P a v ilio n (n o n r e s id e n t s / o r g a n iz a t io n s
+t e w a r t P a r k S m a ll (T e a ) P a v ilio n (n o n r e s id e n t s / o r g a n iz a t io n s
+t e w a r t P a r k S m a ll (T e a ) P a v ilio n (r e s id e n t s )
+t e w a r t P a r k S m a ll (T e a ) P a v ilio n (r e s id e n t s )
+t e w a r t P a r k L a r g e (P ic n ic ) P a v ilio n (n o n r e s id e n t s / o r g a n iz a t io
+t e w a r t P a r k L a r g e (P ic n ic ) P a v ilio n (n o n r e s id e n t s / o r g a n iz a t io
+t e w a r t P a r k L a r g e (P ic n ic ) P a v ilio n (r e s id e n t s )
+e e N a m e
+)
+)
+n s
+n s
+)
+)
+C
+C
+C
+C
+C
+C
+C
+C
+C
+C
+C
+C
+C
+C
+C
+C
+C
+R
+R
+R
+R
+A
+A
+A
+A
+A
+A
+B
+B
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+F
+a s s P
+a s s P
+a s s P
+a s s P
+a s s P
+a s s P
+a s s P
+a s s P
+a s s P
+a s s P
+a s s P
+a s s P
+a s s P
+a s s P
+a s s P
+a s s P
+a s s P
+in k / P
+in k / P
+in k / P
+in k / P
+t h le t
+t h le t
+t h le t
+t h le t
+t h le t
+t h le t
+o a t R
+o a t R
+a v ilio
+a v ilio
+a v ilio
+a v ilio
+a v ilio
+a v ilio
+a v ilio
+a v ilio
+a v ilio
+a v ilio
+a v ilio
+a v ilio
+a v ilio
+a v ilio
+a v ilio
+a v ilio
+a v ilio
+a v ilio
+a v ilio
+a v ilio
+a v ilio
+e e T y
+a r k P o o l A d m is
+a r k P o o l A d m is
+a r k P o o l A d m is
+a r k P o o l A d m is
+a r k P o o l A d m is
+a r k P o o l A d m is
+a r k P o o l A d m is
+a r k P o o l A d m is
+a r k P o o l A d m is
+a r k P o o l A d m is
+a r k P o o l A d m is
+a r k P o o l A d m is
+a r k P o o l A d m is
+a r k P o o l A d m is
+a r k P o o l A d m is
+a r k P o o l A d m is
+a r k P o o l A d m is
+o o l R e n t a l F e e
+o o l R e n t a l F e e
+o o l R e n t a l F e e
+o o l R e n t a l F e e
+ic F ie ld / G r e e n s
+ic F ie ld / G r e e n s
+ic F ie ld / G r e e n s
+ic F ie ld / G r e e n s
+ic F ie ld / G r e e n s
+ic F ie ld / G r e e n s
+a c k R e n t a l
+a c k R e n t a l
+n r e n t a l fe e
+n r e n t a l fe e
+n r e n t a l fe e
+n r e n t a l fe e
+n r e n t a l fe e
+n r e n t a l fe e
+n r e n t a l fe e
+n r e n t a l fe e
+n r e n t a l fe e
+n r e n t a l fe e
+n r e n t a l fe e
+n r e n t a l fe e
+n r e n t a l fe e
+n r e n t a l fe e
+n r e n t a l fe e
+n r e n t a l fe e
+n r e n t a l fe e
+n r e n t a l fe e
+n r e n t a l fe e
+n r e n t a l fe e
+n r e n t a l fe e
+p e
+s
+s
+s
+s
+s
+s
+s
+s
+s
+s
+s
+s
+s
+s
+s
+s
+s
+p
+p
+p
+p
+p
+p
+io
+io
+io
+io
+io
+io
+io
+io
+io
+io
+io
+io
+io
+io
+io
+io
+io
+a
+a
+a
+a
+a
+a
+n F e e
+n F e e
+n F e e
+n F e e
+n F e e
+n F e e
+n F e e
+n F e e
+n F e e
+n F e e
+n F e e
+n F e e
+n F e e
+n F e e
+n F e e
+n F e e
+n F e e
+c e F e e
+c e F e e
+c e F e e
+c e F e e
+c e F e e
+c e F e e
+c
+C
+o
+u
+s t
+r r e n t
+$
+$
+$
+$
+$
+$
+$
+$
+$
+$
+$
+$
+$
+$
+$
+$
+f
+$
+$
+$
+$
+2
+2
+$
+$
+$
+$
+$
+$
+1
+1
+2
+2
+$
+1
+$
+3
+$
+2
+$
+6
+2
+$
+1
+$
+3
+$
+3
+$
+4
+$
+3
+e
+3
+2
+$
+$
+$
+$
+$
+$
+$
+$
+$
+$
+$
+$
+$
+$
+$
+3
+9
+2
+1
+4
+3
+3
+2
+3
+2
+4
+1
+7
+2
+3
+5
+2
+3
+4
+2
+3
+0
+6
+3
+8
+2
+7
+5
+7
+3
+7
+6
+7
+e
+0
+0
+0
+6
+5
+5
+6
+5
+4
+3
+1
+4
+5
+4
+3
+2
+0
+0
+0
+5
+0
+0
+0
+0
+5
+0
+0
+5
+5
+0
+5
+0
+0
+0
+0
+5
+0
+0
+0
+5
+5
+0
+5
+5
+0
+5
+5
+5
+5
+5
+.0
+.0
+.0
+.5
+.0
+.5
+.5
+.5
+.0
+.0
+.0
+.0
+.0
+.0
+.0
+.0
+.0
+.0
+.0
+.0
+.0
+.0
+.0
+.0
+.0
+.0
+.0
+.0
+.0
+.0
+.0
+.0
+.0
+.0
+.0
+.0
+.0
+.0
+.0
+.0
+.0
+.0
+.0
+.0
+.0
+.0
+.0
+.0
+.0
+.0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+p e
+p e
+p e
+p e
+p e
+p e
+p e
+p e
+p e
+p e
+p e
+p e
+p e
+p e
+p e
+p e
+p e
+p e
+p e
+p e
+p e
+p e
+p e
+p e
+p e
+p e
+p e
+p e
+p e
+p e
+fla
+H o
+p e
+fla
+H o
+p e
+fla
+H o
+p e
+fla
+H o
+p e
+p e
+fla
+H o
+p e
+fla
+H o
+p e
+fla
+H o
+p e
+fla
+H o
+p e
+fla
+H o
+p e
+fla
+F e
+r s e a s o n
+r s e a s o n
+r s e a s o n
+r d a y
+r d a y
+r d a y
+r d a y
+r d a y
+r d a y
+r d a y
+r d a y
+r d a y
+r d a y
+r d a y
+r d a y
+r d a y
+r d a y
+r h o u r
+r h o u r
+r h o u r
+r h o u r
+r h o u r
+r h o u r
+r g a m e
+r g a m e
+r h o u r
+r h o u r
+r s e a s o n
+r s e a s o n
+r d a y
+t fe e o v e
+u r s
+r h o u r , u
+t fe e o v e
+u r s
+r h o u r , u
+t fe e o v e
+u r s
+r h o u r , u
+t fe e o v e
+u r s
+r h o u r , u
+r d a y
+t fe e o v e
+u r s
+r h o u r , u
+t fe e o v e
+u r s
+r h o u r , u
+t fe e o v e
+u r s
+r h o u r , u
+t e fe e o v
+u r s
+r h o u r , u
+t e fe e o v
+u r s
+r h o u r , u
+t e fe e o v
+e u n it
+r
+p
+r
+p
+r
+p
+r
+p
+r
+p
+r
+p
+r
+p
+e
+p
+e
+p
+e
+8 h o
+t o 7
+8 h o
+t o 7
+8 h o
+t o 7
+8 h o
+t o 7
+8 h o
+t o 7
+8 h o
+t o 7
+8 h o
+t o 7
+r 8 h
+t o 7
+r 8 h
+t o 7
+r 8 h
+u
+u
+u
+u
+u
+u
+u
+o
+o
+o
+r
+r
+r
+r
+r
+r
+r
+u
+u
+u
+s
+s
+s
+s
+s
+s
+s
+r
+r
+r
+s
+s
+s
+20
+
+R o w
+5
+5
+5
+5
+5
+5
+5
+5
+5
+5
+5
+5
+5
+5
+5
+5
+4
+4
+4
+4
+4
+4
+4
+4
+4
+4
+4
+4
+4
+4
+4
+4
+4
+4
+4
+4
+4
+4
+4
+4
+4
+4
+4
+4
+4
+4
+4
+4
+4
+4
+4
+4
+4
+4
+4
+4
+4
+4
+4
+4
+4
+4
+#
+1
+1
+1
+1
+1
+1
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+9
+9
+9
+9
+9
+9
+9
+9
+9
+9
+8
+8
+8
+8
+8
+8
+8
+8
+8
+8
+7
+7
+7
+7
+7
+7
+7
+7
+7
+7
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+5
+5
+5
+5
+5
+5
+5
+4
+3
+2
+1
+0
+9
+8
+7
+6
+5
+4
+3
+2
+1
+0
+9
+8
+7
+6
+5
+4
+3
+2
+1
+0
+9
+8
+7
+6
+5
+4
+3
+2
+1
+0
+9
+8
+7
+6
+5
+4
+3
+2
+1
+0
+9
+8
+7
+6
+5
+4
+3
+2
+1
+0
+9
+8
+7
+6
+5
+4
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+D
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+e
+u
+u
+u
+u
+u
+u
+u
+u
+u
+u
+u
+u
+u
+u
+u
+u
+u
+u
+u
+u
+u
+u
+u
+u
+u
+u
+u
+u
+u
+u
+u
+u
+u
+u
+u
+u
+u
+u
+u
+u
+u
+u
+u
+u
+u
+u
+u
+u
+u
+u
+u
+u
+u
+u
+u
+u
+u
+u
+u
+u
+u
+u
+p
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+a r t m
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+n
+a u
+a u
+a u
+a u
+a u
+a u
+a u
+a u
+a u
+a u
+a u
+a u
+a u
+a u
+a u
+a u
+a u
+a u
+a u
+a u
+a u
+a u
+a u
+a u
+a u
+a u
+a u
+a u
+a u
+a u
+a u
+a u
+a u
+a u
+a u
+a u
+a u
+a u
+a u
+a u
+a u
+a u
+a u
+a u
+a u
+a u
+a u
+a u
+a u
+a u
+a u
+a u
+a u
+a u
+a u
+a u
+a u
+a u
+a u
+a u
+a u
+a u
+t o r D iv is io n
+C o n c e s s io n F e e s : F r e e z e P o p
+C o n c e s s io n F e e s : C a n d y
+C o n c e s s io n F e e s : P o p T a r t s
+C o n c e s s io n F e e s : C h ip s
+C o n c e s s io n F e e s : H o t P r e t z e l
+C o n c e s s io n F e e s : H o t D o g
+C o n c e s s io n F e e s : L a r g e p o p c o r n
+C o n c e s s io n F e e s : S m a ll p o p c o r n
+C o n c e s s io n F e e s : Ic e C r e a m B a r
+C o n c e s s io n F e e s : B a g e l w it h C r e a m C h e e s e
+C o n c e s s io n F e e s : B a g e l
+C o n c e s s io n F e e s : L a r g e S lu s h ie
+C o n c e s s io n F e e s : S m a ll S lu s h ie
+C o n c e s s io n F e e s : L a r g e S o d a
+C o n c e s s io n F e e s : S m a ll S o d a
+C o n c e s s io n F e e s : L a r g e C o ffe e / T e a
+C o n c e s s io n F e e s : S m a ll C o ffe e / T e a
+C o n c e s s io n F e e s : G a t o r a d e
+C o n c e s s io n F e e s : S e lt z e r
+C o n c e s s io n F e e s : W a t e r / S p a r k lin g W a t e r
+C o n c e s s io n s
+C a s s P a r k R o lle r S k a t in g F e e s : A d u lt
+C a s s P a r k R o lle r S k a t in g F e e s : Y o u t h
+C a s s P a r k R o lle r S k a t in g
+N e w o r r u s t y s k a t e s h a r p e n in g
+R e g u la r s k a t e s h a r p e n in g
+R o lle r s k a t e r e n t a l
+Ic e s k a t e r e n t a l
+C a s s P a r k Ic e / R o lle r S k a t e S e r v ic e
+(N o n r e s id e n t s )
+C a s s P a r k L e a r n t o S k a t e P r o g r a m F e e s : A d u lt a n d T o t p a ir
+C a s s P a r k L e a r n t o S k a t e P r o g r a m F e e s : C h ild r e n (N o n r e s id e n
+C a s s P a r k L e a r n t o S k a t e P r o g r a m F e e s : C h ild r e n (N o n r e s id e n
+C a s s P a r k L e a r n t o S k a t e P r o g r a m F e e s : T o t s (N o n r e s id e n t s )
+(R e s id e n t s )
+C a s s P a r k L e a r n t o S k a t e P r o g r a m F e e s : A d u lt a n d T o t p a ir
+C a s s P a r k L e a r n t o S k a t e P r o g r a m F e e s : C h ild r e n (R e s id e n t s )
+C a s s P a r k L e a r n t o S k a t e P r o g r a m F e e s : C h ild r e n (R e s id e n t s )
+C a s s P a r k L e a r n t o S k a t e P r o g r a m F e e s : T o t s (R e s id e n t s )
+C a s s P a r k L e a r n t o S k a t e P r o g r a m
+C a s s P a r k Ic e R in k A d m is s io n - S e n io r (N o n r e s id e n t s )
+C a s s P a r k Ic e R in k A d m is s io n - A d u lt (N o n r e s id e n t s )
+C a s s P a r k Ic e R in k A d m is s io n - S t u d e n t (N o n r e s id e n t s )
+C a s s P a r k Ic e R in k A d m is s io n - C h ild (N o n r e s id e n t s )
+C a s s P a r k Ic e R in k A d m is s io n - T o d d le r (N o n r e s id e n t s )
+C a s s P a r k Ic e R in k A d m is s io n - In fa n t (N o n r e s id e n t s )
+C a s s P a r k Ic e R in k A d m is s io n - S e n io r (R e s id e n t s )
+C a s s P a r k Ic e R in k A d m is s io n - A d u lt (R e s id e n t s )
+C a s s P a r k Ic e R in k A d m is s io n - S t u d e n t (R e s id e n t s )
+C a s s P a r k Ic e R in k A d m is s io n - C h ild (R e s id e n t s )
+C a s s P a r k Ic e R in k A d m is s io n - T o d d le r (R e s id e n t s )
+C a s s P a r k Ic e R in k A d m is s io n - In fa n t (R e s id e n t s )
+C a s s P a r k Ic e R in k
+S e a s o n P a s s - L o n g C o u r s e L a p S w im (N o n r e s id e n t s )
+S e a s o n P a s s - L o n g C o u r s e L a p S w im (R e s id e n t s )
+S e a s o n P a s s - S e n io r (N o n r e s id e n t s )
+S e a s o n P a s s - A d u lt (N o n r e s id e n t s )
+S e a s o n P a s s - S t u d e n t (N o n r e s id e n t s )
+S e a s o n P a s s - C h ild (N o n r e s id e n t s )
+S e a s o n P a s s - T o d d le r (N o n r e s id e n t s )
+S e a s o n P a s s - In fa n t (N o n r e s id e n t s )
+S e a s o n P a s s - S e n io r (R e s id e n t s )
+S e a s o n P a s s - A d u lt (R e s id e n t s )
+S e a s o n P a s s - S t u d e n t (R e s id e n t s )
+F e e N a m e
+t
+t
+s
+s
+)
+)
+C
+C
+C
+C
+C
+C
+C
+C
+C
+C
+C
+C
+C
+C
+C
+C
+C
+C
+C
+C
+F
+F
+C
+C
+C
+C
+C
+C
+C
+C
+C
+C
+C
+C
+C
+C
+C
+C
+C
+C
+C
+C
+C
+C
+C
+C
+C
+C
+C
+C
+C
+C
+C
+C
+C
+C
+C
+F
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+e
+n c e s s io n F e e
+n c e s s io n F e e
+n c e s s io n F e e
+n c e s s io n F e e
+n c e s s io n F e e
+n c e s s io n F e e
+n c e s s io n F e e
+n c e s s io n F e e
+n c e s s io n F e e
+n c e s s io n F e e
+n c e s s io n F e e
+n c e s s io n F e e
+n c e s s io n F e e
+n c e s s io n F e e
+n c e s s io n F e e
+n c e s s io n F e e
+n c e s s io n F e e
+n c e s s io n F e e
+n c e s s io n F e e
+n c e s s io n F e e
+c ilit y E n t r y F e e
+c ilit y E n t r y F e e
+s s P a r k Ic e / R o lle r
+s s P a r k Ic e / R o lle r
+s s P a r k Ic e / R o lle r
+s s P a r k Ic e / R o lle r
+s s P a r k L e a r n t o S
+s s P a r k L e a r n t o S
+s s P a r k L e a r n t o S
+s s P a r k L e a r n t o S
+s s P a r k L e a r n t o S
+s s P a r k L e a r n t o S
+s s P a r k L e a r n t o S
+s s P a r k L e a r n t o S
+s s P a r k Ic e R in k A
+s s P a r k Ic e R in k A
+s s P a r k Ic e R in k A
+s s P a r k Ic e R in k A
+s s P a r k Ic e R in k A
+s s P a r k Ic e R in k A
+s s P a r k Ic e R in k A
+s s P a r k Ic e R in k A
+s s P a r k Ic e R in k A
+s s P a r k Ic e R in k A
+s s P a r k Ic e R in k A
+s s P a r k Ic e R in k A
+s s P a r k P o o l A d m
+s s P a r k P o o l A d m
+s s P a r k P o o l A d m
+s s P a r k P o o l A d m
+s s P a r k P o o l A d m
+s s P a r k P o o l A d m
+s s P a r k P o o l A d m
+s s P a r k P o o l A d m
+s s P a r k P o o l A d m
+s s P a r k P o o l A d m
+s s P a r k P o o l A d m
+e T y p e
+S k a t e S e
+S k a t e S e
+S k a t e S e
+S k a t e S e
+k a t e P r o
+k a t e P r o
+k a t e P r o
+k a t e P r o
+k a t e P r o
+k a t e P r o
+k a t e P r o
+k a t e P r o
+d m is s io n
+d m is s io n
+d m is s io n
+d m is s io n
+d m is s io n
+d m is s io n
+d m is s io n
+d m is s io n
+d m is s io n
+d m is s io n
+d m is s io n
+d m is s io n
+is s io n F e
+is s io n F e
+is s io n F e
+is s io n F e
+is s io n F e
+is s io n F e
+is s io n F e
+is s io n F e
+is s io n F e
+is s io n F e
+is s io n F e
+r v ic e
+r v ic e
+r v ic e
+r v ic e
+g r a m
+g r a m
+g r a m
+g r a m
+g r a m
+g r a m
+g r a m
+g r a m
+F e e
+F e e
+F e e
+F e e
+F e e
+F e e
+F e e
+F e e
+F e e
+F e e
+F e e
+F e e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+F
+F
+F
+F
+F
+F
+F
+F
+F
+F
+F
+F
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+c
+C
+o
+u
+s t
+r r e n t
+$
+f
+$
+1
+$
+$
+$
+$
+$
+$
+$
+$
+$
+$
+$
+$
+$
+$
+$
+$
+$
+e
+$
+$
+$
+$
+$
+$
+$
+$
+$
+$
+$
+$
+$
+$
+$
+$
+$
+$
+$
+$
+$
+$
+$
+$
+$
+$
+7
+0
+9
+5
+5
+8
+7
+4
+$
+$
+$
+$
+$
+$
+$
+$
+$
+$
+$
+$
+6
+5
+5
+6
+5
+4
+3
+1
+4
+5
+4
+e
+0
+1
+1
+1
+1
+2
+1
+0
+1
+1
+1
+2
+1
+2
+1
+1
+1
+2
+2
+1
+7
+5
+8
+7
+3
+3
+0
+0
+0
+2
+4
+0
+0
+0
+5
+6
+5
+4
+2
+1
+4
+5
+4
+3
+1
+0
+5
+0
+5
+5
+5
+0
+0
+0
+0
+0
+0
+.2
+.0
+.5
+.5
+.5
+.0
+.0
+.5
+.7
+.5
+.2
+.0
+.5
+.0
+.5
+.5
+.0
+.0
+.0
+.2
+.0
+.0
+.7
+.7
+.5
+.5
+.0
+.0
+.0
+.0
+.0
+.0
+.0
+.0
+.5
+.5
+.5
+.0
+.0
+.0
+.0
+.0
+.0
+.0
+.0
+.0
+.0
+.0
+.0
+.0
+.0
+.0
+.0
+.0
+.0
+.0
+.0
+5
+0
+0
+0
+0
+0
+0
+0
+5
+0
+5
+0
+0
+0
+0
+0
+0
+0
+0
+5
+0
+0
+5
+5
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+4
+8
+7
+4
+4
+8
+7
+4
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+F
+e r
+e r
+e r
+e r
+e r
+e r
+e r
+e r
+e r
+e r
+e r
+e r
+e r
+e r
+e r
+e r
+e r
+e r
+e r
+e r
+e r
+e r
+e r
+e r
+e r
+e r
+w
+w
+w
+w
+w
+w
+w
+w
+e r
+e r
+e r
+e r
+e r
+e r
+e r
+e r
+e r
+e r
+e r
+e r
+e r
+e r
+e r
+e r
+e r
+e r
+e r
+e r
+e r
+e r
+e r
+e e
+it e m
+it e m
+it e m
+it e m
+it e m
+it e m
+it e m
+it e m
+it e m
+it e m
+it e m
+it e m
+it e m
+it e m
+it e m
+it e m
+it e m
+it e m
+it e m
+it e m
+e n t r y
+e n t r y
+s k a t e
+s k a t e
+p a ir
+p a ir
+e e k s e
+e e k s e
+e e k s e
+e e k s e
+e e k s e
+e e k s e
+e e k s e
+e e k s e
+s e s s io
+s e s s io
+s e s s io
+s e s s io
+s e s s io
+s e s s io
+s e s s io
+s e s s io
+s e s s io
+s e s s io
+s e s s io
+s e s s io
+s e a s o
+s e a s o
+s e a s o
+s e a s o
+s e a s o
+s e a s o
+s e a s o
+s e a s o
+s e a s o
+s e a s o
+s e a s o
+u n it
+s
+s
+s
+s
+s
+s
+s
+s
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+s
+s
+s
+s
+s
+s
+s
+s
+io
+io
+io
+io
+io
+io
+io
+io
+n
+n
+n
+n
+n
+n
+n
+n
+21
+
+R o w
+5
+5
+5
+5
+5
+5
+5
+5
+5
+5
+5
+5
+5
+5
+5
+5
+#
+3
+3
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+1
+1
+1
+1
+1
+0
+9
+8
+7
+6
+5
+4
+3
+2
+1
+0
+9
+8
+7
+6
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+D
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+e
+u
+u
+u
+u
+u
+u
+u
+u
+u
+u
+u
+u
+u
+u
+u
+u
+p
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+a r t m
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+n
+a u
+a u
+a u
+a u
+a u
+a u
+a u
+a u
+a u
+a u
+a u
+a u
+a u
+a u
+a u
+a u
+t o r D iv is io n
+It h a c a B ik e
+It h a c a B ik e
+It h a c a B ik e
+It h a c a B ik e
+It h a c a B ik e
+It h a c a B ik e
+It h a c a B ik e
+It h a c a B ik e
+It h a c a B ik e
+It h a c a B ik e
+It h a c a B ik e
+It h a c a B ik e
+A d m in is t r a
+r e m o v a l
+A d m in is t r a
+A d m in is t r a
+A d m in is t r a
+F e e N a m e
+R e n t a l F
+R e n t a l F
+R e n t a l F
+R e n t a l F
+R e n t a l F
+R e n t a l F
+R e n t a l F
+R e n t a l F
+R e n t a l F
+R e n t a l F
+R e n t a l F
+R e n t a l
+t iv e F e e s
+t iv e F e e s
+t iv e F e e s
+t iv e
+e e
+e e
+e e
+e e
+e e
+e e
+e e
+e e
+e e
+e e
+e e
+: R
+: P
+: P
+s : C h ild t r a ile r o r T a g -a -lo n g (S e n io r s )
+s : C h ild t r a ile r o r T a g -a -lo n g (N o n r e s id e n
+s : C h ild t r a ile r o r T a g -a -lo n g (R e s id e n t s )
+s : A d u lt U p r ig h t T r ik e (S e n io r s )
+s : A d u lt U p r ig h t T r ik e (N o n r e s id e n t s )
+s : A d u lt U p r ig h t T r ik e (R e s id e n t s )
+s : Y o u t h B ic y c le (N o n r e s id e n t s )
+s : Y o u t h B ic y c le (R e s id e n t s )
+s : A d u lt B ic y c le (S e n io r s )
+s : A d u lt B ic y c le (N o n r e s id e n t s )
+s : A d u lt B ic y c le (R e s id e n t s )
+e s e r v a t io n c h a n g e
+a v ilio n / G r e e n s p a c e c le a n in g a n d g a r b a g
+r o g r a m C a n c e lla t io n / R e fu n d P r o c e s s in g
+t
+e
+s )
+B
+B
+B
+B
+B
+B
+B
+B
+B
+B
+B
+A
+A
+A
+F
+ik e R
+ik e R
+ik e R
+ik e R
+ik e R
+ik e R
+ik e R
+ik e R
+ik e R
+ik e R
+ik e R
+d m in
+d m in
+d m in
+e e T y
+e n t a
+e n t a
+e n t a
+e n t a
+e n t a
+e n t a
+e n t a
+e n t a
+e n t a
+e n t a
+e n t a
+is t r a
+is t r a
+is t r a
+p e
+l F e
+l F e
+l F e
+l F e
+l F e
+l F e
+l F e
+l F e
+l F e
+l F e
+l F e
+t iv e
+t iv e
+t iv e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+F
+F
+F
+e
+e
+e
+e
+e
+e
+v
+v
+v
+v
+v
+v
+v
+v
+v
+v
+v
+h
+$
+c
+C
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+o
+1
+o
+u
+r y in g
+r y in g
+r y in g
+r y in g
+r y in g
+r y in g
+r y in g
+r y in g
+r y in g
+r y in g
+r y in g
+$ 2 0
+u r s t a ff t im
+0 0 + 5 0 p e
+$ 2 0
+s t
+r r e n t f e e
+.0
+e
+r
+.0
+0
+0
+W
+2
+8
+4
+T
+O
+W
+2
+8
+4
+T
+O
+W
+2
+8
+4
+T
+O
+2
+8
+4
+T
+O
+2
+8
+4
+T
+O
+2
+8
+4
+T
+O
+2
+8
+4
+T
+O
+2
+8
+4
+T
+O
+2
+8
+4
+T
+O
+2
+8
+4
+T
+O
+2
+8
+4
+T
+O
+p
+p
+p
+F
+e e k ly = $ 3 8 .2 5
+4 H o u r s = $ 1 1 .9 0
+H o u r s = $ 9 .3 5
+H o u r s = $ 6 .8 0
+w o H o u r s = $ 5 .1 0
+n e H o u r = $ 4 .2 5
+e e k ly = $ 4 5
+4 H o u r s = $ 1 4
+H o u r s = $ 1 1
+H o u r s = $ 8
+w o H o u r s = $ 6
+n e H o u r = $ 5
+e e k ly = $ 4 0 .5 0
+4 H o u r s = $ 1 2 .6 0
+H o u r s = $ 9 .9 0
+H o u r s = $ 7 .2 0
+w o H o u r s = $ 5 .4 0
+n e H o u r = $ 4 .5 0
+4 H o u r s = $ 3 9 .1 0
+H o u r s = $ 3 4
+H o u r s = $ 2 3 .8 0
+w o H o u r s = $ 1 8 .7
+n e H o u r = $ 1 1 .9 0
+4 H o u r s = $ 4 6
+H o u r s = $ 4 0
+H o u r s = $ 2 8
+w o H o u r s = $ 2 2
+n e H o u r = $ 1 4
+4 H o u r s = $ 4 1 .4 0
+H o u r s = $ 3 6
+H o u r s = $ 2 5 .2 0
+w o H o u r s = $ 1 9 .8
+n e H o u r = $ 1 2 .6 0
+4 H o u r s = $ 2 3
+H o u r s = $ 2 0
+H o u r s = $ 1 4
+w o H o u r s = $ 1 1
+n e H o u r = $ 8
+4 H o u r s = $ 2 0 .7 0
+H o u r s = $ 1 8
+H o u r s = $ 1 2 .6 0
+w o H o u r s = $ 9 .9 0
+n e H o u r = $ 7 .2 0
+4 H o u r s = $ 3 4
+H o u r s = $ 2 9 .7 5
+H o u r s = $ 2 0 .7 5
+w o H o u r s = $ 1 7
+n e H o u r = $ 1 2 .7 5
+4 H o u r s = $ 4 0
+H o u r s = $ 3 5
+H o u r s = $ 2 5
+w o H o u r s = $ 2 0
+n e H o u r = $ 1 5
+4 H o u r s = $ 3 6
+H o u r s = $ 3 1 .5 0
+H o u r s = $ 2 2 .5 0
+w o H o u r s = $ 1 8
+n e H o u r = $ 1 3 .5 0
+e r r e q u e s t
+e r e v e n t
+e r e v e n t
+e e u n it
+0
+0
+22
+
+R o w
+5
+5
+5
+5
+5
+5
+5
+5
+5
+5
+5
+5
+5
+5
+#
+4
+4
+4
+4
+4
+4
+3
+3
+3
+3
+3
+3
+3
+3
+5
+4
+3
+2
+1
+0
+9
+8
+7
+6
+5
+4
+3
+2
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+D
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+e
+u
+u
+u
+u
+u
+u
+u
+u
+u
+u
+u
+u
+u
+u
+p
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+a r t m
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+n
+a u
+a u
+a u
+a u
+a u
+a u
+a u
+a u
+a u
+a u
+a u
+a u
+a u
+a u
+t o r D iv is io n
+(r e c p a r t n e
+R e c P r o g r a
+R e c r e a t io n
+It h a c a B ik e
+It h a c a B ik e
+It h a c a B ik e
+It h a c a B ik e
+It h a c a B ik e
+It h a c a B ik e
+It h a c a B ik e
+It h a c a B ik e
+It h a c a B ik e
+It h a c a B ik e
+It h a c a B ik e
+It h a c a B ik e
+F e e N a m e
+r s
+m
+P
+R
+R
+R
+R
+R
+R
+R
+R
+R
+R
+R
+R
+h ip r a t e )
+F e e s : E x p r e s s iv e A r t s - T h e a t r e B u ffe t t 4 -6 y
+r o g r a m s
+e n t a l F e e s : F r o n t B a s k e t s (S e n io r s )
+e n t a l F e e s : F r o n t B a s k e t s (N o n r e s id e n t s )
+e n t a l F e e s : F r o n t B a s k e t s (R e s id e n t s )
+e n t a l F e e s : T a n d e m B ic y c le (S e n io r s )
+e n t a l F e e s : T a n d e m B ic y c le (N o n r e s id e n t s )
+e n t a l F e e s : T a n d e m B ic y c le (R e s id e n t s )
+e n t a l F e e s : C h ild s a fe t y s e a t (S e n io r s )
+e n t a l F e e s : C h ild s a fe t y s e a t (N o n r e s id e n t s )
+e n t a l F e e s : C h ild s a fe t y s e a t (R e s id e n t s )
+e n t a l F e e s : R e c u m b e n t T r ik e (S e n io r s )
+e n t a l F e e s : R e c u m b e n t T r ik e (N o n r e s id e n t s )
+e n t a l F e e s : R e c u m b e n t T r ik e (R e s id e n t s )
+e a r s o ld
+R
+B
+B
+B
+B
+B
+B
+B
+B
+B
+B
+B
+B
+F
+e c P r o
+ik e R e
+ik e R e
+ik e R e
+ik e R e
+ik e R e
+ik e R e
+ik e R e
+ik e R e
+ik e R e
+ik e R e
+ik e R e
+ik e R e
+e e T y p
+g
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+e
+r a
+t a
+t a
+t a
+t a
+t a
+t a
+t a
+t a
+t a
+t a
+t a
+t a
+m
+l F
+l F
+l F
+l F
+l F
+l F
+l F
+l F
+l F
+l F
+l F
+l F
+F
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+v
+v
+v
+v
+v
+v
+v
+v
+v
+v
+v
+v
+c
+C
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+o
+u
+r y
+r y
+r y
+r y
+r y
+r y
+r y
+r y
+r y
+r y
+r y
+r y
+s t
+r r
+in g
+in g
+in g
+in g
+in g
+in g
+in g
+in g
+in g
+in g
+in g
+in g
+e n t f
+$
+e
+5
+e
+5 .0 0 p
+W
+2
+8
+4
+T
+O
+W
+2
+8
+4
+T
+O
+W
+2
+8
+4
+T
+O
+2
+8
+4
+T
+O
+2
+8
+4
+T
+O
+2
+8
+4
+T
+O
+W
+2
+8
+4
+T
+O
+W
+2
+8
+4
+T
+O
+W
+2
+8
+4
+T
+O
+2
+8
+4
+T
+O
+2
+8
+4
+T
+O
+2
+8
+4
+T
+O
+F
+e r 6 -w e e k s e s s io n
+e e k ly = $ 1 2 .7 5
+4 H o u r s = $ 4 .2 5
+H o u r s = $ 3 .4 0
+H o u r s = $ 2 .5 5
+w o H o u r s = $ 1 .7 0
+n e H o u r = $ 0 .8 5
+e e k ly = $ 1 5
+4 H o u r s = $ 5
+H o u r s = $ 4
+H o u r s = $ 3
+w o H o u r s = $ 2
+n e H o u r = $ 1
+e e k ly = $ 1 3 .5 0
+4 H o u r s = $ 4 .5 0
+H o u r s = $ 3 .6 0
+H o u r s = $ 2 .7 0
+w o H o u r s = $ 1 .8 0
+n e H o u r = $ 0 .9 0
+4 H o u r s = $ 4 4 .2 0
+H o u r s = $ 3 8 .2 5
+H o u r s = $ 3 1 .4 5
+w o H o u r s = $ 2 4 .6
+n e H o u r = $ 1 7 .8 5
+4 H o u r s = $ 5 2
+H o u r s = $ 4 5
+H o u r s = $ 3 7
+w o H o u r s = $ 2 9
+n e H o u r = $ 2 1
+4 H o u r s = $ 4 6 .8 0
+H o u r s = $ 4 0 .5 0
+H o u r s = $ 3 3 .3 0
+w o H o u r s = $ 2 6 .1
+n e H o u r = $ 1 8 .9 0
+e e k ly = $ 2 9 7 5
+4 H o u r s = $ 1 0 .2 0
+H o u r s = $ 7 .6 5
+H o u r s = $ 5 .1 0
+w o H o u r s = $ 3 .4 0
+n e H o u r = $ 2 .5 5
+e e k ly = $ 3 5
+4 H o u r s = $ 1 2
+H o u r s = $ 9
+H o u r s = $ 6
+w o H o u r s = $ 4
+n e H o u r = $ 3
+e e k ly = $ 3 1 .5 0
+4 H o u r s = $ 1 0 .8 0
+H o u r s = $ 8 .1 0
+H o u r s = $ 5 .4 0
+w o H o u r s = $ 3 .6 0
+n e H o u r = $ 2 .7 0
+4 H o u r s = $ 5 1
+H o u r s = $ 4 3 .3 5
+H o u r s = $ 3 5 .7 0
+w o H o u r s = $ 2 8 .0
+n e H o u r = $ 2 0 .4 0
+4 H o u r s = $ 6 0
+H o u r s = $ 5 1
+H o u r s = $ 4 2
+w o H o u r s = $ 3 3
+n e H o u r = $ 2 4
+4 H o u r s = $ 5 4
+H o u r s = $ 4 5 .9 0
+H o u r s = $ 3 7 .8 0
+w o H o u r s = $ 2 9 .7
+n e H o u r = $ 2 1 .6 0
+e e u n it
+5
+0
+5
+0
+23
+
+R o w
+5
+5
+5
+5
+5
+5
+5
+5
+5
+5
+5
+5
+5
+5
+5
+5
+5
+5
+5
+5
+5
+5
+5
+5
+5
+5
+5
+5
+5
+5
+5
+5
+5
+5
+#
+7
+7
+7
+7
+7
+7
+7
+7
+7
+7
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+5
+5
+5
+5
+5
+5
+5
+5
+5
+5
+4
+4
+4
+4
+9
+8
+7
+6
+5
+4
+3
+2
+1
+0
+9
+8
+7
+6
+5
+4
+3
+2
+1
+0
+9
+8
+7
+6
+5
+4
+3
+2
+1
+0
+9
+8
+7
+6
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+D
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+e
+u
+u
+u
+u
+u
+u
+u
+u
+u
+u
+u
+u
+u
+u
+u
+u
+u
+u
+u
+u
+u
+u
+u
+u
+u
+u
+u
+u
+u
+u
+u
+u
+u
+u
+p
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+a r t m
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+n
+a u
+a u
+a u
+a u
+a u
+a u
+a u
+a u
+a u
+a u
+a u
+a u
+a u
+a u
+a u
+a u
+a u
+a u
+a u
+a u
+a u
+a u
+a u
+a u
+a u
+a u
+a u
+a u
+a u
+a u
+a u
+a u
+a u
+a u
+t o r D iv is io n
+p a r t n e r s h ip r a t e )
+C a m p - C a s s P a r k D a y C a m p - H a lf D a y 5 -8 y e a r s o ld (r e c
+p a r t n e r s h ip r a t e )
+C a m p - C a s s P a r k D a y C a m p - F u ll D a y 5 -8 y e a r s o ld (n o n -r e c
+p a r t n e r s h ip r a t e )
+C a m p - C a s s P a r k D a y C a m p - F u ll D a y 5 -8 y e a r s o ld (r e c
+p a r t n e r s h ip r a t e )
+E a r ly C h ild h o o d - Z u m b in i U p t o 5 y e a r s o ld + a d u lt (n o n -r e c
+p a r t n e r s h ip r a t e )
+E a r ly C h ild h o o d - Z u m b in i U p t o 5 y e a r s o ld + a d u lt (r e c
+E a r ly C h ild h o o d - T o t S p o t T o d d le r 2 4 m o n t h s -5 y e a r s o ld + a d u lt
+E a r ly C h ild h o o d - T o t S p o t T o d d le r 2 4 m o n t h s -5 y e a r s o ld + a d u lt
+E a r ly C h ild h o o d - T o t S p o t In fa n t 1 2 -2 3 m o n t h s o ld + a d u lt
+E a r ly C h ild h o o d - T o t S p o t In fa n t 1 2 -2 3 m o n t h s o ld + a d u lt
+r a t e )
+E x p r e s s iv e A r t s - A R T v e n t u r e 5 -8 y e a r s o ld (n o n -r e c p a r t n e r s h ip
+E x p r e s s iv e A r t s - A R T v e n t u r e 5 -8 y e a r s o ld (r e c p a r t n e r s h ip r a t e )
+r a t e )
+E x p r e s s iv e A r t s - In t r o t o P a in t G r a d e s 2 -5 (n o n -r e c p a r t n e r s h ip
+E x p r e s s iv e A r t s - In t r o t o P a in t G r a d e s 2 -5 (r e c p a r t n e r s h ip r a t e )
+y e a r s o ld (n o n -r e c p a r t n e r s h ip r a t e )
+E x p r e s s iv e A r t s - P o t t e r y S Y A d u lt / C h ild S c u lt p t u r e M a k in g 6 +
+y e a r s o ld (r e c p a r t n e r s h ip r a t e )
+E x p r e s s iv e A r t s - P o t t e r y S Y A d u lt / C h ild S c u lt p t u r e M a k in g 6 +
+y e a r s o ld (n o n -r e c p a r t n e r s h ip r a t e )
+E x p r e s s iv e A r t s - P o t t e r y S Y A d u lt / C h ild S c u lt p t u r e M a k in g 6 +
+y e a r s o ld (r e c p a r t n e r s h ip r a t e )
+E x p r e s s iv e A r t s - P o t t e r y S Y A d u lt / C h ild S c u lt p t u r e M a k in g 6 +
+p a r t n e r s h ip r a t e )
+E x p r e s s iv e A r t s - P o t t e r y W h e e lw o r k 1 0 -1 3 y e a r s o ld (n o n -r e c
+p a r t n e r s h ip r a t e )
+E x p r e s s iv e A r t s - P o t t e r y W h e e lw o r k 1 0 -1 3 y e a r s o ld (r e c
+p a r t n e r s h ip r a t e )
+E x p r e s s iv e A r t s - P o t t e r y W h e e lw o r k 1 0 -1 3 y e a r s o ld (n o n -r e c
+p a r t n e r s h ip r a t e )
+E x p r e s s iv e A r t s - P o t t e r y W h e e lw o r k 1 0 -1 3 y e a r s o ld (r e c
+p a r t n e r s h ip r a t e )
+E x p r e s s iv e A r t s - P o t t e r y S Y A d u lt / C h ild 4 + Y e a r s o ld (n o n -r e c
+(r e c p a r t n e r s h ip r a t e )
+E x p r e s s iv e A r t s - P o t t e r y S Y A d u lt / C h ild H o m e s c h o o l 6 + y e a r s o ld
+p a r t n e r s h ip r a t e )
+E x p r e s s iv e A r t s - P o t t e r y S Y A d u lt / C h ild 4 + Y e a r s o ld (n o n -r e c
+p a r t n e r s h ip r a t e )
+E x p r e s s iv e A r t s - P o t t e r y S Y A d u lt / C h ild 4 + Y e a r s o ld (r e c
+o ld (n o n -r e c p a r t n e r s h ip r a t e )
+R e c P r o g r a m F e e s : E s p r e s s iv e A r t s - O p e n S t u d io T im e 8 + Y e a r s
+o ld (r e c p a r t n e r s h ip r a t e )
+R e c P r o g r a m F e e s : E x p r e s s iv e A r t s - O p e n S t u d io T im e 8 + y e a r s
+o ld (n o n -r e c p a r t n e r s h ip r a t e )
+R e c P r o g r a m F e e s : E x p r e s s iv e A r t s - O p e n S t u d io T im e 8 + y e a r s
+o ld (r e c p a r t n e r s h ip r a t e )
+R e c P r o g r a m F e e s : E x p r e s s iv e A r t s - O p e n S t u d io T im e 8 + y e a r s
+o ld (n o n -r e c p a r t n e r s h ip r a t e )
+R e c P r o g r a m F e e s : E x p r e s s iv e A r t s - P o t t e r y fo r Y o u t h 8 -1 4 y e a r s
+o ld (r e c p a r t n e r s h ip r a t e )
+R e c P r o g r a m F e e s : E x p r e s s iv e A r t s - P o t t e r y fo r Y o u t h 8 -1 4 y e a r s
+o ld (n o n -r e c p a r t n e r s h ip r a t e )
+R e c P r o g r a m F e e s : E x p r e s s iv e A r t s - P o t t e r y fo r Y o u t h 8 -1 4 y e a r s
+o ld (r e c p a r t n e r s h ip r a t e )
+R e c P r o g r a m F e e s : E x p r e s s iv e A r t s - P o t t e r y fo r Y o u t h 8 -1 4 y e a r s
+(n o n -r e c p a r t n e r s h ip r a t e )
+R e c P r o g r a m F e e s : E x p r e s s iv e A r t s - T h e a t r e B u ffe t t 4 -6 y e a r s o ld
+F e e N a m e
+R
+R
+R
+R
+R
+R
+R
+R
+R
+R
+R
+R
+R
+R
+R
+R
+R
+R
+R
+R
+R
+R
+R
+R
+R
+R
+R
+R
+R
+R
+R
+R
+R
+R
+F
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+e
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+T
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+y
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+p
+g
+g
+g
+g
+g
+g
+g
+g
+g
+g
+g
+g
+g
+g
+g
+g
+g
+g
+g
+g
+g
+g
+g
+g
+g
+g
+g
+g
+g
+g
+g
+g
+g
+g
+e
+r a
+r a
+r a
+r a
+r a
+r a
+r a
+r a
+r a
+r a
+r a
+r a
+r a
+r a
+r a
+r a
+r a
+r a
+r a
+r a
+r a
+r a
+r a
+r a
+r a
+r a
+r a
+r a
+r a
+r a
+r a
+r a
+r a
+r a
+m
+m
+m
+m
+m
+m
+m
+m
+m
+m
+m
+m
+m
+m
+m
+m
+m
+m
+m
+m
+m
+m
+m
+m
+m
+m
+m
+m
+m
+m
+m
+m
+m
+m
+F
+F
+F
+F
+F
+F
+F
+F
+F
+F
+F
+F
+F
+F
+F
+F
+F
+F
+F
+F
+F
+F
+F
+F
+F
+F
+F
+F
+F
+F
+F
+F
+F
+F
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+c
+C
+o
+u
+s t
+r r e n t
+$
+$
+$
+$
+$
+$
+$
+$
+$
+$
+$
+$
+$
+$
+$
+$
+$
+$
+$
+$
+$
+$
+$
+f
+2
+8
+4
+1
+$
+$
+$
+2
+1
+1
+$
+1
+$
+1
+$
+2
+1
+2
+1
+1
+$
+1
+1
+1
+$
+1
+1
+1
+$
+2
+1
+1
+e
+0
+0
+0
+1
+8
+3
+$
+1
+$
+0
+0
+2
+6
+3
+6
+5
+7
+0
+0
+4
+2
+3
+6
+2
+1
+3
+6
+5
+7
+7
+8
+0
+0
+1
+e
+0
+0
+0
+0
+0
+0
+5
+5
+3
+0
+0
+0
+0
+0
+5
+6
+8
+0
+0
+0
+0
+0
+5
+0
+0
+0
+5
+6
+8
+0
+5
+4
+2
+0
+.0
+.0
+.0
+.0
+.0
+.0
+.0
+.0
+.0
+.0
+.0
+.0
+.0
+.0
+.0
+.0
+.0
+.0
+.0
+.0
+.0
+.0
+.0
+.0
+.0
+.0
+.0
+.0
+.0
+.0
+.0
+.0
+.0
+.0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+F
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+e
+2 -w e e
+2 -w e e
+2 -w e e
+8 -w e e
+8 -w e e
+7 s e s s
+s e s s io
+6 s e s s
+s e s s io
+5 -w e e
+5 -w e e
+8 -w e e
+8 -w e e
+5 -w e e
+5 -w e e
+6 -w e e
+6 -w e e
+5 -w e e
+5 -w e e
+6 -w e e
+6 -w e e
+5 -w e e
+5 -w e e
+5 -w e e
+5 -w e e
+5 -w e e
+5 -w e e
+6 -w e e
+6 -w e e
+5 -w e e
+5 -w e e
+6 -w e e
+6 -w e e
+6 -w e e
+u n it
+k
+k
+k
+k
+k
+io
+n
+io
+n
+k
+k
+k
+k
+k
+k
+k
+k
+k
+k
+k
+k
+k
+k
+k
+k
+k
+k
+k
+k
+k
+k
+k
+k
+k
+s
+s
+s
+s
+s
+n
+n
+s
+s
+s
+s
+s
+s
+s
+s
+s
+s
+s
+s
+s
+s
+s
+s
+s
+s
+s
+s
+s
+s
+s
+s
+s
+e
+e
+e
+e
+e
+s
+s
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+s
+s
+s
+s
+s
+s
+s
+s
+s
+s
+s
+s
+s
+s
+s
+s
+s
+s
+s
+s
+s
+s
+s
+s
+s
+s
+s
+s
+s
+s
+s
+s
+s
+s
+s
+s
+s
+s
+s
+s
+s
+s
+s
+s
+s
+s
+s
+s
+s
+s
+s
+s
+s
+s
+s
+s
+s
+s
+s
+s
+io
+io
+io
+io
+io
+io
+io
+io
+io
+io
+io
+io
+io
+io
+io
+io
+io
+io
+io
+io
+io
+io
+io
+io
+io
+io
+io
+io
+io
+io
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+24
+
+R o w
+6
+6
+6
+6
+6
+6
+6
+6
+6
+5
+5
+5
+5
+5
+5
+5
+5
+5
+5
+5
+5
+5
+5
+5
+5
+5
+5
+5
+5
+#
+0
+0
+0
+0
+0
+0
+0
+0
+0
+9
+9
+9
+9
+9
+9
+9
+9
+9
+9
+8
+8
+8
+8
+8
+8
+8
+8
+8
+8
+8
+7
+6
+5
+4
+3
+2
+1
+0
+9
+8
+7
+6
+5
+4
+3
+2
+1
+0
+9
+8
+7
+6
+5
+4
+3
+2
+1
+0
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+D
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+e
+u
+u
+u
+u
+u
+u
+u
+u
+u
+u
+u
+u
+u
+u
+u
+u
+u
+u
+u
+u
+u
+u
+u
+u
+u
+u
+u
+u
+u
+p
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+t h B u
+a r t m
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+n
+a u
+a u
+a u
+a u
+a u
+a u
+a u
+a u
+a u
+a u
+a u
+a u
+a u
+a u
+a u
+a u
+a u
+a u
+a u
+a u
+a u
+a u
+a u
+a u
+a u
+a u
+a u
+a u
+a u
+t o r D iv is io n
+S
+S
+S
+S
+L
+L
+L
+L
+p
+L
+r
+L
+p
+L
+p
+L
+L
+L
+L
+L
+L
+L
+C
+C
+r
+C
+C
+p
+C
+p
+C
+p
+C
+p
+C
+p
+C
+p
+C
+p
+C
+F
+p o r t
+p o r t
+p o r t
+p o r t
+e s s o
+e s s o
+e s s o
+e s s o
+a r t n
+e s s o
+a t e )
+e s s o
+a r t n
+e s s o
+a r t n
+e s s o
+e s s o
+e s s o
+e s s o
+e s s o
+e s s o
+e s s o
+a m p
+a m p
+a t e )
+a m p
+a m p
+a r t n
+a m p
+a r t n
+a m p
+a r t n
+a m p
+a r t n
+a m p
+a r t n
+a m p
+a r t n
+a m p
+a r t n
+a m p
+e e N
+s - B a s e b a ll - H y b r id G r a d e s 3 -4 (n o n -r e c p a r t n e r s h ip )
+s - B a s e b a ll - H y b r id G r a d e s 3 -4 (r e c p a r t n e r s h ip )
+s - B a s e b a ll - C o a c h P it c h G r a d e s 1 -2 (n o n -r e c p a r t n e r s h ip )
+s - B a s e b a ll - C o a c h P it c h G r a d e s 1 -2 (r e c p a r t n e r s h ip )
+n s - T e n n is - A d u lt / C h ild P a ir (n o n -r e c p a r t n e r s h ip )
+n s - T e n n is - A d u lt / C h ild P a ir (r e c p a r t n e r s h ip )
+n s - T e n n is - In t e r m e d ia t e (n o n -r e c p a r t n e r s h ip )
+n s - T e n n is - In t e r m e d ia t e (r e c p a r t n e r s h ip )
+e r s h ip r a t e )
+n s - T e n n is - O ld e r B e g in n e r 6 -1 0 y e a r s o ld (n o n -r e c
+n s - T e n n is - O ld e r B e g in n e r 6 -1 0 y e a r s o ld (r e c p a r t n e r s h ip
+e r s h ip r a t e )
+n s - T e n n is - Y o u n g e r B e g in n e r 6 -1 0 y e a r s o ld (n o n -r e c
+e r s h ip r a t e )
+n s - T e n n is - Y o u n g e r B e g in n e r 6 -1 0 y e a r s o ld (r e c
+n s - T a e K w o n D o - A d v a n c e d (n o n -r e c p a r t n e r s h ip r a t e )
+n s - T a e K w o n D o - A d v a n c e d (r e c p a r t n e r s h ip r a t e )
+n s - T a e K w o n D o - In t e r m e d ia t e (n o n -r e c p a r t n e r s h ip r a t e )
+n s - T a e K w o n D o - In t e r m e d ia t e (r e c p a r t n e r s h ip r a t e )
+n s - T a e K w o n D o - B e g in n e r (n o n -r e c p a r t n e r s h ip r a t e )
+n s - T a e K w o n D o - B e g in n e r (r e c p a r t n e r s h ip r a t e )
+- A ft e r C a m p C a r e 5 -1 3 y e a r s o ld (n o n -r e c p a r t n e r s h ip r a t e )
+- A ft e r C a m p C a r e 5 -1 3 y e a r s o ld (r e c p a r t n e r s h ip r a t e )
+- B e fo r e C a m p C a r e 5 -1 3 y e a r s o ld (n o n -r e c p a r t n e r s h ip
+- B e fo r e C a m p C a r e 5 -1 3 y e a r s o ld (r e c p a r t n e r s h ip r a t e )
+e r s h ip r a t e )
+- S t e w a r t P a r k D a y C a m p - H a lf D a y 8 -1 3 y e a r s o ld (n o n -r e c
+e r s h ip r a t e )
+- S t e w a r t P a r k D a y C a m p - H a lf D a y 8 -1 3 y e a r s o ld (r e c
+e r s h ip r a t e )
+- S t e w a r t P a r k D a y C a m p - F u ll D a y 8 -1 3 y e a r s o ld (n o n -r e c
+e r s h ip r a t e )
+- S t e w a r t P a r k D a y C a m p - F u ll D a y 8 -1 3 y e a r s o ld (r e c
+e r s h ip r a t e )
+- C a s s P a r k D a y C a m p - F u ll D a y 5 -8 y e a r s o ld (n o n -r e c
+e r s h ip r a t e )
+- C a s s P a r k D a y C a m p - F u ll D a y 5 -8 y e a r s o ld (r e c
+e r s h ip r a t e )
+- C a s s P a r k D a y C a m p - H a lf D a y 5 -8 y e a r s o ld (n o n -r e c
+a m e
+R
+R
+R
+R
+R
+R
+R
+R
+R
+R
+R
+R
+R
+R
+R
+R
+R
+R
+R
+R
+R
+R
+R
+R
+R
+R
+R
+R
+R
+F
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+e
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+T
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+y
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+p
+g
+g
+g
+g
+g
+g
+g
+g
+g
+g
+g
+g
+g
+g
+g
+g
+g
+g
+g
+g
+g
+g
+g
+g
+g
+g
+g
+g
+g
+e
+r a
+r a
+r a
+r a
+r a
+r a
+r a
+r a
+r a
+r a
+r a
+r a
+r a
+r a
+r a
+r a
+r a
+r a
+r a
+r a
+r a
+r a
+r a
+r a
+r a
+r a
+r a
+r a
+r a
+m
+m
+m
+m
+m
+m
+m
+m
+m
+m
+m
+m
+m
+m
+m
+m
+m
+m
+m
+m
+m
+m
+m
+m
+m
+m
+m
+m
+m
+F
+F
+F
+F
+F
+F
+F
+F
+F
+F
+F
+F
+F
+F
+F
+F
+F
+F
+F
+F
+F
+F
+F
+F
+F
+F
+F
+F
+F
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+c
+C
+o
+u
+s t
+r r e n t
+$
+$
+$
+$
+$
+$
+$
+$
+$
+$
+$
+$
+$
+$
+f
+1
+$
+1
+$
+$
+$
+1
+$
+1
+$
+1
+$
+$
+$
+$
+$
+$
+$
+1
+$
+1
+$
+4
+2
+8
+4
+4
+2
+4
+e
+4
+7
+4
+7
+9
+4
+2
+6
+2
+6
+2
+6
+2
+1
+2
+1
+2
+1
+0
+5
+0
+5
+0
+0
+0
+0
+0
+0
+0
+e
+0
+0
+0
+0
+0
+5
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+.0
+.0
+.0
+.0
+.0
+.0
+.0
+.0
+.0
+.0
+.0
+.0
+.0
+.0
+.0
+.0
+.0
+.0
+.0
+.0
+.0
+.0
+.0
+.0
+.0
+.0
+.0
+.0
+.0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+F
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+r
+e
+8
+8
+8
+8
+6
+6
+6
+6
+6
+6
+6
+6
+c
+c
+c
+c
+c
+c
+2
+2
+2
+2
+2
+2
+2
+2
+1
+1
+2
+u
+-c
+-c
+-c
+-c
+-c
+-c
+-c
+-c
+-c
+-c
+-c
+-c
+la
+la
+la
+la
+la
+la
+-w
+-w
+-w
+-w
+-w
+-w
+-w
+-w
+-w
+-w
+-w
+n
+la
+la
+la
+la
+la
+la
+la
+la
+la
+la
+la
+la
+s s
+s s
+s s
+s s
+s s
+s s
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+it
+s s s e s s io n
+s s s e s s io n
+s s s e s s io n
+s s s e s s io n
+s s s e s s io n
+s s s e s s io n
+s s s e s s io n
+s s s e s s io n
+s s s e s s io n
+s s s e s s io n
+s s s e s s io n
+s s s e s s io n
+e k s e s s io n
+e k s e s s io n
+e k s e s s io n
+e k s e s s io n
+e k s e s s io n
+e k s e s s io n
+e k s e s s io n
+e k s e s s io n
+e k s e s s io n
+e k s e s s io n
+e k s e s s io n
+25
+
+UPDATED FOR 11-12-2025 BUDGET VOTE
+G E N E R A L F U N D
+Project Title Department Estimated Cost Other Funding Sources Funded
+Public Safety Camera Expansion DICE $166,000 $0 $150,000
+Fleet Vehicles IPD $481,000 $0 $375,000
+Tractor IYB $63,350 $0 $63,350
+TOTAL $588,350
+P R E V I O U S L Y A U T H O R I Z E D P R O J E C T S
+New Public Safety Building IPD In 2025 we will pursue a new fit test for the site acquired.
+TOTAL n/a
+W A T E R & S E W E R
+Project Title Department Estimated Cost Other Funding Sources Funded
+60' Dam Rehabilitation Water & Sewer $10M $5.5M (FEMA) $2.5 million 2026
+$2.5 million 2027
+Water & Sewer Facility Renovations Water & Sewer $11M - Revised There may be a reserve fund $5 milion
+to $5M for 2026 for Water & Sewer.
+Miscellaneous Plant Improvements Water & Sewer $4M The plant is joint funded, so $2.285 million
+the City would be responsible City borrowing
+for approximately 58% of the
+debt.
+TOTAL 9.785 million
+2 0 2 6 E M E R G E N C Y R E S E R V E S C O N T R I B U T I O N
+Project Title Department Estimated Cost Other Funding Sources Funded
+Bridge Maintenance DPW $100,000 $0 $100,000
+Emergency Repair Fund DPW $400,000 $0 $400,000
+Technology Infrastructure Fund - NEW DICE $50,000 $0 $50,000
+Misc. Pump Station Improvements - NEW Water & Sewer $300,000 $0 $300,000
+TOTAL $300,000
+26

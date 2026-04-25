@@ -1,0 +1,14 @@
+[
+  {
+    "raw_path": "/Users/yaelin/Porch/scraper/data/raw/2026-04-01_civil_service_commission_agenda_3184.pdf",
+    "reason": "low text yield"
+  },
+  {
+    "raw_path": "/Users/yaelin/Porch/scraper/data/raw/2026-02-25_civil_service_commission_agenda_3162.pdf",
+    "reason": "low text yield"
+  },
+  {
+    "raw_path": "/Users/yaelin/Porch/scraper/data/raw/2026-01-07_civil_service_commission_agenda_3137.pdf",
+    "reason": "low text yield"
+  }
+]

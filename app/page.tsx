@@ -211,7 +211,7 @@ function PorchLogo() {
       alt="Porch"
       animate={{ y: [0, -6, 0] }}
       transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut" }}
-      style={{ height: "108px", width: "auto", objectFit: "contain" }}
+      style={{ height: "300px", width: "auto", objectFit: "contain" }}
     />
   );
 }
@@ -358,27 +358,34 @@ function WaveDivider({ fill, flip }: { fill: string; flip?: boolean }) {
 }
 
 // ─── Static content ────────────────────────────────────────────────────────────
+// Last scraped: April 25, 2026 — documents through 2026-04-28
 const URGENT_CARDS = [
   { id: "u1", photo: IMGS.building, badge: { text: "🚨 Closed", bg: C.coral },
-    title: "Seneca Street Garage shut — safety concerns. Use Green St or Cayuga St instead.", cta: "Read update →",
+    title: "Seneca Street Garage shut indefinitely — safety concerns. Use Green St or Cayuga St instead.", cta: "Read update →",
     url: "https://www.cityofithacany.gov/CivicAlerts.aspx?AID=1402" },
-  { id: "u2", photo: IMGS.council, badge: { text: "Apr 28 @ 6pm", bg: C.sky },
-    title: "Planning & Development Board meeting — open to the public. Your chance to be heard.", cta: "City Hall →",
-    url: "https://www.cityofithacany.gov/Calendar.aspx?EID=6566" },
-  { id: "u3", photo: IMGS.ballot, badge: { text: "💰 Big win", bg: C.sage },
-    title: "Ithaca wins $10 million state grant for MLK Jr. St corridor — new housing & public spaces", cta: "Read more →",
-    url: "https://www.cityofithacany.gov/CivicAlerts.aspx?AID=1400" },
-  { id: "u4", photo: IMGS.volunteer, badge: { text: "3 seats open", bg: C.yellow },
-    title: "Planning Board, ZBA & Conservation Board need volunteers — stipend available", cta: "Apply →",
-    url: "https://www.cityofithacany.gov/542/Boards-and-Committees" },
+  { id: "u2", photo: IMGS.council, badge: { text: "🏗 New Proposal", bg: C.sky },
+    title: "309 College Ave: 8-story, 77-unit mixed-use proposed for Collegetown — old fire station to be demolished.", cta: "Planning Board →",
+    url: "https://www.cityofithaca.org/DocumentCenter/Index/1966" },
+  { id: "u3", photo: IMGS.ballot, badge: { text: "📜 Charter Vote", bg: "#9B59B6" },
+    title: "Charter Revision Commission proposes moving city elections to even years — major governance change up for vote.", cta: "See changes →",
+    url: "https://www.cityofithacany.gov/AgendaCenter" },
+  { id: "u4", photo: IMGS.foodbank, badge: { text: "🏠 $1.17M Housing", bg: C.sage },
+    title: "IURA approves 2026 HUD Action Plan: $1.17M for affordable housing, homelessness services & community dev.", cta: "View plan →",
+    url: "https://www.cityofithacany.gov/AgendaCenter" },
+  { id: "u5", photo: IMGS.volunteer, badge: { text: "🚦 Council Vote", bg: C.yellow },
+    title: "Common Council weighing Home Rule Requests for school speed zones and red light cameras citywide.", cta: "Attend meeting →",
+    url: "https://www.youtube.com/@CityofIthacaPublicMeetings" },
 ];
 
 const PULSE_ITEMS = [
-  { id: "p1", icon: "💰", text: "Ithaca awarded $10 million NYS Downtown Revitalization Initiative grant for MLK Jr. St corridor", time: "Apr 23, 2026", color: C.sage },
-  { id: "p2", icon: "🚧", text: "Seneca Street Parking Garage closed indefinitely — 1973 structure exceeded its lifespan, redevelopment planned", time: "Apr 10, 2026", color: C.coral },
-  { id: "p3", icon: "🗳",  text: "5 new Common Council members sworn in — Robin Trumble, Hannah Shvets, Pat Sewell, Joe Kirby & Jorge Defendini", time: "Jan 7, 2026", color: C.yellow },
-  { id: "p4", icon: "⚡", text: "Tompkins Green Energy Network (T-GEN) launched — community clean energy now available for Ithaca residents", time: "Q1 2026", color: C.sky },
-  { id: "p5", icon: "🏗",  text: "Net-zero energy code now required for all new construction in Ithaca — city takes on climate action", time: "2025",     color: "#9B59B6" },
+  { id: "p1", icon: "🏗", text: "309 College Ave: 8-story, 77-unit mixed-use building with ground-floor retail proposed — old fire station to be demolished", time: "Apr 28, 2026", color: C.sky },
+  { id: "p2", icon: "📜", text: "Charter Revision Commission proposes moving Ithaca elections to even years, establishing decennial redistricting, and giving Common Council budget levy authority", time: "Apr 16, 2026", color: "#9B59B6" },
+  { id: "p3", icon: "🏠", text: "IURA adopts 2026 HUD Action Plan — $1.17M for affordable housing, Ross House (10 units for homeless), and youth housing scholarships", time: "Apr 23, 2026", color: C.sage },
+  { id: "p4", icon: "⚖️", text: "City Council Code of Conduct adopted and Ethics Advisory Board holds inaugural meeting — reviewing disclosure statements", time: "Apr 22–27, 2026", color: C.yellow },
+  { id: "p5", icon: "🚧", text: "Seneca Street Parking Garage closed indefinitely — 1973 structure exceeded its lifespan, redevelopment planned", time: "Apr 10, 2026", color: C.coral },
+  { id: "p6", icon: "💰", text: "Ithaca awarded $10 million NYS Downtown Revitalization Initiative grant for MLK Jr. St corridor — new housing & public spaces", time: "Apr 2026", color: C.sage },
+  { id: "p7", icon: "🏘", text: "Citywide PUD (Planned Unit Development) public hearing held — major zoning rewrite and affordable housing alignment underway", time: "Apr 15, 2026", color: C.sky },
+  { id: "p8", icon: "⚡", text: "Tompkins Green Energy Network (T-GEN) launched — community clean energy now available for Ithaca residents", time: "Q1 2026", color: C.muted },
 ];
 
 const ANON_COLORS = [C.coral, C.yellow, C.sage, C.sky, C.navy, "#9B59B6", "#E67E22"];
