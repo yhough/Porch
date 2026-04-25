@@ -6,7 +6,7 @@ import { signOut, useSession } from "next-auth/react";
 import { ISSUES, PARTIES } from "@/lib/onboardingData";
 import {
   getTaxBreakdown, repIsAligned, placeMatchedIssues, cardRelevanceScore,
-  type TaxBreakdown,
+  inferRepIssues, type TaxBreakdown,
 } from "@/lib/personalization";
 import dynamic from "next/dynamic";
 import {
@@ -1046,6 +1046,9 @@ export default function Home() {
                 const PARTY_COLORS: Record<string, string> = { Democratic: C.sky, Republican: C.coral, Independent: C.sage };
                 const partyColor = PARTY_COLORS[rep.party] ?? "#9B59B6";
                 const aligned = repIsAligned(rep.party, userPartyId);
+                const repIssues = inferRepIssues(rep.recentBills ?? [], rep.role);
+                const matchedIssues = repIssues.filter((id) => userIssues.includes(id));
+                const hasIssueMatch = matchedIssues.length > 0;
                 return (
                   <motion.div key={rep.id}
                     initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }}
@@ -1068,6 +1071,12 @@ export default function Home() {
                             ★ Aligned
                           </span>
                         )}
+                        {!aligned && hasIssueMatch && (
+                          <span className="absolute top-2 right-2 px-2 py-0.5 rounded-full text-[10px] font-extrabold text-white"
+                            style={{ backgroundColor: C.coral }}>
+                            ★ {matchedIssues.length} match{matchedIssues.length > 1 ? "es" : ""}
+                          </span>
+                        )}
                       </div>
                       <div className="p-5">
                         <div className="text-base font-extrabold leading-tight" style={{ color: C.navy }}>{rep.name}</div>
@@ -1085,13 +1094,26 @@ export default function Home() {
                               {rep.level}
                             </span>
                           )}
-                          {rep.recentBills && rep.recentBills.length > 0 && (
-                            <span className="px-2 py-0.5 rounded-full text-[11px] font-bold"
-                              style={{ backgroundColor: C.sage + "20", color: "#2E7D52" }}>
-                              {rep.recentBills.length} recent bills
-                            </span>
-                          )}
                         </div>
+                        {repIssues.length > 0 && (
+                          <div className="flex flex-wrap gap-1.5 mt-3">
+                            {repIssues.map((id) => {
+                              const meta = ISSUES.find((x) => x.id === id);
+                              const isMatch = userIssues.includes(id);
+                              return (
+                                <span key={id}
+                                  className="px-2 py-0.5 rounded-full text-[10px] font-bold"
+                                  style={{
+                                    backgroundColor: isMatch ? C.coral + "22" : "#F3F4F6",
+                                    color: isMatch ? C.coral : "#6B7280",
+                                    border: isMatch ? `1px solid ${C.coral}44` : "none",
+                                  }}>
+                                  {meta?.icon} {meta?.label ?? id}
+                                </span>
+                              );
+                            })}
+                          </div>
+                        )}
                         <button className="mt-4 w-full py-3 rounded-full text-sm font-bold text-white hover:opacity-90"
                           style={{ backgroundColor: color }}>
                           See details →
@@ -1607,6 +1629,51 @@ export default function Home() {
                   {openLiveRep.roleLabel}
                 </p>
               </div>
+
+              {/* Core values inferred from bills + role */}
+              {(() => {
+                const repIssues = inferRepIssues(openLiveRep.recentBills ?? [], openLiveRep.role);
+                if (repIssues.length === 0) return null;
+                const matched = repIssues.filter((id) => userIssues.includes(id));
+                return (
+                  <>
+                    <div style={{ height: 1, backgroundColor: "#F3F4F6" }} />
+                    <div className="px-6 py-5">
+                      <div className="flex items-center justify-between mb-3">
+                        <h4 className="text-base font-extrabold" style={{ color: C.navy }}>Core values</h4>
+                        {matched.length > 0 && (
+                          <span className="px-2.5 py-1 rounded-full text-[11px] font-extrabold text-white"
+                            style={{ backgroundColor: C.coral }}>
+                            ★ {matched.length} match{matched.length > 1 ? "es" : ""} with you
+                          </span>
+                        )}
+                      </div>
+                      <div className="flex flex-wrap gap-2">
+                        {repIssues.map((id) => {
+                          const meta = ISSUES.find((x) => x.id === id);
+                          const isMatch = userIssues.includes(id);
+                          return (
+                            <span key={id}
+                              className="px-3 py-1.5 rounded-full text-sm font-bold"
+                              style={{
+                                backgroundColor: isMatch ? C.coral + "18" : "#F3F4F6",
+                                color: isMatch ? C.coral : "#374151",
+                                border: isMatch ? `1.5px solid ${C.coral}55` : "1.5px solid transparent",
+                              }}>
+                              {meta?.icon} {meta?.label ?? id}
+                            </span>
+                          );
+                        })}
+                      </div>
+                      {matched.length === 0 && userIssues.length > 0 && (
+                        <p className="text-xs mt-3" style={{ color: "#9CA3AF" }}>
+                          No overlap with your selected issues — but they may still represent your neighborhood.
+                        </p>
+                      )}
+                    </div>
+                  </>
+                );
+              })()}
 
               {/* Real bills from OpenStates */}
               {openLiveRep.recentBills && openLiveRep.recentBills.length > 0 && (
