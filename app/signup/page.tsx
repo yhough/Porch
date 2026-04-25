@@ -43,7 +43,14 @@ export default function SignUpPage() {
       body: JSON.stringify({ name, email, password }),
     });
 
-    const data = await res.json();
+    let data: { error?: string } = {};
+    try {
+      data = await res.json();
+    } catch {
+      setError("Server error — please try again.");
+      setLoading(false);
+      return;
+    }
 
     if (!res.ok) {
       setError(data.error ?? "Something went wrong. Please try again.");

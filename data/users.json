@@ -61,5 +61,12 @@
       "party": "democratic",
       "completedAt": "2026-04-25T18:41:31.872Z"
     }
+  },
+  {
+    "id": "324e2a63-6c6b-40fd-945a-6c4db9982b8b",
+    "name": "Test User",
+    "email": "test@test.com",
+    "passwordHash": "$2b$12$XYAAZRrBQKaLGzDnGgzfl.Fjs.oaGneTdPQ91SCsGy.Weypy2Ab2G",
+    "createdAt": "2026-04-25T22:07:37.639Z"
   }
 ]

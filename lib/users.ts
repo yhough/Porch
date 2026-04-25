@@ -1,7 +1,19 @@
 import fs from "fs";
 import path from "path";
 
-const USERS_FILE = path.join(process.cwd(), "data", "users.json");
+// On Vercel (read-only filesystem) fall back to /tmp which is writable.
+// /tmp is ephemeral per-container but sufficient for demo/auth flow.
+const DEFAULT_FILE = path.join(process.cwd(), "data", "users.json");
+const TMP_FILE = "/tmp/porch-users.json";
+
+function getUsersFile(): string {
+  try {
+    fs.accessSync(path.dirname(DEFAULT_FILE), fs.constants.W_OK);
+    return DEFAULT_FILE;
+  } catch {
+    return TMP_FILE;
+  }
+}
 
 export interface OnboardingData {
   completedAt: string;
@@ -24,17 +36,39 @@ export interface StoredUser {
 }
 
 function readUsers(): StoredUser[] {
-  try {
-    if (!fs.existsSync(USERS_FILE)) return [];
-    return JSON.parse(fs.readFileSync(USERS_FILE, "utf-8"));
-  } catch {
-    return [];
+  // Always read from both locations and merge so users created in /tmp
+  // are visible alongside any seed users bundled in data/users.json.
+  const readFile = (p: string): StoredUser[] => {
+    try {
+      if (!fs.existsSync(p)) return [];
+      return JSON.parse(fs.readFileSync(p, "utf-8"));
+    } catch {
+      return [];
+    }
+  };
+
+  const file = getUsersFile();
+  if (file === DEFAULT_FILE) return readFile(DEFAULT_FILE);
+
+  // On Vercel: merge seed users from the bundled file with runtime users in /tmp
+  const seed = readFile(DEFAULT_FILE);
+  const tmp  = readFile(TMP_FILE);
+  // tmp users take precedence (they may have onboarding updates)
+  const merged = [...seed];
+  for (const u of tmp) {
+    if (!merged.find((s) => s.email === u.email)) merged.push(u);
+    else {
+      const idx = merged.findIndex((s) => s.email === u.email);
+      merged[idx] = u;
+    }
   }
+  return merged;
 }
 
 function writeUsers(users: StoredUser[]): void {
-  fs.mkdirSync(path.dirname(USERS_FILE), { recursive: true });
-  fs.writeFileSync(USERS_FILE, JSON.stringify(users, null, 2));
+  const file = getUsersFile();
+  fs.mkdirSync(path.dirname(file), { recursive: true });
+  fs.writeFileSync(file, JSON.stringify(users, null, 2));
 }
 
 export function findUserByEmail(email: string): StoredUser | null {
