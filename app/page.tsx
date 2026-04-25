@@ -64,17 +64,36 @@ interface FederalAwardRow {
   generated_internal_id?: string;
 }
 
+/** Normalized ACS 5-year profile from `/api/census`. */
+interface CensusSnapshot {
+  name: string;
+  population: number | null;
+  medianHouseholdIncome: number | null;
+  medianHomeValue: number | null;
+  medianGrossRent: number | null;
+  ownerOccupied: number | null;
+  renterOccupied: number | null;
+  renterSharePercent: number | null;
+  vintage: number;
+  dataset: string;
+}
+
 const WardMap = dynamic(() => import("@/components/WardMap"), { ssr: false });
 
 // ─── Color tokens ─────────────────────────────────────────────────────────────
 const C = {
-  coral:     "#E8513A",
-  yellow:    "#F5C842",
-  sage:      "#4CAF82",
-  sky:       "#5BA4CF",
-  bg:        "#FFFDF9",
-  navy:      "#1B2A4A",
-  sageLight: "#EDFAF4",
+  bg:        "#F7F4EE",  // warm off-white
+  navy:      "#1C2534",  // deep dark — primary text
+  coral:     "#5A8060",  // dark sage — primary CTAs / action (was coral red)
+  sage:      "#8BAF92",  // medium sage — soft accents, tags
+  sky:       "#7B9BAF",  // muted blue — info accents
+  yellow:    "#C4A878",  // warm amber — highlight word, alerts
+  muted:     "#6B7A8D",  // muted text — nav links, subtitles
+  faint:     "#8A9AB0",  // faint text — labels, placeholders
+  border:    "#E5DFD5",  // all borders and dividers
+  warmGray:  "#C8C4BC",  // separators
+  footer:    "#3A4050",  // footer background
+  sageLight: "#EEF4F0",  // light sage background tint
 } as const;
 
 
@@ -184,43 +203,16 @@ function FederalAwardCardInner({
   );
 }
 
-// ─── SVG: Floating hero character ─────────────────────────────────────────────
-function HeroChar() {
+// ─── Logo ─────────────────────────────────────────────────────────────────────
+function PorchLogo() {
   return (
-    <div className="float inline-block">
-      <svg width="150" height="170" viewBox="0 0 150 170" fill="none" aria-hidden="true">
-        <ellipse cx="75" cy="162" rx="38" ry="8" fill="rgba(0,0,0,0.12)" />
-        <rect x="55" y="122" width="14" height="34" rx="7" fill="#5C3D2E" />
-        <rect x="77" y="122" width="14" height="34" rx="7" fill="#5C3D2E" />
-        <ellipse cx="62" cy="157" rx="12" ry="6" fill="#1a1108" />
-        <ellipse cx="84" cy="157" rx="12" ry="6" fill="#1a1108" />
-        <rect x="47" y="82" width="52" height="48" rx="22" fill={C.coral} />
-        <motion.g
-          animate={{ rotate: [-12, 18, -12] }}
-          transition={{ duration: 0.75, repeat: Infinity, ease: "easeInOut" }}
-          style={{ transformOrigin: "47px 92px" }}
-        >
-          <path d="M47 92 Q22 72 33 52" stroke="#D4956A" strokeWidth="14" strokeLinecap="round" fill="none" />
-          <circle cx="31" cy="48" r="11" fill="#D4956A" />
-          <path d="M26 43 Q31 36 36 43" stroke="#C4855A" strokeWidth="3.5" strokeLinecap="round" fill="none" />
-        </motion.g>
-        <path d="M99 92 Q120 85 116 110" stroke="#D4956A" strokeWidth="14" strokeLinecap="round" fill="none" />
-        <rect x="108" y="108" width="20" height="30" rx="5" fill={C.navy} />
-        <rect x="110" y="111" width="16" height="23" rx="3" fill={C.sky} />
-        <circle cx="73" cy="60" r="30" fill="#D4956A" />
-        <path d="M45 52 Q50 30 73 28 Q96 30 101 52" fill="#2C1810" />
-        <ellipse cx="73" cy="34" rx="26" ry="13" fill="#2C1810" />
-        <circle cx="63" cy="58" r="5.5" fill="white" />
-        <circle cx="83" cy="58" r="5.5" fill="white" />
-        <circle cx="64" cy="59" r="3" fill="#2C1810" />
-        <circle cx="84" cy="59" r="3" fill="#2C1810" />
-        <circle cx="65" cy="57.5" r="1.2" fill="white" />
-        <circle cx="85" cy="57.5" r="1.2" fill="white" />
-        <path d="M64 69 Q73 78 82 69" stroke="#2C1810" strokeWidth="2.5" strokeLinecap="round" fill="none" />
-        <circle cx="56" cy="65" r="6" fill={C.coral} opacity="0.32" />
-        <circle cx="90" cy="65" r="6" fill={C.coral} opacity="0.32" />
-      </svg>
-    </div>
+    <motion.img
+      src="/logo.png"
+      alt="Porch"
+      animate={{ y: [0, -6, 0] }}
+      transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut" }}
+      style={{ height: "108px", width: "auto", objectFit: "contain" }}
+    />
   );
 }
 
@@ -414,12 +406,11 @@ function ProfileButton({ name, onClick }: { name: string; onClick: () => void })
   return (
     <button
       onClick={onClick}
-      className="absolute top-4 right-4 z-20 w-11 h-11 rounded-full flex items-center justify-center font-extrabold text-sm transition-opacity hover:opacity-85"
+      className="absolute top-4 right-4 z-20 w-11 h-11 rounded-full flex items-center justify-center font-extrabold text-sm transition-opacity hover:opacity-80"
       style={{
-        backgroundColor: "rgba(255,255,255,0.22)",
+        backgroundColor: C.navy,
         color: "white",
-        border: "2px solid rgba(255,255,255,0.4)",
-        backdropFilter: "blur(8px)",
+        boxShadow: "0 2px 12px rgba(28,37,52,0.18)",
       }}
     >
       {initials}
@@ -453,46 +444,48 @@ function ProfileSheet({ profile, onClose }: { profile: UserProfile; onClose: () 
         initial={{ y: "100%" }} animate={{ y: 0 }} exit={{ y: "100%" }}
         transition={{ type: "spring", damping: 32, stiffness: 320 }}
         className="fixed bottom-0 left-0 right-0 z-50 rounded-t-[32px] overflow-y-auto"
-        style={{ backgroundColor: C.bg, maxHeight: "92vh", paddingBottom: "env(safe-area-inset-bottom,24px)" }}
+        style={{ backgroundColor: "white", maxHeight: "92vh", paddingBottom: "env(safe-area-inset-bottom,24px)", boxShadow: "0 -8px 48px rgba(28,37,52,0.20)" }}
       >
-        {/* Handle */}
-        <div className="flex justify-center pt-3 pb-1">
-          <div className="w-10 h-1 rounded-full bg-gray-200" />
+        {/* Handle — sits on top of the navy header */}
+        <div className="flex justify-center pt-3 pb-0" style={{ backgroundColor: C.navy, borderRadius: "32px 32px 0 0" }}>
+          <div className="w-10 h-1 rounded-full" style={{ backgroundColor: "rgba(255,255,255,0.25)" }} />
         </div>
 
-        {/* Header */}
-        <div className="px-6 pt-4 pb-5 flex items-center gap-4">
-          <div className="w-16 h-16 rounded-full flex-shrink-0 flex items-center justify-center font-extrabold text-xl text-white"
-            style={{ backgroundColor: C.coral }}>
-            {initials}
-          </div>
-          <div className="flex-1 min-w-0">
-            <p className="text-xl font-extrabold leading-tight truncate" style={{ color: C.navy }}>{profile.name}</p>
-            <p className="text-sm mt-0.5 truncate" style={{ color: "#6B7280" }}>{profile.email}</p>
-            {ob?.completedAt && (
-              <p className="text-xs mt-1 font-medium" style={{ color: "#9CA3AF" }}>Member since {memberYear}</p>
-            )}
-          </div>
+        {/* Navy header block */}
+        <div className="relative px-6 pt-4 pb-6" style={{ backgroundColor: C.navy }}>
           <button onClick={onClose}
-            className="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0"
-            style={{ backgroundColor: "#F3F4F6" }}>
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-              <path d="M1 1l12 12M13 1L1 13" stroke="#6B7280" strokeWidth="2" strokeLinecap="round" />
+            className="absolute top-3 right-4 w-8 h-8 rounded-full flex items-center justify-center"
+            style={{ backgroundColor: "rgba(255,255,255,0.12)" }}>
+            <svg width="12" height="12" viewBox="0 0 14 14" fill="none">
+              <path d="M1 1l12 12M13 1L1 13" stroke="white" strokeWidth="2.5" strokeLinecap="round" />
             </svg>
           </button>
+          <div className="flex items-center gap-4">
+            <div className="w-16 h-16 rounded-full flex-shrink-0 flex items-center justify-center font-extrabold text-xl text-white"
+              style={{ backgroundColor: C.sage, border: "3px solid rgba(255,255,255,0.2)", boxShadow: "0 4px 16px rgba(0,0,0,0.25)" }}>
+              {initials}
+            </div>
+            <div className="flex-1 min-w-0">
+              <p className="text-xl font-extrabold leading-tight truncate text-white">{profile.name}</p>
+              <p className="text-sm mt-0.5 truncate" style={{ color: "rgba(255,255,255,0.6)" }}>{profile.email}</p>
+              {ob?.completedAt && (
+                <p className="text-xs mt-1 font-medium" style={{ color: "rgba(255,255,255,0.4)" }}>Member since {memberYear}</p>
+              )}
+            </div>
+          </div>
         </div>
 
         {ob ? (
           <>
-            <div style={{ height: 1, backgroundColor: "#F3F4F6" }} />
+            <div style={{ height: 1, backgroundColor: C.border }} />
 
             {/* Location */}
             {ob.address && (
               <div className="px-6 py-4">
-                <p className="text-xs font-bold uppercase tracking-wider mb-2" style={{ color: "#9CA3AF" }}>Location</p>
+                <p className="text-[11px] font-bold uppercase tracking-widest mb-2" style={{ color: C.faint }}>Location</p>
                 <div className="flex items-start gap-2">
                   <span className="text-base mt-0.5">📍</span>
-                  <p className="text-sm font-medium leading-snug" style={{ color: C.navy }}>{ob.address}</p>
+                  <p className="text-sm font-semibold leading-snug" style={{ color: C.navy }}>{ob.address}</p>
                 </div>
               </div>
             )}
@@ -500,9 +493,9 @@ function ProfileSheet({ profile, onClose }: { profile: UserProfile; onClose: () 
             {/* Demographics */}
             {(ob.age || ob.gender || ob.ethnicity || ob.income) && (
               <>
-                <div style={{ height: 1, backgroundColor: "#F3F4F6" }} />
+                <div style={{ height: 1, backgroundColor: C.border }} />
                 <div className="px-6 py-4">
-                  <p className="text-xs font-bold uppercase tracking-wider mb-3" style={{ color: "#9CA3AF" }}>About you</p>
+                  <p className="text-[11px] font-bold uppercase tracking-widest mb-3" style={{ color: C.faint }}>About you</p>
                   <div className="flex flex-wrap gap-2">
                     {ob.age && (
                       <span className="px-3 py-1.5 rounded-full text-sm font-bold"
@@ -512,19 +505,19 @@ function ProfileSheet({ profile, onClose }: { profile: UserProfile; onClose: () 
                     )}
                     {ob.gender && ob.gender !== "Prefer not to say" && (
                       <span className="px-3 py-1.5 rounded-full text-sm font-bold"
-                        style={{ backgroundColor: C.sage + "18", color: "#2E7D52" }}>
+                        style={{ backgroundColor: C.sage + "22", color: C.coral }}>
                         {ob.gender}
                       </span>
                     )}
                     {ob.ethnicity && ob.ethnicity !== "Prefer not to say" && (
                       <span className="px-3 py-1.5 rounded-full text-sm font-bold"
-                        style={{ backgroundColor: C.yellow + "22", color: "#7A6010" }}>
+                        style={{ backgroundColor: C.yellow + "28", color: "#7A6010" }}>
                         {ob.ethnicity}
                       </span>
                     )}
                     {ob.income && ob.income !== "Prefer not to say" && (
                       <span className="px-3 py-1.5 rounded-full text-sm font-bold"
-                        style={{ backgroundColor: "#9B59B6" + "18", color: "#9B59B6" }}>
+                        style={{ backgroundColor: "#9B59B620", color: "#9B59B6" }}>
                         💵 {ob.income}
                       </span>
                     )}
@@ -536,9 +529,9 @@ function ProfileSheet({ profile, onClose }: { profile: UserProfile; onClose: () 
             {/* Issues */}
             {ob.issues.length > 0 && (
               <>
-                <div style={{ height: 1, backgroundColor: "#F3F4F6" }} />
+                <div style={{ height: 1, backgroundColor: C.border }} />
                 <div className="px-6 py-4">
-                  <p className="text-xs font-bold uppercase tracking-wider mb-3" style={{ color: "#9CA3AF" }}>
+                  <p className="text-[11px] font-bold uppercase tracking-widest mb-3" style={{ color: C.faint }}>
                     Issues I care about
                   </p>
                   <div className="flex flex-wrap gap-2">
@@ -547,7 +540,7 @@ function ProfileSheet({ profile, onClose }: { profile: UserProfile; onClose: () 
                       if (!issue) return null;
                       return (
                         <span key={id} className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-sm font-bold"
-                          style={{ backgroundColor: C.coral + "14", color: C.coral }}>
+                          style={{ backgroundColor: C.coral + "16", color: C.coral }}>
                           {issue.icon} {issue.label}
                         </span>
                       );
@@ -560,9 +553,9 @@ function ProfileSheet({ profile, onClose }: { profile: UserProfile; onClose: () 
             {/* Party */}
             {partyObj && (
               <>
-                <div style={{ height: 1, backgroundColor: "#F3F4F6" }} />
+                <div style={{ height: 1, backgroundColor: C.border }} />
                 <div className="px-6 py-4">
-                  <p className="text-xs font-bold uppercase tracking-wider mb-3" style={{ color: "#9CA3AF" }}>Party</p>
+                  <p className="text-[11px] font-bold uppercase tracking-widest mb-3" style={{ color: C.faint }}>Party</p>
                   <span className="px-4 py-2 rounded-full text-sm font-extrabold"
                     style={{ backgroundColor: partyObj.color + "18", color: partyObj.color }}>
                     {partyObj.label}
@@ -572,8 +565,8 @@ function ProfileSheet({ profile, onClose }: { profile: UserProfile; onClose: () 
             )}
           </>
         ) : (
-          <div className="px-6 py-6 text-center">
-            <p className="text-sm font-medium mb-4" style={{ color: "#6B7280" }}>
+          <div className="px-6 py-8 text-center">
+            <p className="text-sm font-medium mb-4" style={{ color: C.muted }}>
               You haven&apos;t set up your profile yet.
             </p>
             <a href="/onboarding"
@@ -585,11 +578,11 @@ function ProfileSheet({ profile, onClose }: { profile: UserProfile; onClose: () 
         )}
 
         {/* Actions */}
-        <div style={{ height: 1, backgroundColor: "#F3F4F6" }} />
+        <div style={{ height: 1, backgroundColor: C.border }} />
         <div className="px-6 pt-4 pb-6 flex flex-col gap-3">
           <a href="/onboarding"
-            className="block w-full py-3.5 rounded-full font-bold text-center border-2 text-sm"
-            style={{ borderColor: "#E5E7EB", color: C.navy, backgroundColor: "white" }}>
+            className="block w-full py-3.5 rounded-full font-bold text-center text-sm"
+            style={{ border: `1.5px solid ${C.border}`, color: C.navy, backgroundColor: "white" }}>
             Edit profile
           </a>
           <button
@@ -657,6 +650,35 @@ export default function Home() {
     federalAutoStarted.current = true;
     loadFederalSpending();
   }, [federalVisible, loadFederalSpending]);
+
+  const censusAutoStarted = useRef(false);
+  const [censusData,    setCensusData]    = useState<CensusSnapshot | null>(null);
+  const [censusLoading, setCensusLoading] = useState(false);
+  const [censusError,   setCensusError]   = useState<string | null>(null);
+
+  const loadCensus = useCallback(async () => {
+    setCensusLoading(true);
+    setCensusError(null);
+    try {
+      const res = await fetch("/api/census");
+      const data = await res.json();
+      if (!res.ok) {
+        const msg = typeof data.error === "string" ? data.error : "Could not load Census data";
+        throw new Error(msg);
+      }
+      setCensusData(data as CensusSnapshot);
+    } catch (e) {
+      setCensusError(e instanceof Error ? e.message : "Something went wrong");
+    } finally {
+      setCensusLoading(false);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (!budgetTriggered || censusAutoStarted.current) return;
+    censusAutoStarted.current = true;
+    loadCensus();
+  }, [budgetTriggered, loadCensus]);
 
   const openLiveRep   = liveReps.find((r) => r.id === openLiveRepId) ?? null;
   const openLivePlace = livePlaces.find((p) => p.id === openLivePlaceId) ?? null;
@@ -761,31 +783,41 @@ export default function Home() {
     <div className="min-h-screen font-sans" style={{ backgroundColor: C.bg, paddingBottom: "90px" }}>
 
       {/* ══ SECTION 1: HERO ══════════════════════════════════════════════ */}
-      <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      <section id="home" className="relative flex items-center justify-center overflow-hidden"
+        style={{ backgroundColor: C.bg, height: "100dvh", minHeight: "100vh" }}>
         {session?.user && (
           <ProfileButton name={session.user.name ?? "U"} onClick={() => setProfileOpen(true)} />
         )}
-        <div className="absolute inset-0">
-          <img src={IMGS.hero} alt="" className="w-full h-full object-cover" />
-          <div className="absolute inset-0"
-            style={{ background: "linear-gradient(155deg,rgba(232,81,58,0.55) 0%,rgba(232,81,58,0.3) 45%,rgba(27,42,74,0.52) 100%)" }} />
+
+        {/* Decorative background blobs — no image */}
+        <div className="absolute inset-0 pointer-events-none overflow-hidden">
+          <div className="absolute -top-40 -right-32 w-[560px] h-[560px]"
+            style={{ background: "radial-gradient(circle at 40% 40%, rgba(139,175,146,0.20) 0%, transparent 65%)" }} />
+          <div className="absolute -bottom-32 -left-32 w-[420px] h-[420px]"
+            style={{ background: "radial-gradient(circle at 60% 60%, rgba(196,168,120,0.14) 0%, transparent 65%)" }} />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px]"
+            style={{ background: "radial-gradient(circle at 50% 50%, rgba(139,175,146,0.06) 0%, transparent 60%)" }} />
+          {/* Thin sage accent line at top */}
+          <div className="absolute top-0 left-0 right-0 h-[3px]"
+            style={{ background: `linear-gradient(90deg, ${C.sage}, ${C.coral}, ${C.yellow})` }} />
         </div>
 
         <div className="relative z-10 text-center px-6 max-w-xl mx-auto w-full">
           <motion.div initial={{ opacity: 0, y: 32 }} animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.85, ease: "easeOut" }}>
-            <div className="flex justify-center mb-5"><HeroChar /></div>
-            <h1 className="font-extrabold text-white leading-tight mb-4"
-              style={{ fontSize: "clamp(36px,6vw,52px)", textShadow: "0 2px 24px rgba(0,0,0,0.28)" }}>
+            <div className="flex justify-center mb-4"><PorchLogo /></div>
+            <h1 className="font-extrabold leading-tight mb-3"
+              style={{ fontSize: "clamp(28px,5.5vw,46px)", color: C.navy }}>
               Your neighborhood has a story.
               <br /><span style={{ color: C.yellow }}>Find out what it is.</span>
             </h1>
-            <p className="text-lg mb-8 font-medium" style={{ color: "rgba(255,255,255,0.87)" }}>
+            <p className="text-base mb-5 font-medium" style={{ color: C.muted }}>
               Type your Ithaca address to see your ward, who represents you, and where the money goes.
             </p>
 
-            <form onSubmit={handleSearch} className="mb-6">
-              <div className="flex rounded-full overflow-hidden" style={{ boxShadow: "0 8px 40px rgba(0,0,0,0.25)" }}>
+            <form onSubmit={handleSearch} className="mb-4">
+              <div className="flex rounded-full overflow-hidden"
+                style={{ boxShadow: "0 4px 24px rgba(28,37,52,0.12)", border: `1.5px solid ${C.border}` }}>
                 <input type="text" value={address} onChange={(e) => setAddress(e.target.value)}
                   placeholder="e.g. 301 W Court St, Ithaca"
                   className="flex-1 px-6 text-base outline-none"
@@ -795,7 +827,7 @@ export default function Home() {
                   style={{ backgroundColor: C.coral, height: "56px", fontSize: "15px" }}>
                   {searching
                     ? <span className="flex items-center gap-2">
-                        <span className="inline-block w-4 h-4 rounded-full border-2 border-t-white animate-spin"
+                        <span className="inline-block w-4 h-4 rounded-full border-2 animate-spin"
                           style={{ borderColor: "rgba(255,255,255,0.35)", borderTopColor: "white" }} />
                         Searching…
                       </span>
@@ -811,8 +843,7 @@ export default function Home() {
                 "🗺 5 wards & 15 districts",
               ].map((t) => (
                 <div key={t} className="px-4 py-2 rounded-full text-sm font-semibold"
-                  style={{ backgroundColor: "rgba(255,255,255,0.2)", color: "white",
-                           backdropFilter: "blur(8px)", border: "1px solid rgba(255,255,255,0.3)" }}>
+                  style={{ backgroundColor: "white", color: C.muted, border: `1px solid ${C.border}` }}>
                   {t}
                 </div>
               ))}
@@ -821,7 +852,7 @@ export default function Home() {
             {searched && (
               <motion.div initial={{ opacity: 0, scale: 0.88 }} animate={{ opacity: 1, scale: 1 }}
                 className="mt-5 inline-flex items-center gap-2 px-5 py-3 rounded-full font-bold text-white"
-                style={{ backgroundColor: C.sage }}>
+                style={{ backgroundColor: C.coral }}>
                 ✓ {liveReps.length > 0 ? `Found ${liveReps.length} officials for ${searchedAddress.split(",")[0]}` : "Loading your officials…"} — scroll down
               </motion.div>
             )}
@@ -830,7 +861,7 @@ export default function Home() {
 
         <motion.div animate={{ y: [0, 8, 0] }} transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
           className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1.5"
-          style={{ color: "rgba(255,255,255,0.7)" }}>
+          style={{ color: C.muted }}>
           <span className="text-xs font-semibold">Scroll to explore</span>
           <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
             <path d="M4 6l5 5 5-5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
@@ -1009,8 +1040,8 @@ export default function Home() {
       </section>
 
       {/* ══ SECTION 3: REPRESENTATIVES ═══════════════════════════════════ */}
-      <WaveDivider fill="#FFF0ED" />
-      <section id="people" className="py-14" style={{ backgroundColor: "#FFF0ED" }}>
+      <WaveDivider fill="#EEF4F0" />
+      <section id="people" className="py-14" style={{ backgroundColor: "#EEF4F0" }}>
         <div className="px-6 mb-2">
           <motion.h2 initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }} transition={{ duration: 0.4 }}
@@ -1018,7 +1049,7 @@ export default function Home() {
             Who runs things around here 👥
           </motion.h2>
           <div className="mt-2 w-14 h-1.5 rounded-full" style={{ backgroundColor: C.coral }} />
-          <p className="mt-2 text-base font-medium" style={{ color: "#9B7060" }}>
+          <p className="mt-2 text-base font-medium" style={{ color: C.muted }}>
             {ob && userPartyId && userPartyId !== "none" && alignedRepCount > 0
               ? `${alignedRepCount} of ${liveReps.length} officials share your party — shown first.`
               : "Most people have never heard of them. That's kind of the problem."}
@@ -1126,7 +1157,7 @@ export default function Home() {
           }
         </div>
       </section>
-      <WaveDivider fill="#FFF0ED" flip />
+      <WaveDivider fill="#EEF4F0" flip />
 
       {/* ══ SECTION 4: BUDGET ════════════════════════════════════════════ */}
       <section id="money" className="py-14 px-6" ref={budgetRef}>
@@ -1148,6 +1179,114 @@ export default function Home() {
           <AnimatedStat value={862}  prefix="$" label="Public Works / resident"   color={C.sky}     delay={0.2} />
           <AnimatedStat value={383}  prefix="$" label="Community Dev / resident"  color="#9B59B6"   delay={0.3} />
         </div>
+
+        {/* U.S. Census Bureau — ACS 5-year (Ithaca city) */}
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.1 }}
+          transition={{ duration: 0.45 }}
+          className="rounded-[28px] p-6 max-w-xl mx-auto mb-10"
+          style={{ backgroundColor: "white", boxShadow: "0 4px 20px rgba(0,0,0,0.07)" }}
+        >
+          <div className="flex items-start justify-between gap-3 mb-1">
+            <h3 className="text-xl font-extrabold leading-tight" style={{ color: C.navy }}>
+              Ithaca by the numbers 📊
+            </h3>
+            <span className="text-[10px] font-bold uppercase tracking-wide px-2 py-1 rounded-full flex-shrink-0"
+              style={{ backgroundColor: C.sage + "28", color: C.navy }}>
+              Census
+            </span>
+          </div>
+          <p className="text-sm font-medium mb-5" style={{ color: "#6B7280" }}>
+            American Community Survey (5-year), {censusData?.vintage ?? 2022} — city limits. Source:{" "}
+            <a href="https://data.census.gov" target="_blank" rel="noreferrer" className="underline font-bold" style={{ color: C.sky }}>
+              data.census.gov
+            </a>
+            .
+          </p>
+
+          {censusLoading && (
+            <div className="grid grid-cols-2 gap-3" aria-busy="true" aria-label="Loading Census data">
+              {[0, 1, 2, 3].map((i) => (
+                <div key={i} className="rounded-[20px] h-24 animate-pulse" style={{ backgroundColor: "#F3F4F6" }} />
+              ))}
+            </div>
+          )}
+
+          {!censusLoading && censusError && (
+            <div className="rounded-[20px] p-5" style={{ backgroundColor: "#FEF9F3", border: `1px solid ${C.yellow}55` }}>
+              <p className="text-sm font-bold mb-1" style={{ color: C.navy }}>Couldn&apos;t load Census data</p>
+              <p className="text-xs font-medium mb-4" style={{ color: "#6B7280" }}>{censusError}</p>
+              <button
+                type="button"
+                onClick={() => loadCensus()}
+                className="px-5 py-2.5 rounded-full text-sm font-bold text-white transition-opacity hover:opacity-90"
+                style={{ backgroundColor: C.coral }}
+              >
+                Try again
+              </button>
+            </div>
+          )}
+
+          {!censusLoading && !censusError && censusData && (
+            <div className="grid grid-cols-2 gap-3">
+              {[
+                {
+                  label: "Population",
+                  value: censusData.population != null ? censusData.population.toLocaleString() : "—",
+                  sub: censusData.name.replace(", New York", ""),
+                },
+                {
+                  label: "Median household income",
+                  value: censusData.medianHouseholdIncome != null
+                    ? `$${censusData.medianHouseholdIncome.toLocaleString()}`
+                    : "—",
+                  sub: "Per year",
+                },
+                {
+                  label: "Median gross rent",
+                  value: censusData.medianGrossRent != null
+                    ? `$${censusData.medianGrossRent.toLocaleString()}`
+                    : "—",
+                  sub: "Per month",
+                },
+                {
+                  label: "Median home value",
+                  value: censusData.medianHomeValue != null
+                    ? `$${censusData.medianHomeValue.toLocaleString()}`
+                    : "—",
+                  sub: "Owner-occupied units",
+                },
+              ].map((cell) => (
+                <div key={cell.label} className="rounded-[20px] p-4"
+                  style={{ backgroundColor: C.bg, border: `1px solid ${C.border}` }}>
+                  <div className="text-[10px] font-bold uppercase tracking-wide mb-1" style={{ color: C.faint }}>
+                    {cell.label}
+                  </div>
+                  <div className="text-xl font-black leading-tight" style={{ color: C.navy }}>{cell.value}</div>
+                  <div className="text-[11px] font-semibold mt-1" style={{ color: C.muted }}>{cell.sub}</div>
+                </div>
+              ))}
+              {censusData.renterSharePercent != null && (
+                <div className="col-span-2 rounded-[20px] p-4"
+                  style={{ backgroundColor: C.sky + "14", border: `1px solid ${C.sky}33` }}>
+                  <div className="text-[10px] font-bold uppercase tracking-wide mb-1" style={{ color: C.navy }}>
+                    Renter households
+                  </div>
+                  <div className="text-lg font-extrabold" style={{ color: C.navy }}>
+                    {censusData.renterSharePercent}% of occupied housing is rented
+                  </div>
+                  {censusData.renterOccupied != null && censusData.ownerOccupied != null && (
+                    <div className="text-xs font-medium mt-1" style={{ color: C.muted }}>
+                      {censusData.renterOccupied.toLocaleString()} renters · {censusData.ownerOccupied.toLocaleString()} owners
+                    </div>
+                  )}
+                </div>
+              )}
+            </div>
+          )}
+        </motion.div>
 
         {/* Federal spending (USASpending.gov) */}
         <motion.div
@@ -1356,8 +1495,8 @@ export default function Home() {
       </section>
 
       {/* ══ SECTION 5: VOLUNTEER ═════════════════════════════════════════ */}
-      <WaveDivider fill="#EDFAF4" />
-      <section id="help" className="py-14" style={{ backgroundColor: "#EDFAF4" }}>
+      <WaveDivider fill="#F0EDE8" />
+      <section id="help" className="py-14" style={{ backgroundColor: "#F0EDE8" }}>
         <div className="px-6 mb-6">
           <motion.h2 initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }} transition={{ duration: 0.4 }}
@@ -1384,7 +1523,7 @@ export default function Home() {
               </h3>
               <div className="flex items-center gap-4">
                 <button className="px-6 py-3 rounded-full font-bold hover:scale-105 transition-transform"
-                  style={{ backgroundColor: "white", color: "#2E7D52" }}>
+                  style={{ backgroundColor: "white", color: C.coral }}>
                   I'll be there →
                 </button>
                 <span className="text-xs" style={{ color: "rgba(255,255,255,0.7)" }}>
@@ -1472,7 +1611,7 @@ export default function Home() {
                 className="bg-white rounded-[20px] p-5 flex gap-4 items-start"
                 style={{ boxShadow: "0 4px 16px rgba(0,0,0,0.06)" }}>
                 <div className="flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center font-extrabold text-sm text-white"
-                  style={{ backgroundColor: v.urgency === "open" ? C.coral : C.sage }}>
+                  style={{ backgroundColor: C.coral }}>
                   {v.urgency === "open" ? "!" : "+"}
                 </div>
                 <div className="flex-1 min-w-0">
@@ -1502,7 +1641,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <WaveDivider fill="#EDFAF4" flip />
+      <WaveDivider fill="#F0EDE8" flip />
 
       {/* ══ SECTION 6: PULSE ═════════════════════════════════════════════ */}
       <section id="pulse" className="py-14 px-6">
@@ -1601,7 +1740,7 @@ export default function Home() {
                     <div className="flex flex-wrap gap-2 mt-2">
                       {openLiveRep.party && (
                         <span className="px-3 py-1 rounded-full text-xs font-bold"
-                          style={{ backgroundColor: C.sageLight, color: "#2E7D52" }}>
+                          style={{ backgroundColor: C.sageLight, color: C.coral }}>
                           {openLiveRep.party}
                         </span>
                       )}
@@ -1778,7 +1917,7 @@ export default function Home() {
                 <a href={`https://maps.google.com/?q=${encodeURIComponent(openLivePlace.name + " " + openLivePlace.address)}`}
                   target="_blank" rel="noreferrer"
                   className="block mb-3 w-full py-4 rounded-full font-bold text-white text-center hover:opacity-90"
-                  style={{ backgroundColor: C.sage }}>
+                  style={{ backgroundColor: C.coral }}>
                   🗺 Get directions
                 </a>
               </div>
