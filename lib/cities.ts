@@ -11,7 +11,8 @@ export interface PulseItem {
 
 export interface UrgentCard {
   id: string;
-  photo: string;
+  gradient: string;
+  iconType: string;
   badge: { text: string; bg: string };
   title: string;
   cta: string;
@@ -35,10 +36,6 @@ export interface CityConfig {
   pulseItems: PulseItem[];
   urgentCards: UrgentCard[];
 }
-
-// ─── Shared image helper (Unsplash) ──────────────────────────────────────────
-const u = (id: string, w = 800) =>
-  `https://images.unsplash.com/photo-${id}?w=${w}&auto=format&fit=crop&q=80`;
 
 // ─── Color palettes ───────────────────────────────────────────────────────────
 const ITHACA_COLORS = ["#E8513A", "#F5C842", "#4CAF82", "#5BA4CF", "#9B59B6"];
@@ -73,11 +70,11 @@ const ITHACA: CityConfig = {
     { id: "i8", icon: "⚡", text: "Tompkins Green Energy Network (T-GEN) launched — community clean energy now available for Ithaca residents", time: "Q1 2026", color: "#6B7280" },
   ],
   urgentCards: [
-    { id: "u1", photo: u("1486325212027-8081e485255e"), badge: { text: "🚨 Closed", bg: "#5A8060" }, title: "Seneca Street Garage shut indefinitely — safety concerns. Use Green St or Cayuga St instead.", cta: "Read update →", url: "https://www.cityofithacany.gov/CivicAlerts.aspx?AID=1402" },
-    { id: "u2", photo: u("1541872703-74c5e44368f9"), badge: { text: "🏗 New Proposal", bg: "#7B9BAF" }, title: "309 College Ave: 8-story, 77-unit mixed-use proposed for Collegetown — old fire station to be demolished.", cta: "Planning Board →", url: "https://www.cityofithaca.org/DocumentCenter/Index/1966" },
-    { id: "u3", photo: u("1540910419892-4a36d2c3266c"), badge: { text: "📜 Charter Vote", bg: "#9B59B6" }, title: "Charter Revision Commission proposes moving city elections to even years — major governance change up for vote.", cta: "See changes →", url: "https://www.cityofithacany.gov/AgendaCenter" },
-    { id: "u4", photo: u("1593113598332-cd288d649433"), badge: { text: "🏠 $1.17M Housing", bg: "#4CAF82" }, title: "IURA approves 2026 HUD Action Plan: $1.17M for affordable housing, homelessness services & community dev.", cta: "View plan →", url: "https://www.cityofithacany.gov/AgendaCenter" },
-    { id: "u5", photo: u("1559027615-cd4628902d4a", 1200), badge: { text: "🚦 Council Vote", bg: "#C4A878" }, title: "Common Council weighing Home Rule Requests for school speed zones and red light cameras citywide.", cta: "Attend meeting →", url: "https://www.youtube.com/@CityofIthacaPublicMeetings" },
+    { id: "u1", gradient: "linear-gradient(145deg,#D35400 0%,#7B241C 100%)", iconType: "garage",       badge: { text: "🚨 Closed",         bg: "#5A8060" }, title: "Seneca Street Garage shut indefinitely — safety concerns. Use Green St or Cayuga St instead.",          cta: "Read update →",    url: "https://www.cityofithacany.gov/CivicAlerts.aspx?AID=1402" },
+    { id: "u2", gradient: "linear-gradient(145deg,#1A6FA0 0%,#0D3B59 100%)", iconType: "construction", badge: { text: "🏗 New Proposal",  bg: "#7B9BAF" }, title: "309 College Ave: 8-story, 77-unit mixed-use proposed for Collegetown — old fire station to be demolished.", cta: "Planning Board →",  url: "https://www.cityofithaca.org/DocumentCenter/Index/1966" },
+    { id: "u3", gradient: "linear-gradient(145deg,#7D3C98 0%,#4A235A 100%)", iconType: "vote",         badge: { text: "📜 Charter Vote",  bg: "#9B59B6" }, title: "Charter Revision Commission proposes moving city elections to even years — major governance change up for vote.", cta: "See changes →",   url: "https://www.cityofithacany.gov/AgendaCenter" },
+    { id: "u4", gradient: "linear-gradient(145deg,#1E8449 0%,#0E5733 100%)", iconType: "housing",      badge: { text: "🏠 $1.17M Housing", bg: "#4CAF82" }, title: "IURA approves 2026 HUD Action Plan: $1.17M for affordable housing, homelessness services & community dev.", cta: "View plan →",      url: "https://www.cityofithacany.gov/AgendaCenter" },
+    { id: "u5", gradient: "linear-gradient(145deg,#B7770D 0%,#784212 100%)", iconType: "council",      badge: { text: "🚦 Council Vote",  bg: "#C4A878" }, title: "Common Council weighing Home Rule Requests for school speed zones and red light cameras citywide.",      cta: "Attend meeting →", url: "https://www.youtube.com/@CityofIthacaPublicMeetings" },
   ],
 };
 
@@ -107,10 +104,10 @@ const NYC: CityConfig = {
     { id: "n8", icon: "🗳", text: "NYC mayoral primary 2025: open race, ranked-choice voting, multiple candidates from all five boroughs", time: "Jun 2025", color: "#5BA4CF" },
   ],
   urgentCards: [
-    { id: "n-u1", photo: u("1480714378408-67cf0d13bc1b", 1400), badge: { text: "🏘 Zoning Change", bg: "#4CAF82" }, title: "City of Yes upzoning now in effect — transit zones, ADUs, and office-to-residential conversions citywide.", cta: "Find your zone →", url: "https://zola.planning.nyc.gov/" },
-    { id: "n-u2", photo: u("1541872703-74c5e44368f9"), badge: { text: "🗳 59 districts", bg: "#5BA4CF" }, title: "Community Board meetings this month — each of 59 boards hears public comment on land use, permits, and services.", cta: "Find your board →", url: "https://www.nyc.gov/site/manhattancb1/index.page" },
-    { id: "n-u3", photo: u("1540910419892-4a36d2c3266c"), badge: { text: "🚗 $9 toll active", bg: "#E8513A" }, title: "Congestion pricing toll active below 60th St in Manhattan — credits available for low-income drivers.", cta: "Check exemptions →", url: "https://congestionreliefzone.mta.info/" },
-    { id: "n-u4", photo: u("1593113598332-cd288d649433"), badge: { text: "🌱 LL97 fines", bg: "#4CAF82" }, title: "Local Law 97 carbon fines issued — does your building comply? Check emissions status before 2026 deadline.", cta: "Check your building →", url: "https://www.nyc.gov/site/buildings/index.page" },
+    { id: "n-u1", gradient: "linear-gradient(145deg,#148F77 0%,#0A5745 100%)", iconType: "zoning",      badge: { text: "🏘 Zoning Change",  bg: "#4CAF82" }, title: "City of Yes upzoning now in effect — transit zones, ADUs, and office-to-residential conversions citywide.",             cta: "Find your zone →",     url: "https://zola.planning.nyc.gov/" },
+    { id: "n-u2", gradient: "linear-gradient(145deg,#1A6FA0 0%,#0D3B59 100%)", iconType: "community",   badge: { text: "🗳 59 districts",    bg: "#5BA4CF" }, title: "Community Board meetings this month — each of 59 boards hears public comment on land use, permits, and services.", cta: "Find your board →",    url: "https://www.nyc.gov/site/manhattancb1/index.page" },
+    { id: "n-u3", gradient: "linear-gradient(145deg,#C0392B 0%,#7B241C 100%)", iconType: "transit",     badge: { text: "🚗 $9 toll active",  bg: "#E8513A" }, title: "Congestion pricing toll active below 60th St in Manhattan — credits available for low-income drivers.",               cta: "Check exemptions →",   url: "https://congestionreliefzone.mta.info/" },
+    { id: "n-u4", gradient: "linear-gradient(145deg,#1E8449 0%,#0E5733 100%)", iconType: "climate",     badge: { text: "🌱 LL97 fines",      bg: "#4CAF82" }, title: "Local Law 97 carbon fines issued — does your building comply? Check emissions status before 2026 deadline.",           cta: "Check your building →", url: "https://www.nyc.gov/site/buildings/index.page" },
   ],
 };
 

@@ -78,20 +78,24 @@ export default function SignUpPage() {
         transition={{ duration: 0.5, ease: "easeOut" }}
         className="w-full max-w-sm"
       >
-        {/* Brand mark */}
+        {/* Brand */}
         <div className="text-center mb-10">
-          <motion.div
-            initial={{ scale: 0.7, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ duration: 0.4, delay: 0.1, type: "spring", stiffness: 260, damping: 20 }}
-            className="inline-flex items-center justify-center w-[72px] h-[72px] rounded-[22px] mb-5"
-            style={{ backgroundColor: C.coral, boxShadow: "0 8px 28px rgba(232,81,58,0.35)" }}
+          <Link
+            href="/"
+            className="inline-block mb-5 rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2"
+            style={{ outlineColor: C.coral }}
+            aria-label="Porch home"
           >
-            <svg width="36" height="36" viewBox="0 0 36 36" fill="none" aria-hidden="true">
-              <path d="M5 16L18 5l13 11v16H5V16z" fill="white" opacity="0.95" />
-              <rect x="13" y="22" width="10" height="10" rx="2" fill={C.coral} />
-            </svg>
-          </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.35 }}
+              className="text-4xl sm:text-5xl font-black tracking-tight"
+              style={{ color: C.navy, letterSpacing: "-0.02em" }}
+            >
+              porch<span style={{ color: C.coral }}>.</span>
+            </motion.div>
+          </Link>
           <h1 className="text-3xl font-extrabold tracking-tight" style={{ color: C.navy }}>
             Create your account
           </h1>

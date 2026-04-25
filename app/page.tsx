@@ -136,19 +136,6 @@ const C = {
 } as const;
 
 
-const u = (id: string, w = 800) =>
-  `https://images.unsplash.com/photo-${id}?w=${w}&auto=format&fit=crop&q=80`;
-
-const IMGS = {
-  hero:      u("1480714378408-67cf0d13bc1b", 1400),
-  building:  u("1486325212027-8081e485255e"),
-  council:   u("1541872703-74c5e44368f9"),
-  foodbank:  u("1593113598332-cd288d649433"),
-  ballot:    u("1540910419892-4a36d2c3266c"),
-  volunteer: u("1559027615-cd4628902d4a", 1200),
-  animals:   u("1548199973-03cce0bbc87b"),
-};
-
 // ─── Count-up animation hook ──────────────────────────────────────────────────
 function useCountUp(to: number, duration = 1.4) {
   const [val, setVal] = useState(0);
@@ -256,16 +243,9 @@ function PorchLogo() {
 }
 
 // ─── SVG: Rep illustrated avatar ──────────────────────────────────────────────
-function RepAvatar({ color, initials, size = 88, photoUrl }: { color: string; initials: string; size?: number; photoUrl?: string | null }) {
-  if (photoUrl) {
-    return (
-      <div style={{ width: size, height: size, borderRadius: "50%", overflow: "hidden", flexShrink: 0 }}>
-        <img src={photoUrl} alt={initials} style={{ width: "100%", height: "100%", objectFit: "cover" }}
-          onError={(e) => { (e.target as HTMLImageElement).style.display = "none"; }} />
-      </div>
-    );
-  }
-  // fallback to illustrated SVG avatar
+function RepAvatar({ color, initials, size = 88 }: { color: string; initials: string; size?: number; photoUrl?: string | null }) {
+  void color; // used only for background, kept for call-site compatibility
+  // illustrated SVG avatar — no external photos
   const hairColor = initials.charCodeAt(0) % 3 !== 2 ? "#2C1810" : "#8B4513";
   return (
     <svg width={size} height={size} viewBox="0 0 90 90" fill="none" aria-hidden="true">
@@ -396,25 +376,143 @@ function WaveDivider({ fill, flip }: { fill: string; flip?: boolean }) {
   );
 }
 
-// ─── Static content ────────────────────────────────────────────────────────────
-// Last scraped: April 25, 2026 — documents through 2026-04-28
-const URGENT_CARDS = [
-  { id: "u1", photo: IMGS.building, badge: { text: "🚨 Closed", bg: C.coral },
-    title: "Seneca Street Garage shut indefinitely — safety concerns. Use Green St or Cayuga St instead.", cta: "Read update →",
-    url: "https://www.cityofithacany.gov/CivicAlerts.aspx?AID=1402" },
-  { id: "u2", photo: IMGS.council, badge: { text: "🏗 New Proposal", bg: C.sky },
-    title: "309 College Ave: 8-story, 77-unit mixed-use proposed for Collegetown — old fire station to be demolished.", cta: "Planning Board →",
-    url: "https://www.cityofithaca.org/DocumentCenter/Index/1966" },
-  { id: "u3", photo: IMGS.ballot, badge: { text: "📜 Charter Vote", bg: "#9B59B6" },
-    title: "Charter Revision Commission proposes moving city elections to even years — major governance change up for vote.", cta: "See changes →",
-    url: "https://www.cityofithacany.gov/AgendaCenter" },
-  { id: "u4", photo: IMGS.foodbank, badge: { text: "🏠 $1.17M Housing", bg: C.sage },
-    title: "IURA approves 2026 HUD Action Plan: $1.17M for affordable housing, homelessness services & community dev.", cta: "View plan →",
-    url: "https://www.cityofithacany.gov/AgendaCenter" },
-  { id: "u5", photo: IMGS.volunteer, badge: { text: "🚦 Council Vote", bg: C.yellow },
-    title: "Common Council weighing Home Rule Requests for school speed zones and red light cameras citywide.", cta: "Attend meeting →",
-    url: "https://www.youtube.com/@CityofIthacaPublicMeetings" },
-];
+// ─── Card illustrations ────────────────────────────────────────────────────────
+function CardIcon({ type }: { type: string }) {
+  const fill = "rgba(255,255,255,0.16)";
+  const stroke = "rgba(255,255,255,0.82)";
+  const sw = 2.5;
+  const cls = "w-[120px] h-[120px]";
+
+  if (type === "garage") return (
+    <svg className={cls} viewBox="0 0 120 120" fill="none" aria-hidden="true">
+      <rect x="18" y="52" width="84" height="58" rx="3" fill={fill} stroke={stroke} strokeWidth={sw}/>
+      <line x1="18" y1="78" x2="102" y2="78" stroke={stroke} strokeWidth={1.5} opacity="0.45"/>
+      <rect x="27" y="58" width="15" height="16" rx="2" fill="rgba(255,255,255,0.2)"/>
+      <rect x="52" y="58" width="15" height="16" rx="2" fill="rgba(255,255,255,0.2)"/>
+      <rect x="77" y="58" width="15" height="16" rx="2" fill="rgba(255,255,255,0.2)"/>
+      <circle cx="60" cy="29" r="19" fill={fill} stroke={stroke} strokeWidth={sw}/>
+      <path d="M52 22h12a7 7 0 0 1 0 14H52V22z" stroke={stroke} strokeWidth={sw} strokeLinejoin="round" fill="none"/>
+      <line x1="52" y1="36" x2="52" y2="43" stroke={stroke} strokeWidth={sw} strokeLinecap="round"/>
+      <line x1="45" y1="45" x2="75" y2="14" stroke="rgba(255,180,180,0.9)" strokeWidth="3.5" strokeLinecap="round"/>
+      <line x1="45" y1="14" x2="75" y2="45" stroke="rgba(255,180,180,0.9)" strokeWidth="3.5" strokeLinecap="round"/>
+    </svg>
+  );
+
+  if (type === "construction") return (
+    <svg className={cls} viewBox="0 0 120 120" fill="none" aria-hidden="true">
+      <rect x="22" y="48" width="58" height="62" rx="2" fill={fill} stroke={stroke} strokeWidth={sw}/>
+      <line x1="22" y1="72" x2="80" y2="72" stroke={stroke} strokeWidth={1.5} opacity="0.45"/>
+      <line x1="22" y1="94" x2="80" y2="94" stroke={stroke} strokeWidth={1.5} opacity="0.45"/>
+      <rect x="30" y="53" width="14" height="14" rx="2" fill="rgba(255,255,255,0.2)"/>
+      <rect x="54" y="53" width="14" height="14" rx="2" fill="rgba(255,255,255,0.2)"/>
+      <line x1="82" y1="110" x2="82" y2="18" stroke={stroke} strokeWidth={3.5} strokeLinecap="round"/>
+      <line x1="82" y1="18" x2="108" y2="18" stroke={stroke} strokeWidth={3.5} strokeLinecap="round"/>
+      <line x1="108" y1="18" x2="108" y2="42" stroke={stroke} strokeWidth={2} strokeDasharray="5 3" opacity="0.65"/>
+      <line x1="82" y1="28" x2="98" y2="18" stroke={stroke} strokeWidth={1.5} opacity="0.55"/>
+    </svg>
+  );
+
+  if (type === "vote") return (
+    <svg className={cls} viewBox="0 0 120 120" fill="none" aria-hidden="true">
+      <rect x="22" y="18" width="76" height="90" rx="5" fill={fill} stroke={stroke} strokeWidth={sw}/>
+      <rect x="38" y="26" width="44" height="7" rx="3" fill="rgba(255,255,255,0.28)"/>
+      <line x1="35" y1="46" x2="85" y2="46" stroke={stroke} strokeWidth={2} opacity="0.45"/>
+      <line x1="35" y1="59" x2="85" y2="59" stroke={stroke} strokeWidth={2} opacity="0.45"/>
+      <line x1="35" y1="72" x2="85" y2="72" stroke={stroke} strokeWidth={2} opacity="0.45"/>
+      <rect x="30" y="82" width="20" height="20" rx="3" fill="rgba(255,255,255,0.2)" stroke={stroke} strokeWidth={2}/>
+      <path d="M34 93l5 5 10-12" stroke="rgba(255,255,255,0.95)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+    </svg>
+  );
+
+  if (type === "housing") return (
+    <svg className={cls} viewBox="0 0 120 120" fill="none" aria-hidden="true">
+      <path d="M4 82 L4 56 L22 36 L40 56 L40 82 Z" fill={fill} stroke={stroke} strokeWidth={sw} strokeLinejoin="round"/>
+      <rect x="12" y="65" width="20" height="17" rx="1" fill="rgba(255,255,255,0.2)"/>
+      <path d="M36 82 L36 46 L60 20 L84 46 L84 82 Z" fill={fill} stroke={stroke} strokeWidth={sw} strokeLinejoin="round"/>
+      <rect x="46" y="57" width="28" height="25" rx="1" fill="rgba(255,255,255,0.2)"/>
+      <path d="M80 82 L80 56 L98 36 L116 56 L116 82 Z" fill={fill} stroke={stroke} strokeWidth={sw} strokeLinejoin="round"/>
+      <rect x="88" y="65" width="20" height="17" rx="1" fill="rgba(255,255,255,0.2)"/>
+      <line x1="0" y1="82" x2="120" y2="82" stroke={stroke} strokeWidth={1.8} opacity="0.4"/>
+    </svg>
+  );
+
+  if (type === "council") return (
+    <svg className={cls} viewBox="0 0 120 120" fill="none" aria-hidden="true">
+      <rect x="52" y="18" width="48" height="24" rx="5" fill={fill} stroke={stroke} strokeWidth={sw}/>
+      <rect x="57" y="18" width="20" height="24" rx="4" fill="rgba(255,255,255,0.1)" stroke={stroke} strokeWidth={1.5}/>
+      <line x1="60" y1="42" x2="22" y2="92" stroke={stroke} strokeWidth={4.5} strokeLinecap="round"/>
+      <rect x="18" y="94" width="64" height="16" rx="4" fill={fill} stroke={stroke} strokeWidth={sw}/>
+      <line x1="100" y1="28" x2="114" y2="18" stroke={stroke} strokeWidth={1.5} opacity="0.5" strokeLinecap="round"/>
+      <line x1="104" y1="40" x2="118" y2="40" stroke={stroke} strokeWidth={1.5} opacity="0.5" strokeLinecap="round"/>
+    </svg>
+  );
+
+  if (type === "zoning") return (
+    <svg className={cls} viewBox="0 0 120 120" fill="none" aria-hidden="true">
+      <rect x="12" y="12" width="30" height="30" rx="3" fill="rgba(255,255,255,0.3)" stroke={stroke} strokeWidth={sw}/>
+      <rect x="48" y="12" width="30" height="30" rx="3" fill={fill} stroke={stroke} strokeWidth={sw}/>
+      <rect x="84" y="12" width="24" height="30" rx="3" fill={fill} stroke={stroke} strokeWidth={sw}/>
+      <rect x="12" y="48" width="30" height="30" rx="3" fill={fill} stroke={stroke} strokeWidth={sw}/>
+      <rect x="48" y="48" width="30" height="30" rx="3" fill="rgba(255,255,255,0.3)" stroke={stroke} strokeWidth={sw}/>
+      <rect x="84" y="48" width="24" height="30" rx="3" fill="rgba(255,255,255,0.25)" stroke={stroke} strokeWidth={sw}/>
+      <rect x="12" y="84" width="30" height="24" rx="3" fill={fill} stroke={stroke} strokeWidth={sw}/>
+      <rect x="48" y="84" width="60" height="24" rx="3" fill={fill} stroke={stroke} strokeWidth={sw}/>
+      <path d="M27 30 L27 20 M24 23 L27 20 L30 23" stroke="rgba(255,255,255,0.9)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+    </svg>
+  );
+
+  if (type === "community") return (
+    <svg className={cls} viewBox="0 0 120 120" fill="none" aria-hidden="true">
+      <circle cx="60" cy="28" r="15" fill={fill} stroke={stroke} strokeWidth={sw}/>
+      <path d="M34 92 Q34 68 60 68 Q86 68 86 92" fill={fill} stroke={stroke} strokeWidth={sw} strokeLinejoin="round"/>
+      <circle cx="22" cy="40" r="12" fill={fill} stroke={stroke} strokeWidth={1.8}/>
+      <path d="M2 88 Q2 68 22 68 Q36 68 40 80" fill="none" stroke={stroke} strokeWidth={1.8}/>
+      <circle cx="98" cy="40" r="12" fill={fill} stroke={stroke} strokeWidth={1.8}/>
+      <path d="M118 88 Q118 68 98 68 Q84 68 80 80" fill="none" stroke={stroke} strokeWidth={1.8}/>
+    </svg>
+  );
+
+  if (type === "transit") return (
+    <svg className={cls} viewBox="0 0 120 120" fill="none" aria-hidden="true">
+      <rect x="12" y="64" width="96" height="34" rx="9" fill={fill} stroke={stroke} strokeWidth={sw}/>
+      <path d="M26 64 L36 42 L84 42 L94 64" fill={fill} stroke={stroke} strokeWidth={sw} strokeLinejoin="round"/>
+      <circle cx="34" cy="100" r="11" fill={fill} stroke={stroke} strokeWidth={sw}/>
+      <circle cx="34" cy="100" r="4.5" fill="rgba(255,255,255,0.28)"/>
+      <circle cx="86" cy="100" r="11" fill={fill} stroke={stroke} strokeWidth={sw}/>
+      <circle cx="86" cy="100" r="4.5" fill="rgba(255,255,255,0.28)"/>
+      <line x1="8" y1="52" x2="112" y2="52" stroke={stroke} strokeWidth={3} strokeLinecap="round" opacity="0.7"/>
+      <rect x="4" y="30" width="16" height="26" rx="3" fill={fill} stroke={stroke} strokeWidth={1.5}/>
+      <path d="M76 14 C76 14 62 10 62 22 C62 28 68 32 76 32 C84 32 90 28 90 22 C90 10 76 14Z" fill="rgba(255,255,255,0.22)" stroke={stroke} strokeWidth={2}/>
+      <line x1="76" y1="10" x2="76" y2="13" stroke={stroke} strokeWidth={2} strokeLinecap="round"/>
+      <line x1="76" y1="31" x2="76" y2="34" stroke={stroke} strokeWidth={2} strokeLinecap="round"/>
+    </svg>
+  );
+
+  if (type === "climate") return (
+    <svg className={cls} viewBox="0 0 120 120" fill="none" aria-hidden="true">
+      <rect x="34" y="52" width="52" height="58" rx="3" fill={fill} stroke={stroke} strokeWidth={sw}/>
+      <line x1="34" y1="74" x2="86" y2="74" stroke={stroke} strokeWidth={1.5} opacity="0.4"/>
+      <line x1="34" y1="94" x2="86" y2="94" stroke={stroke} strokeWidth={1.5} opacity="0.4"/>
+      <rect x="42" y="57" width="13" height="13" rx="2" fill="rgba(255,255,255,0.2)"/>
+      <rect x="65" y="57" width="13" height="13" rx="2" fill="rgba(255,255,255,0.2)"/>
+      <path d="M60 50 C46 36 20 34 18 18 C32 16 54 24 62 42" fill="rgba(255,255,255,0.2)" stroke={stroke} strokeWidth={2}/>
+      <path d="M18 18 C24 30 40 40 60 50" stroke={stroke} strokeWidth={2} strokeLinecap="round"/>
+      <circle cx="94" cy="36" r="13" fill="rgba(255,220,80,0.25)" stroke="rgba(255,228,100,0.85)" strokeWidth={2}/>
+      <line x1="94" y1="28" x2="94" y2="44" stroke="rgba(255,228,100,0.9)" strokeWidth={2} strokeLinecap="round"/>
+      <line x1="86" y1="36" x2="102" y2="36" stroke="rgba(255,228,100,0.9)" strokeWidth={2} strokeLinecap="round"/>
+    </svg>
+  );
+
+  // volunteer / default
+  return (
+    <svg className={cls} viewBox="0 0 120 120" fill="none" aria-hidden="true">
+      <path d="M28 88 C22 76 16 60 24 46 C30 36 40 34 46 44 L55 62" stroke={stroke} strokeWidth={3.5} strokeLinecap="round" strokeLinejoin="round" fill="none"/>
+      <path d="M92 88 C98 76 104 60 96 46 C90 36 80 34 74 44 L65 62" stroke={stroke} strokeWidth={3.5} strokeLinecap="round" strokeLinejoin="round" fill="none"/>
+      <path d="M55 62 L65 62" stroke={stroke} strokeWidth={3.5} strokeLinecap="round"/>
+      <path d="M60 40 C60 40 44 28 44 18 C44 12 50 8 60 16 C70 8 76 12 76 18 C76 28 60 40 60 40Z" fill="rgba(255,255,255,0.28)" stroke={stroke} strokeWidth={sw}/>
+    </svg>
+  );
+}
 
 type PulseCategoryId =
   | "education"
@@ -1154,6 +1252,106 @@ function PermitBottomSheet({
   );
 }
 
+// ─── Civic engagement score ────────────────────────────────────────────────────
+const CIVIC_LEVELS = [
+  { min: 0,   label: "Observer",           emoji: "👀", color: "#6B7A8D" },
+  { min: 12,  label: "Informed",           emoji: "📖", color: "#4A9EBC" },
+  { min: 32,  label: "Active Resident",    emoji: "🙋", color: "#4CAF82" },
+  { min: 70,  label: "Engaged Citizen",    emoji: "🗳️", color: "#C4A830" },
+  { min: 120, label: "Community Advocate", emoji: "📢", color: "#E8694D" },
+  { min: 200, label: "Community Leader",   emoji: "⭐", color: "#1C2534" },
+] as const;
+
+function civicLevel(score: number) {
+  return [...CIVIC_LEVELS].reverse().find((l) => score >= l.min) ?? CIVIC_LEVELS[0];
+}
+function civicNextMin(score: number): number {
+  return CIVIC_LEVELS.find((l) => l.min > score)?.min ?? CIVIC_LEVELS[CIVIC_LEVELS.length - 1].min;
+}
+
+function useCivicScore() {
+  const [score, setScore] = useState(0);
+  const [toast, setToast] = useState<{ pts: number; action: string } | null>(null);
+  const toastTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  useEffect(() => {
+    const saved = parseInt(localStorage.getItem("porch_civic_score") ?? "0", 10);
+    setScore(Number.isFinite(saved) ? saved : 0);
+  }, []);
+
+  const addPoints = useCallback((pts: number, action: string) => {
+    setScore((prev) => {
+      const next = prev + pts;
+      localStorage.setItem("porch_civic_score", String(next));
+      return next;
+    });
+    if (toastTimer.current) clearTimeout(toastTimer.current);
+    setToast({ pts, action });
+    toastTimer.current = setTimeout(() => setToast(null), 2200);
+  }, []);
+
+  return { score, toast, addPoints };
+}
+
+function CivicScoreBar({ score, toast }: { score: number; toast: { pts: number; action: string } | null }) {
+  const level = civicLevel(score);
+  const nextMin = civicNextMin(score);
+  const levelStart = level.min;
+  const pct = nextMin > levelStart
+    ? Math.min(100, ((score - levelStart) / (nextMin - levelStart)) * 100)
+    : 100;
+
+  return (
+    <div
+      className="fixed left-0 right-0 z-30 px-4"
+      style={{
+        bottom: "72px",
+        paddingTop: "8px",
+        paddingBottom: "8px",
+        background: "rgba(255,255,255,0.96)",
+        borderTop: "1px solid rgba(0,0,0,0.06)",
+        backdropFilter: "blur(10px)",
+      }}
+    >
+      <AnimatePresence>
+        {toast && (
+          <motion.div
+            key="civic-toast"
+            initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -6 }}
+            transition={{ duration: 0.22 }}
+            className="absolute left-1/2 -translate-x-1/2 px-3 py-1 rounded-full text-[11px] font-bold text-white whitespace-nowrap"
+            style={{ bottom: "calc(100% + 4px)", backgroundColor: level.color, boxShadow: `0 2px 8px ${level.color}55` }}
+          >
+            +{toast.pts} pts · {toast.action}
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      <div className="flex items-center gap-2.5">
+        <span className="text-lg leading-none select-none">{level.emoji}</span>
+        <div className="flex-1 min-w-0">
+          <div className="flex justify-between items-baseline mb-1">
+            <span className="text-[11px] font-extrabold tracking-wide" style={{ color: level.color }}>
+              {level.label}
+            </span>
+            <span className="text-[10px] font-medium" style={{ color: "#9CA3AF" }}>
+              {score} pts{pct < 100 ? ` · next at ${nextMin}` : " · max level"}
+            </span>
+          </div>
+          <div className="rounded-full overflow-hidden" style={{ height: 5, backgroundColor: "#F3F4F6" }}>
+            <motion.div
+              className="h-full rounded-full"
+              style={{ backgroundColor: level.color }}
+              animate={{ width: `${pct}%` }}
+              transition={{ duration: 0.55, ease: "easeOut" }}
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 // ─── Main component ────────────────────────────────────────────────────────────
 export default function Home() {
   const [address,        setAddress]        = useState("");
@@ -1174,6 +1372,7 @@ export default function Home() {
   const [profileOpen,    setProfileOpen]    = useState(false);
   const [userProfile,    setUserProfile]    = useState<UserProfile | null>(null);
   const { data: session } = useSession();
+  const { score: civicScore, toast: civicToast, addPoints } = useCivicScore();
 
   // Live API data
   const [liveReps,         setLiveReps]         = useState<LiveRep[]>([]);
@@ -1379,6 +1578,7 @@ export default function Home() {
     setDetectedCity(city);
     setSearchCoords({ lat, lng });
     setSearching(true);
+    addPoints(5, "Searched your address");
     try {
       setSearchedAddress(formatted);
       await fetchForAddress(formatted, lat, lng, city);
@@ -1497,7 +1697,7 @@ export default function Home() {
 
 
   return (
-    <div className="min-h-screen font-sans" style={{ backgroundColor: C.bg, paddingBottom: "90px" }}>
+    <div className="min-h-screen font-sans" style={{ backgroundColor: C.bg, paddingBottom: "144px" }}>
 
       {/* ══ SECTION 1: HERO ══════════════════════════════════════════════ */}
       <section id="home" className="relative flex items-center justify-center overflow-hidden"
@@ -1648,7 +1848,7 @@ export default function Home() {
                   animate={{ opacity: 1, y: 0, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.95 }}
                   transition={{ delay: 0.4, type: "spring", stiffness: 280, damping: 26 }}
-                  onClick={() => setPermitSheetOpen(true)}
+                  onClick={() => { setPermitSheetOpen(true); addPoints(5, "Viewed permit"); }}
                   className="w-full mt-3 rounded-[20px] p-4 text-left flex items-center gap-3"
                   style={{
                     backgroundColor: "white",
@@ -1845,13 +2045,17 @@ export default function Home() {
                 transition={{ delay: i * 0.09, duration: 0.4, ease: "easeOut" }}
                 whileHover={{ y: -6, transition: { duration: 0.18 } }}
                 className="relative flex-shrink-0 rounded-[24px] overflow-hidden cursor-pointer"
-                style={{ width: "300px", height: "380px", boxShadow: isRelevant ? `0 4px 24px ${C.coral}44` : "0 4px 20px rgba(0,0,0,0.11)" }}>
-                <img src={card.photo} alt="" className="absolute inset-0 w-full h-full object-cover" />
+                style={{ width: "300px", height: "380px", background: card.gradient, boxShadow: isRelevant ? `0 4px 24px ${C.coral}44` : "0 4px 20px rgba(0,0,0,0.18)" }}>
+                {/* Illustration */}
+                <div className="absolute inset-x-0 top-0 flex items-center justify-center" style={{ height: "210px" }}>
+                  <CardIcon type={card.iconType} />
+                </div>
+                {/* Bottom text overlay */}
                 <div className="absolute inset-0"
-                  style={{ background: "linear-gradient(to top,rgba(0,0,0,0.85) 0%,rgba(0,0,0,0.15) 60%,transparent 100%)" }} />
+                  style={{ background: "linear-gradient(to top,rgba(0,0,0,0.72) 0%,rgba(0,0,0,0.12) 48%,transparent 100%)" }} />
                 <div className="absolute top-4 left-4 flex items-center gap-2 flex-wrap">
                   <span className="px-3 py-1.5 rounded-full text-xs font-bold text-white"
-                    style={{ backgroundColor: card.badge.bg }}>{card.badge.text}</span>
+                    style={{ backgroundColor: "rgba(0,0,0,0.32)", backdropFilter: "blur(6px)" }}>{card.badge.text}</span>
                   {isRelevant && (
                     <span className="px-2.5 py-1 rounded-full text-[10px] font-extrabold"
                       style={{ backgroundColor: C.coral, color: "white" }}>
@@ -1863,10 +2067,12 @@ export default function Home() {
                   <h3 className="text-lg font-extrabold text-white leading-snug mb-4">{card.title}</h3>
                   {card.url ? (
                     <a href={card.url} target="_blank" rel="noreferrer"
+                      onClick={() => addPoints(5, "Read update")}
                       className="inline-block px-5 py-2.5 rounded-full text-sm font-bold transition-transform hover:scale-105"
                       style={{ backgroundColor: "white", color: C.navy }}>{card.cta}</a>
                   ) : (
-                    <button className="px-5 py-2.5 rounded-full text-sm font-bold transition-transform hover:scale-105"
+                    <button onClick={() => addPoints(5, "Read update")}
+                      className="px-5 py-2.5 rounded-full text-sm font-bold transition-transform hover:scale-105"
                       style={{ backgroundColor: "white", color: C.navy }}>{card.cta}</button>
                   )}
                 </div>
@@ -1923,7 +2129,7 @@ export default function Home() {
                     viewport={{ once: true, margin: "-40px" }}
                     transition={{ delay: Math.min(i * 0.07, 0.5), type: "spring", stiffness: 240, damping: 22 }}
                     whileHover={{ y: -6, transition: { duration: 0.18 } }}
-                    onClick={() => setOpenLiveRepId(rep.id)}
+                    onClick={() => { setOpenLiveRepId(rep.id); addPoints(3, "Viewed official"); }}
                     className="flex-shrink-0 cursor-pointer" style={{ width: "240px" }}>
                     <div className="rounded-[24px] overflow-hidden"
                       style={{
@@ -1931,7 +2137,7 @@ export default function Home() {
                         boxShadow: aligned ? `0 4px 24px ${partyColor}44` : "0 4px 24px rgba(0,0,0,0.09)",
                         outline: aligned ? `2px solid ${partyColor}44` : "none",
                       }}>
-                      <div className="flex items-center justify-center relative" style={{ backgroundColor: rep.photoUrl ? "transparent" : color, height: "130px" }}>
+                      <div className="flex items-center justify-center relative" style={{ backgroundColor: color, height: "130px" }}>
                         <RepAvatar color={color} initials={rep.initials} size={84} photoUrl={rep.photoUrl} />
                         {aligned && (
                           <span className="absolute top-2 right-2 px-2 py-0.5 rounded-full text-[10px] font-extrabold text-white"
@@ -2209,6 +2415,7 @@ export default function Home() {
                   <li key={`${row.internal_id ?? row["Award ID"] ?? idx}`}>
                     {awardUrl ? (
                       <a href={awardUrl} target="_blank" rel="noreferrer"
+                        onClick={() => addPoints(3, "Read federal grant")}
                         className="block rounded-[20px] p-4 text-left transition-transform hover:scale-[1.01] active:scale-[0.99]"
                         style={{ backgroundColor: "#FAFAFA", border: `1px solid ${stripe}33`, boxShadow: "0 2px 12px rgba(0,0,0,0.04)" }}>
                         <FederalAwardCardInner
@@ -2358,14 +2565,17 @@ export default function Home() {
           <motion.div initial={{ opacity: 0, scale: 0.96 }} whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }} transition={{ duration: 0.45 }}
             className="relative rounded-[24px] overflow-hidden"
-            style={{ minHeight: "260px", boxShadow: "0 4px 20px rgba(0,0,0,0.10)" }}>
-            <img src={IMGS.volunteer} alt="" className="absolute inset-0 w-full h-full object-cover" />
+            style={{ minHeight: "260px", background: "linear-gradient(145deg,#1E8449 0%,#0A3D1F 100%)", boxShadow: "0 4px 20px rgba(0,0,0,0.16)" }}>
+            {/* Illustration */}
+            <div className="absolute right-4 top-0 flex items-center justify-center" style={{ height: "100%" }}>
+              <CardIcon type="volunteer" />
+            </div>
             <div className="absolute inset-0"
-              style={{ background: "linear-gradient(155deg,rgba(76,175,130,0.82) 0%,rgba(76,175,130,0.55) 100%)" }} />
+              style={{ background: "linear-gradient(90deg,rgba(0,0,0,0.55) 0%,transparent 70%)" }} />
             <div className="relative z-10 p-6 flex flex-col justify-end" style={{ minHeight: "260px" }}>
               {detectedCity === "nyc" ? (
                 <>
-                  <div className="text-xs font-bold mb-1" style={{ color: "rgba(255,255,255,0.75)" }}>
+                  <div className="text-xs font-bold mb-1" style={{ color: "rgba(255,255,255,0.72)" }}>
                     Volunteer opportunities
                   </div>
                   <h3 className="text-2xl font-extrabold text-white leading-tight mb-3">
@@ -2373,6 +2583,7 @@ export default function Home() {
                   </h3>
                   <div className="flex items-center gap-4">
                     <a href="https://www.cityharvest.org/volunteer/" target="_blank" rel="noreferrer"
+                      onClick={() => addPoints(10, "Volunteered!")}
                       className="px-6 py-3 rounded-full font-bold hover:scale-105 transition-transform inline-block"
                       style={{ backgroundColor: "white", color: C.coral }}>
                       Sign up →
@@ -2384,14 +2595,15 @@ export default function Home() {
                 </>
               ) : (
                 <>
-                  <div className="text-xs font-bold mb-1" style={{ color: "rgba(255,255,255,0.75)" }}>
+                  <div className="text-xs font-bold mb-1" style={{ color: "rgba(255,255,255,0.72)" }}>
                     Most urgent this weekend
                   </div>
                   <h3 className="text-2xl font-extrabold text-white leading-tight mb-3">
                     Foodnet needs 8 more volunteers this Saturday
                   </h3>
                   <div className="flex items-center gap-4">
-                    <button className="px-6 py-3 rounded-full font-bold hover:scale-105 transition-transform"
+                    <button onClick={() => addPoints(10, "Volunteered!")}
+                      className="px-6 py-3 rounded-full font-bold hover:scale-105 transition-transform"
                       style={{ backgroundColor: "white", color: C.coral }}>
                       I'll be there →
                     </button>
@@ -2875,6 +3087,9 @@ export default function Home() {
           />
         )}
       </AnimatePresence>
+
+      {/* ══ CIVIC SCORE BAR ══════════════════════════════════════════════ */}
+      <CivicScoreBar score={civicScore} toast={civicToast} />
 
       {/* ══ BOTTOM NAV ═══════════════════════════════════════════════════ */}
       <nav className="fixed bottom-0 left-0 right-0 z-30"
