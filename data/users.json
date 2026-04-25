@@ -47,5 +47,28 @@
       "party": "democratic",
       "completedAt": "2026-04-25T18:41:31.872Z"
     }
+  },
+  {
+    "id": "a2d53c67-9a2a-4499-ae83-c6fb2bdc5c82",
+    "name": "Coco",
+    "email": "cocoyou123456789@gmail.com",
+    "passwordHash": "$2b$12$yWU0Ly5Ihq9tc2ULRCRlg.Lik57iKeMRbAJha.SRr2/StvkNADVEC",
+    "createdAt": "2026-04-25T19:56:34.807Z",
+    "onboarding": {
+      "address": "ithaca",
+      "age": 21,
+      "gender": "Woman",
+      "ethnicity": "Asian / Pacific Islander",
+      "income": "$75,000 – $100,000",
+      "issues": [
+        "education",
+        "economics",
+        "environment",
+        "gun_policy",
+        "social_justice"
+      ],
+      "party": "democratic",
+      "completedAt": "2026-04-25T19:57:04.535Z"
+    }
   }
 ]
