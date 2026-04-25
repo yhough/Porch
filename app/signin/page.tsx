@@ -32,7 +32,11 @@ export default function SignInPage() {
     });
 
     if (result?.error) {
-      setError("Incorrect email or password. Try again.");
+      if (result.error === "CredentialsSignin") {
+        setError("Incorrect email or password. Try again.");
+      } else {
+        setError(`Sign-in failed (${result.error}). Please try again.`);
+      }
       setLoading(false);
     } else {
       router.push("/");

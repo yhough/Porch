@@ -68,5 +68,12 @@
     "email": "test@test.com",
     "passwordHash": "$2b$12$XYAAZRrBQKaLGzDnGgzfl.Fjs.oaGneTdPQ91SCsGy.Weypy2Ab2G",
     "createdAt": "2026-04-25T22:07:37.639Z"
+  },
+  {
+    "id": "5cfe7bf9-4ccb-4a16-b64a-922950d9e1e9",
+    "name": "Test Login",
+    "email": "logintest@test.com",
+    "passwordHash": "$2b$12$SPV1bmNwF8QkorSoSfag7OnsJa/sr0d1xUMCdI2.Xr/Oo.d3o1A/W",
+    "createdAt": "2026-04-25T22:43:44.956Z"
   }
 ]
