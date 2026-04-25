@@ -9,6 +9,8 @@ import {
   communityResources,
   NEIGHBORHOOD,
   equityComparison,
+  BOARD_VACANCIES,
+  MEETINGS_2026,
 } from "@/lib/mockData";
 
 const WardMap = dynamic(() => import("@/components/WardMap"), { ssr: false });
@@ -259,14 +261,14 @@ function WaveDivider({ fill, flip }: { fill: string; flip?: boolean }) {
 
 // ─── Static content ────────────────────────────────────────────────────────────
 const URGENT_CARDS = [
-  { id: "u1", photo: IMGS.building, badge: { text: "Comment closes May 15", bg: C.coral },
-    title: "120-unit building proposed near the Commons", cta: "Say something →" },
-  { id: "u2", photo: IMGS.ballot,   badge: { text: "Vote Apr 30", bg: C.yellow },
-    title: "Common Council votes on the Green St garage", cta: "Watch it →" },
-  { id: "u3", photo: IMGS.foodbank, badge: { text: "8 spots left", bg: C.sage },
-    title: "Foodnet needs volunteers Saturday morning", cta: "Sign up →" },
-  { id: "u4", photo: IMGS.council,  badge: { text: "Tonight 6pm", bg: C.sky },
-    title: "Common Council meeting — residents can speak", cta: "See details →" },
+  { id: "u1", photo: IMGS.council,  badge: { text: "Today 4:30pm", bg: C.coral },
+    title: "Town Board Study Session — Green New Deal annual report", cta: "Join Zoom →" },
+  { id: "u2", photo: IMGS.building, badge: { text: "Comment open", bg: C.sky },
+    title: "Subdivision rules under review — COC wants your input", cta: "Weigh in →" },
+  { id: "u3", photo: IMGS.volunteer, badge: { text: "3 seats open", bg: C.yellow },
+    title: "Planning Board, ZBA & Conservation Board need volunteers", cta: "Apply →" },
+  { id: "u4", photo: IMGS.foodbank, badge: { text: "This weekend", bg: C.sage },
+    title: "Foodnet needs food sorters and drivers — flexible hours", cta: "Sign up →" },
 ];
 
 const VOL_TILES = [
@@ -275,11 +277,11 @@ const VOL_TILES = [
 ];
 
 const PULSE_ITEMS = [
-  { id: "p1", icon: "💬", text: "Someone filed a public comment on the W State St development",  time: "2h ago",  color: C.coral },
-  { id: "p2", icon: "👀", text: "31 Ithacans checked Marc Molinaro's donor history this week",   time: "4h ago",  color: C.sky },
-  { id: "p3", icon: "🍎", text: "Foodnet Saturday shift almost full — 9 of 12 spots taken",      time: "6h ago",  color: C.sage },
-  { id: "p4", icon: "📋", text: "New building permit filed on Cayuga St near the Commons",        time: "47m ago", color: C.yellow },
-  { id: "p5", icon: "🏛",  text: "Someone attended last night's Common Council meeting",           time: "18h ago", color: "#9B59B6" },
+  { id: "p1", icon: "⚡", text: "Tompkins Green Energy Network launched — Ithaca now has community clean energy", time: "Q1 2026",  color: C.sage },
+  { id: "p2", icon: "🗳",  text: "Gideon Casper appointed to Planning Board — term through Dec 2029",              time: "Today",   color: C.coral },
+  { id: "p3", icon: "🌿", text: "Town Board passed Deconstruction Resolution — buildings get reused, not bulldozed", time: "Mar 2026", color: C.yellow },
+  { id: "p4", icon: "🛤",  text: "Engineering firm hired to extend South Hill Rec Way from Burns Rd to Banks Rd",   time: "Jan 2026", color: C.sky },
+  { id: "p5", icon: "🏗",  text: "Net-zero energy code now required for all new construction in Ithaca",           time: "2025",     color: "#9B59B6" },
 ];
 
 const ANON_COLORS = [C.coral, C.yellow, C.sage, C.sky, C.navy, "#9B59B6", "#E67E22"];
@@ -324,7 +326,7 @@ export default function Home() {
   const parkTax   = Math.round(annual * 0.08);
 
   // Suppress unused import warnings
-  void budgetData; void equityComparison;
+  void budgetData; void equityComparison; void MEETINGS_2026;
 
   return (
     <div className="min-h-screen font-sans" style={{ backgroundColor: C.bg, paddingBottom: "90px" }}>
@@ -633,6 +635,53 @@ export default function Home() {
             );
           })}
         </div>
+
+        {/* Board vacancies sub-section */}
+        <div className="px-6 mt-8">
+          <h3 className="text-xl font-extrabold mb-1" style={{ color: C.navy }}>
+            Serve on a board 🏛
+          </h3>
+          <p className="text-sm mb-4" style={{ color: "#6B7280" }}>
+            Real decisions. Real impact. No experience required.
+          </p>
+          <div className="space-y-3">
+            {BOARD_VACANCIES.map((v, i) => (
+              <motion.div key={v.id}
+                initial={{ opacity: 0, y: 14 }} whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.08, type: "spring", stiffness: 200, damping: 22 }}
+                className="bg-white rounded-[20px] p-5 flex gap-4 items-start"
+                style={{ boxShadow: "0 4px 16px rgba(0,0,0,0.06)" }}>
+                <div className="flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center font-extrabold text-sm text-white"
+                  style={{ backgroundColor: v.urgency === "open" ? C.coral : C.sage }}>
+                  {v.urgency === "open" ? "!" : "+"}
+                </div>
+                <div className="flex-1 min-w-0">
+                  <div className="flex items-center gap-2 mb-1">
+                    <span className="font-extrabold text-base" style={{ color: C.navy }}>{v.board}</span>
+                    {v.stipend && (
+                      <span className="text-[11px] font-bold px-2 py-0.5 rounded-full"
+                        style={{ backgroundColor: C.yellow + "30", color: "#92720A" }}>
+                        Paid stipend
+                      </span>
+                    )}
+                  </div>
+                  <p className="text-sm leading-snug mb-2" style={{ color: "#6B7280" }}>{v.description}</p>
+                  <div className="flex flex-wrap items-center gap-2">
+                    <span className="text-xs font-medium" style={{ color: "#9CA3AF" }}>🕐 {v.meetingSchedule}</span>
+                    <span className="text-xs font-medium" style={{ color: "#9CA3AF" }}>📍 {v.residencyRequired}</span>
+                  </div>
+                  <div className="mt-3">
+                    <button className="text-sm font-bold px-4 py-2 rounded-full transition-transform hover:scale-105"
+                      style={{ backgroundColor: C.coral, color: "white" }}>
+                      Apply — {v.contact.split("·")[0].trim()}
+                    </button>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
       </section>
       <WaveDivider fill="#EDFAF4" flip />
 
@@ -674,7 +723,7 @@ export default function Home() {
             ))}
           </div>
           <p className="text-xs mt-2 font-medium" style={{ color: "#9CA3AF" }}>
-            Civic health · {NEIGHBORHOOD.name}, Oakland
+            Civic health · {NEIGHBORHOOD.name}
           </p>
         </div>
 
