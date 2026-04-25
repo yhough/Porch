@@ -3,588 +3,884 @@
 import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence, useInView } from "framer-motion";
 import {
-  MapPin, Search, ChevronDown, Menu, X, ArrowRight,
-  Calendar, MessageSquare, Vote, Clock, Users, Leaf, Bell
-} from "lucide-react";
-import dynamic from "next/dynamic";
-import RepresentativeCard from "@/components/RepresentativeCard";
-import ResourceCard from "@/components/ResourceCard";
-import BudgetChart from "@/components/BudgetChart";
-import AlertPanel from "@/components/AlertPanel";
-import {
   representatives,
+  budgetData,
   communityResources,
-  upcomingEvents,
-  openComments,
-  recentVotes,
-  alerts,
-  highlightVolunteer,
   NEIGHBORHOOD,
+  equityComparison,
 } from "@/lib/mockData";
 
-// Dynamically import map to avoid SSR issues
-const MapLayer = dynamic(() => import("@/components/MapLayer"), { ssr: false });
+// ─── Color tokens ─────────────────────────────────────────────────────────────
+const C = {
+  coral:     "#E8513A",
+  yellow:    "#F5C842",
+  sage:      "#4CAF82",
+  sky:       "#5BA4CF",
+  bg:        "#FFFDF9",
+  navy:      "#1B2A4A",
+  sageLight: "#EDFAF4",
+} as const;
 
-const NAV_LINKS = [
-  { href: "#map", label: "Your Map" },
-  { href: "#reps", label: "Representatives" },
-  { href: "#budget", label: "Budget" },
-  { href: "#resources", label: "Resources" },
-  { href: "#happening", label: "What's Happening" },
-];
+const REP_COLORS = [C.coral, C.yellow, C.sky, C.sage];
 
-const resourceCategories = [
-  { key: "Homeless Shelters", icon: "🏠" },
-  { key: "Food Banks", icon: "🍎" },
-  { key: "Food Pantries", icon: "🍎" },
-  { key: "Animal Shelters", icon: "🐾" },
-  { key: "Clothing Donations", icon: "👕" },
-  { key: "Children & Family", icon: "👶" },
-  { key: "Mental Health", icon: "🧠" },
-  { key: "Legal Aid", icon: "⚖️" },
-];
+const u = (id: string, w = 800) =>
+  `https://images.unsplash.com/photo-${id}?w=${w}&auto=format&fit=crop&q=80`;
 
-function CountdownTimer({ date }: { date: Date }) {
-  const [timeLeft, setTimeLeft] = useState("");
+const IMGS = {
+  hero:      u("1480714378408-67cf0d13bc1b", 1400),
+  building:  u("1486325212027-8081e485255e"),
+  council:   u("1541872703-74c5e44368f9"),
+  foodbank:  u("1593113598332-cd288d649433"),
+  ballot:    u("1540910419892-4a36d2c3266c"),
+  volunteer: u("1559027615-cd4628902d4a", 1200),
+  animals:   u("1548199973-03cce0bbc87b"),
+};
+
+// ─── Count-up animation hook ──────────────────────────────────────────────────
+function useCountUp(to: number, duration = 1.4) {
+  const [val, setVal] = useState(0);
+  const ref = useRef<HTMLSpanElement>(null);
+  const triggered = useInView(ref, { once: true, amount: 0.5 });
   useEffect(() => {
-    const calc = () => {
-      const diff = date.getTime() - Date.now();
-      if (diff <= 0) { setTimeLeft("Now"); return; }
-      const d = Math.floor(diff / 86400000);
-      const h = Math.floor((diff % 86400000) / 3600000);
-      const m = Math.floor((diff % 3600000) / 60000);
-      setTimeLeft(d > 0 ? `${d}d ${h}h` : h > 0 ? `${h}h ${m}m` : `${m}m`);
+    if (!triggered) return;
+    let raf: number;
+    const start = performance.now();
+    const tick = (now: number) => {
+      const pct = Math.min((now - start) / (duration * 1000), 1);
+      const ease = 1 - Math.pow(1 - pct, 3);
+      setVal(Math.round(ease * to));
+      if (pct < 1) raf = requestAnimationFrame(tick);
     };
-    calc();
-    const id = setInterval(calc, 30000);
-    return () => clearInterval(id);
-  }, [date]);
-  return <span>{timeLeft}</span>;
+    raf = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(raf);
+  }, [triggered, to, duration]);
+  return { val, ref };
 }
 
-function SectionHeader({ eyebrow, title, subtitle }: { eyebrow: string; title: string; subtitle?: string }) {
-  const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: "-80px" });
+// ─── Animated big stat card ───────────────────────────────────────────────────
+function AnimatedStat({
+  value, prefix = "", suffix = "", label, color, delay = 0,
+}: {
+  value: number; prefix?: string; suffix?: string;
+  label: string; color: string; delay?: number;
+}) {
+  const { val, ref } = useCountUp(value, 1.4);
   return (
     <motion.div
-      ref={ref}
-      initial={{ opacity: 0, y: 16 }}
-      animate={inView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.5, ease: "easeOut" }}
-      className="mb-10"
+      initial={{ opacity: 0, y: 28, scale: 0.92 }}
+      whileInView={{ opacity: 1, y: 0, scale: 1 }}
+      viewport={{ once: true, amount: 0.4 }}
+      transition={{ duration: 0.5, delay, type: "spring", stiffness: 200, damping: 22 }}
+      className="rounded-[28px] p-6 flex flex-col gap-1.5"
+      style={{ backgroundColor: color + "18", border: `2px solid ${color}28` }}
     >
-      <div className="text-xs font-bold tracking-[0.12em] uppercase text-[#E8A020] mb-2">{eyebrow}</div>
-      <h2 className="text-3xl md:text-4xl font-black text-[#1B2A4A] leading-tight">{title}</h2>
-      {subtitle && <p className="text-base text-gray-500 mt-3 max-w-2xl leading-relaxed">{subtitle}</p>}
+      <div className="text-5xl font-black tracking-tight leading-none" style={{ color }}>
+        <span ref={ref}>{prefix}{val.toLocaleString()}{suffix}</span>
+      </div>
+      <div className="text-xs font-bold mt-1 leading-tight" style={{ color: C.navy + "99" }}>{label}</div>
     </motion.div>
   );
 }
 
+// ─── SVG: Floating hero character ─────────────────────────────────────────────
+function HeroChar() {
+  return (
+    <div className="float inline-block">
+      <svg width="150" height="170" viewBox="0 0 150 170" fill="none" aria-hidden="true">
+        <ellipse cx="75" cy="162" rx="38" ry="8" fill="rgba(0,0,0,0.12)" />
+        <rect x="55" y="122" width="14" height="34" rx="7" fill="#5C3D2E" />
+        <rect x="77" y="122" width="14" height="34" rx="7" fill="#5C3D2E" />
+        <ellipse cx="62" cy="157" rx="12" ry="6" fill="#1a1108" />
+        <ellipse cx="84" cy="157" rx="12" ry="6" fill="#1a1108" />
+        <rect x="47" y="82" width="52" height="48" rx="22" fill={C.coral} />
+        <motion.g
+          animate={{ rotate: [-12, 18, -12] }}
+          transition={{ duration: 0.75, repeat: Infinity, ease: "easeInOut" }}
+          style={{ transformOrigin: "47px 92px" }}
+        >
+          <path d="M47 92 Q22 72 33 52" stroke="#D4956A" strokeWidth="14" strokeLinecap="round" fill="none" />
+          <circle cx="31" cy="48" r="11" fill="#D4956A" />
+          <path d="M26 43 Q31 36 36 43" stroke="#C4855A" strokeWidth="3.5" strokeLinecap="round" fill="none" />
+        </motion.g>
+        <path d="M99 92 Q120 85 116 110" stroke="#D4956A" strokeWidth="14" strokeLinecap="round" fill="none" />
+        <rect x="108" y="108" width="20" height="30" rx="5" fill={C.navy} />
+        <rect x="110" y="111" width="16" height="23" rx="3" fill={C.sky} />
+        <circle cx="73" cy="60" r="30" fill="#D4956A" />
+        <path d="M45 52 Q50 30 73 28 Q96 30 101 52" fill="#2C1810" />
+        <ellipse cx="73" cy="34" rx="26" ry="13" fill="#2C1810" />
+        <circle cx="63" cy="58" r="5.5" fill="white" />
+        <circle cx="83" cy="58" r="5.5" fill="white" />
+        <circle cx="64" cy="59" r="3" fill="#2C1810" />
+        <circle cx="84" cy="59" r="3" fill="#2C1810" />
+        <circle cx="65" cy="57.5" r="1.2" fill="white" />
+        <circle cx="85" cy="57.5" r="1.2" fill="white" />
+        <path d="M64 69 Q73 78 82 69" stroke="#2C1810" strokeWidth="2.5" strokeLinecap="round" fill="none" />
+        <circle cx="56" cy="65" r="6" fill={C.coral} opacity="0.32" />
+        <circle cx="90" cy="65" r="6" fill={C.coral} opacity="0.32" />
+      </svg>
+    </div>
+  );
+}
+
+// ─── SVG: Rep illustrated avatar ──────────────────────────────────────────────
+function RepAvatar({ color, initials, size = 88 }: { color: string; initials: string; size?: number }) {
+  const hairColor = initials.charCodeAt(0) % 3 !== 2 ? "#2C1810" : "#8B4513";
+  return (
+    <svg width={size} height={size} viewBox="0 0 90 90" fill="none" aria-hidden="true">
+      <ellipse cx="45" cy="82" rx="22" ry="14" fill="white" opacity="0.88" />
+      <circle cx="45" cy="48" r="20" fill="#D4956A" />
+      <path d="M27 44 Q30 26 45 24 Q60 26 63 44" fill={hairColor} />
+      <ellipse cx="45" cy="28" rx="18" ry="10" fill={hairColor} />
+      <circle cx="38.5" cy="47" r="4" fill="white" />
+      <circle cx="51.5" cy="47" r="4" fill="white" />
+      <circle cx="39.2" cy="47.8" r="2.4" fill="#2C1810" />
+      <circle cx="52.2" cy="47.8" r="2.4" fill="#2C1810" />
+      <circle cx="39.8" cy="46.8" r="1" fill="white" />
+      <circle cx="52.8" cy="46.8" r="1" fill="white" />
+      <path d="M38 56 Q45 63 52 56" stroke="#2C1810" strokeWidth="2" strokeLinecap="round" fill="none" />
+      <circle cx="33" cy="52" r="5" fill={color} opacity="0.28" />
+      <circle cx="57" cy="52" r="5" fill={color} opacity="0.28" />
+    </svg>
+  );
+}
+
+// ─── SVG: Animated neighborhood ───────────────────────────────────────────────
+function NeighborhoodIllustration({ triggered }: { triggered: boolean }) {
+  const buildings = [
+    { label: "Schools",     color: C.navy,    x: 12,  w: 68, h: 88 },
+    { label: "Police/Fire", color: "#E06B5A", x: 92,  w: 54, h: 70 },
+    { label: "Housing",     color: C.sage,    x: 158, w: 58, h: 74 },
+    { label: "Parks",       color: C.yellow,  x: 228, w: 50, h: 54 },
+    { label: "Roads",       color: "#9B59B6", x: 290, w: 54, h: 64 },
+  ];
+  return (
+    <svg viewBox="0 0 380 112" fill="none" className="w-full max-w-lg mx-auto block" aria-hidden="true">
+      <rect width="380" height="112" rx="20" fill="#EDF5FB" />
+      <motion.circle cx="348" cy="24" r="18" fill={C.yellow} opacity="0.65"
+        initial={{ scale: 0.5, opacity: 0 }}
+        animate={triggered ? { scale: 1, opacity: 0.65 } : { scale: 0.5, opacity: 0 }}
+        transition={{ duration: 0.6 }} />
+      <ellipse cx="70" cy="20" rx="24" ry="11" fill="white" opacity="0.85" />
+      <ellipse cx="200" cy="14" rx="20" ry="10" fill="white" opacity="0.85" />
+      <rect y="97" width="380" height="15" fill={C.sage} opacity="0.22" />
+      <rect y="104" width="380" height="8" fill="#9B59B6" opacity="0.18" />
+      {[30, 100, 170, 240, 310].map((x) => (
+        <rect key={x} x={x} y="107" width="22" height="2" rx="1" fill="white" opacity="0.45" />
+      ))}
+      {buildings.map((b, i) => (
+        <g key={b.label}>
+          <motion.rect x={b.x} y={112 - b.h - 12} width={b.w} height={b.h} rx="5" fill={b.color}
+            initial={{ opacity: 0.18, y: 10 }}
+            animate={triggered ? { opacity: 1, y: 0 } : { opacity: 0.18, y: 10 }}
+            transition={{ duration: 0.5, delay: i * 0.14, ease: "easeOut" }} />
+          {[0, 1, 2].map((row) =>
+            [0, 1].map((col) => (
+              <motion.rect key={`${row}-${col}`}
+                x={b.x + 9 + col * 17} y={112 - b.h - 12 + 12 + row * 22}
+                width="11" height="13" rx="2" fill="white"
+                initial={{ opacity: 0 }}
+                animate={triggered ? { opacity: 0.75 } : { opacity: 0 }}
+                transition={{ duration: 0.3, delay: i * 0.14 + 0.35 + row * 0.07 }} />
+            ))
+          )}
+          <text x={b.x + b.w / 2} y="110" textAnchor="middle" fontSize="6.5" fontWeight="700"
+            fill={b.color} fontFamily="Plus Jakarta Sans, system-ui">{b.label}</text>
+        </g>
+      ))}
+    </svg>
+  );
+}
+
+// ─── SVG: Bottom nav icons ─────────────────────────────────────────────────────
+function IconHome({ active }: { active: boolean }) {
+  const s = active ? "white" : "#9CA3AF";
+  return (
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+      <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"
+        fill={active ? "white" : "none"} stroke={s} strokeWidth="2" strokeLinecap="round" />
+      <path d="M9 22V12h6v10" stroke={s} strokeWidth="2" strokeLinecap="round" />
+    </svg>
+  );
+}
+function IconMap({ active }: { active: boolean }) {
+  const s = active ? "white" : "#9CA3AF";
+  return (
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+      <path d="M1 6l7-3 8 3 7-3v15l-7 3-8-3-7 3V6z"
+        fill={active ? "white" : "none"} stroke={s} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M8 3v15M16 6v15" stroke={s} strokeWidth="1.5" />
+    </svg>
+  );
+}
+function IconPeople({ active }: { active: boolean }) {
+  const s = active ? "white" : "#9CA3AF";
+  return (
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+      <circle cx="9" cy="7" r="4" fill={active ? "white" : "none"} stroke={s} strokeWidth="2" />
+      <path d="M2 21c0-4 3.1-7 7-7s7 3 7 7" stroke={s} strokeWidth="2" strokeLinecap="round" />
+      <path d="M16 3.13a4 4 0 010 7.75M22 21c0-3.5-2.2-6.5-6-7" stroke={s} strokeWidth="2" strokeLinecap="round" />
+    </svg>
+  );
+}
+function IconMoney({ active }: { active: boolean }) {
+  const s = active ? "white" : "#9CA3AF";
+  return (
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+      <circle cx="12" cy="12" r="10" fill={active ? "white" : "none"} stroke={s} strokeWidth="2" />
+      <path d="M12 6v2M12 16v2" stroke={s} strokeWidth="2" strokeLinecap="round" />
+      <path d="M9 10.5a3 3 0 016 0c0 4-6 4-6 8h6" stroke={s} strokeWidth="2" strokeLinecap="round" />
+    </svg>
+  );
+}
+function IconHelp({ active }: { active: boolean }) {
+  const s = active ? "white" : "#9CA3AF";
+  return (
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+      <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"
+        fill={active ? "white" : "none"} stroke={s} strokeWidth="2" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
+// ─── Wavy section divider ─────────────────────────────────────────────────────
+function WaveDivider({ fill, flip }: { fill: string; flip?: boolean }) {
+  return (
+    <div style={{ lineHeight: 0, transform: flip ? "scaleY(-1)" : undefined }}>
+      <svg viewBox="0 0 1200 56" preserveAspectRatio="none"
+        style={{ width: "100%", height: "36px", display: "block" }}>
+        <path d="M0,28 C200,56 400,0 600,28 C800,56 1000,0 1200,28 L1200,56 L0,56 Z" fill={fill} />
+      </svg>
+    </div>
+  );
+}
+
+// ─── Static content ────────────────────────────────────────────────────────────
+const URGENT_CARDS = [
+  { id: "u1", photo: IMGS.building, badge: { text: "Closes in 2 days", bg: C.coral },
+    title: "6-story building proposed 2 blocks away", cta: "Say something →" },
+  { id: "u2", photo: IMGS.ballot,   badge: { text: "Vote Thursday", bg: C.yellow },
+    title: "40 new school counselors up for a vote", cta: "Watch it →" },
+  { id: "u3", photo: IMGS.foodbank, badge: { text: "8 spots left", bg: C.sage },
+    title: "Food bank needs help Saturday 9am", cta: "Sign up →" },
+  { id: "u4", photo: IMGS.council,  badge: { text: "Tomorrow 6pm", bg: C.sky },
+    title: "Town hall — residents can speak", cta: "See details →" },
+];
+
+const VOL_TILES = [
+  { label: "Food banks",     shifts: "2 shifts open",          photo: IMGS.foodbank, color: C.sage,  catKey: "Food" },
+  { label: "Animal shelters",shifts: "Foster urgently needed", photo: IMGS.animals,  color: C.sky,   catKey: "Animal" },
+];
+
+const PULSE_ITEMS = [
+  { id: "p1", icon: "💬", text: "Public comment filed about 5th St development",   time: "2h ago",  color: C.coral },
+  { id: "p2", icon: "👀", text: "14 neighbors checked James Thorpe's donors",       time: "4h ago",  color: C.sky },
+  { id: "p3", icon: "🍎", text: "Food bank Saturday almost full — 9 of 12 spots",  time: "6h ago",  color: C.sage },
+  { id: "p4", icon: "📋", text: "New permit filed 3 blocks from you",               time: "47m ago", color: C.yellow },
+  { id: "p5", icon: "🏛",  text: "Someone attended last night's town hall",          time: "18h ago", color: "#9B59B6" },
+];
+
+const ANON_COLORS = [C.coral, C.yellow, C.sage, C.sky, C.navy, "#9B59B6", "#E67E22"];
+
+function roleLabel(jType: string) {
+  if (jType === "City Council")   return "Decides what gets built near you";
+  if (jType === "State Assembly") return "Controls state housing laws";
+  if (jType === "U.S. Senate")    return "Controls federal funding";
+  return "Runs your kids' schools";
+}
+
+// ─── Main component ────────────────────────────────────────────────────────────
 export default function Home() {
-  const [address, setAddress] = useState("");
+  const [address,   setAddress]   = useState("");
   const [searching, setSearching] = useState(false);
-  const [searched, setSearched] = useState(false);
-  const [mobileNav, setMobileNav] = useState(false);
-  const [activeCategory, setActiveCategory] = useState<string | null>(null);
+  const [searched,  setSearched]  = useState(false);
+  const [activeNav, setActiveNav] = useState<"home"|"map"|"people"|"money"|"help">("home");
+  const [openRepId, setOpenRepId] = useState<string | null>(null);
+  const [openVolId, setOpenVolId] = useState<string | null>(null);
+  const [rent,      setRent]      = useState(2500);
+  const [liked,     setLiked]     = useState<Record<string, boolean>>({});
+
+  const budgetRef       = useRef<HTMLElement>(null);
+  const budgetTriggered = useInView(budgetRef, { once: true, amount: 0.2 });
+
+  const openRep = representatives.find((r) => r.id === openRepId) ?? null;
+  const openVol = communityResources.find((r) => r.id === openVolId) ?? null;
 
   const handleSearch = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!address.trim()) return;
     setSearching(true);
-    await new Promise(r => setTimeout(r, 1200));
+    await new Promise((r) => setTimeout(r, 1400));
     setSearching(false);
     setSearched(true);
-    setTimeout(() => {
-      document.getElementById("map")?.scrollIntoView({ behavior: "smooth", block: "start" });
-    }, 300);
+    setTimeout(() => document.getElementById("urgent")?.scrollIntoView({ behavior: "smooth" }), 300);
   };
 
-  const filteredResources = activeCategory
-    ? communityResources.filter(r => r.category === activeCategory)
-    : communityResources;
+  const annual    = rent * 12 * 0.012;
+  const schoolTax = Math.round(annual * 0.31);
+  const roadTax   = Math.round(annual * 0.09);
+  const parkTax   = Math.round(annual * 0.08);
+
+  // Suppress unused import warnings
+  void budgetData; void equityComparison;
 
   return (
-    <div className="min-h-screen" style={{ backgroundColor: "#FAF9F6" }}>
+    <div className="min-h-screen font-sans" style={{ backgroundColor: C.bg, paddingBottom: "90px" }}>
 
-      {/* ── Sticky Nav ─────────────────────────────── */}
-      <header className="fixed top-0 left-0 right-0 z-[100] backdrop-blur-md border-b border-white/40" style={{ backgroundColor: "rgba(250,249,246,0.88)" }}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 h-14 flex items-center justify-between">
-          <a href="#" className="flex items-center gap-2 font-black text-xl text-[#1B2A4A]">
-            <span className="w-7 h-7 rounded-lg flex items-center justify-center text-white text-sm font-black" style={{ backgroundColor: "#E8A020" }}>P</span>
-            Porch
-          </a>
-
-          <nav className="hidden md:flex items-center gap-6">
-            {NAV_LINKS.map(l => (
-              <a key={l.href} href={l.href} className="text-sm font-medium text-gray-600 hover:text-[#1B2A4A] transition-colors">
-                {l.label}
-              </a>
-            ))}
-          </nav>
-
-          <div className="flex items-center gap-3">
-            <div className="hidden md:flex items-center gap-1.5 text-xs font-medium text-gray-500 border border-gray-200 rounded-full px-3 py-1.5 bg-white">
-              <div className="w-1.5 h-1.5 rounded-full bg-[#4A7C59] animate-pulse" />
-              {NEIGHBORHOOD.name}, Oakland
-            </div>
-            <button className="md:hidden p-1.5 rounded-lg hover:bg-gray-100" onClick={() => setMobileNav(v => !v)}>
-              {mobileNav ? <X size={20} /> : <Menu size={20} />}
-            </button>
-          </div>
+      {/* ══ SECTION 1: HERO ══════════════════════════════════════════════ */}
+      <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
+        <div className="absolute inset-0">
+          <img src={IMGS.hero} alt="" className="w-full h-full object-cover" />
+          <div className="absolute inset-0"
+            style={{ background: "linear-gradient(155deg,rgba(232,81,58,0.55) 0%,rgba(232,81,58,0.3) 45%,rgba(27,42,74,0.52) 100%)" }} />
         </div>
 
-        {/* Mobile nav */}
-        <AnimatePresence>
-          {mobileNav && (
-            <motion.div
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: "auto" }}
-              exit={{ opacity: 0, height: 0 }}
-              className="md:hidden border-t border-gray-100 bg-white"
-            >
-              {NAV_LINKS.map(l => (
-                <a key={l.href} href={l.href} onClick={() => setMobileNav(false)}
-                  className="block px-4 py-3 text-sm font-medium text-[#1B2A4A] hover:bg-gray-50 border-b border-gray-50 last:border-0"
-                >
-                  {l.label}
-                </a>
-              ))}
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </header>
-
-      {/* ── Hero ───────────────────────────────────── */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-14">
-        {/* Background map texture */}
-        <div
-          className="absolute inset-0 opacity-[0.07]"
-          style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Crect width='100' height='100' fill='none'/%3E%3Cpath d='M0 50h100M50 0v100' stroke='%231B2A4A' stroke-width='0.5'/%3E%3Ccircle cx='50' cy='50' r='3' fill='%231B2A4A'/%3E%3Ccircle cx='0' cy='0' r='2' fill='%231B2A4A'/%3E%3Ccircle cx='100' cy='0' r='2' fill='%231B2A4A'/%3E%3Ccircle cx='0' cy='100' r='2' fill='%231B2A4A'/%3E%3Ccircle cx='100' cy='100' r='2' fill='%231B2A4A'/%3E%3C/svg%3E")`,
-            backgroundSize: "60px 60px",
-          }}
-        />
-
-        {/* Gradient blobs */}
-        <div className="absolute top-1/4 -left-20 w-80 h-80 rounded-full opacity-20 blur-3xl" style={{ backgroundColor: "#E8A020" }} />
-        <div className="absolute bottom-1/4 -right-20 w-96 h-96 rounded-full opacity-15 blur-3xl" style={{ backgroundColor: "#1B2A4A" }} />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 rounded-full opacity-10 blur-3xl" style={{ backgroundColor: "#4A7C59" }} />
-
-        <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, ease: "easeOut" }}
-          >
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-semibold mb-6 border"
-              style={{ backgroundColor: "rgba(74,124,89,0.1)", borderColor: "rgba(74,124,89,0.2)", color: "#2E6B42" }}>
-              <div className="w-1.5 h-1.5 rounded-full bg-[#4A7C59] animate-pulse" />
-              Live data · Temescal, Oakland CA
-            </div>
-
-            <h1 className="text-5xl md:text-7xl font-black text-[#1B2A4A] leading-[1.04] tracking-tight mb-6">
-              Your neighborhood,
-              <br />
-              <span style={{ color: "#E8A020" }}>finally legible.</span>
+        <div className="relative z-10 text-center px-6 max-w-xl mx-auto w-full">
+          <motion.div initial={{ opacity: 0, y: 32 }} animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.85, ease: "easeOut" }}>
+            <div className="flex justify-center mb-5"><HeroChar /></div>
+            <h1 className="font-extrabold text-white leading-tight mb-4"
+              style={{ fontSize: "clamp(36px,6vw,52px)", textShadow: "0 2px 24px rgba(0,0,0,0.28)" }}>
+              Your neighborhood has a story.
+              <br /><span style={{ color: C.yellow }}>Find out what it is.</span>
             </h1>
-
-            <p className="text-lg md:text-xl text-gray-600 mb-10 max-w-2xl mx-auto leading-relaxed">
-              Enter your address to see who represents you, where your taxes go, and how to get involved in Oakland.
+            <p className="text-lg mb-8 font-medium" style={{ color: "rgba(255,255,255,0.87)" }}>
+              Type your address — see who's in charge, where the money goes, and how to help.
             </p>
 
-            <form onSubmit={handleSearch} className="max-w-lg mx-auto">
-              <div className="relative">
-                <motion.div
-                  animate={searching ? { scale: [1, 1.01, 1] } : {}}
-                  transition={{ duration: 0.6, repeat: searching ? Infinity : 0 }}
-                  className="relative"
-                >
-                  <div className="absolute left-4 top-1/2 -translate-y-1/2">
-                    <MapPin size={18} className="text-gray-400" />
-                  </div>
-                  <input
-                    type="text"
-                    value={address}
-                    onChange={e => setAddress(e.target.value)}
-                    placeholder="4218 Telegraph Ave, Oakland, CA"
-                    className="w-full pl-11 pr-36 py-4 text-base rounded-2xl border-2 border-transparent outline-none text-[#1B2A4A] placeholder-gray-400 transition-all duration-200"
-                    style={{
-                      backgroundColor: "white",
-                      boxShadow: "0 4px 24px rgba(0,0,0,0.10)",
-                    }}
-                    onFocus={e => { e.currentTarget.style.borderColor = "#E8A020"; }}
-                    onBlur={e => { e.currentTarget.style.borderColor = "transparent"; }}
-                  />
-                  <button
-                    type="submit"
-                    disabled={searching}
-                    className="absolute right-2 top-1/2 -translate-y-1/2 px-5 py-2.5 rounded-xl font-bold text-white text-sm transition-all duration-150 hover:opacity-90 disabled:opacity-70 flex items-center gap-2"
-                    style={{ backgroundColor: "#1B2A4A" }}
-                  >
-                    {searching ? (
-                      <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                    ) : (
-                      <Search size={14} />
-                    )}
-                    {searching ? "Looking up…" : "Show me"}
-                  </button>
-                </motion.div>
+            <form onSubmit={handleSearch} className="mb-6">
+              <div className="flex rounded-full overflow-hidden" style={{ boxShadow: "0 8px 40px rgba(0,0,0,0.25)" }}>
+                <input type="text" value={address} onChange={(e) => setAddress(e.target.value)}
+                  placeholder="Your home address"
+                  className="flex-1 px-6 text-base outline-none"
+                  style={{ height: "56px", color: C.navy, backgroundColor: "white", minWidth: 0 }} />
+                <button type="submit" disabled={searching}
+                  className="flex-shrink-0 px-6 font-bold text-white hover:opacity-90 rounded-full"
+                  style={{ backgroundColor: C.coral, height: "56px", fontSize: "15px" }}>
+                  {searching
+                    ? <span className="flex items-center gap-2">
+                        <span className="inline-block w-4 h-4 rounded-full border-2 border-t-white animate-spin"
+                          style={{ borderColor: "rgba(255,255,255,0.35)", borderTopColor: "white" }} />
+                        Searching…
+                      </span>
+                    : "Show me →"}
+                </button>
               </div>
-              <p className="text-xs text-gray-400 mt-3">Try: "5205 Telegraph Ave" or any Oakland address</p>
             </form>
 
+            <div className="flex flex-wrap gap-3 justify-center">
+              {["🏛 11 officials", "💰 Your taxes", "🤝 Volunteer nearby"].map((t) => (
+                <div key={t} className="px-4 py-2 rounded-full text-sm font-semibold"
+                  style={{ backgroundColor: "rgba(255,255,255,0.2)", color: "white",
+                           backdropFilter: "blur(8px)", border: "1px solid rgba(255,255,255,0.3)" }}>
+                  {t}
+                </div>
+              ))}
+            </div>
+
             {searched && (
-              <motion.div
-                initial={{ opacity: 0, y: 8 }}
-                animate={{ opacity: 1, y: 0 }}
-                className="mt-6 inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-semibold text-white"
-                style={{ backgroundColor: "#4A7C59" }}
-              >
-                ✓ Found your district — scroll down to explore
+              <motion.div initial={{ opacity: 0, scale: 0.88 }} animate={{ opacity: 1, scale: 1 }}
+                className="mt-5 inline-flex items-center gap-2 px-5 py-3 rounded-full font-bold text-white"
+                style={{ backgroundColor: C.sage }}>
+                ✓ Found your neighborhood — scroll to explore
               </motion.div>
             )}
           </motion.div>
-
-          {/* Stats row */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.3, ease: "easeOut" }}
-            className="grid grid-cols-3 gap-4 mt-16 max-w-xl mx-auto"
-          >
-            {[
-              { num: "4", label: "Representatives" },
-              { num: "8", label: "Local resources" },
-              { num: "$2,155", label: "Spent per resident" },
-            ].map((s, i) => (
-              <div key={i} className="text-center">
-                <div className="text-2xl font-black text-[#1B2A4A]">{s.num}</div>
-                <div className="text-xs text-gray-500 mt-0.5">{s.label}</div>
-              </div>
-            ))}
-          </motion.div>
         </div>
 
-        {/* Scroll indicator */}
-        <motion.div
-          animate={{ y: [0, 6, 0] }}
-          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 text-gray-400"
-        >
-          <span className="text-xs font-medium">Scroll to explore</span>
-          <ChevronDown size={18} />
+        <motion.div animate={{ y: [0, 8, 0] }} transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1.5"
+          style={{ color: "rgba(255,255,255,0.7)" }}>
+          <span className="text-xs font-semibold">Scroll to explore</span>
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+            <path d="M4 6l5 5 5-5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
         </motion.div>
       </section>
 
-      {/* ── Map Section ────────────────────────────── */}
-      <section id="map" className="py-20 px-4 max-w-7xl mx-auto">
-        <SectionHeader
-          eyebrow="Your political map"
-          title="See your district at a glance"
-          subtitle="Toggle layers to see upcoming meetings, development permits, and community resources near you."
-        />
-        <MapLayer />
-      </section>
+      {/* ══ SECTION 2: URGENT CARDS ══════════════════════════════════════ */}
+      <section id="urgent" className="py-14">
+        <div className="px-6 mb-7">
+          <motion.h2 initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }} transition={{ duration: 0.4 }}
+            className="text-3xl font-extrabold" style={{ color: C.navy }}>
+            Right now, near you 📍
+          </motion.h2>
+          <div className="mt-2 w-14 h-1.5 rounded-full" style={{ backgroundColor: C.coral }} />
+        </div>
 
-      {/* ── Representatives ────────────────────────── */}
-      <section id="reps" className="py-20" style={{ backgroundColor: "#F3F2EF" }}>
-        <div className="max-w-7xl mx-auto px-4">
-          <SectionHeader
-            eyebrow="Your representatives"
-            title="Who speaks for Temescal"
-            subtitle="Four elected officials shape decisions that directly affect your neighborhood. Click any card to see their full voting record, donors, and contact info."
-          />
-          <div className="flex gap-5 overflow-x-auto pb-4 -mx-4 px-4 rep-scroll">
-            {representatives.map((rep, i) => (
-              <motion.div
-                key={rep.id}
-                initial={{ opacity: 0, x: 24 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true, margin: "-60px" }}
-                transition={{ duration: 0.4, delay: i * 0.08, ease: "easeOut" }}
-              >
-                <RepresentativeCard rep={rep} />
-              </motion.div>
-            ))}
-          </div>
+        <div className="flex gap-4 overflow-x-auto no-scrollbar pl-6 pr-6 pb-3">
+          {URGENT_CARDS.map((card, i) => (
+            <motion.div key={card.id}
+              initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: "-40px" }}
+              transition={{ delay: i * 0.09, duration: 0.4, ease: "easeOut" }}
+              whileHover={{ y: -6, transition: { duration: 0.18 } }}
+              className="relative flex-shrink-0 rounded-[24px] overflow-hidden cursor-pointer"
+              style={{ width: "300px", height: "380px", boxShadow: "0 4px 20px rgba(0,0,0,0.11)" }}>
+              <img src={card.photo} alt="" className="absolute inset-0 w-full h-full object-cover" />
+              <div className="absolute inset-0"
+                style={{ background: "linear-gradient(to top,rgba(0,0,0,0.85) 0%,rgba(0,0,0,0.15) 60%,transparent 100%)" }} />
+              <div className="absolute top-4 left-4">
+                <span className="px-3 py-1.5 rounded-full text-xs font-bold text-white"
+                  style={{ backgroundColor: card.badge.bg }}>{card.badge.text}</span>
+              </div>
+              <div className="absolute bottom-0 left-0 right-0 p-5">
+                <h3 className="text-lg font-extrabold text-white leading-snug mb-4">{card.title}</h3>
+                <button className="px-5 py-2.5 rounded-full text-sm font-bold transition-transform hover:scale-105"
+                  style={{ backgroundColor: "white", color: C.navy }}>{card.cta}</button>
+              </div>
+            </motion.div>
+          ))}
         </div>
       </section>
 
-      {/* ── Budget ─────────────────────────────────── */}
-      <section id="budget" className="py-20 px-4 max-w-7xl mx-auto">
-        <SectionHeader
-          eyebrow="Where your money goes"
-          title="Oakland's $2.1B city budget, simplified"
-          subtitle="Every year, Oakland spends your tax dollars across seven major categories. See how Temescal compares to the city average — and calculate your personal contribution."
-        />
-        <BudgetChart />
+      {/* ══ SECTION 3: REPRESENTATIVES ═══════════════════════════════════ */}
+      <WaveDivider fill="#FFF0ED" />
+      <section id="people" className="py-14" style={{ backgroundColor: "#FFF0ED" }}>
+        <div className="px-6 mb-2">
+          <motion.h2 initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }} transition={{ duration: 0.4 }}
+            className="text-3xl font-extrabold" style={{ color: C.navy }}>
+            Who runs things around here 👥
+          </motion.h2>
+          <div className="mt-2 w-14 h-1.5 rounded-full" style={{ backgroundColor: C.coral }} />
+          <p className="mt-2 text-base font-medium" style={{ color: "#9B7060" }}>
+            Most people have never heard of them. That's kind of the problem.
+          </p>
+        </div>
+
+        <div className="flex gap-4 overflow-x-auto no-scrollbar pl-6 pr-6 pb-3 mt-8">
+          {representatives.map((rep, i) => {
+            const color = REP_COLORS[i % REP_COLORS.length];
+            return (
+              <motion.div key={rep.id}
+                initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-40px" }}
+                transition={{ delay: i * 0.1, type: "spring", stiffness: 240, damping: 22 }}
+                whileHover={{ y: -6, transition: { duration: 0.18 } }}
+                onClick={() => setOpenRepId(rep.id)}
+                className="flex-shrink-0 cursor-pointer" style={{ width: "240px" }}>
+                <div className="rounded-[24px] overflow-hidden"
+                  style={{ backgroundColor: "white", boxShadow: "0 4px 24px rgba(0,0,0,0.09)" }}>
+                  {rep.donorAlert && (
+                    <div className="px-3 py-1.5 text-[11px] font-bold flex items-center gap-1"
+                      style={{ backgroundColor: "#FEF3F2", color: "#B91C1C" }}>
+                      ⚠ {rep.donorAlert}
+                    </div>
+                  )}
+                  <div className="flex items-center justify-center" style={{ backgroundColor: color, height: "130px" }}>
+                    <RepAvatar color={color} initials={rep.initials} size={84} />
+                  </div>
+                  <div className="p-5">
+                    <div className="text-base font-extrabold leading-tight" style={{ color: C.navy }}>{rep.name}</div>
+                    <div className="text-xs mt-1 font-medium" style={{ color: "#6B7280" }}>{roleLabel(rep.jurisdictionType)}</div>
+                    {/* Vibe dots — pure visual, no labels */}
+                    <div className="flex gap-2 mt-4">
+                      {rep.votes.slice(0, 3).map((v, vi) => (
+                        <motion.div key={vi}
+                          initial={{ scale: 0 }} whileInView={{ scale: 1 }} viewport={{ once: true }}
+                          transition={{ delay: i * 0.1 + vi * 0.07, type: "spring", stiffness: 400 }}
+                          className="w-5 h-5 rounded-full" title={v.label}
+                          style={{ backgroundColor: v.aligned ? C.sage : C.coral }} />
+                      ))}
+                    </div>
+                    <button className="mt-4 w-full py-3 rounded-full text-sm font-bold text-white hover:opacity-90"
+                      style={{ backgroundColor: color }}>
+                      See record →
+                    </button>
+                  </div>
+                </div>
+              </motion.div>
+            );
+          })}
+        </div>
+      </section>
+      <WaveDivider fill="#FFF0ED" flip />
+
+      {/* ══ SECTION 4: BUDGET ════════════════════════════════════════════ */}
+      <section id="money" className="py-14 px-6" ref={budgetRef}>
+        <motion.h2 initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }} transition={{ duration: 0.4 }}
+          className="text-3xl font-extrabold mb-2" style={{ color: C.navy }}>
+          Your money. Their choices. 💸
+        </motion.h2>
+        <div className="mb-8 w-14 h-1.5 rounded-full" style={{ backgroundColor: C.coral }} />
+
+        <div className="mb-10">
+          <NeighborhoodIllustration triggered={budgetTriggered} />
+        </div>
+
+        {/* Big animated stat reveals */}
+        <div className="grid grid-cols-2 gap-4 max-w-xl mx-auto mb-10">
+          <AnimatedStat value={1240} prefix="$" label="Schools / resident / yr"  color={C.navy}    delay={0} />
+          <AnimatedStat value={320}  prefix="$" label="Parks / resident / yr"    color={C.coral}   delay={0.1} />
+          <AnimatedStat value={1120} prefix="$" label="Police & Fire / yr"       color="#E06B5A"   delay={0.2} />
+          <AnimatedStat value={560}  prefix="$" label="Housing / yr"             color={C.sage}    delay={0.3} />
+        </div>
+
+        {/* Rent calculator */}
+        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }} transition={{ duration: 0.5 }}
+          className="rounded-[28px] p-6 max-w-xl mx-auto"
+          style={{ backgroundColor: "white", boxShadow: "0 4px 20px rgba(0,0,0,0.07)" }}>
+          <div className="text-xl font-extrabold mb-1" style={{ color: C.navy }}>What do YOU fund?</div>
+          <div className="flex justify-between items-center mb-3">
+            <span className="text-sm font-semibold" style={{ color: "#6B7280" }}>Monthly rent</span>
+            <span className="text-2xl font-extrabold" style={{ color: C.coral }}>${rent.toLocaleString()}</span>
+          </div>
+          <input type="range" min="500" max="6000" step="100" value={rent}
+            onChange={(e) => setRent(Number(e.target.value))} />
+          <div className="mt-5 grid grid-cols-3 gap-3">
+            {[
+              { label: "Schools", amount: schoolTax, color: C.navy },
+              { label: "Roads",   amount: roadTax,   color: "#9B59B6" },
+              { label: "Parks 😬",amount: parkTax,   color: C.coral },
+            ].map((row) => (
+              <div key={row.label} className="rounded-[16px] p-3 text-center"
+                style={{ backgroundColor: row.color + "12" }}>
+                <div className="text-2xl font-extrabold" style={{ color: row.color }}>${row.amount}</div>
+                <div className="text-[11px] font-semibold mt-0.5" style={{ color: "#6B7280" }}>{row.label}</div>
+              </div>
+            ))}
+          </div>
+        </motion.div>
       </section>
 
-      {/* ── Community Resources ────────────────────── */}
-      <section id="resources" className="py-20" style={{ backgroundColor: "#F3F2EF" }}>
-        <div className="max-w-7xl mx-auto px-4">
-          <SectionHeader
-            eyebrow="Community resources"
-            title="Where neighbors help neighbors"
-            subtitle="Eight types of local services — from emergency shelters to legal aid — all within reach of Temescal."
-          />
+      {/* ══ SECTION 5: VOLUNTEER ═════════════════════════════════════════ */}
+      <WaveDivider fill="#EDFAF4" />
+      <section id="help" className="py-14" style={{ backgroundColor: "#EDFAF4" }}>
+        <div className="px-6 mb-6">
+          <motion.h2 initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }} transition={{ duration: 0.4 }}
+            className="text-3xl font-extrabold" style={{ color: C.navy }}>
+            Your neighbors need you. 🤝
+          </motion.h2>
+          <div className="mt-2 w-14 h-1.5 rounded-full" style={{ backgroundColor: C.sage }} />
+        </div>
 
-          {/* Volunteer highlight */}
-          <motion.div
-            initial={{ opacity: 0, y: 12 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.4, ease: "easeOut" }}
-            className="mb-10 rounded-[12px] overflow-hidden"
-            style={{ backgroundColor: "#4A7C59" }}
-          >
-            <div className="p-5 md:p-6 flex flex-col md:flex-row md:items-center gap-4">
-              <div className="w-12 h-12 rounded-xl bg-white/20 flex items-center justify-center text-2xl flex-shrink-0">
-                🐾
+        <div className="mx-6 mb-5">
+          <motion.div initial={{ opacity: 0, scale: 0.96 }} whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }} transition={{ duration: 0.45 }}
+            className="relative rounded-[24px] overflow-hidden"
+            style={{ minHeight: "260px", boxShadow: "0 4px 20px rgba(0,0,0,0.10)" }}>
+            <img src={IMGS.volunteer} alt="" className="absolute inset-0 w-full h-full object-cover" />
+            <div className="absolute inset-0"
+              style={{ background: "linear-gradient(155deg,rgba(76,175,130,0.82) 0%,rgba(76,175,130,0.55) 100%)" }} />
+            <div className="relative z-10 p-6 flex flex-col justify-end" style={{ minHeight: "260px" }}>
+              <div className="text-xs font-bold mb-1" style={{ color: "rgba(255,255,255,0.75)" }}>
+                Most urgent this weekend
               </div>
-              <div className="flex-1">
-                <div className="text-xs font-bold tracking-wider uppercase text-white/70 mb-1">Volunteer this weekend · Highest need nearby</div>
-                <div className="text-lg font-bold text-white leading-tight">{highlightVolunteer.name}</div>
-                <div className="text-sm text-white/80 mt-0.5">{highlightVolunteer.volunteerNeeds}</div>
-              </div>
-              <div className="flex gap-3 flex-shrink-0">
-                <a
-                  href={`https://maps.google.com/?q=${encodeURIComponent(highlightVolunteer.address)}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="px-4 py-2.5 rounded-xl text-sm font-semibold text-[#4A7C59] bg-white hover:bg-gray-50 transition-colors"
-                >
-                  Get directions
-                </a>
-                <button className="px-4 py-2.5 rounded-xl text-sm font-semibold border-2 border-white text-white hover:bg-white/10 transition-colors">
-                  Sign up →
+              <h3 className="text-2xl font-extrabold text-white leading-tight mb-3">
+                Food Bank needs 8 more people Saturday
+              </h3>
+              <div className="flex items-center gap-4">
+                <button className="px-6 py-3 rounded-full font-bold hover:scale-105 transition-transform"
+                  style={{ backgroundColor: "white", color: "#2E7D52" }}>
+                  I'll be there →
                 </button>
+                <span className="text-xs" style={{ color: "rgba(255,255,255,0.7)" }}>
+                  340 families served last month
+                </span>
               </div>
             </div>
           </motion.div>
+        </div>
 
-          {/* Category filter */}
-          <div className="flex gap-2 overflow-x-auto pb-2 mb-8 -mx-4 px-4">
-            <button
-              onClick={() => setActiveCategory(null)}
-              className="flex-shrink-0 px-3 py-1.5 rounded-full text-xs font-semibold border transition-all duration-150"
-              style={{
-                backgroundColor: activeCategory === null ? "#1B2A4A" : "white",
-                borderColor: activeCategory === null ? "#1B2A4A" : "#E5E7EB",
-                color: activeCategory === null ? "white" : "#374151",
-              }}
-            >
-              All
-            </button>
-            {resourceCategories.map(cat => (
-              <button
-                key={cat.key}
-                onClick={() => setActiveCategory(cat.key === activeCategory ? null : cat.key)}
-                className="flex-shrink-0 flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold border transition-all duration-150"
-                style={{
-                  backgroundColor: activeCategory === cat.key ? "#1B2A4A" : "white",
-                  borderColor: activeCategory === cat.key ? "#1B2A4A" : "#E5E7EB",
-                  color: activeCategory === cat.key ? "white" : "#374151",
-                }}
-              >
-                {cat.icon} {cat.key}
-              </button>
+        <div className="px-6 grid grid-cols-2 gap-4">
+          {VOL_TILES.map((tile, i) => {
+            const res = communityResources.find((r) => r.category.toLowerCase().includes(tile.catKey.toLowerCase()));
+            return (
+              <motion.div key={tile.label}
+                initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1, type: "spring", stiffness: 200, damping: 22 }}
+                whileHover={{ scale: 1.04, transition: { duration: 0.15 } }}
+                onClick={() => res && setOpenVolId(res.id)}
+                className="relative rounded-[20px] overflow-hidden cursor-pointer"
+                style={{ height: "180px" }}>
+                <img src={tile.photo} alt="" className="absolute inset-0 w-full h-full object-cover" />
+                <div className="absolute inset-0"
+                  style={{ background: `linear-gradient(to top,${tile.color}CC 0%,${tile.color}66 55%,${tile.color}22 100%)` }} />
+                <div className="relative z-10 p-4 h-full flex flex-col justify-end">
+                  <div className="text-base font-extrabold text-white">{tile.label}</div>
+                  <div className="text-xs mt-0.5" style={{ color: "rgba(255,255,255,0.82)" }}>{tile.shifts}</div>
+                </div>
+              </motion.div>
+            );
+          })}
+        </div>
+      </section>
+      <WaveDivider fill="#EDFAF4" flip />
+
+      {/* ══ SECTION 6: PULSE ═════════════════════════════════════════════ */}
+      <section id="pulse" className="py-14 px-6">
+        <motion.h2 initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }} transition={{ duration: 0.4 }}
+          className="text-3xl font-extrabold mb-2" style={{ color: C.navy }}>
+          {NEIGHBORHOOD.name} is waking up 🌱
+        </motion.h2>
+        <div className="mb-8 w-14 h-1.5 rounded-full" style={{ backgroundColor: C.sage }} />
+
+        {/* Civic health ring */}
+        <div className="flex flex-col items-center mb-10">
+          <div className="relative" style={{ width: "172px", height: "172px" }}>
+            <svg width="172" height="172" viewBox="0 0 172 172" aria-label="Civic health: 62 out of 100">
+              <circle cx="86" cy="86" r="70" fill="none" stroke="#F3F4F6" strokeWidth="14" />
+              <motion.circle cx="86" cy="86" r="70" fill="none" stroke={C.sage} strokeWidth="14"
+                strokeLinecap="round" strokeDasharray={`${2 * Math.PI * 70}`}
+                transform="rotate(-90 86 86)"
+                initial={{ strokeDashoffset: 2 * Math.PI * 70 }}
+                whileInView={{ strokeDashoffset: 2 * Math.PI * 70 * (1 - 0.62) }}
+                viewport={{ once: true }}
+                transition={{ duration: 1.6, ease: "easeOut", delay: 0.3 }} />
+            </svg>
+            <div className="absolute inset-0 flex flex-col items-center justify-center">
+              <span className="text-5xl font-extrabold" style={{ color: C.navy }}>62</span>
+              <span className="text-sm font-semibold" style={{ color: "#6B7280" }}>Getting there</span>
+            </div>
+          </div>
+          <div className="flex -space-x-2 mt-4">
+            {ANON_COLORS.map((color, i) => (
+              <motion.div key={i} initial={{ scale: 0 }} whileInView={{ scale: 1 }} viewport={{ once: true }}
+                transition={{ delay: i * 0.07 + 0.5, type: "spring", stiffness: 280 }}
+                className="w-8 h-8 rounded-full border-2 border-white flex items-center justify-center text-[10px] font-bold text-white"
+                style={{ backgroundColor: color }}>
+                {String.fromCharCode(65 + i)}
+              </motion.div>
             ))}
           </div>
+          <p className="text-xs mt-2 font-medium" style={{ color: "#9CA3AF" }}>
+            Civic health · {NEIGHBORHOOD.name}, Oakland
+          </p>
+        </div>
 
-          {/* Resource grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-            <AnimatePresence mode="popLayout">
-              {filteredResources.map((resource, i) => (
-                <motion.div
-                  key={resource.id}
-                  layout
-                  initial={{ opacity: 0, scale: 0.96 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.96 }}
-                  transition={{ duration: 0.25, delay: i * 0.04, ease: "easeOut" }}
-                >
-                  <ResourceCard resource={resource} />
-                </motion.div>
-              ))}
-            </AnimatePresence>
-          </div>
+        {/* Compact notification chips */}
+        <div className="space-y-2.5 max-w-lg mx-auto">
+          {PULSE_ITEMS.map((item, i) => (
+            <motion.div key={item.id}
+              initial={{ opacity: 0, x: -16 }} whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.07, duration: 0.35, ease: "easeOut" }}
+              className="flex items-center gap-3 px-4 py-3.5 rounded-[16px] bg-white"
+              style={{ boxShadow: "0 2px 10px rgba(0,0,0,0.05)" }}>
+              <div className="w-9 h-9 rounded-full flex-shrink-0 flex items-center justify-center text-base"
+                style={{ backgroundColor: item.color + "18" }}>
+                {item.icon}
+              </div>
+              <div className="flex-1 min-w-0">
+                <p className="text-sm font-medium leading-snug truncate" style={{ color: C.navy }}>{item.text}</p>
+                <p className="text-[11px] mt-0.5" style={{ color: "#9CA3AF" }}>{item.time}</p>
+              </div>
+              <motion.button whileHover={{ scale: 1.3 }} whileTap={{ scale: 0.8 }}
+                onClick={() => setLiked((p) => ({ ...p, [item.id]: !p[item.id] }))}
+                className="flex-shrink-0" aria-label="React">
+                <svg width="18" height="18" viewBox="0 0 20 20" fill="none">
+                  <path d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z"
+                    fill={liked[item.id] ? C.coral : "none"}
+                    stroke={liked[item.id] ? C.coral : "#D1D5DB"} strokeWidth="1.5" />
+                </svg>
+              </motion.button>
+            </motion.div>
+          ))}
         </div>
       </section>
 
-      {/* ── What's Happening Now ────────────────────── */}
-      <section id="happening" className="py-20 px-4 max-w-7xl mx-auto pb-32 lg:pb-20">
-        <SectionHeader
-          eyebrow="What's happening now"
-          title="Decisions being made this week"
-          subtitle="Public meetings, open comment periods, and recent votes — translated from bureaucratic to plain English."
-        />
-
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-
-          {/* Upcoming meetings */}
-          <div>
-            <div className="flex items-center gap-2 mb-4">
-              <Calendar size={16} className="text-[#1B2A4A]" />
-              <h3 className="font-bold text-[#1B2A4A] text-base">Upcoming Meetings</h3>
-            </div>
-            <div className="space-y-3">
-              {upcomingEvents.map((ev, i) => (
-                <motion.div
-                  key={ev.id}
-                  initial={{ opacity: 0, y: 12 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.07, duration: 0.35 }}
-                  className="bg-white rounded-[12px] border border-gray-100 p-4"
-                  style={{ boxShadow: "0 1px 3px rgba(0,0,0,0.05)" }}
-                >
-                  <div className="flex items-start justify-between gap-2 mb-2">
-                    <h4 className="font-bold text-[#1B2A4A] text-sm leading-tight">{ev.title}</h4>
-                    <div className="flex-shrink-0 text-xs font-bold px-2 py-1 rounded-full text-white flex items-center gap-1"
-                      style={{ backgroundColor: "#1B2A4A" }}>
-                      <Clock size={10} />
-                      <CountdownTimer date={ev.date} />
-                    </div>
-                  </div>
-                  <p className="text-xs text-gray-600 leading-relaxed mb-2">{ev.description}</p>
-                  <div className="text-xs text-gray-400 flex items-center gap-1 mb-3">
-                    <MapPin size={10} />
-                    {ev.location}
-                  </div>
-                  <div className="text-xs font-medium text-[#4A7C59]">
-                    ↗ {ev.attendance}
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-
-          {/* Open comment periods */}
-          <div>
-            <div className="flex items-center gap-2 mb-4">
-              <MessageSquare size={16} className="text-[#E8A020]" />
-              <h3 className="font-bold text-[#1B2A4A] text-base">Open Comment Periods</h3>
-            </div>
-            <div className="space-y-3">
-              {openComments.map((c, i) => (
-                <motion.div
-                  key={c.id}
-                  initial={{ opacity: 0, y: 12 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.07 + 0.1, duration: 0.35 }}
-                  className="bg-white rounded-[12px] border border-gray-100 p-4"
-                  style={{
-                    boxShadow: "0 1px 3px rgba(0,0,0,0.05)",
-                    borderColor: c.urgent ? "#FDE68A" : "#F3F4F6",
-                  }}
-                >
-                  {c.urgent && (
-                    <div className="text-xs font-bold text-[#B87010] mb-2 flex items-center gap-1">
-                      <span className="w-1.5 h-1.5 rounded-full bg-[#E8A020] pulse-amber" />
-                      Closes soon
-                    </div>
-                  )}
-                  <h4 className="font-bold text-[#1B2A4A] text-sm leading-tight mb-2">{c.title}</h4>
-                  <p className="text-xs text-gray-600 leading-relaxed mb-3">{c.description}</p>
-                  <div className="flex items-center justify-between">
-                    <div className="text-xs text-gray-400 flex items-center gap-1">
-                      <Clock size={10} />
-                      Deadline: <CountdownTimer date={c.deadline} />
-                    </div>
-                    <button
-                      className="text-xs font-bold px-3 py-1.5 rounded-lg text-white transition-opacity hover:opacity-90"
-                      style={{ backgroundColor: "#E8A020" }}
-                    >
-                      Comment →
-                    </button>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-
-          {/* Recent votes */}
-          <div>
-            <div className="flex items-center gap-2 mb-4">
-              <Vote size={16} className="text-[#4A7C59]" />
-              <h3 className="font-bold text-[#1B2A4A] text-base">Recent Votes Near You</h3>
-            </div>
-            <div className="space-y-3">
-              {recentVotes.map((v, i) => (
-                <motion.div
-                  key={v.id}
-                  initial={{ opacity: 0, y: 12 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.07 + 0.2, duration: 0.35 }}
-                  className="bg-white rounded-[12px] border border-gray-100 p-4"
-                  style={{ boxShadow: "0 1px 3px rgba(0,0,0,0.05)" }}
-                >
-                  <div className="flex items-start gap-2 mb-2">
-                    <div
-                      className="w-1.5 h-full min-h-[40px] rounded-full flex-shrink-0"
-                      style={{ backgroundColor: v.aligned ? "#4A7C59" : "#E06B5A" }}
-                    />
-                    <div className="flex-1 min-w-0">
-                      <h4 className="font-bold text-[#1B2A4A] text-sm leading-tight mb-1">{v.title}</h4>
-                      <span
-                        className="inline-block text-xs font-bold px-2 py-0.5 rounded-full mb-2"
-                        style={{
-                          backgroundColor: v.aligned ? "#EAF4ED" : "#FDECEA",
-                          color: v.aligned ? "#2E6B42" : "#C0392B",
-                        }}
-                      >
-                        {v.result}
+      {/* ══ REP BOTTOM SHEET ═════════════════════════════════════════════ */}
+      <AnimatePresence>
+        {openRepId && openRep && (
+          <>
+            <motion.div key="rep-bg" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
+              onClick={() => setOpenRepId(null)} className="fixed inset-0 z-40"
+              style={{ backgroundColor: "rgba(0,0,0,0.48)" }} />
+            <motion.div key="rep-sheet"
+              initial={{ y: "100%" }} animate={{ y: 0 }} exit={{ y: "100%" }}
+              transition={{ type: "spring", damping: 32, stiffness: 320 }}
+              className="fixed bottom-0 left-0 right-0 z-50 overflow-y-auto rounded-t-[32px]"
+              style={{ backgroundColor: C.bg, maxHeight: "90vh", paddingBottom: "env(safe-area-inset-bottom,24px)" }}>
+              <div className="flex justify-center pt-3 pb-2">
+                <div className="w-10 h-1 rounded-full bg-gray-200" />
+              </div>
+              <div className="px-6 pb-4">
+                <div className="flex items-start gap-4">
+                  <RepAvatar
+                    color={REP_COLORS[representatives.findIndex((r) => r.id === openRepId) % REP_COLORS.length]}
+                    initials={openRep.initials} size={68} />
+                  <div className="flex-1">
+                    <h3 className="text-xl font-extrabold" style={{ color: C.navy }}>{openRep.name}</h3>
+                    <p className="text-sm" style={{ color: "#6B7280" }}>{openRep.role}</p>
+                    <div className="flex flex-wrap gap-2 mt-2">
+                      <span className="px-3 py-1 rounded-full text-xs font-bold"
+                        style={{ backgroundColor: C.sageLight, color: "#2E7D52" }}>
+                        {openRep.attendance}% attendance
                       </span>
-                      <p className="text-xs text-gray-600 leading-relaxed mb-3">{v.description}</p>
-                      <div className="flex flex-wrap gap-1.5">
-                        {v.votes.map((vv, j) => (
-                          <span
-                            key={j}
-                            className="text-xs px-2 py-0.5 rounded-full font-medium"
-                            style={{
-                              backgroundColor: vv.yes ? "#EAF4ED" : "#FDECEA",
-                              color: vv.yes ? "#2E6B42" : "#C0392B",
-                            }}
-                          >
-                            {vv.name} {vv.yes ? "✓" : "✗"}
-                          </span>
-                        ))}
+                      {openRep.donorAlert && (
+                        <span className="px-3 py-1 rounded-full text-xs font-bold"
+                          style={{ backgroundColor: "#FEF3F2", color: "#B91C1C" }}>
+                          ⚠ {openRep.donorAlert}
+                        </span>
+                      )}
+                    </div>
+                  </div>
+                  <button onClick={() => setOpenRepId(null)}
+                    className="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0"
+                    style={{ backgroundColor: "#F3F4F6" }} aria-label="Close">
+                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                      <path d="M1 1l12 12M13 1L1 13" stroke="#6B7280" strokeWidth="2" strokeLinecap="round" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+              <div style={{ height: 1, backgroundColor: "#F3F4F6" }} />
+              <div className="px-6 py-5">
+                <h4 className="text-base font-extrabold mb-4" style={{ color: C.navy }}>Voting history</h4>
+                <div className="space-y-4">
+                  {openRep.fullVotes.map((v, i) => (
+                    <div key={i} className="flex items-start gap-3">
+                      <div className="w-3 h-3 rounded-full flex-shrink-0 mt-1"
+                        style={{ backgroundColor: v.aligned ? C.sage : C.coral }} />
+                      <div>
+                        <p className="text-sm font-semibold" style={{ color: C.navy }}>{v.description}</p>
+                        <p className="text-xs mt-0.5" style={{ color: "#9CA3AF" }}>{v.date}</p>
                       </div>
                     </div>
+                  ))}
+                </div>
+              </div>
+              <div style={{ height: 1, backgroundColor: "#F3F4F6" }} />
+              <div className="px-6 py-5">
+                <h4 className="text-base font-extrabold mb-4" style={{ color: C.navy }}>Who funds their campaigns</h4>
+                <div className="space-y-3">
+                  {openRep.topDonors.map((d, i) => {
+                    const pct = (d.amount / Math.max(...openRep.topDonors.map((x) => x.amount))) * 100;
+                    return (
+                      <div key={i}>
+                        <div className="flex justify-between text-xs mb-1">
+                          <span className="font-medium" style={{ color: "#374151" }}>{d.name}</span>
+                          <span className="font-bold" style={{ color: C.navy }}>${d.amount.toLocaleString()}</span>
+                        </div>
+                        <div className="h-2 rounded-full" style={{ backgroundColor: "#F3F4F6" }}>
+                          <motion.div className="h-full rounded-full" initial={{ width: 0 }}
+                            animate={{ width: `${pct}%` }}
+                            transition={{ duration: 0.65, delay: i * 0.1 }}
+                            style={{ backgroundColor: C.coral }} />
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+              <div className="px-6 pb-8 pt-2">
+                <a href={`mailto:${openRep.email}`}
+                  className="block w-full py-4 rounded-full font-bold text-white text-center hover:opacity-90"
+                  style={{ backgroundColor: C.coral }}>
+                  📧 Contact them
+                </a>
+              </div>
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
+
+      {/* ══ VOLUNTEER BOTTOM SHEET ═══════════════════════════════════════ */}
+      <AnimatePresence>
+        {openVolId && openVol && (
+          <>
+            <motion.div key="vol-bg" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
+              onClick={() => setOpenVolId(null)} className="fixed inset-0 z-40"
+              style={{ backgroundColor: "rgba(0,0,0,0.48)" }} />
+            <motion.div key="vol-sheet"
+              initial={{ y: "100%" }} animate={{ y: 0 }} exit={{ y: "100%" }}
+              transition={{ type: "spring", damping: 32, stiffness: 320 }}
+              className="fixed bottom-0 left-0 right-0 z-50 overflow-y-auto rounded-t-[32px]"
+              style={{ backgroundColor: C.bg, maxHeight: "80vh", paddingBottom: "env(safe-area-inset-bottom,24px)" }}>
+              <div className="flex justify-center pt-3 pb-2">
+                <div className="w-10 h-1 rounded-full bg-gray-200" />
+              </div>
+              <div className="px-6 py-3">
+                <div className="flex items-start justify-between gap-3 mb-4">
+                  <div>
+                    <span className="inline-block px-3 py-1 rounded-full text-xs font-bold mb-2"
+                      style={{ backgroundColor: openVol.hours.isOpen ? C.sageLight : "#FEF3F2",
+                               color: openVol.hours.isOpen ? "#2E7D52" : "#B91C1C" }}>
+                      {openVol.hours.isOpen ? "Open now" : "Closed"} · {openVol.hours.today}
+                    </span>
+                    <h3 className="text-xl font-extrabold" style={{ color: C.navy }}>{openVol.name}</h3>
+                    <p className="text-sm mt-1" style={{ color: "#6B7280" }}>
+                      {openVol.address} · {openVol.distance}
+                    </p>
                   </div>
-                  <div className="text-xs text-gray-400 mt-2">{v.date}</div>
+                  <button onClick={() => setOpenVolId(null)}
+                    className="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0"
+                    style={{ backgroundColor: "#F3F4F6" }} aria-label="Close">
+                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                      <path d="M1 1l12 12M13 1L1 13" stroke="#6B7280" strokeWidth="2" strokeLinecap="round" />
+                    </svg>
+                  </button>
+                </div>
+                <p className="text-sm leading-relaxed p-4 rounded-[16px] mb-4"
+                  style={{ backgroundColor: "#F9FAFB", color: "#374151" }}>
+                  {openVol.volunteerDesc}
+                </p>
+                <div className="grid grid-cols-2 gap-3 mb-5">
+                  <div className="p-3 rounded-[12px]" style={{ backgroundColor: C.sageLight }}>
+                    <div className="text-[11px] font-bold mb-0.5" style={{ color: "#2E7D52" }}>Time needed</div>
+                    <div className="text-sm font-semibold" style={{ color: C.navy }}>{openVol.timeCommitment}</div>
+                  </div>
+                  <div className="p-3 rounded-[12px]" style={{ backgroundColor: "#FFF8F6" }}>
+                    <div className="text-[11px] font-bold mb-0.5" style={{ color: "#6B7280" }}>Training</div>
+                    <div className="text-sm font-semibold" style={{ color: C.navy }}>
+                      {openVol.trainingRequired ? "Required (provided)" : "Not required"}
+                    </div>
+                  </div>
+                </div>
+                <a href={openVol.signupUrl}
+                  className="block mb-3 w-full py-4 rounded-full font-bold text-white text-center hover:opacity-90"
+                  style={{ backgroundColor: C.sage }}>
+                  Sign up to volunteer →
+                </a>
+                <a href={`tel:${openVol.phone}`}
+                  className="block w-full py-3 rounded-full font-semibold text-center"
+                  style={{ backgroundColor: "#F3F4F6", color: C.navy }}>
+                  {openVol.phone}
+                </a>
+              </div>
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
+
+      {/* ══ BOTTOM NAV ═══════════════════════════════════════════════════ */}
+      <nav className="fixed bottom-0 left-0 right-0 z-30"
+        style={{ backgroundColor: "white", boxShadow: "0 -4px 24px rgba(0,0,0,0.08)",
+                 borderTopLeftRadius: "28px", borderTopRightRadius: "28px",
+                 paddingBottom: "env(safe-area-inset-bottom,0px)" }}>
+        <div className="flex justify-around items-center px-4 py-3">
+          {(
+            [
+              { id: "home",   label: "Home",   href: "#home",   Icon: IconHome },
+              { id: "map",    label: "Map",    href: "#urgent", Icon: IconMap },
+              { id: "people", label: "People", href: "#people", Icon: IconPeople },
+              { id: "money",  label: "Money",  href: "#money",  Icon: IconMoney },
+              { id: "help",   label: "Help",   href: "#help",   Icon: IconHelp },
+            ] as { id: "home"|"map"|"people"|"money"|"help"; label: string; href: string; Icon: (p: { active: boolean }) => React.JSX.Element }[]
+          ).map((item) => {
+            const isActive = activeNav === item.id;
+            return (
+              <a key={item.id} href={item.href} onClick={() => setActiveNav(item.id)}
+                className="flex flex-col items-center gap-0.5" aria-label={item.label}>
+                <motion.div whileTap={{ scale: 0.8 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 18 }}
+                  className="w-12 h-12 rounded-full flex items-center justify-center transition-colors duration-200"
+                  style={{ backgroundColor: isActive ? C.coral : "transparent" }}>
+                  <item.Icon active={isActive} />
                 </motion.div>
-              ))}
-            </div>
-          </div>
-
+                <span className="text-[11px] font-semibold hidden sm:block"
+                  style={{ color: isActive ? C.coral : "#9CA3AF" }}>{item.label}</span>
+              </a>
+            );
+          })}
         </div>
-      </section>
-
-      {/* ── Footer ─────────────────────────────────── */}
-      <footer className="border-t border-gray-200 py-10 px-4" style={{ backgroundColor: "#1B2A4A" }}>
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
-          <div className="flex items-center gap-2">
-            <span className="w-7 h-7 rounded-lg flex items-center justify-center text-[#1B2A4A] text-sm font-black bg-[#E8A020]">P</span>
-            <span className="font-bold text-white text-lg">Porch</span>
-            <span className="text-white/40 text-sm">· Temescal, Oakland CA</span>
-          </div>
-          <p className="text-white/40 text-xs text-center">
-            All data is illustrative and drawn from publicly available Oakland city records, meeting agendas, and campaign finance disclosures.
-          </p>
-          <div className="flex items-center gap-4 text-xs text-white/40">
-            <a href="#" className="hover:text-white/80 transition-colors">About</a>
-            <a href="#" className="hover:text-white/80 transition-colors">Data sources</a>
-            <a href="#" className="hover:text-white/80 transition-colors">Feedback</a>
-          </div>
-        </div>
-      </footer>
-
-      {/* ── Alert Panel ────────────────────────────── */}
-      <AlertPanel />
+      </nav>
     </div>
   );
 }
