@@ -1290,13 +1290,15 @@ export default function Home() {
         <div className="relative z-10 text-center px-6 max-w-xl mx-auto w-full">
           <motion.div initial={{ opacity: 0, y: 32 }} animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.85, ease: "easeOut" }}>
-            <div className="flex justify-center mb-4"><PorchLogo /></div>
-            <h1 className="font-extrabold leading-tight mb-3"
-              style={{ fontSize: "clamp(28px,5.5vw,46px)", color: C.navy }}>
+            <div className="mb-2 text-3xl font-black tracking-tight" style={{ color: C.navy, letterSpacing: "-0.02em" }}>
+              porch<span style={{ color: C.coral }}>.</span>
+            </div>
+            <h1 className="font-extrabold leading-tight mb-2"
+              style={{ fontSize: "clamp(26px,5vw,42px)", color: C.navy }}>
               Your neighborhood has a story.
               <br /><span style={{ color: C.yellow }}>Find out what it is.</span>
             </h1>
-            <p className="text-base mb-5 font-medium" style={{ color: C.muted }}>
+            <p className="text-sm mb-4 font-medium" style={{ color: C.muted }}>
               Type your Ithaca address to see your ward, who represents you, and where the money goes.
             </p>
 
