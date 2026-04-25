@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Porch — Your neighborhood, finally legible",
-  description: "See who represents you, where your taxes go, and how to get involved in your Oakland neighborhood.",
+  title: "Porch — Your neighborhood has a story",
+  description: "Find out who's in charge, where your money goes, and how to help in your Oakland neighborhood.",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -15,7 +15,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           rel="stylesheet"
         />
       </head>
-      <body className="antialiased">{children}</body>
+      <body>{children}</body>
     </html>
   );
 }

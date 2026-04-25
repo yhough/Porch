@@ -1,82 +1,61 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --porch-bg: #FAF9F6;
-  --porch-navy: #1B2A4A;
-  --porch-amber: #E8A020;
-  --porch-sage: #4A7C59;
-  --porch-coral: #E06B5A;
-  --porch-purple: #7C5C9A;
-}
+* { box-sizing: border-box; }
 
-* {
-  box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
-}
+html { scroll-behavior: smooth; }
 
 body {
-  background-color: var(--porch-bg);
-  font-family: 'Inter', system-ui, sans-serif;
-  color: var(--porch-navy);
+  background-color: #FFFDF9;
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  color: #1B2A4A;
+  -webkit-font-smoothing: antialiased;
 }
 
-/* Mapbox GL overrides */
+/* Hide scrollbars on horizontal scroll containers */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* Mapbox overrides */
 .mapboxgl-ctrl-logo,
-.mapboxgl-ctrl-attrib {
-  display: none !important;
-}
+.mapboxgl-ctrl-attrib { display: none !important; }
 
 .mapboxgl-popup-content {
-  border-radius: 12px;
-  padding: 0;
-  box-shadow: 0 8px 32px rgba(0,0,0,0.16);
-  border: 1px solid rgba(0,0,0,0.06);
+  border-radius: 20px !important;
+  padding: 0 !important;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.14) !important;
+  border: none !important;
+}
+.mapboxgl-popup-tip { border-top-color: white !important; }
+
+/* Swipe card active state */
+.swipe-card:active { transform: scale(0.98); }
+
+/* Smooth section transitions */
+section { scroll-margin-top: 24px; }
+
+/* Bottom nav safe area */
+.pb-nav { padding-bottom: calc(72px + env(safe-area-inset-bottom)); }
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+.float { animation: float 4s ease-in-out infinite; }
+
+@keyframes wiggle {
+  0%, 100% { transform: rotate(-3deg); }
+  50% { transform: rotate(3deg); }
 }
 
-.mapboxgl-popup-tip {
-  border-top-color: white;
+@keyframes pulse-scale {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.04); }
 }
+.pulse-scale { animation: pulse-scale 2s ease-in-out infinite; }
 
-/* Scrollbar styling */
-::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
-}
-::-webkit-scrollbar-track {
-  background: transparent;
-}
-::-webkit-scrollbar-thumb {
-  background: rgba(27,42,74,0.15);
-  border-radius: 3px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: rgba(27,42,74,0.3);
-}
-
-/* Horizontal scroll for rep cards */
-.rep-scroll::-webkit-scrollbar {
-  height: 4px;
-}
-
-/* Chart tooltip */
-.recharts-tooltip-wrapper {
-  border-radius: 8px !important;
-  overflow: hidden;
-}
-
-/* Pulse animation for urgent items */
-@keyframes pulse-amber {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(232,160,32,0.4); }
-  50% { box-shadow: 0 0 0 6px rgba(232,160,32,0); }
-}
-
-.pulse-amber {
-  animation: pulse-amber 2s ease-in-out infinite;
-}
+/* Recharts tooltip */
+.recharts-tooltip-wrapper { border-radius: 16px !important; overflow: hidden; }
