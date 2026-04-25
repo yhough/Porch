@@ -4,6 +4,10 @@ import { useState, useRef, useEffect, useCallback } from "react";
 import { motion, AnimatePresence, useInView } from "framer-motion";
 import { signOut, useSession } from "next-auth/react";
 import { ISSUES, PARTIES } from "@/lib/onboardingData";
+import {
+  getTaxBreakdown, repIsAligned, placeMatchedIssues, cardRelevanceScore,
+  type TaxBreakdown,
+} from "@/lib/personalization";
 import dynamic from "next/dynamic";
 import {
   NEIGHBORHOOD,
@@ -728,6 +732,30 @@ export default function Home() {
   const roadTax   = Math.round(annual * 0.09);
   const parkTax   = Math.round(annual * 0.08);
 
+  // ── Personalization ──────────────────────────────────────────────────────────
+  const ob             = userProfile?.onboarding;
+  const userIssues     = ob?.issues ?? [];
+  const userPartyId    = ob?.party ?? "";
+  const taxBreakdown   = ob?.income ? getTaxBreakdown(ob.income) : null;
+
+  const sortedReps = [...liveReps].sort((a, b) => {
+    const aMatch = repIsAligned(a.party, userPartyId) ? 1 : 0;
+    const bMatch = repIsAligned(b.party, userPartyId) ? 1 : 0;
+    return bMatch - aMatch;
+  });
+
+  const sortedPlaces = [...livePlaces].sort((a, b) => {
+    const aScore = placeMatchedIssues(a.category, a.name, userIssues).length;
+    const bScore = placeMatchedIssues(b.category, b.name, userIssues).length;
+    return bScore - aScore;
+  });
+
+  const sortedUrgentCards = [...URGENT_CARDS].sort((a, b) =>
+    cardRelevanceScore(b.title, userIssues) - cardRelevanceScore(a.title, userIssues)
+  );
+
+  const alignedRepCount = liveReps.filter((r) => repIsAligned(r.party, userPartyId)).length;
+
 
   return (
     <div className="min-h-screen font-sans" style={{ backgroundColor: C.bg, paddingBottom: "90px" }}>
@@ -810,6 +838,103 @@ export default function Home() {
         </motion.div>
       </section>
 
+      {/* ══ FOR-YOU STRIP (personalized) ════════════════════════════════ */}
+      {ob && (
+        <section className="px-6 py-8">
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+          >
+            {/* Greeting + issues */}
+            <div className="flex items-center justify-between mb-4">
+              <div>
+                <p className="text-xs font-bold uppercase tracking-wider mb-0.5" style={{ color: C.coral }}>
+                  Personalized for you
+                </p>
+                <h2 className="text-xl font-extrabold leading-tight" style={{ color: C.navy }}>
+                  {ob.address
+                    ? `Your view · ${ob.address.split(",")[0]}`
+                    : `Your personalized view`}
+                </h2>
+              </div>
+              {userPartyId && userPartyId !== "none" && (() => {
+                const p = PARTIES.find((x) => x.id === userPartyId);
+                return p ? (
+                  <span className="px-3 py-1 rounded-full text-xs font-extrabold flex-shrink-0"
+                    style={{ backgroundColor: p.color + "18", color: p.color }}>
+                    {p.label}
+                  </span>
+                ) : null;
+              })()}
+            </div>
+
+            {/* Stat cards row */}
+            <div className="grid grid-cols-3 gap-3 mb-4">
+              {/* Tax card */}
+              <div className="rounded-[20px] p-4 flex flex-col gap-1"
+                style={{ backgroundColor: C.coral + "10", border: `1.5px solid ${C.coral}22` }}>
+                <span className="text-xs font-bold" style={{ color: C.coral }}>Est. taxes/yr</span>
+                <span className="text-2xl font-black leading-none" style={{ color: C.navy }}>
+                  {taxBreakdown
+                    ? `$${Math.round(taxBreakdown.total / 1000)}k`
+                    : "—"}
+                </span>
+                <span className="text-[10px] font-semibold leading-tight" style={{ color: "#9CA3AF" }}>
+                  {taxBreakdown
+                    ? `${taxBreakdown.effectiveRate}% effective rate`
+                    : "Set income to see"}
+                </span>
+              </div>
+
+              {/* Aligned reps card */}
+              <div className="rounded-[20px] p-4 flex flex-col gap-1"
+                style={{ backgroundColor: C.sky + "12", border: `1.5px solid ${C.sky}22` }}>
+                <span className="text-xs font-bold" style={{ color: C.sky }}>Aligned reps</span>
+                <span className="text-2xl font-black leading-none" style={{ color: C.navy }}>
+                  {initLoading ? "—" : `${alignedRepCount}/${liveReps.length}`}
+                </span>
+                <span className="text-[10px] font-semibold leading-tight" style={{ color: "#9CA3AF" }}>
+                  share your values
+                </span>
+              </div>
+
+              {/* Issue matches card */}
+              <div className="rounded-[20px] p-4 flex flex-col gap-1"
+                style={{ backgroundColor: C.sage + "12", border: `1.5px solid ${C.sage}22` }}>
+                <span className="text-xs font-bold" style={{ color: C.sage }}>Issue matches</span>
+                <span className="text-2xl font-black leading-none" style={{ color: C.navy }}>
+                  {initLoading ? "—"
+                    : sortedPlaces.filter((p) =>
+                        placeMatchedIssues(p.category, p.name, userIssues).length > 0
+                      ).length}
+                </span>
+                <span className="text-[10px] font-semibold leading-tight" style={{ color: "#9CA3AF" }}>
+                  nearby places
+                </span>
+              </div>
+            </div>
+
+            {/* Issue chips */}
+            {userIssues.length > 0 && (
+              <div className="flex flex-wrap gap-2">
+                {userIssues.map((id) => {
+                  const issue = ISSUES.find((i) => i.id === id);
+                  if (!issue) return null;
+                  return (
+                    <span key={id}
+                      className="flex items-center gap-1 px-3 py-1.5 rounded-full text-xs font-bold"
+                      style={{ backgroundColor: C.navy + "08", color: C.navy }}>
+                      {issue.icon} {issue.label}
+                    </span>
+                  );
+                })}
+              </div>
+            )}
+          </motion.div>
+        </section>
+      )}
+
       {/* ══ WARD MAP ═════════════════════════════════════════════════════ */}
       <section id="map" className="py-14 px-6">
         <div className="mb-6">
@@ -843,34 +968,43 @@ export default function Home() {
         </div>
 
         <div className="flex gap-4 overflow-x-auto no-scrollbar pl-6 pr-6 pb-3">
-          {URGENT_CARDS.map((card, i) => (
-            <motion.div key={card.id}
-              initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: "-40px" }}
-              transition={{ delay: i * 0.09, duration: 0.4, ease: "easeOut" }}
-              whileHover={{ y: -6, transition: { duration: 0.18 } }}
-              className="relative flex-shrink-0 rounded-[24px] overflow-hidden cursor-pointer"
-              style={{ width: "300px", height: "380px", boxShadow: "0 4px 20px rgba(0,0,0,0.11)" }}>
-              <img src={card.photo} alt="" className="absolute inset-0 w-full h-full object-cover" />
-              <div className="absolute inset-0"
-                style={{ background: "linear-gradient(to top,rgba(0,0,0,0.85) 0%,rgba(0,0,0,0.15) 60%,transparent 100%)" }} />
-              <div className="absolute top-4 left-4">
-                <span className="px-3 py-1.5 rounded-full text-xs font-bold text-white"
-                  style={{ backgroundColor: card.badge.bg }}>{card.badge.text}</span>
-              </div>
-              <div className="absolute bottom-0 left-0 right-0 p-5">
-                <h3 className="text-lg font-extrabold text-white leading-snug mb-4">{card.title}</h3>
-                {card.url ? (
-                  <a href={card.url} target="_blank" rel="noreferrer"
-                    className="inline-block px-5 py-2.5 rounded-full text-sm font-bold transition-transform hover:scale-105"
-                    style={{ backgroundColor: "white", color: C.navy }}>{card.cta}</a>
-                ) : (
-                  <button className="px-5 py-2.5 rounded-full text-sm font-bold transition-transform hover:scale-105"
-                    style={{ backgroundColor: "white", color: C.navy }}>{card.cta}</button>
-                )}
-              </div>
-            </motion.div>
-          ))}
+          {sortedUrgentCards.map((card, i) => {
+            const isRelevant = userIssues.length > 0 && cardRelevanceScore(card.title, userIssues) > 0;
+            return (
+              <motion.div key={card.id}
+                initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, margin: "-40px" }}
+                transition={{ delay: i * 0.09, duration: 0.4, ease: "easeOut" }}
+                whileHover={{ y: -6, transition: { duration: 0.18 } }}
+                className="relative flex-shrink-0 rounded-[24px] overflow-hidden cursor-pointer"
+                style={{ width: "300px", height: "380px", boxShadow: isRelevant ? `0 4px 24px ${C.coral}44` : "0 4px 20px rgba(0,0,0,0.11)" }}>
+                <img src={card.photo} alt="" className="absolute inset-0 w-full h-full object-cover" />
+                <div className="absolute inset-0"
+                  style={{ background: "linear-gradient(to top,rgba(0,0,0,0.85) 0%,rgba(0,0,0,0.15) 60%,transparent 100%)" }} />
+                <div className="absolute top-4 left-4 flex items-center gap-2 flex-wrap">
+                  <span className="px-3 py-1.5 rounded-full text-xs font-bold text-white"
+                    style={{ backgroundColor: card.badge.bg }}>{card.badge.text}</span>
+                  {isRelevant && (
+                    <span className="px-2.5 py-1 rounded-full text-[10px] font-extrabold"
+                      style={{ backgroundColor: C.coral, color: "white" }}>
+                      ★ For you
+                    </span>
+                  )}
+                </div>
+                <div className="absolute bottom-0 left-0 right-0 p-5">
+                  <h3 className="text-lg font-extrabold text-white leading-snug mb-4">{card.title}</h3>
+                  {card.url ? (
+                    <a href={card.url} target="_blank" rel="noreferrer"
+                      className="inline-block px-5 py-2.5 rounded-full text-sm font-bold transition-transform hover:scale-105"
+                      style={{ backgroundColor: "white", color: C.navy }}>{card.cta}</a>
+                  ) : (
+                    <button className="px-5 py-2.5 rounded-full text-sm font-bold transition-transform hover:scale-105"
+                      style={{ backgroundColor: "white", color: C.navy }}>{card.cta}</button>
+                  )}
+                </div>
+              </motion.div>
+            );
+          })}
         </div>
       </section>
 
@@ -885,7 +1019,9 @@ export default function Home() {
           </motion.h2>
           <div className="mt-2 w-14 h-1.5 rounded-full" style={{ backgroundColor: C.coral }} />
           <p className="mt-2 text-base font-medium" style={{ color: "#9B7060" }}>
-            Most people have never heard of them. That's kind of the problem.
+            {ob && userPartyId && userPartyId !== "none" && alignedRepCount > 0
+              ? `${alignedRepCount} of ${liveReps.length} officials share your party — shown first.`
+              : "Most people have never heard of them. That's kind of the problem."}
           </p>
         </div>
 
@@ -905,10 +1041,11 @@ export default function Home() {
                 <div key={i} className="flex-shrink-0 rounded-[24px] animate-pulse bg-gray-100"
                   style={{ width: 240, height: 300 }} />
               ))
-            : liveReps.map((rep, i) => {
+            : sortedReps.map((rep, i) => {
                 const color = rep.color;
                 const PARTY_COLORS: Record<string, string> = { Democratic: C.sky, Republican: C.coral, Independent: C.sage };
                 const partyColor = PARTY_COLORS[rep.party] ?? "#9B59B6";
+                const aligned = repIsAligned(rep.party, userPartyId);
                 return (
                   <motion.div key={rep.id}
                     initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }}
@@ -918,9 +1055,19 @@ export default function Home() {
                     onClick={() => setOpenLiveRepId(rep.id)}
                     className="flex-shrink-0 cursor-pointer" style={{ width: "240px" }}>
                     <div className="rounded-[24px] overflow-hidden"
-                      style={{ backgroundColor: "white", boxShadow: "0 4px 24px rgba(0,0,0,0.09)" }}>
-                      <div className="flex items-center justify-center" style={{ backgroundColor: rep.photoUrl ? "transparent" : color, height: "130px" }}>
+                      style={{
+                        backgroundColor: "white",
+                        boxShadow: aligned ? `0 4px 24px ${partyColor}44` : "0 4px 24px rgba(0,0,0,0.09)",
+                        outline: aligned ? `2px solid ${partyColor}44` : "none",
+                      }}>
+                      <div className="flex items-center justify-center relative" style={{ backgroundColor: rep.photoUrl ? "transparent" : color, height: "130px" }}>
                         <RepAvatar color={color} initials={rep.initials} size={84} photoUrl={rep.photoUrl} />
+                        {aligned && (
+                          <span className="absolute top-2 right-2 px-2 py-0.5 rounded-full text-[10px] font-extrabold text-white"
+                            style={{ backgroundColor: partyColor }}>
+                            ★ Aligned
+                          </span>
+                        )}
                       </div>
                       <div className="p-5">
                         <div className="text-base font-extrabold leading-tight" style={{ color: C.navy }}>{rep.name}</div>
@@ -1085,6 +1232,79 @@ export default function Home() {
           )}
         </motion.div>
 
+        {/* ── Income tax breakdown (personalized) ── */}
+        {taxBreakdown && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }} transition={{ duration: 0.5 }}
+            className="rounded-[28px] p-6 max-w-xl mx-auto mb-6"
+            style={{ backgroundColor: C.navy, color: "white", boxShadow: "0 8px 32px rgba(27,42,74,0.22)" }}
+          >
+            <div className="flex items-start justify-between mb-1">
+              <p className="text-xs font-bold uppercase tracking-wider opacity-60">Your income estimate</p>
+              <span className="text-xs font-bold px-2.5 py-1 rounded-full"
+                style={{ backgroundColor: "rgba(255,255,255,0.12)", color: "rgba(255,255,255,0.8)" }}>
+                {ob?.income}
+              </span>
+            </div>
+            <p className="text-3xl font-black mb-1">
+              ~${taxBreakdown.total.toLocaleString()}
+              <span className="text-base font-semibold opacity-60 ml-1">/yr total taxes</span>
+            </p>
+            <p className="text-sm opacity-60 mb-6">
+              {taxBreakdown.effectiveRate}% effective rate · take-home ~${Math.round(taxBreakdown.takeHome / 12).toLocaleString()}/mo
+            </p>
+
+            {/* Tax bars */}
+            <div className="space-y-3 mb-6">
+              {[
+                { label: "Federal income tax", amount: taxBreakdown.federal,  color: C.coral },
+                { label: "NY state income tax", amount: taxBreakdown.stateNY, color: C.yellow },
+                { label: "Social Security & Medicare", amount: taxBreakdown.fica, color: C.sky },
+                { label: "Local / Tompkins Co.", amount: taxBreakdown.local,  color: C.sage },
+              ].map(({ label, amount, color }) => (
+                <div key={label}>
+                  <div className="flex justify-between text-sm mb-1.5">
+                    <span className="font-semibold opacity-80">{label}</span>
+                    <span className="font-extrabold">${amount.toLocaleString()}</span>
+                  </div>
+                  <div className="h-2 rounded-full w-full" style={{ backgroundColor: "rgba(255,255,255,0.1)" }}>
+                    <motion.div
+                      className="h-2 rounded-full"
+                      style={{ backgroundColor: color }}
+                      initial={{ width: 0 }}
+                      whileInView={{ width: `${(amount / taxBreakdown.income) * 100}%` }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.8, ease: "easeOut", delay: 0.1 }}
+                    />
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Where local taxes go */}
+            <div className="pt-4" style={{ borderTop: "1px solid rgba(255,255,255,0.12)" }}>
+              <p className="text-xs font-bold uppercase tracking-wider opacity-60 mb-3">
+                Your ~${taxBreakdown.local.toLocaleString()} in local taxes funds
+              </p>
+              <div className="grid grid-cols-2 gap-2">
+                {[
+                  { label: "🏫 Schools",      amount: taxBreakdown.localSchools },
+                  { label: "🚔 Public Safety", amount: taxBreakdown.localSafety },
+                  { label: "🛣️ Roads",         amount: taxBreakdown.localRoads },
+                  { label: "🌳 Parks",         amount: taxBreakdown.localParks },
+                ].map(({ label, amount }) => (
+                  <div key={label} className="rounded-[14px] px-3 py-2.5"
+                    style={{ backgroundColor: "rgba(255,255,255,0.08)" }}>
+                    <p className="text-xs font-semibold opacity-70">{label}</p>
+                    <p className="text-lg font-extrabold">${amount.toLocaleString()}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </motion.div>
+        )}
+
         {/* Rent calculator */}
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }} transition={{ duration: 0.5 }}
@@ -1166,9 +1386,11 @@ export default function Home() {
             ? [0, 1, 2, 3].map((i) => (
                 <div key={i} className="rounded-[20px] animate-pulse bg-gray-100" style={{ height: 180 }} />
               ))
-            : livePlaces.slice(0, 6).map((place, i) => {
+            : sortedPlaces.slice(0, 6).map((place, i) => {
                 const colors = [C.sage, C.sky, C.coral, C.yellow, "#9B59B6", "#E67E22"];
                 const color  = colors[i % colors.length];
+                const matched = placeMatchedIssues(place.category, place.name, userIssues);
+                const isMatch = matched.length > 0;
                 return (
                   <motion.div key={place.id}
                     initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }}
@@ -1177,10 +1399,23 @@ export default function Home() {
                     whileHover={{ scale: 1.04, transition: { duration: 0.15 } }}
                     onClick={() => setOpenLivePlaceId(place.id)}
                     className="rounded-[20px] cursor-pointer flex flex-col justify-between"
-                    style={{ height: 180, backgroundColor: color + "18", border: `2px solid ${color}28` }}>
+                    style={{
+                      height: 180,
+                      backgroundColor: color + "18",
+                      border: isMatch ? `2px solid ${color}` : `2px solid ${color}28`,
+                      boxShadow: isMatch ? `0 4px 16px ${color}30` : "none",
+                    }}>
                     <div className="p-4 flex-1 flex flex-col justify-between">
                       <div>
-                        <div className="text-3xl mb-2">{place.icon}</div>
+                        <div className="flex items-start justify-between mb-2">
+                          <span className="text-3xl">{place.icon}</span>
+                          {isMatch && (
+                            <span className="text-[9px] font-extrabold px-2 py-0.5 rounded-full"
+                              style={{ backgroundColor: color, color: "white" }}>
+                              ★ For you
+                            </span>
+                          )}
+                        </div>
                         <div className="text-sm font-extrabold leading-snug" style={{ color: C.navy }}>{place.name}</div>
                       </div>
                       <div>
